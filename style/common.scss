@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+@import "args";
+page {
+  color: $c-333;
+  font-size: 30rpx;
+  // font-family: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei", Arial, "sans-serif"
+}
+
+text{
+  display: inline-block;
+}
+
+button {
+  font-size: 15px;
+}
+
+.bg-f5 {
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  width: 750rpx; //full window width
+  margin: 0 auto;
+}
+
+.page {
+  background: $bgColorF5;
+}
+
+.container {
+  padding: 0 24rpx; //usual left/right padding
+}
+
+.large-title {
+  padding: 0 24rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid $borderColor;
+}
+
+.blank20 {
+  height: 20rpx;
+  overflow: hidden;
+}
+
+.c-333 {
+  color: $c-333;
+}
+
+.c-666 {
+  color: $c-666;
+}
+
+.c-999 {
+  color: $c-999;
+}
+
+.main-color {
+  color: $mc;
+}
+
+.up-color {
+  color: $price-up;
+}
+
+.down-color {
+  color: $price-down;
+}
+
+.section {
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.pb100 {
+  padding-bottom: 100rpx;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clear {
+  &::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+
+/* button */
+
+.btn-main {
+  color: #fff;
+  background: $mc;
+  &::after {
+    border: 0;
+  }
+}
+
+.anti-btn-main {
+  color: $mc;
+  background: #fff;
+  &::after {
+    border-color: $mc;
+  }
+}
+
+
+/* loading */
+
+text.loading-gif {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  background: #fff url($static_path + "/loading.gif") center center/contain no-repeat;
+}

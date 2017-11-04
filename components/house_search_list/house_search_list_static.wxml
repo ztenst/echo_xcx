@@ -1,0 +1,149 @@
+<view class="house-list">
+
+  <!-- 新房 -->
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+        <text>在售</text>
+      </view>
+      <view class="house-text">
+        <view class="house-title">九洲花园缇香郡<text class="iconfont icon-dianhua"></text></view>
+        <view class="house-info c-999">
+          <text class="locate">新北</text><text class="locate">恐龙园</text><text class="iconfont icon-map"></text>1.5km
+          <view class="main-color fr"><text>8800</text><text>元/㎡</text></view>
+        </view>
+        <view class="house-packet main-color">独家现金红包1000元</view>
+        <view class="house-tags">
+          <text class="tag1">车位充足</text>
+          <text class="tag2">品牌地产</text>
+          <text class="tag3">教育资源</text>
+          <text class="tag4">江景房</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+        <text>在售</text>
+      </view>
+      <view class="house-text">
+        <view class="house-title">九洲花园缇香郡<text class="iconfont icon-dianhua"></text></view>
+        <view class="house-info c-999">
+          <text class="locate">新北</text><text class="locate">恐龙园</text><text class="iconfont icon-map"></text>1.5km
+          <view class="main-color fr"><text>8800</text><text>元/㎡</text></view>
+        </view>
+        <view class="house-packet main-color">独家现金红包1000元</view>
+        <view class="house-tags">
+          <text class="tag1">车位充足</text>
+          <text class="tag2">品牌地产</text>
+          <text class="tag3">教育资源</text>
+          <text class="tag4">江景房</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 特价房 -->
+  <view class="container">
+    <view class="house-item-special"><text>特价房</text> 2室2厅1卫1厨 90.68㎡ 88.74万/套 特价房</view>
+  </view>
+
+  <!-- 二手房 -->
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+      </view>
+      <view class="house-text">
+        <view class="house-title">工人新村北114平63万，送8平方楼层好采光佳无遮挡</view>
+        <view class="house-info c-999">
+          <text class="locate">新城玉龙湾</text><text class="locate">3室2厅</text>
+          <view class="main-color fr"><text>160</text><text>万</text></view>
+        </view>
+        <view class="house-tags">
+          <text class="tag1">交通便利</text>
+          <text class="tag2">成熟商圈</text>
+          <text class="tag3">三房朝南</text>
+          <text class="tag4">临校房</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+      </view>
+      <view class="house-text">
+        <view class="house-title">中意宝第精装一室一厅 装修清爽</view>
+        <view class="house-info c-999">
+          <text class="locate">新城玉龙湾</text><text class="locate">3室2厅</text>
+          <view class="main-color fr"><text>160</text><text>万</text></view>
+        </view>
+        <view class="house-tags">
+          <text class="tag1">交通便利</text>
+          <text class="tag2">成熟商圈</text>
+          <text class="tag3">三房朝南</text>
+          <text class="tag4">临校房</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+      </view>
+      <view class="house-text">
+        <view class="house-title">工人新村北114平63万，送8平方楼层好采光佳无遮挡</view>
+        <view class="house-info c-999">
+          <text class="locate">新城玉龙湾</text><text class="locate">3室2厅</text>
+          <view class="main-color fr"><text>160</text><text>万</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 租房 -->
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+      </view>
+      <view class="house-text">
+        <view class="house-title">工人新村北114平63万，送8平方楼层好采光佳无遮挡</view>
+        <view class="house-info c-999">
+          <text class="locate">新城玉龙湾</text><text class="locate">湖塘乐购</text>
+          <view class="main-color fr"><text>800</text><text>元</text></view>
+        </view>
+        <view class="house-info c-999">
+          <text class="locate">3室</text><text class="locate">整租</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="house-item">
+      <view class="house-pic">
+        <image src="http://ots1c8etv.bkt.clouddn.com/200x150.jpg"></image>
+      </view>
+      <view class="house-text">
+        <view class="house-title">中意宝第精装一室一厅 装修清爽</view>
+        <view class="house-info c-999">
+          <text class="locate">中意宝第</text><text class="locate">湖塘乐购</text>
+          <view class="main-color fr"><text>1600</text><text>元</text></view>
+        </view>
+        <view class="house-info c-999">
+          <text class="locate">2室</text><text class="locate">合租</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

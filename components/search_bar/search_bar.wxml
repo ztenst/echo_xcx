@@ -1,0 +1,51 @@
+<template name="searchBar">
+  <view class="{{'__search-bar ' + (focused?'focused':'')}}">
+    <view class="search-unclick container" hidden="{{focused}}">
+      <view class="unclick-text" bindtap="{{focus}}">
+        <text class="iconfont icon-search"></text>
+        <text class="c-999">{{keyword_input||'请输入小区名或关键字'}}</text>
+      </view>
+    </view>
+    <view class="search-box" hidden="{{!focused}}">
+      <view class="input-container container">
+        <view>
+          <text class="iconfont icon-search"></text>
+          <input type="text" confirm-type="search" focus="{{focused}}" value="{{keyword_input}}" bindinput="{{inputKeyword}}" bindconfirm="{{confirm}}" placeholder-class="c-999" placeholder="请输入小区名或关键字" />
+          <text class="iconfont icon-closed" wx:if="{{keyword}}" bindtap="{{clearKeyword}}"></text>
+          <view class="search-cancel c-999" bindtap="{{cancel}}">
+            <text>取消</text>
+          </view>
+        </view>
+      </view>
+
+      <scroll-view class="search-menu" scroll-y="true" wx:if="{{ tips.length }}">
+        <view class="menu-line container" wx:for="{{ tips }}" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" bindtap="{{selectTip}}">
+          <text>{{item.texts[0]}}</text>
+          <text class="main-color">{{item.texts[1]}}</text>
+          <text>{{item.texts[2]}}</text>
+          <block wx:if="{{usage==='house'}}">
+            <text class="c-999" style="padding: 0 16rpx;">-</text>
+            <text class="c-999" wx:if="{{usage==='house'}}">{{item.desc}}</text>
+          </block>
+          <text class="fr c-999" wx:if="{{usage==='house' && item.count}}">约{{item.count}}套</text>
+        </view>
+      </scroll-view>
+
+      <view class="search-advise container" hidden="{{usage!=='house'||!focused||keyword!==''}}">
+        <view class="column" wx:if="{{hots.length}}">
+          <view class="h2 c-999">最新热搜</view>
+          <view class="list">
+            <text class="pod" wx:for="{{hots}}" wx:key="id" data-name="{{item.title}}" data-id="{{item.id || item.hid}}" data-extra="{{item.extra||''}}" bindtap="{{selectHot}}">{{item.title}}</text>
+          </view>
+        </view>
+        <view class="column" wx:if="{{stores.length}}">
+          <view class="h2 c-999">搜索历史</view>
+          <view class="list">
+            <text class="pod" wx:for="{{stores}}" wx:key="{{item.time}}" data-name="{{item.name}}" bindtap="{{selectStore}}">{{item.name}}</text>            
+          </view>
+          <button class="btn-main" bindtap="{{clearStores}}"><text class="iconfont icon-del1"></text><text>清空搜索历史</text></button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
