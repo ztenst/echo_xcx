@@ -390,30 +390,25 @@ text.loading-gif {
       position: absolute;
       top: 0;
       right: 0;
-      width: 180rpx;
+      width: 90rpx;
       height: 90rpx;
       line-height: 90rpx;
       -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
       z-index: 2;
-      font-size: 24rpx;
+      font-size: 44rpx;
       background: #fff;
       color: #666; }
-      .__search-bar .main-nav .search-btn .dingyu_btn {
+      .__search-bar .main-nav .search-btn text {
         vertical-align: middle;
         float: right;
         display: block;
         color: #666;
         padding-right: 15rpx;
-        font-size: 30rpx; }
+        padding-top: 15rpx; }
       .__search-bar .main-nav .search-btn .icon-search {
-        vertical-align: middle;
-        float: left;
-        display: block;
-        color: #666;
-        padding-top: 15rpx;
-        padding-left: 15rpx;
         line-height: 60rpx;
+        color: #ccc;
         margin: 0 12rpx 0 20rpx; }
 
 .__search-filter {

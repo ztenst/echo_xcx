@@ -14,7 +14,6 @@
 
             <view class="search-btn" bindtap="{{focus}}">
                 <text class="iconfont icon-search"></text>
-                <text class="dingyu_btn">订阅</text>
             </view>
         </view>
 
