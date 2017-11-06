@@ -1,0 +1,31 @@
+<import src="../../libs/wxParse/wxParse.wxml"/>
+
+<!--引入detailcover模板-->
+<view class="mDesc mDes-nbtm">
+    <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+        <view  id="detailContent">
+            <template is="wxParse" data="{{wxParseData:detailContent.nodes}}"/>
+        </view>
+    </view>
+</view>
+<view wx:if="{{contentype === 2}}">
+    <view class="zhankaimess box box-align-center box-pack-center" hidden="{{!isShowExtend||!canExtend}}" bindtap="zsTap">
+        <text class="mMore-text red">展开信息</text>
+        <text class="iconfont icon-jiantou1"></text>
+    </view>
+    <view class="zhankaimess box box-align-center box-pack-center" hidden="{{isShowExtend||!canExtend}}" bindtap="zsTap">
+        <text class="mMore-text red">收起信息</text>
+        <text class="iconfont icon-jiantoushang"></text>
+    </view>
+</view>
+<view wx:else>
+    <view class="mMore box box-align-center box-pack-center" style="border-top:1rpx solid #e6e6e6;" hidden="{{!isShowExtend||!canExtend}}" bindtap="zsTap">
+        <text class="mMore-text c-999">展开</text>
+        <text class="iconfont icon-down"></text>
+    </view>
+    <view class="mMore box box-align-center box-pack-center" style="border-top:1rpx solid #e6e6e6;" hidden="{{isShowExtend||!canExtend}}" bindtap="zsTap">
+        <text class="mMore-text c-999">收起</text>
+        <text class="iconfont icon-down " style="transform: rotate(180deg);"></text>
+    </view>
+</view>
+

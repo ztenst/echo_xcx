@@ -1,0 +1,57 @@
+<view class="page house-estimate-poster" style="padding-bottom: 0;">
+
+  <view class="logo container" style="background: #fff; padding-top: 30rpx; padding-bottom: 30rpx;">
+    <view style="height: 80rpx;">
+      <image src="" style="display: inline-block; width: 80rpx; height: 80rpx; background: #f5f5f5; margin-right: 30rpx;" src="{{siteConfig.m_avatar}}"/>
+      <text class="c-999" style="position: relative; font-size: 34rpx; top: -23rpx;">{{siteConfig.site_name}}房产</text>
+    </view>
+    <view style="font-size: 40rpx; margin-top: 30rpx; font-weight: 500;">查一查您家房子值多少钱</view>
+  </view>
+
+  <view class="estimate-info">
+    <view class="container" style="background: #fff;">
+      <view class="name"><text class="c-333">{{nickName}}</text><text class="c-666">的房屋估价</text></view>
+      <view class="dl">
+        <view class="dt">小区</view>
+        <view class="dd">{{plot}}</view>
+        <view class="dt">面积</view>
+        <view class="dd">{{size}}平米</view>
+        <view class="dt">朝向</view>
+        <view class="dd">朝{{face}}</view>
+        <view class="dt">楼层</view>
+        <view class="dd">{{floor}}层/{{total_floor}}层</view>
+      </view>
+      <image src="{{avatarUrl}}"/>
+    </view>
+    <view class="estimate-result" style="background: #fff">
+      <view wx:if="{{est_price==0}}">
+        <text>小区无均价暂时无法评估</text>
+      </view>
+      <view wx:else>
+        <text>估价</text>
+        <text class="main-color">{{est_price}}万</text>
+        <text>{{rate>=0?'涨':'跌'}}</text>
+        <text class="main-color">{{rate}}%</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section qrcode" style="position: relative;">
+    <image style="display: block; width: 375rpx; height: 375rpx; background: #f5f5f5;" src="{{siteConfig.m_dimension}}" bindtap="openqrd"/>
+    <view style="width: 375rpx;position: absolute;right: 0;top: 0;">
+      <view style="text-align: center; font-weight: 500; width: 340rpx; margin: 36rpx auto 0; border-bottom: 1px solid #f5f5f5">
+        <view class="c-999">长按或扫一扫识别</view>
+        <view style="font-size: 38rpx; margin: 20rpx 0;">查看信息</view>
+      </view>
+      <view style="line-height: 60rpx; padding-top: 20rpx; padding-left: 30rpx;">
+        <view class="c-999">发现-小程序-搜索</view>
+        <view>“化龙巷房产”</view>
+        <view class="c-999">来评估一下你家房价吧</view>
+      </view>
+    </view>
+  </view>
+  <view class="section container" style="line-height: 88rpx;">
+    <image mode="aspectFit" style="width: 48rpx; height: 48rpx; margin-right: 10rpx; vertical-align: middle;" src="../../images/chain.png"/><text class="c-999" style="vertical-align: middle;">{{siteConfig.m_appDesc}}</text>
+  </view>
+
+</view>

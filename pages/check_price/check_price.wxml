@@ -1,0 +1,64 @@
+<import src="check_price_trend.wxml"/>
+<import src="../../components/search_bar/search_bar.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="page check-price">
+
+  <view class="plot-search" hidden="{{!search_plot}}">
+    <template is="searchBar" data="{{ ...$searchBar }}"></template>
+  </view>
+
+  <view hidden="{{search_plot}}">
+    <view class="tab-wrapper">
+      <view>
+        <text class="{{tab==1?'on':''}}" data-tab="1" bindtap="changeTab">新房</text>
+        <text class="{{tab==2?'on':''}}" data-tab="2" bindtap="changeTab">二手房</text>
+      </view>
+    </view>
+
+    <view class="section ask-price">
+      <view class="large-title">看看我家房子值多少钱</view>
+      <form bindsubmit="checkPrice">
+        <view class="line container">
+          <label for="">小区</label>
+          <view class="{{'input ' + (plot.name?'':'c-999')}}" bindtap="searchPlot">{{plot.name || '请选择小区'}}</view>
+        </view>
+        <view class="line container">
+          <label for="">面积</label>
+          <input id="" type="number" name="size" placeholder-class="c-999" placeholder="输入您的房屋面积"/>
+        </view>
+        <view class="line container">
+          <label for="">朝向</label>
+          <picker name="face" bindchange="selectFace" value="{{face_index}}" range="{{faces}}">
+            <view class="{{face_index==0?'c-999':''}}">{{face_index==0?'请选择朝向':faces[face_index]}}</view>
+          </picker>
+        </view>
+        <view class="line container">
+          <label for="">楼层</label>
+          <input id="" type="number" name="floor" placeholder-class="c-999" placeholder="输入房屋所在楼层" />
+        </view>
+        <view class="line container">
+          <label for="">总楼层</label>
+          <input id="" type="number" name="total_floor" placeholder-class="c-999" placeholder="输入总楼层" />
+        </view>
+        <view class="line container">
+          <label for="">总价</label>
+          <input id="" type="number" name="price" placeholder-class="c-999" placeholder="输入买入价（万）" />
+        </view>
+        <view class="btn-line container">
+          <button class="btn-main" form-type="submit">开始评估</button>
+        </view>
+      </form>
+    </view>
+    
+    <view hidden="{{tab!=1}}">
+      <template is="priceTrend" data="{{siteConfig, ...xf_trend, type:'xf'}}"></template>
+    </view>
+    <view hidden="{{tab!=2}}">
+      <template is="priceTrend" data="{{siteConfig, ...esf_trend, type:'esf'}}"></template>
+    </view>
+    
+  </view>
+
+</view>

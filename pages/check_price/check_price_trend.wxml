@@ -1,0 +1,43 @@
+<template name="priceTrend">
+  <view class="price-trend">
+    <view class="h3 container">
+      {{year}}年{{month}}月 {{siteConfig.site_name}}平台{{type==='xf' ? '新':'二手'}}房均价
+    </view>
+    <view class="avg-price container">
+      <view class="left"><text class="main-color">{{price}}</text><text class="c-999">元/㎡</text></view>
+      <view class="right c-999">
+        <view><text>环比上月</text><text class="{{month_rate.className}}">{{month_rate.text}}</text></view>
+        <view><text>同比去年</text><text class="{{year_rate.className}}">{{year_rate.text}}</text></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section container" style="line-height: 88rpx;" wx:if="{{type==='esf'}}">
+    <navigator url="/pages/house_search/house_search?type=2">
+      挂牌房源
+      <view class="fr">
+        <text>{{esf_num}}</text><text class="c-999">套</text><text class="c-999 iconfont icon-youjiantou" style="font-size: 24rpx;margin-left: 10rpx;"></text>
+      </view>
+    </navigator>
+  </view>
+  
+  <view class="section time-price">
+    <view class="large-title">{{siteConfig.city_name}}均价走势</view>
+    <view style="padding: 10rpx 0;">
+      <canvas canvas-id="{{'time-chart-'+type}}" disable-scroll="true" style="width: 750rpx; height: 400rpx;" hidden="{{!!time_chart_img}}"></canvas>
+      <image src="{{time_chart_img}}" style="display:block; width: 750rpx; height: 400rpx;" hidden="{{!time_chart_img}}"/>
+    </view>
+  </view>
+  
+  <view class="section area-price">
+    <view class="large-title">{{siteConfig.city_name}}{{month}}月份 新房区域房价</view>
+    <view class="chart container">
+      <view wx:for="{{area_prices}}" wx:key="">
+        <text>{{item.area}}</text>
+        <text style="{{'width: ' + (item.barWidth||0) + 'rpx'}}">{{'¥ '+item.price}}</text>
+        <text class="{{'fr '+item.rate.className}}">{{item.rate.text}}</text>
+      </view>
+    </view>
+    <navigator wx:if="{{type==='xf'}}" class="c-666" url="/pages/house_search/house_search?type=1">查看所有新房价格<text class="iconfont icon-youjiantou c-999"></text></navigator>
+  </view>
+</template>

@@ -1,0 +1,61 @@
+<import src="../../components/search_bar/search_bar.wxml" />
+<import src="../../components/house_search_list/house_search_list.wxml" />
+
+<view class="page index">
+
+  <view class="index-loading" wx:if="{{!ready}}">
+    <view class="lds-dual-ring">
+      <view></view>
+    </view>
+    <view class="text">正在加载数据</view>
+  </view>
+
+  <view class="banner">
+    <image class="bg" src="{{banner}}" />
+    <image class="logo" mode="aspectFit" src="{{logo}}" />
+    <view class="search-wrapper">
+      <template is="searchBar" data="{{ ...$searchBar }}"></template>
+    </view>
+  </view>
+
+  <view class="section nav-tab">
+    <navigator class="container" url="/pages/house_search/house_search?type=1">
+      <view class="c-333">买新房</view>
+      <view class="c-999">享受购房独家补贴</view>
+      <image mode="aspectFit" src="{{static_path+'/nav-1.png'}}" />
+    </navigator>
+    <navigator class="container" url="/pages/house_search/house_search?type=2">
+      <view class="c-333">二手房</view>
+      <view class="c-999">优质房源实时更新</view>
+      <image mode="aspectFit" src="{{static_path+'/nav-2.png'}}" />
+    </navigator>
+    <navigator class="container" url="/pages/house_search/house_search?type=3">
+      <view class="c-333">找租房</view>
+      <view class="c-999">租个好房上班方便</view>
+      <image mode="aspectFit" src="{{static_path+'/nav-3.png'}}" />
+    </navigator>
+    <navigator class="container" url="/pages/check_price/check_price">
+      <view class="c-333">查房价</view>
+      <view class="c-999">算算房子值多少</view>
+      <image mode="aspectFit" src="{{static_path+'/nav-4.png'}}" />
+    </navigator>
+  </view>
+
+  <view class="section house-list">
+    <view class="title container">猜你喜欢</view>
+    <template is="houseSearchList" data="{{type: 1, list: new_plot, default_img: siteConfig.m_default_plotimg, ...$houseSearchList}}"></template>
+    <navigator class="link c-999" url="/pages/house_search/house_search?type=1">查看更多新房</navigator>
+  </view>
+
+  <view class="section house-list">
+    <view class="title container">精选二手房</view>
+    <template is="houseSearchList" data="{{type: 2, list: esf_plot, default_img: siteConfig.m_default_esfimg, ...$houseSearchList}}"></template>
+    <navigator class="link c-999" url="/pages/house_search/house_search?type=2">查看更多二手房</navigator>
+  </view>
+
+  <view class="section container phone" data-phone="{{site_phone}}" bindtap="call">
+    <text class="iconfont icon-tubiao49"></text>
+    <text>{{site_name}}房产客服热线：{{site_phone}}</text>
+  </view>
+
+</view>

@@ -1,0 +1,28 @@
+<view class="mBottom box flex" wx:if="{{contactData}}">
+    <view class="left">
+        <view>{{contactData.name}}</view>
+        <view wx:if="{{contactData.phone}}">{{contactData.phone}}</view>
+    </view>
+    <view class="right box box-align-center flex">
+        <view class="a flex" wx:if="{{contactData.phone}}" bindtap="calltel" data-tel="{{contactData.phone}}">
+            <text class="iconfont icon-tel1"></text>打电话
+        </view>
+        <!--<view class="a flex" wx:if="{{contactData.phone}}"  bindtap="sendmsg" data-tel="{{contactData.phone}}"><text class="iconfont icon-message"></text>短信</view>-->
+        <!--<view class="a flex" wx:if="{{contactData.wx_qrcode}}"  data-tel="{{contactData.wx_qrcode}}">-->
+        <!--<contact-button class="contactButton" type="default-light" size="27" session-from="weapp"></contact-button>-->
+        <!--<text class="iconfont icon-menu311"></text>-->
+        <!--微信-->
+        <!--</view>-->
+    </view>
+</view>
+<!--弹出框-->
+<view class="scodeimg bg-fff" hidden="{{!showScodeimg}}">
+    <view class="inner">
+        <view class="iconfont icon-closed" bindtap="weichat"></view>
+        <view class="img" bindtap="showScode" data-current="{{contactData.wx_qrcode}}">
+            <image src="{{contactData.wx_qrcode}}"></image>
+        </view>
+        <view class="wId">长按识别图中二维码 > 添加关注 > 开始微聊</view>
+    </view>
+</view>
+<view class="modalmask" hidden="{{!showScodeimg}}" bindtap="Scodeimg"></view>

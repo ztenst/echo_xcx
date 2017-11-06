@@ -1,0 +1,121 @@
+<view class="{{contactData?'pd-88':''}}">
+    <view class="house-detail bg-f5 ">
+        <!--引入detailcover模板-->
+        <include src="/detail/detail-cover/detail-cover.wxml"/>
+        <view class="mBox bg-fff">
+            <view class="esfhouse-detail-info">
+                <view class="title bdm">{{esfdetail.title}}</view>
+                <view class="info-box box box-align-center bdm">
+                    <view class="li">
+                        <view class="p">售价</view>
+                        <view class="p">{{esfdetail.price}}万元</view>
+                    </view>
+                    <view class="li">
+                        <view class="p">户型</view>
+                        <view class="p">{{esfdetail.bedroom}}室{{esfdetail.livingroom}}厅</view>
+                    </view>
+                    <view class="li">
+                        <view class="p">面积</view>
+                        <view class="p">{{esfdetail.size}}㎡</view>
+                    </view>
+                </view>
+                <view class="tags" wx:if="{{rentdetail.data_ext.ts.length!==0}}">
+                    <text class="tag color{{index+1}}" wx:for="{{rentdetail.data_ext.ts}}" >{{item}}</text>
+                </view>
+                <view class="house-detail-more clearfix">
+                    <view class="li">
+                        <text class="label">均价：</text>
+                        {{esfdetail.ave_price > 0 ? esfdetail.ave_price + '元/平' : '面议'}}
+                    </view>
+                    <view class="li">
+                        <text class="label">类型：</text>
+                        {{esfdetail.data_ext.type ? esfdetail.data_ext.type : "暂无"}}
+                    </view>
+                    <view class="li">
+                        <text class="label">楼层：</text>
+                        {{esfdetail.data_ext.floorcate}}(共{{esfdetail.total_floor}}层)
+                    </view>
+                    <view class="li">
+                        <text class="label">朝向：</text>
+                        {{esfdetail.towards ? esfdetail.towards : "暂无"}}
+                    </view>
+                    <view class="li">
+                        <text class="label">装修：</text>
+                        {{esfdetail.decoration ? esfdetail.decoration : "暂无"}}
+                    </view>
+                    <view class="li">
+                        <text class="label">年代：</text>
+                        {{esfdetail.age}}
+                    </view>
+                    <view class="li">
+                        <text class="label">发布：</text>
+                        {{esfdetail.sale_time}}
+                    </view>
+                    <view class="li">
+                        <text class="label">来源：</text>
+                        {{esfdetail.source}}
+                    </view>
+                    <view class="li long">
+                        <text class="label">小区：</text>
+                        {{esfdetail.plot_name}} ({{esfdetail.area}} {{esfdetail.street}} )
+                    </view>
+                    <view class="li long">
+                        <text class="label">地址：</text>
+                        {{esfdetail.address.length ? esfdetail.address : "暂无" }}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">房源配套</view>
+            </view>
+            <view class="peitao">
+                <!--引入detailcover模板-->
+                <include src="/detail/detail-tag/detail-tag.wxml"/>
+            </view>
+        </view>
+        <!--引入detailcover模板-->
+        <view class="mBox  bg-fff" wx:if="{{esfdetail.content}}">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">房源描述</view>
+            </view>
+            <include src="/detail/detail-content/detail-content.wxml"/>
+        </view>
+
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">小区周边</view>
+            </view>
+            <view class="wz-map">
+                <!--引入detailmap模板-->
+                <include src="/detail/detail-map/detail-map.wxml"/>
+            </view>
+        </view>
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">{{xfdetail.title}}</view>
+            </view>
+
+            <view class="chartCon">
+                <view class="qushi-price clearfix">
+                    <view class="li">参考均价: <text  class="price">{{xfdetail.esf_price}}元/平</text></view>
+                    <view class="li">同比去年: <text class="up">{{xfdetail.rate>0?xfdetail.rate+'%':'暂无'}}<text class="iconfont"></text></text></view>
+                    <view class="li">建筑年代: <text  class="year">{{xfdetail.age > 0 ? xfdetail.age+'年' : '暂无'}}</text></view>
+                    <view class="li">建筑类型: <text  class="type"> {{xfdetail.jzlb[0]?xfdetail.jzlb[0]:''}}{{xfdetail.jzlb[1]?'/'+xfdetail.jzlb[1]:''}}</text></view>
+                </view>
+                <!--引入detailareajunjia模板-->
+                <!--<include src="/detail/detail-areajunjia/detail-areajunjia.wxml"/>-->
+                <view class="see-other" data-url="../house_search/house_search" data-param="type=2&hid={{esfdetail.hid}}&title={{esfdetail.plot_name+'(二手房)'}}" bindtap="goPage"     wx:if="{{xfdetail.esfcount != '0'}}">
+                    <text class="btn">查看小区在售其他二手房</text>
+                </view>
+            </view>
+        </view>
+        <!--引入detailesfloan模板-->
+        <include src="/detail/detail-esfloan/detail-esfloan.wxml"/>
+        <!--引入detailsellinterest模板-->
+        <include src="/detail/detail-sell-interest/detail-sell-interest.wxml"/>
+        <!--引入detailesfloan模板-->
+        <include src="/detail/detail-contact/detail-contact.wxml"/>
+    </view>
+</view>

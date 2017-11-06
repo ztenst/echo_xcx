@@ -1,0 +1,31 @@
+<import src="../../components/search_bar/search_bar.wxml"/>
+<import src="../../components/search_filter/search_filter.wxml"/>
+<import src="../../components/house_search_list/house_search_list.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="page house-search">
+  <view class="search-top">
+    <block wx:if="{{!area_fixed}}">
+      <template is="searchBar" data="{{ ...$searchBar }}"></template>
+    </block>
+    <template is="searchFilter" data="{{ ...$searchFilter }}"></template>
+  </view>
+
+  <scroll-view class="search-result" style="{{'top:'+(area_fixed?92:212)+'rpx;'}}" scroll-y="true" lower-threshold="100" bindscrolltolower="requestList">
+    <block wx:if="{{!requested||max_page>0}}">
+      <template is="houseSearchList" data="{{ type, list, default_img, ...$houseSearchList }}"></template>
+      <view class="loading-container" style="text-align: center;" wx:if="{{loading}}">
+        <text class="loading-gif"></text>
+      </view>
+    </block>
+    <block wx:if="{{requested&&max_page===0}}">
+      <view class="none-result c-999">暂无找到相关内容，看看别的吧</view>
+      <block wx:if="{{!area_fixed}}">
+        <view class="large-title">猜你喜欢</view>
+        <template is="houseSearchList" data="{{ type, list:spare_list, default_img, ...$houseSearchList }}"></template>
+      </block>
+    </block>
+  </scroll-view>
+
+</view>

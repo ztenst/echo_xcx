@@ -1,0 +1,84 @@
+
+<view class="{{contactData?'pd-88':''}}">
+    <view class="house-detail bg-f5 ">
+        <!--引入detailcover模板-->
+        <include src="/detail/detail-cover/detail-cover.wxml" />
+        <view class="mBox bg-fff">
+            <view class="esfhouse-detail-info">
+                <view class="title bdm">{{rentdetail.title}}</view>
+                <view class="info-box box box-align-center bdm">
+                    <view class="li">
+                        <view class="p">租金</view>
+                        <view class="p">{{rentdetail.price}}元</view>
+                    </view>
+                    <view class="li">
+                        <view class="p">房型</view>
+                        <view class="p">{{rentdetail.bedroom}}室{{rentdetail.livingroom}}厅</view>
+                    </view>
+                    <view class="li">
+                        <view class="p">面积</view>
+                        <view class="p">{{rentdetail.size}}㎡</view>
+                    </view>
+                </view>
+                <view class="tags" wx:if="{{rentdetail.data_ext.ts.length!==0}}">
+                    <text class="tag color{{index+1}}" wx:for="{{rentdetail.data_ext.ts}}">{{item}}</text>
+                </view>
+                <view class="house-detail-more clearfix">
+                    <view class="li"><text class="label">方式：</text>{{rentdetail.rent_type}}</view>
+                    <view class="li"><text class="label">付款：</text>付{{rentdetail.pay_type.jiao}}押{{rentdetail.pay_type.ya}}</view>
+                    <view class="li"><text class="label">楼层：</text>{{rentdetail.data_ext.floorcate}}(共{{rentdetail.total_floor}}层)</view>
+                    <view class="li"><text class="label">装修：</text>{{rentdetail.decoration != '0' ? rentdetail.decoration : '暂无'}}</view>
+                    <view class="li"><text class="label">朝向：</text>{{rentdetail.towards != '0' ? rentdetail.towards : '暂无'}}</view>
+                    <view class="li"><text class="label">年代：</text>{{rentdetail.age > 0 ? rentdetail.age+'年' : '暂无'}}</view>
+                    <view class="li"><text class="label">发布：</text>{{rentdetail.sale_time}}</view>
+                    <view class="li"><text class="label">来源：</text>{{rentdetail.source}}</view>
+                    <view class="li long"><text class="label">小区：</text>{{rentdetail.plot_name}}<text wx:if="{{rentdetail.area || rentdetail.street}}">({{rentdetail.area}} {{rentdetail.street}} ) </text></view>
+                    <view class="li long"><text class="label">地址：</text>{{rentdetail.address?rentdetail.address:'暂无'}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">房源配套</view>
+            </view>
+            <view class="peitao">
+                <!--引入detailcover模板-->
+                <include src="/detail/detail-tag/detail-tag.wxml" />
+            </view>
+        </view>
+        <view class="mBox  bg-fff" wx:if="{{rentdetail.content}}">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">房源描述</view>
+            </view>
+            <include src="/detail/detail-content/detail-content.wxml"/>
+        </view>
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">小区周边</view>
+            </view>
+            <!--引入detailmap模板-->
+            <include src="/detail/detail-map/detail-map.wxml"/>
+        </view>
+        <view class="mBox  bg-fff">
+            <view class="mTitle box box-align-center box-pack-between">
+                <view class="mTitle-l">{{xfdetail.title}}</view>
+            </view>
+            <view class="chartCon">
+                <view class="qushi-price clearfix">
+                    <view class="li">参考均价: <text  class="price">{{xfdetail.zf_price}}元/平</text></view>
+                    <view class="li">同比去年: <text class="up">{{xfdetail.rate>0?xfdetail.rate+'%':'暂无'}}<text class="iconfont"></text></text></view>
+                    <view class="li">建筑年代: <text  class="year">{{xfdetail.age > 0 ? xfdetail.age+'年' : '暂无'}}</text></view>
+                    <view class="li">建筑类型: <text  class="type"> {{xfdetail.jzlb[0]?xfdetail.jzlb[0]:''}}{{xfdetail.jzlb[1]?'/'+xfdetail.jzlb[1]:''}}</text></view>
+                </view>
+                <view class="see-other see-other2" data-url="../house_search/house_search" data-param="type=3&hid={{rentdetail.hid}}&title={{xfdetail.title+'(租房)'}}" bindtap="goPage"
+                            wx:if="{{xfdetail.zfcount!='0'}}">
+                    <text class="btn">查看小区其他租房</text>
+                </view>
+            </view>
+        </view>
+        <!--引入detailesfloan模板-->
+        <include src="/detail/detail-zf-interest/detail-zf-interest.wxml" />
+        <!--引入detailesfloan模板-->
+        <include src="/detail/detail-contact/detail-contact.wxml" />
+    </view>
+</view>

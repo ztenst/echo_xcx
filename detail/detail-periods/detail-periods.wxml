@@ -1,0 +1,30 @@
+<view class="mBox  bg-fff" wx:if="{{periods.length!==0}}">
+    <view class="mTitle box box-align-center box-pack-between">
+        <view class="mTitle-l">楼栋信息</view>
+    </view>
+    <view class="loudong">
+        <scroll-view scroll-x class="ld-qs">
+            <view class="item {{currentTab === index ?'on':''}}"
+                  wx:for="{{periods}}"
+                  wx:for-item="x"
+                  data-current="{{index}}"
+                  bindtap="swichNav">
+                <text class="in">{{x.period}}期</text>
+            </view>
+        </scroll-view>
+        <view class="ld-mapperiod">
+            <view class="drag-warp">
+                <view class="pic">
+                    <image src="{{periods[currentTab].image}}"  style="width:{{currentImageW}};height:{{currentImageH}}" bindload="imageLoad"></image>
+                </view>
+                <view wx:for="{{periods[currentTab].buildings}}" wx:for-item="y" style="left:{{y.point_x}}px;top:{{y.point_y}}px"
+                      class="ld-icon {{y.sale_status==='在售'?'z-sale':y.sale_status==='待售'?'d-sale':'w-sale'}}">
+                    <view class="tag">
+                        <text class="em"></text>{{y.name}}
+                    </view>
+                    <text class="state">{{y.sale_status}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

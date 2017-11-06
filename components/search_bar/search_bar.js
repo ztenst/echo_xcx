@@ -13,6 +13,7 @@ export default {
    */
   setDefaults() {
     return {
+      tabs:['全部','房太吉','创隆地产'],
       keyword: '',
       keyword_input: '', //分开有的手机输入时会有重字问题
       usage: 'house', //house 查房屋, 标注房产数量, plot 查小区
@@ -127,9 +128,7 @@ export default {
           this.setData({
             [`${SCOPE}.keyword`]: e.detail.value
           });
-
           this.searchTips(keyword);
-
           typeof options.onInputKeyword === 'function' && options.onInputKeyword(keyword, this);
         },
         //清除关键字

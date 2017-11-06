@@ -57,7 +57,7 @@ export default {
    */
   setDefaults() {
     return {
-      type: 1, //1.经纪圈新房通
+      type: 1, //1新房 2二手房 3租房
       area_fixed: false, //没有小区筛选项
       tab: '',
 
