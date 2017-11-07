@@ -117,7 +117,7 @@ Page({
                     loading: false,
                     max_page: json.data.page_count,
                     list: state.list.concat(list)
-                })
+                });
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,

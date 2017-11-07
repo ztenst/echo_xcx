@@ -1,13 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-
-    "pages/house_detail/new_house_detail",
-    "pages/house_detail/new_house_bm",
-    "pages/house_detail/esf_house_detail",
-    "pages/house_detail/esf_house_mapdetail",
-    "pages/house_detail/rent_house_detail"
-
+    "pages/house_detail/new_house_detail"
 
   ],
   "window":{

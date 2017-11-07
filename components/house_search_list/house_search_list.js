@@ -21,14 +21,8 @@ export default {
       data: options,
       methods: {
         navigateDetail(e) {
-          // let pages = getCurrentPages();
-
-          // let searchListTimes = pages.filter(item => item.route === 'pages/index/index').length;
-
-          // console.log(searchListTimes);
-
           let dataset = e.currentTarget.dataset;
-          let url = '/pages/house_detail/' + ['new_house_detail', 'esf_house_detail', 'rent_house_detail'][dataset.type - 1] + '?id=' + dataset.id;
+          let url = '/pages/house_detail/new_house_detail?id=' + dataset.id;
           app.goPage(url, null, false);
         }
       }

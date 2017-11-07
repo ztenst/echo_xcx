@@ -135,13 +135,14 @@ Page(Object.assign({
          */
         api.getMplotDetail(plot_id).then(res => {
             let data = res.data.data;
+            console.log(data);
             if(res.data.status === 'success'){
-                data.special.price_new = parseInt(data.special.price_new);//特价房
-                data.special.price_old = parseInt(data.special.price_old);//特价房
-                data.house_types.forEach(item => {
-                    item.demo.size = parseInt(item.demo.size);
-                    item.demo.price = parseInt(item.demo.price);
-                })//主力户型
+                // data.special.price_new = parseInt(data.special.price_new);//特价房
+                // data.special.price_old = parseInt(data.special.price_old);//特价房
+                // data.house_types.forEach(item => {
+                //     item.demo.size = parseInt(item.demo.size);
+                //     item.demo.price = parseInt(item.demo.price);
+                // })//主力户型
                 that.setData({plotdetail: data,});
                 // /*
                 //  * 初始化楼栋信息
@@ -150,33 +151,33 @@ Page(Object.assign({
                 /**
                  * 房屋描述
                  */
-                that.initDetailContent(data.price_desc.trim(),1);
-                wx.setNavigationBarTitle({title: data.title});//设置导航条标题
-                /**
-                 *初始化轮播图
-                 */
-                that.initDetailCover(that.data.plot_id, 3, data.iamges);
-                /**
-                 * 初始化特惠员报名截止事件
-                 */
-                that.updateTime(data.tuan.end_time);
-                setInterval(function () {
-                    that.updateTime(data.tuan.end_time);
-                }, 1000);
-                that.setData({kanexpire: util.formatTime2(data.kan.expire, 'Y-M-D'),});
-                /*
-                 * 初始化map
-                 */
-                that.initDetailMap(data.lat, data.lng,data.title,data.address);
-                /*
-                 * 二手房列表
-                 */
-                let params = {category: 1, limit: 3, hid: that.data.plot_id}
-                that.getErshouList(params);
-                /**
-                 * 楼盘推荐
-                 */
-                that.initDetailPlotRecommend(data.relPlots);
+                // that.initDetailContent(data.price_desc.trim(),1);
+                // wx.setNavigationBarTitle({title: data.title});//设置导航条标题
+                // /**
+                //  *初始化轮播图
+                //  */
+                // that.initDetailCover(that.data.plot_id, 3, data.iamges);
+                // /**
+                //  * 初始化特惠员报名截止事件
+                //  */
+                // that.updateTime(data.tuan.end_time);
+                // setInterval(function () {
+                //     that.updateTime(data.tuan.end_time);
+                // }, 1000);
+                // that.setData({kanexpire: util.formatTime2(data.kan.expire, 'Y-M-D'),});
+                // /*
+                //  * 初始化map
+                //  */
+                // that.initDetailMap(data.lat, data.lng,data.title,data.address);
+                // /*
+                //  * 二手房列表
+                //  */
+                // let params = {category: 1, limit: 3, hid: that.data.plot_id}
+                // that.getErshouList(params);
+                // /**
+                //  * 楼盘推荐
+                //  */
+                // that.initDetailPlotRecommend(data.relPlots);
                 wx.hideLoading();
             }else{
                 wx.showToast({

@@ -5,10 +5,10 @@
         <view class="detail-info bdm bg-fff">
             <view class="lp-name">
                 <text class="plotname">{{plotdetail.title}}</text>
-                <text class="bhname">备案名：{{plotdetail.recordname?plotdetail.recordname:'暂无'}}</text>
+                <text class="bhname">在售：{{plotdetail.recordname?plotdetail.recordname:'暂无'}}</text>
             </view>
             <view class="lp-price">
-                <text class="price">{{plotdetail.price_mark}}{{plotdetail.price}}</text>
+                <text class="price">{{plotdetail.price_mark}}{{plotdetail.price}}{{plotdetail.unit}}</text>
                 <text class="state" wx:if="{{plotdetail.sale_status}}">{{plotdetail.sale_status}}</text>
             </view>
             <view class="lp-updtime">更新时间:{{plotdetail.updated}}</view>

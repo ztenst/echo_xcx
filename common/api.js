@@ -94,7 +94,7 @@ const api = {
     },
     //新房详细页
     getMplotDetail: function getMplotDetail(id) {
-        var url = `${config.host}/api/resoldwapapi/mplotdetail`;
+        var url = `${config.host}/api/plot/info`;
         var params = {
             'id': id
         };
