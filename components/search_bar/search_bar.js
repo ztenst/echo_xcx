@@ -13,7 +13,7 @@ export default {
    */
   setDefaults() {
     return {
-      tabs:['全部','房太吉','创隆地产'],
+      tabs:[],
       keyword: '',
       keyword_input: '', //分开有的手机输入时会有重字问题
       usage: 'house', //house 查房屋, 标注房产数量, plot 查小区

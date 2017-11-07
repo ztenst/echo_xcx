@@ -1,15 +1,17 @@
 <template name="searchBar">
-    <view class="{{'__search-bar ' + (focused?'focused':'')}}">
+    <view class="__search-bar">
 
         <view class="main-nav" hidden="{{focused}}">
             <view class="nav-slide">
-                <swiper class="ul" circular="{{!1}}">
-                    <block wx:for="{{tabs}}">
-                        <swiper-item class="li">
-                            <text class="slide-text">{{item}}</text>
-                        </swiper-item>
-                    </block>
-                </swiper>
+                <scroll-view scroll-x="true"  class="ul">
+                    <view class="li {{index == 0 ?'on':''}}"
+                          wx:for="{{tabs}}"
+                          wx:for-item="x"
+                          data-current="{{index}}"
+                          bindtap="swichNav">
+                        <text class="text">{{x}}</text>
+                    </view>
+                </scroll-view>
             </view>
 
             <view class="search-btn" bindtap="{{focus}}">
