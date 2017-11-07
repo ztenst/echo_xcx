@@ -71,7 +71,7 @@ function postRequest(url, data = {}) {
 const api = {
     //站点配置
     getSiteConfig: function () {
-        var url = `${config.host}/api/resoldwapapi/commonsiteconfig`;
+        var url = `${config.host}/api/config/index`;
         return getRequest(url)
     },
     //房源相册
@@ -170,38 +170,44 @@ const api = {
 
 
     //首页图片, 推荐房源
-    getIndexInfo() {
-        let url = `${config.host}/api/resoldwapapi/mindex`
-        return getRequest(url)
-    },
-    //新房热搜
-    getXfSearchHots() {
-        let url = `${config.host}/api/resoldwapapi/msearchhot`
-        return getRequest(url)
-    },
-    //二手房、租房热搜
-    getEsfSearchHots(cate) {
-        let url = `${config.host}/api/resoldwapapi/commonrecom`
-        return getRequest(url, {cate})
-    },
-    //取得搜索联想
-    getSearchTips(kw) {
-        let url = `${config.host}/api/resoldwapapi/mplotsearch`
-        return getRequest(url, {kw})
+    // getIndexInfo() {
+    //     let url = `${config.host}/api/resoldwapapi/mindex`
+    //     return getRequest(url)
+    // },
+    // //新房热搜
+    // getXfSearchHots() {
+    //     let url = `${config.host}/api/resoldwapapi/msearchhot`
+    //     return getRequest(url)
+    // },
+    // //二手房、租房热搜
+    // getEsfSearchHots(cate) {
+    //     let url = `${config.host}/api/resoldwapapi/commonrecom`
+    //     return getRequest(url, {cate})
+    // },
+    // //取得搜索联想
+    // getSearchTips(kw) {
+    //     let url = `${config.host}/api/resoldwapapi/mplotsearch`
+    //     return getRequest(url, {kw})
+    // },
+
+    //取得搜索筛选区域条件
+    getTagsIndex(cate) {
+        let url = `${config.host}/api/tag/index`
+        return getRequest(url,{cate})
     },
     //取得搜索筛选区域条件
-    getFilterAreas() {
-        let url = `${config.host}/api/resoldwapapi/commonplace`
-        return getRequest(url)
+    getFilterAreas(cate) {
+        let url = `${config.host}/api/tag/list`
+        return getRequest(url,cate)
     },
     //取得搜索筛选房价、户型、其他条件
     getFilterTags(cate) {
-        let url = `${config.host}/api/resoldwapapi/newtags`
+        let url = `${config.host}/api/tag/list`
         return getRequest(url, {cate})
     },
     /*新房列表*/
     getXfList(params) {
-        let url = `${config.host}/api/resoldwapapi/mplotlist`
+        let url = `${config.host}/api/plot/list`
         return getRequest(url, params)
     },
     /*二手房列表*/

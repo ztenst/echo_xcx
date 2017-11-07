@@ -4,74 +4,42 @@
   <view class="__house-search-list">
     <block wx:if="{{ list.length>0 }}">
       <!-- <navigator wx:for="{{list}}" wx:key="id" class="container" url="{{'/pages/house_detail/'+(type==1?'new_house_detail':(type==2?'esf_house_detail':'rent_house_detail'))+'?id='+item.id}}"> -->
-      <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" data-type="{{type}}" class="container" bindtap="{{navigateDetail}}">
+      <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}"  class="container" bindtap="{{navigateDetail}}">
 
         <!-- 非特价 -->
-        <view wx:if="{{type!=4}}" class="house-item">
+        <view  class="house-item">
           <view class="house-pic">
             <image src="{{item.image || default_img}}"></image>
-            <text wx:if="{{type==1&&item.sale_status}}">{{item.sale_status}}</text>
           </view>
           <view class="house-text">
             <!-- 标题 -->
             <view class="house-title">
-              <text style="{{type==1?'max-width: 450rpx;':''}}">{{item.title}}</text>
-              <text class="iconfont icon-dianhua" wx-if="{{type==1}}" data-phone="{{item.tel}}" catchtap="call"></text>
+              <text>{{item.title}}</text>
+              <text class="price">{{item.price}}{{item.unit}}</text>
             </view>
             <!-- 位置 -->
             <view class="house-info c-999">
-              <view wx-if="{{type==1}}">
+              <view>
                 <text class="locate">{{item.area}}</text>
                 <text class="locate">{{item.street}}</text>
-                <!-- <block wx:if="{{item._distance}}">
-                  <text class="iconfont icon-map"></text><text>{{ item._distance<1000 ? (item._distance + 'm') : ((item._distance - item._distance%100)/1000+'km') }}</text>
-                </block> -->
               </view>
-              <view wx-if="{{type==2}}">
-                <text class="locate">{{item.plot_name}}</text>
-                <text class="locate">{{item.bedroom}}室{{item.livingroom}}厅</text>
-              </view>
-              <view wx-if="{{type==3}}">
-                <text class="locate">{{item.plot_name}}</text>
-                <text class="locate">{{item.street}}</text>
-              </view>
-              <view class="main-color fr">
-                <text>{{item.price}}</text>
-                <text class="unit" wx:if="{{type != 1}}">{{type==2?'万':'元'}}</text>
-                <!-- <block wx:if="{{type == 1}}">
-                  <text>{{item.price}}</text>
-                </block>
-                <block wx:elif="{{item.price >0}}">
-                  <text>{{item.price}}</text>
-                  <text class="unit" wx:if="{{type != 1}}">{{type==2?'万':'元'}}</text>
-                </block>
-                <block wx:else>
-                  <text>面议</text>
-                </block> -->
+              <view class="fr">
+                   <text>{{item.wylx}}</text>
               </view>
             </view>
-            <!-- 房间 -->
-            <view class="house-info c-999" wx-if="{{type==3}}">
-              <text class="locate">{{item.bedroom}}室</text>
-              <text class="locate" wx:if="{{item.zf_mode}}">{{item.zf_mode}}</text>
+            <!-- 首付 -->
+            <view class="house-pay">
+              <text class="tag_pay">佣</text>{{item.pay}}
             </view>
-            <!-- 红包 -->
-            <view class="house-packet main-color" wx:if="{{type==1 && item.discount_des}}">{{item.discount_des}}</view>
-            <!-- 标签 -->
-            <view class="house-condition" wx:if="{{(type == 1 && item.ts.length>0) || type == 2}}">
-              <view class="{{'tags ' + (type == 2?'esf-tags':'')}}">
-                <text wx:for="{{item.ts}}" wx:for-item="tag" wx:for-index="idx" wx:key="" wx:if="{{idx<4}}" class="{{'tag'+(idx+1)}}">{{tag}}</text>
-              </view>
-              <text class="avg c-999" wx:if="{{type == 2}}">{{item.ave_price}}元/㎡</text>
+            <!--公司-->
+            <view class="house-info">
+              <text class="locate">{{item.zd_company.name}}</text>
             </view>
+
           </view>
 
         </view>
 
-        <!-- 特价房 -->
-        <view wx:else class="house-item-special">
-          <text>特价房</text> {{item.title}}
-        </view>
       </view>
     </block>
   </view>

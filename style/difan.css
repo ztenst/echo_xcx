@@ -62,7 +62,7 @@
     left: 0; }
   .index .banner .search-wrapper {
     position: absolute;
-    bottom: 10rpx;
+    bottom: 40rpx-30rpx;
     left: 0;
     width: 100%; }
     .index .banner .search-wrapper .__search-bar:not(.focused) {

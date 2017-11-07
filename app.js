@@ -1,5 +1,6 @@
-//app.js
+﻿//app.js
 var api = require('./common/api');
+
 App({
     onLaunch: function () {
     },

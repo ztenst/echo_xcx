@@ -27,7 +27,7 @@
             </view>
         </view>
     </view>
-    <!--<navigator  class="mMore box box-align-center box-pack-center" url="../house_search/house_search?type=2&hid={{esfdetail.id}}&title={{esfdetail.plot_name}}" >-->
+    <!--<navigator  class="mMore box box-align-center box-pack-center" url=indexaindexarch?type=2&hid={{esfdetail.id}}&title={{esfdetail.plot_name}}" >-->
     <!--<text class="c-333 mMore-text ">查看该楼盘其他二手房</text>-->
     <!--</navigator>-->
 </view>

@@ -4,14 +4,14 @@ var app = getApp();
  */
 'use strict';
 // ENV
-var env = 'production'; // 'development' or 'production'
+var env = 'development'; // 'development' or 'production'
 // hj_house_xcx VERSION
-var version = '1.0.3';
+var version = '1.0.1';
 // development and production host
 var template_id = "JOXLVwxCJy2S3vsPZCXtPXSypo-W9gHhounXsqFSN5Y";
 var hosts = {
-    development: 'https://house.hangjiayun.com',
-    production: 'https://housexcx.hualongxiang.com'
+    development: 'http://house.jj58.com.cn',
+    production: ''
 };
 // static path
 var static_path = 'http://s.hangjiayun.com/house/20170817114001/miniapp';

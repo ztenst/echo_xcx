@@ -54,11 +54,11 @@
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
         }
-        .iconfont {
+        .price {
           position: absolute;
-          color: #7eb37e;
+          color: rgb(223,82,37);
           padding: 10rpx;
-          font-size: 40rpx;
+          font-size: 30rpx;
           top: -10rpx;
           right: -10rpx;
         }
@@ -79,21 +79,32 @@
           margin-right: 8rpx;
         }
         .fr {
-          font-weight: 500;
           position: relative;
           height: 32rpx;
           text {
-            font-size: 32rpx;
+            font-size: 30rpx;
           }
           .unit {
             font-size: 26rpx;
           }
         }
       }
-      .house-packet {
+      .house-pay {
         font-size: 24rpx;
         font-weight: 500;
         line-height: 32rpx;
+        color: rgb(223,82,37);
+        .tag_pay{
+          color:#fff;
+          display: inline-block;
+          text-align: center;
+          width:30rpx;
+          height:30rpx;
+          line-height: 30rpx;
+          background-color: rgb(223,82,37);
+          border-radius: 8rpx;
+          margin-right:10rpx;
+        }
       }
       .house-condition {
         font-size: 24rpx;
@@ -121,6 +132,10 @@
           top: 6rpx;
           right: 0;
         }
+      }
+
+      .house-company{
+
       }
       .tag1 {
         color: #7a9bcc;
@@ -232,21 +247,20 @@
     }
   }
 
-  .main-nav{position:relative;width: 100%; height: 90rpx; overflow: hidden;  background: #fff; border-bottom: 1px solid $borderColor;
 
-    .nav-slide{ float: left; width:85%;font-size: 30rpx;  background: #fff;overflow: hidden;
-      .ul{ width:100%;  height: 90rpx; overflow-y: hidden;
+  .search-nav{position:relative;width: 100%; height: 90rpx; overflow: hidden;  background: #fff; border-bottom: 1px solid $borderColor;
+    .nav-slide{ float: left; width:85%;height:100%;font-size: 30rpx;  background: #fff;overflow: hidden;
+      .ul{ overflow-y: hidden;height:100%;  overflow-x: scroll; white-space: nowrap;
         .li{display: inline-block; padding:20rpx 24rpx;width:auto!important;height:auto!important;
           text{display: inline-block; color: #333; padding:0 24rpx; }
           &.on{text{color:#fff; background-color: #00b7ee;border-radius: 26rpx;}}
         }
       }
     }
-
     .search-btn{ position: absolute;top:0;right:0;width:90rpx;height: 90rpx; line-height: 90rpx;
       -webkit-box-shadow:0 0 40px rgba(0,0,0,.2);
       box-shadow:0 0 40px rgba(0,0,0,.2);
-      //z-index: 2;
+      //z-index-old: 2;
       font-size: 44rpx;
       background: #fff;
       color:$c-666;

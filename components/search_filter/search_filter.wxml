@@ -1,103 +1,124 @@
 <template name="searchFilter">
-  <view class="{{'__search-filter ' + (tab ? 'fixed':'')}}">
-    <view class="filter-bg">
-      <view class="filter-tab">
-        <view bindtap="{{setTab}}" data-index="1" class="{{tab === '1' ? 'on' : ''}}" wx:if="{{!area_fixed}}">
-          <text>{{titles.area?titles.area:'区域'}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-        <view bindtap="{{setTab}}" data-index="2" class="{{tab === '2' ? 'on' : ''}}">
-          <text>{{titles.price?titles.price:(['价格','总价','租金'][type-1])}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-        <view bindtap="{{setTab}}" data-index="3" class="{{tab === '3' ? 'on' : ''}}">
-          <text>{{titles.huxing?titles.huxing:'户型'}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-        <view bindtap="{{setTab}}" data-index="5" class="{{tab === '5' ? 'on' : ''}}" wx:if="{{area_fixed && type === 2}}">
-          <text>{{titles.size?titles.size:'面积'}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-        <view bindtap="{{setTab}}" data-index="6" class="{{tab === '6' ? 'on' : ''}}" wx:if="{{area_fixed && type === 3}}">
-          <text>{{titles.zfmode?titles.zfmode:'方式'}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-        <view bindtap="{{setTab}}" data-index="4" class="{{tab === '4' ? 'on' : ''}}">
-          <text>{{'筛选'+(titles.other?('('+titles.other+')'):'')}}</text>
-          <text class="iconfont icon-jiantou1"></text>
-        </view>
-      </view>
-      <view class="filter-select">
-        <!-- 区域 -->
-        <view class="select-box area-select" data-boxindex="1" hidden="{{tab !== '1'}}" wx:if="{{!area_fixed}}">
-          <scroll-view class="fl" scroll-y="true" wx:if="{{area_filters.length>0}}">
-            <view class="{{'li '+(area_index==index?'on':'')}}" wx:for="{{area_filters}}" wx:key="id" data-key="area" data-areaindex="{{index}}" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{setArea}}">{{item.name}}</view>
-          </scroll-view>
 
-          <scroll-view class="fr" scroll-y="true" wx:if="{{area_index > 0}}">
-            <view class="{{'li '+(filters.street==item.id?'on':'')}}" wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">{{item.name}}</view>
-          </scroll-view>
-        </view>
-        <!-- 价格 -->
-        <view class="select-box" data-boxindex="2" hidden="{{tab !== '2'}}">
-          <scroll-view scroll-y="true" wx:if="{{price_filters.length>0}}">
-            <view class="{{'li ' + (filters.pricetag==item.id?'on':'')}}" wx:for="{{price_filters}}" wx:key="id" data-key="pricetag" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">{{item.name}}</view>
-          </scroll-view>
+    <view class="__search-bar">
 
-          <view class="container price-filter-btn" wx:if="{{type!==1}}">
-            <view>
-              <input type="number" placeholder="最小" bindinput="{{inputMinprice}}"/>
-              <text>至</text>
-              <input type="number" placeholder="最大" bindinput="{{inputMaxprice}}"/>
-              <text>{{type===3?'元':'万'}}</text>
+        <view class="search-nav" hidden="{{focused}}">
+
+            <view class="nav-slide">
+                <scroll-view scroll-x="true" class="ul">
+                    <view class="li {{filters.toptag == item.id ?'on':''}}"
+                          wx:for="{{toptag_filters}}" wx:key="id"
+                          data-key="toptag" data-id="{{item.id}}"
+                          bindtap="{{filterNow}}">
+                        <text class="text">{{item.name}}</text>
+                    </view>
+                </scroll-view>
             </view>
-            <button class="btn-main" bindtap="{{setPriceRange}}">确定</button>
-          </view>
-        </view>
-        <!-- 户型 -->
-        <view class="select-box" data-boxindex="3" hidden="{{tab !== '3'}}">
-          <scroll-view scroll-y="true" wx:if="{{huxing_filters.length>0}}">
-            
-            <view class="{{'li ' + (filters.bedroom==item.id?'on':'')}}" wx:for="{{huxing_filters}}" wx:key="id" data-key="bedroom" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">{{item.name}}</view>
-          
-          </scroll-view>
-        </view>
-        <!-- 没有区域时的 面积选项 -->
-        <view class="select-box" data-boxindex="5" hidden="{{tab !== '5'}}" wx:if="{{area_fixed && type === 2}}">
-          <scroll-view scroll-y="true" wx:if="{{size_filters.length>0}}">
-            
-            <view class="{{'li ' + (filters.size==item.id?'on':'')}}" wx:for="{{size_filters}}" wx:key="id" data-key="size" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">{{item.name}}</view>
-          
-          </scroll-view>
-        </view>
-        <!-- 没有区域时的 租房方式选项 -->
-        <view class="select-box" data-boxindex="6" hidden="{{tab !== '6'}}" wx:if="{{area_fixed && type === 3}}">
-          <scroll-view scroll-y="true" wx:if="{{zfmode_filters.length>0}}">
-            
-            <view class="{{'li ' + (filters.zfmode==item.id?'on':'')}}" wx:for="{{zfmode_filters}}" wx:key="id" data-key="zfmode" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">{{item.name}}</view>
-          
-          </scroll-view>
-        </view>
-        <!-- 其他 -->
-        <view class="select-box other-select" data-boxindex="4" hidden="{{tab !== '4'}}">
-          <scroll-view scroll-y="true" wx:if="{{other_filters.length>0}}" style="max-height: 70vh;">
-            
-            <view class="container" wx:for="{{other_filters}}" wx:key="key">
-              <text>{{item.title}}</text>
-              <view class="select-list">
-                <button class="{{filters[item.key] == child.id ? 'on' : ''}}" wx:for="{{item.array}}" wx:key="id" wx:for-item="child" data-key="{{item.key}}" data-id="{{child.id}}" bindtap="{{setFilter}}">{{child.name}}</button>
-              </view>
+
+            <view class="search-btn" bindtap="{{focus}}">
+                <text class="iconfont icon-search"></text>
             </view>
-  
-          </scroll-view>
-          <view class="container other-btn-filter">
-            <button class="anti-btn-main" bindtap="{{resetOthers}}">重置</button>
-            <button class="btn-main fr" bindtap="{{setOther}}">确定</button>
-          </view>
-  
         </view>
-  
-      </view>
+
+        <view class="search-box" hidden="{{!focused}}">
+            <view class="input-container container">
+                <view>
+                    <text class="iconfont icon-search"></text>
+                    <input type="text" confirm-type="search" focus="{{focused}}" value="{{kw_input}}"
+                           bindinput="{{inputkw}}" bindconfirm="{{confirm}}" placeholder-class="c-999"
+                           placeholder="请输入关键字"/>
+                    <text class="iconfont icon-closed" wx:if="{{kw}}" bindtap="{{clearkw}}"></text>
+                    <view class="search-cancel c-999" bindtap="{{cancel}}">
+                        <text>取消</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
     </view>
-  </view>
+
+    <view class="{{'__search-filter ' + (tab ? 'fixed':'')}}">
+        <view class="filter-bg">
+            <view class="filter-tab">
+                <view bindtap="{{setTab}}" data-index="1" class="{{tab === '1' ? 'on' : ''}}" wx:if="{{!area_fixed}}">
+                    <text>{{titles.area?titles.area:'区域'}}</text>
+                    <text class="iconfont icon-jiantou1"></text>
+                </view>
+                <view bindtap="{{setTab}}" data-index="2" class="{{tab === '2' ? 'on' : ''}}">
+                    <text>{{titles.price?titles.price:'均价'}}</text>
+                    <text class="iconfont icon-jiantou1"></text>
+                </view>
+                <view bindtap="{{setTab}}" data-index="3" class="{{tab === '3' ? 'on' : ''}}">
+                    <text>{{titles.huxing?titles.huxing:'首付'}}</text>
+                    <text class="iconfont icon-jiantou1"></text>
+                </view>
+                <view bindtap="{{setTab}}" data-index="4" class="{{tab === '4' ? 'on' : ''}}">
+                    <text>{{'筛选'+(titles.other?('('+titles.other+')'):'')}}</text>
+                    <text class="iconfont icon-jiantou1"></text>
+                </view>
+            </view>
+
+            <view class="filter-select">
+                <!-- 区域 -->
+                <view class="select-box area-select" data-boxindex="1" hidden="{{tab !== '1'}}" wx:if="{{!area_fixed}}">
+                    <scroll-view class="fl" scroll-y="true" wx:if="{{area_filters.length>0}}">
+                        <view class="{{'li '+(area_index==index?'on':'')}}" wx:for="{{area_filters}}" wx:key="id"
+                              data-key="area" data-areaindex="{{index}}" data-id="{{item.id}}"
+                              data-name="{{index?item.name:''}}" bindtap="{{setArea}}">{{item.name}}
+                        </view>
+                    </scroll-view>
+
+                    <scroll-view class="fr" scroll-y="true" wx:if="{{area_index > 0}}">
+                        <view class="{{'li '+(filters.street==item.id?'on':'')}}"
+                              wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street"
+                              data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">
+                            {{item.name}}
+                        </view>
+                    </scroll-view>
+                </view>
+                <!-- 均价 -->
+                <view class="select-box" data-boxindex="2" hidden="{{tab !== '2'}}">
+                    <scroll-view scroll-y="true" wx:if="{{aveprice_filters.length>0}}">
+                        <view class="{{'li ' + (filters.aveprice==item.id?'on':'')}}" wx:for="{{aveprice_filters}}"
+                              wx:key="id" data-key="aveprice" data-id="{{item.id}}" data-name="{{index?item.name:''}}"
+                              bindtap="{{filterNow}}">{{item.name}}
+                        </view>
+                    </scroll-view>
+                </view>
+                <!-- 首付 -->
+                <view class="select-box" data-boxindex="3" hidden="{{tab !== '3'}}">
+                    <scroll-view scroll-y="true" wx:if="{{sfprice_filters.length>0}}">
+
+                        <view class="{{'li ' + (filters.sfprice==item.id?'on':'')}}" wx:for="{{sfprice_filters}}"
+                              wx:key="id" data-key="sfprice" data-id="{{item.id}}" data-name="{{index?item.name:''}}"
+                              bindtap="{{filterNow}}">{{item.name}}
+                        </view>
+                    </scroll-view>
+                </view>
+                <!-- 其他 -->
+                <view class="select-box other-select" data-boxindex="4" hidden="{{tab !== '4'}}">
+                    <scroll-view scroll-y="true" wx:if="{{other_filters.length>0}}" style="max-height: 70vh;">
+
+                        <view class="container" wx:for="{{other_filters}}" wx:key="key">
+                            <text>{{item.title}}</text>
+                            <view class="select-list">
+                                <button class="{{filters[item.key] == child.id ? 'on' : ''}}" wx:for="{{item.array}}"
+                                        wx:key="id" wx:for-item="child" data-key="{{item.key}}" data-id="{{child.id}}"
+                                        bindtap="{{setFilter}}">{{child.name}}
+                                </button>
+                            </view>
+                        </view>
+
+                    </scroll-view>
+
+                    <view class="container other-btn-filter">
+                        <button class="anti-btn-main" bindtap="{{resetOthers}}">重置</button>
+                        <button class="btn-main fr" bindtap="{{setOther}}">确定</button>
+                    </view>
+
+                </view>
+
+            </view>
+        </view>
+    </view>
 </template>

@@ -1063,7 +1063,7 @@ function drawXAxis(categories, opts, config, context) {
 
     context.restore();
     // } else {
-    // categories.forEach(function (item, index) {
+    // categories.forEach(function (item, index-old) {
     //     context.save();
     //     context.beginPath();
     //     context.setFontSize(config.fontSize);
@@ -1071,15 +1071,15 @@ function drawXAxis(categories, opts, config, context) {
     //     var textWidth = measureText(item);
     //     var offset = eachSpacing / 2 - textWidth;
     //
-    //     var _calRotateTranslate = calRotateTranslate(xAxisPoints[index] + eachSpacing / 2, startY + config.fontSize / 2 + 5, opts.height),
+    //     var _calRotateTranslate = calRotateTranslate(xAxisPoints[index-old] + eachSpacing / 2, startY + config.fontSize / 2 + 5, opts.height),
     //         transX = _calRotateTranslate.transX,
     //         transY = _calRotateTranslate.transY;
-    //     categories.forEach(function (item, index) {
+    //     categories.forEach(function (item, index-old) {
     //         context.beginPath();
     //         var offset = eachSpacing / 2 - measureText(item) / 2;
     //         context.rotate(-10 * Math.PI / 180);
     //         console.log(-10 * Math.PI / 180)
-    //         context.fillText(item, xAxisPoints[index] + offset, startY + config.fontSize + 8);
+    //         context.fillText(item, xAxisPoints[index-old] + offset, startY + config.fontSize + 8);
     //             context.closePath();
     //             context.stroke();
     //

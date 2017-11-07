@@ -5,11 +5,11 @@
             <view class="nav-slide">
                 <scroll-view scroll-x="true"  class="ul">
                     <view class="li {{index == 0 ?'on':''}}"
-                          wx:for="{{tabs}}"
+                          wx:for="{{tagtabs}}"
                           wx:for-item="x"
                           data-current="{{index}}"
                           bindtap="swichNav">
-                        <text class="text">{{x}}</text>
+                        <text class="text">{{x.name}}</text>
                     </view>
                 </scroll-view>
             </view>
@@ -18,13 +18,6 @@
                 <text class="iconfont icon-search"></text>
             </view>
         </view>
-
-        <!--<view class="search-unclick container" hidden="{{focused}}">-->
-        <!--<view class="unclick-text" bindtap="{{focus}}">-->
-        <!--<text class="iconfont icon-search"></text>-->
-        <!--<text class="c-999">{{keyword_input||'请输入小区名或关键字'}}</text>-->
-        <!--</view>-->
-        <!--</view>-->
 
         <view class="search-box" hidden="{{!focused}}">
             <view class="input-container container">
@@ -39,35 +32,6 @@
                     </view>
                 </view>
             </view>
-
-            <!--<scroll-view class="search-menu" scroll-y="true" wx:if="{{ tips.length }}">-->
-            <!--<view class="menu-line container" wx:for="{{ tips }}" wx:key="id" data-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" bindtap="{{selectTip}}">-->
-            <!--<text>{{item.texts[0]}}</text>-->
-            <!--<text class="main-color">{{item.texts[1]}}</text>-->
-            <!--<text>{{item.texts[2]}}</text>-->
-            <!--<block wx:if="{{usage==='house'}}">-->
-            <!--<text class="c-999" style="padding: 0 16rpx;">-</text>-->
-            <!--<text class="c-999" wx:if="{{usage==='house'}}">{{item.desc}}</text>-->
-            <!--</block>-->
-            <!--<text class="fr c-999" wx:if="{{usage==='house' && item.count}}">约{{item.count}}套</text>-->
-            <!--</view>-->
-            <!--</scroll-view>-->
-
-            <!--<view class="search-advise container" hidden="{{usage!=='house'||!focused||keyword!==''}}">-->
-            <!--<view class="column" wx:if="{{hots.length}}">-->
-            <!--<view class="h2 c-999">最新热搜</view>-->
-            <!--<view class="list">-->
-            <!--<text class="pod" wx:for="{{hots}}" wx:key="id" data-name="{{item.title}}" data-id="{{item.id || item.hid}}" data-extra="{{item.extra||''}}" bindtap="{{selectHot}}">{{item.title}}</text>-->
-            <!--</view>-->
-            <!--</view>-->
-            <!--<view class="column" wx:if="{{stores.length}}">-->
-            <!--<view class="h2 c-999">搜索历史</view>-->
-            <!--<view class="list">-->
-            <!--<text class="pod" wx:for="{{stores}}" wx:key="{{item.time}}" data-name="{{item.name}}" bindtap="{{selectStore}}">{{item.name}}</text>            -->
-            <!--</view>-->
-            <!--<button class="btn-main" bindtap="{{clearStores}}"><text class="iconfont icon-del1"></text><text>清空搜索历史</text></button>-->
-            <!--</view>-->
-            <!--</view>-->
         </view>
     </view>
 </template>

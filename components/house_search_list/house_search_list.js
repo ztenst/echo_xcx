@@ -23,7 +23,7 @@ export default {
         navigateDetail(e) {
           // let pages = getCurrentPages();
 
-          // let searchListTimes = pages.filter(item => item.route === 'pages/house_search/house_search').length;
+          // let searchListTimes = pages.filter(item => item.route === 'pages/index/index').length;
 
           // console.log(searchListTimes);
 
