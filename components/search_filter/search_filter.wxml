@@ -1,26 +1,29 @@
 <template name="searchFilter">
     <view class="__search-bar">
-        <view class="search-nav" hidden="{{focused}}">
-            <view class="nav-slide">
-                <scroll-view scroll-x="true" class="ul">
-                    <view class="li {{filters.toptag == item.id ?'on':''}}"
-                          wx:for="{{toptag_filters}}" wx:key="id"
-                          data-key="toptag" data-id="{{item.id}}"
-                          bindtap="{{filterNow}}">
-                        <text class="text">{{item.name}}</text>
-                    </view>
-                </scroll-view>
-            </view>
+        <view wx:if="{{!focused}}">
+            <view class="search-nav" >
+                <view class="nav-slide">
+                    <scroll-view scroll-x class="ul">
+                        <view class="li  {{filters.toptag == item.id ?'on':''}}"
+                              wx:for="{{toptag_filters}}" wx:key="id"
+                              data-key="toptag" data-id="{{item.id}}"
+                              bindtap="{{filterNow}}">
+                            <text class="text">{{item.name}}</text>
+                        </view>
+                    </scroll-view>
+                </view>
 
-            <view class="search-btn" bindtap="{{focus}}">
-                <text class="iconfont icon-sousuo"></text>
+                <view class="search-btn" bindtap="{{focus}}">
+                    <text class="iconfont icon-sousuo"></text>
+                </view>
             </view>
         </view>
+
 
         <view class="search-box" hidden="{{!focused}}">
             <view class="input-container container">
                 <view>
-                    <text class="iconfont icon-search"></text>
+                    <text class="iconfont icon-sousuo"></text>
                     <input type="text" confirm-type="search" focus="{{focused}}" value="{{kw_input}}"
                            bindinput="{{inputkw}}" bindconfirm="{{confirm}}" placeholder-class="c-999"
                            placeholder="请输入关键字"/>
@@ -37,15 +40,15 @@
         <view class="filter-bg">
             <view class="filter-tab">
                 <view bindtap="{{setTab}}" data-index="1" class="{{tab === '1' ? 'on' : ''}}" wx:if="{{!area_fixed}}">
-                    <text>{{titles.area?titles.area:'区域'}}</text>
+                    <text>{{titles.street?titles.street:'区域'}}</text>
                     <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="2" class="{{tab === '2' ? 'on' : ''}}">
-                    <text>{{titles.price?titles.price:'均价'}}</text>
+                    <text>{{titles.aveprice?titles.aveprice:'均价'}}</text>
                     <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="3" class="{{tab === '3' ? 'on' : ''}}">
-                    <text>{{titles.huxing?titles.huxing:'首付'}}</text>
+                    <text>{{titles.sfprice?titles.sfprice:'首付'}}</text>
                     <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="4" class="{{tab === '4' ? 'on' : ''}}">

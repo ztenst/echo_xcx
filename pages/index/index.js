@@ -44,7 +44,13 @@ Page({
         });
         self.restartSearch();
         //列表组件初始化
-        $houseSearchList.init();
+        $houseSearchList.init({
+            onFilter(filters) {
+                let data = self.getSearchParams();
+                let params = Object.assign({}, data, filters);
+                self.restartSearch(params);
+            }
+        });
         //筛选组件初始化
         searchFilter = $searchFilter.init({
             area_fixed: area_fixed,

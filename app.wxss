@@ -196,19 +196,19 @@ text.loading-gif {
       font-size: 24rpx;
       height: 32rpx;
       line-height: 32rpx;
-      vertical-align: middle; }
+      vertical-align: -4rpx; }
       .__house-search-list .house-item .house-text .house-info view {
         display: inline-block; }
       .__house-search-list .house-item .house-text .house-info .locate {
         margin-right: 24rpx; }
+        .__house-search-list .house-item .house-text .house-info .locate.company {
+          color: #999; }
       .__house-search-list .house-item .house-text .house-info .iconfont {
         font-size: 22rpx;
         margin-right: 8rpx; }
       .__house-search-list .house-item .house-text .house-info .fr {
         position: relative;
         height: 32rpx; }
-        .__house-search-list .house-item .house-text .house-info .fr text {
-          font-size: 30rpx; }
         .__house-search-list .house-item .house-text .house-info .fr .unit {
           font-size: 26rpx; }
     .__house-search-list .house-item .house-text .house-pay {
@@ -306,7 +306,7 @@ text.loading-gif {
     .__search-bar .search-box .input-container input {
       display: block;
       height: 60rpx; }
-    .__search-bar .search-box .input-container .icon-search {
+    .__search-bar .search-box .input-container .icon-sousuo {
       position: absolute;
       color: #ccc;
       left: 0;
@@ -344,12 +344,12 @@ text.loading-gif {
       overflow: hidden; }
       .__search-bar .search-nav .nav-slide .ul {
         overflow-y: hidden;
-        height: 100%;
         overflow-x: scroll;
-        white-space: nowrap; }
+        white-space: nowrap;
+        padding: 28rpx 24rpx;
+        margin: 0  auto; }
         .__search-bar .search-nav .nav-slide .ul .li {
           display: inline-block;
-          padding: 20rpx 24rpx;
           width: auto !important;
           height: auto !important; }
           .__search-bar .search-nav .nav-slide .ul .li text {
@@ -379,7 +379,7 @@ text.loading-gif {
         color: #666;
         padding-right: 15rpx;
         padding-top: 15rpx; }
-      .__search-bar .search-nav .search-btn .icon-search {
+      .__search-bar .search-nav .search-btn .icon-sousuo {
         line-height: 60rpx;
         color: #ccc;
         margin: 0 12rpx 0 20rpx; }
@@ -496,6 +496,21 @@ text.loading-gif {
         height: 80rpx;
         line-height: 80rpx;
         width: 340rpx; }
+
+.tongji {
+  color: #666;
+  width: 100%;
+  height: 66rpx;
+  font-size: 24rpx;
+  background: #f5f5f5; }
+  .tongji > view {
+    padding: 10rpx 24rpx; }
+  .tongji > text {
+    display: inline-block; }
+  .tongji .fr {
+    padding: 4rpx 8rpx;
+    background-color: #00b7ee;
+    color: #fff; }
 
 .weui-toast-wrapper {
   position: absolute;

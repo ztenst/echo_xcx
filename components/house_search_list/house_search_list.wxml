@@ -1,47 +1,55 @@
 <template name="houseSearchList">
 
-  <!-- text不能 换行 -->
-  <view class="__house-search-list">
-    <block wx:if="{{ list.length>0 }}">
-      <!-- <navigator wx:for="{{list}}" wx:key="id" class="container" url="{{'/pages/house_detail/'+(type==1?'new_house_detail':(type==2?'esf_house_detail':'rent_house_detail'))+'?id='+item.id}}"> -->
-      <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}"  class="container" bindtap="{{navigateDetail}}">
+    <!-- text不能 换行 -->
+    <view class="__house-search-list">
 
-        <!-- 非特价 -->
-        <view  class="house-item">
-          <view class="house-pic">
-            <image src="{{item.image || default_img}}"></image>
-          </view>
-          <view class="house-text">
-            <!-- 标题 -->
-            <view class="house-title">
-              <text>{{item.title}}</text>
-              <text class="price">{{item.price}}{{item.unit}}</text>
+        <view class="tongji">
+            <view>
+                共{{list.length}}条房源
+                <text class="fr" wx:if="{{company}}" bindtap="{{filterCompany}}">{{company}}X</text>
             </view>
-            <!-- 位置 -->
-            <view class="house-info c-999">
-              <view>
-                <text class="locate">{{item.area}}</text>
-                <text class="locate">{{item.street}}</text>
-              </view>
-              <view class="fr">
-                   <text>{{item.wylx}}</text>
-              </view>
-            </view>
-            <!-- 首付 -->
-            <view class="house-pay">
-              <text class="tag_pay">佣</text>{{item.pay}}
-            </view>
-            <!--公司-->
-            <view class="house-info">
-              <text class="locate">{{item.zd_company.name}}</text>
-            </view>
-
-          </view>
-
         </view>
+        <!-- <navigator wx:for="{{list}}" wx:key="id" class="container" url="{{'/pages/house_detail/'+(type==1?'new_house_detail':(type==2?'esf_house_detail':'rent_house_detail'))+'?id='+item.id}}"> -->
+        <block wx:if="{{ list.length>0 }}">
+            <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" class="container" catchtap="{{navigateDetail}}">
 
-      </view>
-    </block>
-  </view>
+                <!-- 非特价 -->
+                <view class="house-item">
+                    <view class="house-pic">
+                        <image src="{{item.image}}"></image>
+                    </view>
+                    <view class="house-text">
+                        <!-- 标题 -->
+                        <view class="house-title">
+                            <text>{{item.title}}</text>
+                            <text class="price">{{item.price}}{{item.unit}}</text>
+                        </view>
+                        <!-- 位置 -->
+                        <view class="house-info c-999">
+                            <view>
+                                <text class="locate">{{item.area}}</text>
+                                <text class="locate">{{item.street}}</text>
+                            </view>
+                            <view class="fr">
+                                <text class="wylx">{{item.wylx}}</text>
+                            </view>
+                        </view>
+                        <!-- 首付 -->
+                        <view class="house-pay">
+                            <text class="tag_pay">佣</text>
+                            {{item.pay}}
+                        </view>
+                        <!--公司-->
+                        <view class="house-info" data-company="{{item.zd_company}}" catchtap="{{filterCompany}}">
+                            <text class="locate company">{{item.zd_company.name}}</text>
+                        </view>
+
+                    </view>
+
+                </view>
+
+            </view>
+        </block>
+    </view>
 
 </template>
