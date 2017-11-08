@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/house_detail/new_house_detail"
+    "pages/house_detail/house_detail"
 
   ],
   "window":{

@@ -19,8 +19,7 @@ Page({
         filters: {},
         list: [],
         default_img: '',
-
-        title: '', //某小区房产列表的title
+        title: '', //某房产列表的title
         area_fixed: false,
 
         area_text: '' //当前筛选的区域
@@ -30,13 +29,6 @@ Page({
         let self = this;
         let TITLE = "经济圈新房通";
         let area_fixed = false;
-
-        // app.getSiteConfig().then(s => {
-        //   siteConfig = s;
-        //   self.setData({
-        //     default_img: type === 1 ? s.m_default_plotimg : s.m_default_esfimg
-        //   })
-        // });
 
         let _q = Object.assign({
             title: TITLE
@@ -50,9 +42,10 @@ Page({
         wx.setNavigationBarTitle({
             title: _q.title,
         });
-
+        self.restartSearch();
+        //列表组件初始化
         $houseSearchList.init();
-
+        //筛选组件初始化
         searchFilter = $searchFilter.init({
             area_fixed: area_fixed,
             filters: _q, //传入筛选条件
@@ -64,12 +57,6 @@ Page({
             }
         });
 
-    },
-
-    onShow(){
-        let pages = getCurrentPages();
-        console.log(pages);
-        console.log(`pages length: ${pages.length}`);
     },
     //重置搜索
     restartSearch(filters) {
@@ -84,13 +71,13 @@ Page({
     },
 
     //获得搜索参数
-    // getSearchParams() {
-    //     let params = Object.assign({}, this.data.filters, {
-    //         page: this.data.page,
-    //     });
-    //
-    //     return params;
-    // },
+    getSearchParams() {
+        let params = Object.assign({}, this.data.filters, {
+            page: this.data.page,
+        });
+
+        return params;
+    },
 
     //搜索房产
     requestList() {
@@ -129,24 +116,22 @@ Page({
 
     },
 
-    // onShareAppMessage(res) {
-    //     let params = Object.assign({}, this.data.filters, {
-    //         keyword: this.data.keyword,
-    //         hid: this.data.hid,
-    //         title: this.data.title
-    //     })
-    //     let type = this.data.type;
-    //     if (Object.keys(this.data.filters).length === 0) {
-    //         return {
-    //             title: `${siteConfig.city_name}${['买新房', '二手房', '找租房'][type - 1]}`,
-    //         }
-    //     } else {
-    //         return {
-    //             title: `${siteConfig.city_name} ${this.data.area_text}${['优质楼盘推荐', '好房推荐', '租房推荐'][type - 1]}`,
-    //             path: `pages/house_search/house_search?${Util.params2Query(params)}`
-    //         }
-    //     }
-    //
-    // }
+    onShareAppMessage(res) {
+        let params = Object.assign({}, this.data.filters, {
+            kw: this.data.kw,
+            title: this.data.title
+        })
+        if (Object.keys(this.data.filters).length === 0) {
+            return {
+                title: "经济圈新房通",
+            }
+        } else {
+            return {
+                title: '经济圈新房通',
+                path: `pages/index/index?${Util.params2Query(params)}`
+            }
+        }
+
+    }
 
 });

@@ -1,8 +1,0 @@
-<view class="wz-map">
-   <view catchtap="gotomapdetail">
-      <image class="img" src="{{src}}"></image>
-   </view>
-   <view class="cover">
-      <text class="txt">位置:{{address}}</text>
-   </view>
-</view>

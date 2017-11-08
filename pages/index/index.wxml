@@ -4,24 +4,27 @@
 
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="page house-search">
-  <view class="search-top">
-    <template is="searchFilter" data="{{ ...$searchFilter }}"></template>
-  </view>
 
-  <scroll-view class="search-result"  scroll-y="true" lower-threshold="100" bindscrolltolower="requestList">
-    <block wx:if="{{!requested||max_page>0}}">
-      <template is="houseSearchList" data="{{ type, list, default_img, ...$houseSearchList }}"></template>
-      <view class="loading-container" style="text-align: center;" wx:if="{{loading}}">
-        <text class="loading-gif"></text>
-      </view>
-    </block>
-    <block wx:if="{{requested&&max_page===0}}">
-      <view class="none-result c-999">暂无找到相关内容，看看别的吧</view>
-      <!--<block wx:if="{{!area_fixed}}">-->
-        <!--<view class="large-title">猜你喜欢</view>-->
-        <!--<template is="houseSearchList" data="{{ type, list:spare_list, default_img, ...$houseSearchList }}"></template>-->
-      <!--</block>-->
-    </block>
-  </scroll-view>
+    <!--搜索筛选-->
+    <view class="search-top">
+        <template is="searchFilter" data="{{ ...$searchFilter }}"></template>
+    </view>
+
+    <!--列表-->
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed?68:186)+'rpx;'}}"  lower-threshold="200" bindscrolltolower="requestList">
+
+        <block wx:if="{{!requested||max_page>0}}">
+            <template is="houseSearchList" data="{{ list, ...$houseSearchList }}"></template>
+            <view class="loading-container" style="text-align: center;" wx:if="{{loading}}">
+                <text class="loading-gif"></text>
+            </view>
+        </block>
+
+        <!--无数据-->
+        <block wx:if="{{requested&&max_page===0}}">
+            <view class="none-result c-999">暂无找到相关内容，看看别的吧</view>
+        </block>
+
+    </scroll-view>
 
 </view>
