@@ -4,7 +4,8 @@
             bindchange="swiperChange">
         <block wx:for="{{coverswiper.imgUrls}}">
             <swiper-item>
-                <image src="{{item.url}}" class="slide-image"  data-current="{{item.url}}" data-urls="{{coverswiper.imgUrls}}"  bindtap="viewPic"/>
+                <image src="{{item.url}}" class="slide-image" data-current="{{item.url}}"
+                       data-urls="{{coverswiper.imgUrls}}" bindtap="viewPic"/>
             </swiper-item>
         </block>
     </swiper>

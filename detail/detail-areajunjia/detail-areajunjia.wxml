@@ -1,7 +1,0 @@
-<canvas canvas-id="lineCanvas"  class="canvas" hidden="{{failedLoadChart||renderLineChartComplete}}"></canvas>
-<view class="cancImg" hidden="{{failedLoadChart}}">
-    <image src="{{lineTempFilePath}}" class="img"></image>
-</view>
-
-
-

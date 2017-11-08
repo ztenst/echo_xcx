@@ -3,30 +3,15 @@ const DetailCover = {
     /**
      * 初始化轮播图
      */
-    initDetailCover(fid, type, data) {
+    initDetailCover(data) {
         let that = this;
-        if (!data) {
-            api.getHouseImages(fid, type, 1).then(obj => {
-                let data = obj.data.data;
-                that.setData({
-                    coverswiper: {
-                        imgUrls: data.images,
-                        swiper_data_num: data.count,
-                        swiperCurrent: 0
-                    }
-                });
-            });
-
-        } else {
-            that.setData({
-                coverswiper: {
-                    imgUrls: data,
-                    swiper_data_num: data.length,
-                    swiperCurrent: 0
-                }
-            });
-
-        }
+        that.setData({
+            coverswiper: {
+                imgUrls: data,
+                swiper_data_num: data.length,
+                swiperCurrent: 0
+            }
+        });
     },
     /**
      * 滑动轮播图

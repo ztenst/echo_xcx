@@ -15,14 +15,13 @@ export default {
 
   init(opts = {}) {
     const options = Object.assign({}, this.setDefaults(), opts);
-
     const component = new Component({
       scope: SCOPE,
       data: options,
       methods: {
         navigateDetail(e) {
           let dataset = e.currentTarget.dataset;
-          let url = '/pages/house_detail/new_house_detail?id=' + dataset.id;
+          let url = '/pages/house_detail/house_detail?id=' + dataset.id;
           app.goPage(url, null, false);
         }
       }

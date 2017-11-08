@@ -21,19 +21,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "index",
-					"pathName": "pages/house_search/house_search",
-					"query": "type=1"
+					"pathName": "pages/index/index",
+					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "详细页",
-					"pathName": "pages/house_detail/new_house_detail",
-					"query": "id=1066"
+					"pathName": "pages/house_detail/house_detail",
+					"query": "id=123"
 				}
 			]
 		}

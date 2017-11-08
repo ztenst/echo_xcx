@@ -1,9 +1,6 @@
 <template name="searchFilter">
-
     <view class="__search-bar">
-
         <view class="search-nav" hidden="{{focused}}">
-
             <view class="nav-slide">
                 <scroll-view scroll-x="true" class="ul">
                     <view class="li {{filters.toptag == item.id ?'on':''}}"
@@ -16,7 +13,7 @@
             </view>
 
             <view class="search-btn" bindtap="{{focus}}">
-                <text class="iconfont icon-search"></text>
+                <text class="iconfont icon-sousuo"></text>
             </view>
         </view>
 
@@ -36,25 +33,24 @@
         </view>
 
     </view>
-
     <view class="{{'__search-filter ' + (tab ? 'fixed':'')}}">
         <view class="filter-bg">
             <view class="filter-tab">
                 <view bindtap="{{setTab}}" data-index="1" class="{{tab === '1' ? 'on' : ''}}" wx:if="{{!area_fixed}}">
                     <text>{{titles.area?titles.area:'区域'}}</text>
-                    <text class="iconfont icon-jiantou1"></text>
+                    <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="2" class="{{tab === '2' ? 'on' : ''}}">
                     <text>{{titles.price?titles.price:'均价'}}</text>
-                    <text class="iconfont icon-jiantou1"></text>
+                    <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="3" class="{{tab === '3' ? 'on' : ''}}">
                     <text>{{titles.huxing?titles.huxing:'首付'}}</text>
-                    <text class="iconfont icon-jiantou1"></text>
+                    <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="4" class="{{tab === '4' ? 'on' : ''}}">
                     <text>{{'筛选'+(titles.other?('('+titles.other+')'):'')}}</text>
-                    <text class="iconfont icon-jiantou1"></text>
+                    <text class="iconfont icon-down"></text>
                 </view>
             </view>
 
@@ -88,7 +84,6 @@
                 <!-- 首付 -->
                 <view class="select-box" data-boxindex="3" hidden="{{tab !== '3'}}">
                     <scroll-view scroll-y="true" wx:if="{{sfprice_filters.length>0}}">
-
                         <view class="{{'li ' + (filters.sfprice==item.id?'on':'')}}" wx:for="{{sfprice_filters}}"
                               wx:key="id" data-key="sfprice" data-id="{{item.id}}" data-name="{{index?item.name:''}}"
                               bindtap="{{filterNow}}">{{item.name}}
@@ -108,7 +103,6 @@
                                 </button>
                             </view>
                         </view>
-
                     </scroll-view>
 
                     <view class="container other-btn-filter">
