@@ -107,7 +107,7 @@ export default {
                         [`${SCOPE}.filters.kw`]: e.detail.value
                     });
                     this.triggerFilter();
-                    // typeof options.onInputkw === 'function' && options.onInputkw(kw, this);
+                    typeof options.onInputkw === 'function' && options.onInputkw(kw, this);
 
                 },
                 //清除关键字
@@ -117,15 +117,14 @@ export default {
                         [`${SCOPE}.filters.kw_input`]: '',
                     });
                     this.triggerFilter();
-                    // typeof options.onClearkw === 'function' && options.onClearkw()
+                    typeof options.onClearkw === 'function' && options.onClearkw()
                 },
                 //取消搜索
                 cancel() {
-
                     this.setData({
                         [`${SCOPE}.focused`]: false
                     });
-                    // typeof options.onBlur === 'function' && options.onBlur()
+                    typeof options.onBlur === 'function' && options.onBlur()
                 },
                 //确认
                 confirm(e) {
@@ -153,6 +152,11 @@ export default {
                     let data = self.getComponentData();
                     let ajaxs = [];
 
+                    //获取筛选tags的数据
+                    let empty = {
+                        id: '',
+                        name: '不限'
+                    };
                     //获取搜索顶部的tags
                     ajaxs.push(api.getTagsIndex("wzlm").then(resp => {
                         let json = resp.data.data;
@@ -163,12 +167,6 @@ export default {
                             }].concat(json),
                         })
                     }));
-
-                    //获取筛选tags的数据
-                    let empty = {
-                        id: '',
-                        name: '不限'
-                    };
                     ajaxs.push(api.getFilterTags("plotFilter").then(resp => {
                         let json = resp.data.data;
                         let quyu = json[0].list;

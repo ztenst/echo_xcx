@@ -1,3 +1,5 @@
+<import src="../../libs/wxParse/wxParse.wxml"/>
+
 <view class="menuwap">
     <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
@@ -9,9 +11,6 @@
                     <text class="price">{{plotdetail.price}}</text>
                     <text class="unit">{{plotdetail.unit}}</text>
                     <text class="state">[在售]</text>
-                </view>
-                <view class="fr lpdata">
-                    <text class="iconfont icon-fengxiang2"></text>
                 </view>
             </view>
             <view class="lp-stag" wx:if="{{plotdetail.tags.length!==0}}">
@@ -28,9 +27,6 @@
                     <text class="iconfont icon-dingwei"></text>
                     <text class="col-t">{{plotdetail.address}}</text>
                 </view>
-                <view class="row-r">
-                    查看地图<text class="iconfont icon-right"></text>
-                </view>
             </view>
             <view class="row bdm box box-align-center box-pack-between" wx:if="{{plotdetail.address}}" data-hash="hash1"
                   bindtap="goHash">
@@ -39,7 +35,8 @@
                     <text class="col-t">{{plotdetail.address}}</text>
                 </view>
                 <view class="row-r">
-                    所有项目<text class="iconfont icon-right"></text>
+                    所有项目
+                    <text class="iconfont icon-right"></text>
                 </view>
             </view>
         </view>
@@ -48,37 +45,54 @@
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">最新动态</view>
-                <view class="mTitle-r iconfont icon-right"></view>
             </view>
             <!--引入detailcover模板-->
-            <include src="/detail/detail-content/detail-content.wxml"/>
+            <view class="mDesc mDes-nbtm">
+                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+                    <view id="newsContent">
+                        <template is="wxParse" data="{{wxParseData:newsContent.nodes}}"/>
+                    </view>
+                </view>
+            </view>
         </view>
         <!--雇佣规则-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">雇佣规则</view>
-                <view class="mTitle-r iconfont icon-right"></view>
             </view>
-            <!--引入detailcover模板-->
-            <include src="/detail/detail-content/detail-content.wxml"/>
+            <view class="mDesc mDes-nbtm">
+                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+                    <view id="payContent">
+                        <template is="wxParse" data="{{wxParseData:payContent.nodes}}"/>
+                    </view>
+                </view>
+            </view>
         </view>
         <!--带看规则-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.dk_rule}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">带看规则</view>
-                <view class="mTitle-r iconfont icon-right"></view>
             </view>
-            <!--引入detailcover模板-->
-            <include src="/detail/detail-content/detail-content.wxml"/>
+            <view class="mDesc mDes-nbtm">
+                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+                    <view id="dkContent">
+                        <template is="wxParse" data="{{wxParseData:dkContent.nodes}}"/>
+                    </view>
+                </view>
+            </view>
         </view>
         <!--楼盘卖点-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.sell_point}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">楼盘卖点</view>
-                <view class="mTitle-r iconfont icon-right"></view>
             </view>
-            <!--引入detailcover模板-->
-            <include src="/detail/detail-content/detail-content.wxml"/>
+            <view class="mDesc mDes-nbtm">
+                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+                    <view id="sellContent">
+                        <template is="wxParse" data="{{wxParseData:sellContent.nodes}}"/>
+                    </view>
+                </view>
+            </view>
         </view>
         <!--主力户型-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.hx.length!==0}}" id="hash1">
@@ -134,33 +148,21 @@
                     </view>
                 </scroll-view>
             </view>
-            <text class="mMore-noti">免责声明：楼盘信息由开发商提供,最终以政府部门登记备案为准,请谨慎核查。如楼盘信息有误请拨打{{site_phone}}反馈纠错</text>
+            <text class="mMore-noti">免责申明：经纪圈新房通不对信息内容做任何担保承诺，代理公司可能会对项目的佣金及信息进行调整，一切以书面合同为准。</text>
         </view>
-        <!--举报-->
-        <view class="mBox bg-fff">
-            <view class="promite-box clearfix box box-align-center flex">
-                <view class="left flex">
-                    <view>
-                        <text class="iconfont icon-jubao"></text>
-                        <text class="jubao-text">我要举报</text>
-                        <text class="tip">已售罄、号码错误</text>
-                    </view>
-                </view>
-                <view class="right flex">
-                    <view class="mail-pic"><image src="../../images/mail.png"></image></view>
-                    <text class="police-text">举报</text>
-                </view>
-            </view>
-        </view>
-
 
     </scroll-view>
 
     <view class="mBottom box flex">
         <view class="left box box-align-center flex">
-            <view class="a flex"><text class="iconfont icon-dianhua"></text>电话</view>
-            <view class="a flex"><text class="iconfont icon-fenxiaoshang"></text>分销</view>
-            <view class="a flex" ><text class="iconfont icon-shoucang"></text>收藏</view>
+            <view class="a flex">
+                <text class="iconfont icon-dianhua"></text>
+                电话
+            </view>
+            <view class="a flex">
+                <text class="iconfont icon-fenxiaoshang"></text>
+                分销
+            </view>
         </view>
         <view class="right">
             <view>快速报备</view>

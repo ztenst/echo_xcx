@@ -14,7 +14,7 @@
     <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed?68:186)+'rpx;'}}"  lower-threshold="200" bindscrolltolower="requestList">
 
         <block wx:if="{{!requested||max_page>0}}">
-            <template is="houseSearchList" data="{{ list, ...$houseSearchList }}"></template>
+            <template is="houseSearchList" data="{{list, ...$houseSearchList }}"></template>
             <view class="loading-container" style="text-align: center;" wx:if="{{loading}}">
                 <text class="loading-gif"></text>
             </view>

@@ -1,4 +1,4 @@
-<view class="coverswiper" wx:if="{{coverswiper.imgUrls.length!==0}}">
+<view class="coverswiper" >
     <swiper class="swiper-wrap"
             current="{{swiperCurrent}}"
             bindchange="swiperChange">

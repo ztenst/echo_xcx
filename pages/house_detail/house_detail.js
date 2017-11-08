@@ -1,8 +1,8 @@
 import detailCover from '../../detail/detail-cover/detail-cover';
-import detailDetailContent from '../../detail/detail-content/detail-content';
 var app = getApp();
 var api = require('../../common/api');
 var util = require('../../utils/util');
+var WxParse = require('../../libs/wxParse/wxParse.js');
 Page(Object.assign({
     data: {
         plot_id: null,
@@ -52,6 +52,47 @@ Page(Object.assign({
         });
     },
 
+    //初始化
+    initDetailContent(data,id) {
+        let that = this;
+        /**
+         * html解析示例
+         */
+        WxParse.wxParse(id, 'html', data, that);
+
+        if(data){
+            that.showDetailContent(id);
+        }
+    },
+    zsTap: function (e) {
+        let that = this;
+        that.setData({
+            isShowExtend: !that.data.isShowExtend
+        });
+    },
+    showDetailContent: function (id) {
+        let that = this;
+        setTimeout(function () {
+            wx.createSelectorQuery().select(id).fields({
+                size: true,
+            }, function (res) {
+                // if (res.height > 150) {
+                //     that.setData({
+                //         isShowExtend: true,
+                //         canExtend: true
+                //     });
+                // } else {
+                //     that.setData({
+                //         isShowExtend: false,
+                //         canExtend: false
+                //     });
+                // }
+            }).exec();
+        }, 200)
+    },
+
+
+
     onLoad: function (options) {
         wx.showLoading({title: '加载中',})
         var self = this;
@@ -69,15 +110,19 @@ Page(Object.assign({
             let data = res.data.data;
             if(res.data.status === 'success'){
                 self.setData({plotdetail: data});
-                /**
-                 * 房屋描述
-                 */
-                self.initDetailContent(data.news.trim(),1);
                 wx.setNavigationBarTitle({title: data.title});//设置导航条标题
                 /**
                  *初始化轮播图
                  */
                 self.initDetailCover(data.images);
+                /**
+                 * 房屋描述
+                 */
+                self.initDetailContent(data.news.trim(),"newsContent");
+                self.initDetailContent(data.dk_rule.trim(),"dkContent");
+                self.initDetailContent(data.sell_point.trim(),"sellContent");
+                self.initDetailContent((data.pay[0].title+data.pay[0].content).trim(),"payContent");
+
 
                 /*
                  * 同区域楼盘
@@ -117,4 +162,4 @@ Page(Object.assign({
         wx.previewImage({urls: [e.currentTarget.dataset.current]});
     },
 
-}, detailCover, detailDetailContent));
+}, detailCover));
