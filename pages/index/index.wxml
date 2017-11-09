@@ -11,7 +11,8 @@
     </view>
 
     <!--列表-->
-    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed?68:186)+'rpx;'}}"  lower-threshold="200" bindscrolltolower="requestList">
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed?68:186)+'rpx;'}}"
+                 lower-threshold="200" bindscrolltolower="requestList">
 
         <block wx:if="{{!requested||max_page>0}}">
             <template is="houseSearchList" data="{{list, ...$houseSearchList }}"></template>
@@ -26,5 +27,14 @@
         </block>
 
     </scroll-view>
+
+
+    <view class="right-side-menu side-menu">
+        <view class="user">
+            <!--<text class="iconfont icon-person"></text>-->
+            <image src="../../images/user.png"></image>
+        </view>
+    </view>
+
 
 </view>

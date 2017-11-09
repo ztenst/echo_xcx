@@ -7,6 +7,7 @@
   .container {
     background: #fff;
     border-bottom: 1px solid $borderColor;
+    width:100%;
   }
 
   .house-item {
@@ -61,6 +62,18 @@
           font-size: 30rpx;
           top: -10rpx;
           right: -10rpx;
+        }
+        .zhiding{
+          color:#fff;
+          display: inline-block;
+          text-align: center;
+          width:30rpx;
+          height:30rpx;
+          line-height: 30rpx;
+          background-color: #FCA61E;
+          border-radius: 8rpx;
+          margin-right:10rpx;
+
         }
       }
       .house-info {
@@ -224,7 +237,7 @@
         left: 0;
         top: 0;
       }
-      .icon-closed {
+      .icon-close {
         position: absolute;
         color: #bfbfbf;
         padding: 10rpx;
@@ -443,6 +456,7 @@
   height: 66rpx;
   font-size: 24rpx;
   background: #f5f5f5;
+  border-bottom: 1rpx solid $borderColorE6;
   >view{
     padding:10rpx 24rpx;
   }
@@ -453,6 +467,11 @@
     padding:4rpx 8rpx;
     background-color: $maincolor;
     color:#fff;
+  }
+  .iconfont{
+    font-size: 24rpx;
+    color:#fff;
+    margin-left:10rpx;
   }
 }
 

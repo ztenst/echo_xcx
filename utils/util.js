@@ -42,14 +42,13 @@ function formatNumber(n) {
 /*
  * 过滤特殊字符
  */
-
 function stripscript(s) {
-  var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“’。，、？] ")
-  var rs = "";
-  for (var i = 0; i < s.length; i++) {
-    rs = rs + s.substr(i, 1).replace(pattern, '&lt;');
-  }
-  return rs;
+    var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%]")
+    var rs = "";
+    for (var i = 0; i < s.length; i++) {
+        rs = rs+s.substr(i, 1).replace(pattern, '');
+    }
+    return rs;
 }
 
 function params2Query(params) {
@@ -111,7 +110,7 @@ function filterEmpty(data = {}) {
 module.exports = {
   formatTime: formatTime,
   formatTime2: formatTime2,
-  stripscript: stripscript,
+    stripscript: stripscript,
   params2Query: params2Query,
   query2Params: query2Params,
   decodeKeys: decodeKeys,

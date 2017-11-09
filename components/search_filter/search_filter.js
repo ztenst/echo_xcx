@@ -3,11 +3,11 @@ import api from '../../common/api'
 import Util from '../../utils/util'
 
 const SCOPE = '$searchFilter';
-
+let timeout = null;
 
 //取得筛选字段
 function getFilterKeys() {
-    return ['toptag', 'street', 'aveprice', 'sfprice', 'company','kw'];
+    return ['toptag', 'street', 'aveprice', 'sfprice', 'company', 'kw'];
 }
 
 //取得其他筛选字段
@@ -106,7 +106,9 @@ export default {
                     this.setData({
                         [`${SCOPE}.filters.kw`]: e.detail.value
                     });
-                    this.triggerFilter();
+                    if (timeout) clearTimeout(timeout);
+                    timeout = setTimeout(() => self.triggerFilter(), 300);
+
                     typeof options.onInputkw === 'function' && options.onInputkw(kw, this);
 
                 },
@@ -173,12 +175,24 @@ export default {
                         let junjia = json[1].list;
                         let shoufu = json[2].list;
                         let qita = json[3].list;
-                        let areas = [Object.assign(empty, {childAreas: []})].concat(quyu);
                         self.setData({
-                            [`${SCOPE}.area_filters`]: areas,
                             [`${SCOPE}.aveprice_filters`]: [empty].concat(junjia),
                             [`${SCOPE}.sfprice_filters`]: [empty].concat(shoufu)
                         });
+
+
+                        let areas = [Object.assign(empty, {childAreas: []})].concat(quyu)
+                        self.setData({
+                            [`${SCOPE}.area_filters`]: areas
+                        })
+                        if (data.filters.area) {
+                            let i = areas.findIndex(item => item.id == data.filters.area)
+                            if (i > -1) {
+                                self.setData({
+                                    [`${SCOPE}.area_index`]: i
+                                })
+                            }
+                        }
 
                         let _list = [];
                         for (let i in qita) {

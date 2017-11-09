@@ -24,6 +24,7 @@ export default {
             scope: SCOPE,
             data: options,
             methods: {
+
                 filterCompany(e){
                     let filters = {'company':''};
                     if(e.currentTarget.dataset.company){
@@ -47,7 +48,6 @@ export default {
                 }
             }
         });
-
         return component;
     }
 }
