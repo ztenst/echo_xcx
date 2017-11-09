@@ -1,10 +1,10 @@
+<import src="../../components/detail_content/detail_content.wxml"/>
 <import src="../../libs/wxParse/wxParse.wxml"/>
 
 <view class="menuwap">
     <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
         <include src="/detail/detail-cover/detail-cover.wxml"/>
-
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
                 <view class="fl">
@@ -28,7 +28,7 @@
                     <text class="col-t">{{plotdetail.address}}</text>
                 </view>
             </view>
-            <view class="row bdm box box-align-center box-pack-between" wx:if="{{plotdetail.address}}" data-hash="hash1"
+            <view class="row  box box-align-center box-pack-between" wx:if="{{plotdetail.address}}" data-hash="hash1"
                   bindtap="goHash">
                 <view class="row-l box">
                     <text class="iconfont icon-dai"></text>
@@ -44,55 +44,35 @@
         <!--最新动态-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">最新动态</view>
+                <!--<view class="mTitle-l">最新动态</view>-->
+                <view class="mTitle-l">1111111</view>
             </view>
             <!--引入detailcover模板-->
-            <view class="mDesc mDes-nbtm">
-                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
-                    <view id="newsContent">
-                        <template is="wxParse" data="{{wxParseData:newsContent.nodes}}"/>
-                    </view>
-                </view>
-            </view>
+            <template is="detailContent" data="{{ ...$detailContent.news }}"/>
         </view>
         <!--雇佣规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">雇佣规则</view>
+                <!--<view class="mTitle-l">雇佣规则</view>-->
+                <view class="mTitle-l">2222222222</view>
             </view>
-            <view class="mDesc mDes-nbtm">
-                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
-                    <view id="payContent">
-                        <template is="wxParse" data="{{wxParseData:payContent.nodes}}"/>
-                    </view>
-                </view>
-            </view>
+            <template is="detailContent" data="{{...$detailContent.pay}}"/>
         </view>
         <!--带看规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.dk_rule}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">带看规则</view>
+                <!--<view class="mTitle-l">带看规则</view>-->
+                <view class="mTitle-l">3</view>
             </view>
-            <view class="mDesc mDes-nbtm">
-                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
-                    <view id="dkContent">
-                        <template is="wxParse" data="{{wxParseData:dkContent.nodes}}"/>
-                    </view>
-                </view>
-            </view>
+            <template is="detailContent" data="{{ ...$detailContent.dk }}"/>
         </view>
         <!--楼盘卖点-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.sell_point}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">楼盘卖点</view>
+                <!--<view class="mTitle-l">楼盘卖点</view>-->
+                <view class="mTitle-l">4</view>
             </view>
-            <view class="mDesc mDes-nbtm">
-                <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
-                    <view id="sellContent">
-                        <template is="wxParse" data="{{wxParseData:sellContent.nodes}}"/>
-                    </view>
-                </view>
-            </view>
+            <template is="detailContent" data="{{ ...$detailContent.sell }}"/>
         </view>
         <!--主力户型-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.hx.length!==0}}" id="hash1">
@@ -108,14 +88,17 @@
                             <text class="lab" wx:if="{{x.sale_status}}">{{x.sale_status}}</text>
                         </view>
                         <view class="info">
-                            <view class="tit">{{x.name}}</view>
-                            <view class="hx">
-                                <text class="hx-s">{{x.housetype}}</text>
-
-                                <text class="hx-s">{{x.size}}平</text>
+                            <view class="tit">{{x.title}}</view>
+                            <view class="hx box box-align-center box-pack-between">
+                                <view>
+                                    <text class="hx-s" wx:if="{{x.bedroom}}">{{x.bedroom}}室</text>
+                                    <text class="hx-s" wx:if="{{x.livingroom}}">{{x.livingroom}}厅</text>
+                                    <text class="hx-s" wx:if="{{x.bathroom}}">{{x.bathroom}}卫</text>
+                                </view>
+                                <view class="w">
+                                    <text class="hx-s fr">{{x.size}}㎡</text>
+                                </view>
                             </view>
-                            <view class="price" wx:if="{{x.price!==0}}">约{{x.price}}万</view>
-                            <view class="price" wx:else>暂无</view>
                         </view>
                     </view>
                 </scroll-view>
@@ -127,7 +110,7 @@
                 <view class="mTitle-l">同区域楼盘</view>
             </view>
             <view class="mDesc">
-                <scroll-view class="area-plot-list" scroll-x>
+                <scroll-view class="hx-list" scroll-x>
                     <view class="item" wx:for="{{area_plot}}" wx:key="id" wx:for-item="x" bindtap="seeHx"
                           data-current="{{x.image}}">
                         <view class="pic">
@@ -135,14 +118,14 @@
                             <text class="lab" wx:if="{{x.sale_status}}">{{x.sale_status}}</text>
                         </view>
                         <view class="info">
-                            <view class="p title">
-                                <text class="span">{{x.title}}</text>
-                            </view>
-                            <view class="p desc">
-                                <text class="price" wx:if="{{x.price}}">{{x.price}}</text>
-                                <text class="type">
-                                    <text class="em" wx:if="{{x.wylx}}">{{x.wylx}}</text>
-                                </text>
+                            <view class="tit">{{x.title}}</view>
+                            <view class="hx box box-align-center box-pack-between">
+                                <view>
+                                    <text class="price" wx:if="{{x.price}}">{{x.price}}{{x.unit}}</text>
+                                </view>
+                                <view class="w">
+                                    <text class="hx-s fr" wx:if="{{x.wylx}}">{{x.wylx}}</text>
+                                </view>
                             </view>
                         </view>
                     </view>
@@ -152,16 +135,13 @@
         </view>
 
     </scroll-view>
-
     <view class="mBottom box flex">
         <view class="left box box-align-center flex">
             <view class="a flex">
-                <text class="iconfont icon-dianhua"></text>
-                电话
+                <text class="iconfont icon-dianhua"></text>电话
             </view>
             <view class="a flex">
-                <text class="iconfont icon-fenxiaoshang"></text>
-                分销
+                <text class="iconfont icon-fenxiaoshang"></text>分销
             </view>
         </view>
         <view class="right">

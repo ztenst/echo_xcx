@@ -1,0 +1,27 @@
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<template name="detailContent">
+    <!-- text不能 换行 -->
+    <!--引入detailcover模板-->
+    <view class="mDesc mDes-nbtm">
+        <view class="mDesc-text {{ !isShowExtend ? 'contenTxtAll':'contenTxt'}}">
+            <view id="{{ID}}">
+                <template is="wxParse" data="{{wxParseData:updateContent.nodes}}"/>
+            </view>
+        </view>
+    </view>
+    <view class="mMore box box-align-center box-pack-center" style="border-top:1rpx solid #e6e6e6;"
+          hidden="{{!isShowExtend||!canExtend}}" bindtap="{{zsTap}}">
+        <text class="mMore-text c-999">展开</text>
+        <text class="iconfont icon-down"></text>
+    </view>
+    <view class="mMore box box-align-center box-pack-center" style="border-top:1rpx solid #e6e6e6;"
+          hidden="{{isShowExtend||!canExtend}}" bindtap="{{zsTap}}">
+        <text class="mMore-text c-999">收起</text>
+        <text class="iconfont icon-down " style="transform: rotate(180deg);"></text>
+    </view>
+</template>
+
+
+
+
+

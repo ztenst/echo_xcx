@@ -1,8 +1,12 @@
+import {
+    $detailContent
+} from '../../components/wxcomponents'
 import detailCover from '../../detail/detail-cover/detail-cover';
 var app = getApp();
 var api = require('../../common/api');
 var util = require('../../utils/util');
-var WxParse = require('../../libs/wxParse/wxParse.js');
+
+
 Page(Object.assign({
     data: {
         plot_id: null,
@@ -18,14 +22,14 @@ Page(Object.assign({
         toView: '',
         default_img: '',
     },
-    goPage:function (e) {
-         app.goPage(e.currentTarget.dataset.url,util.query2Params(e.currentTarget.dataset.param), false)
+    goPage: function (e) {
+        app.goPage(e.currentTarget.dataset.url, util.query2Params(e.currentTarget.dataset.param), false)
     },
     /**
      * 锚点跳转
      */
     goHash (e) {
-        let self  = this;
+        let self = this;
         let hash = e.currentTarget.dataset.hash;
         self.setData({toView: hash});
     },
@@ -52,55 +56,16 @@ Page(Object.assign({
         });
     },
 
-    //初始化
-    initDetailContent(data,id) {
-        let that = this;
-        /**
-         * html解析示例
-         */
-        WxParse.wxParse(id, 'html', data, that);
-
-        if(data){
-            that.showDetailContent(id);
-        }
-    },
-    zsTap: function (e) {
-        let that = this;
-        that.setData({
-            isShowExtend: !that.data.isShowExtend
-        });
-    },
-    showDetailContent: function (id) {
-        let that = this;
-        setTimeout(function () {
-            wx.createSelectorQuery().select(id).fields({
-                size: true,
-            }, function (res) {
-                // if (res.height > 150) {
-                //     that.setData({
-                //         isShowExtend: true,
-                //         canExtend: true
-                //     });
-                // } else {
-                //     that.setData({
-                //         isShowExtend: false,
-                //         canExtend: false
-                //     });
-                // }
-            }).exec();
-        }, 200)
-    },
-
-
-
     onLoad: function (options) {
         wx.showLoading({title: '加载中',})
         var self = this;
-        app.getSiteConfig().then(siteConfig => {self.setData({
-            wx_image: siteConfig.wx_image,
-            default_img: siteConfig.m_default_esfimg,
-            site_phone: siteConfig.site_phone
-        })});
+        app.getSiteConfig().then(siteConfig => {
+            self.setData({
+                wx_image: siteConfig.wx_image,
+                default_img: siteConfig.m_default_esfimg,
+                site_phone: siteConfig.site_phone
+            })
+        });
         let plot_id = options.id;
         self.setData({plot_id: plot_id});
         /**
@@ -108,30 +73,39 @@ Page(Object.assign({
          */
         api.getMplotDetail(plot_id).then(res => {
             let data = res.data.data;
-            if(res.data.status === 'success'){
+            if (res.data.status === 'success') {
                 self.setData({plotdetail: data});
-                wx.setNavigationBarTitle({title: data.title});//设置导航条标题
+                // wx.setNavigationBarTitle({title: data.title});//设置导航条标题
                 /**
                  *初始化轮播图
                  */
                 self.initDetailCover(data.images);
                 /**
-                 * 房屋描述
+                 *初始化组件 最新动态、雇佣规则、带看规则、楼盘卖点
                  */
-                self.initDetailContent(data.news.trim(),"newsContent");
-                self.initDetailContent(data.dk_rule.trim(),"dkContent");
-                self.initDetailContent(data.sell_point.trim(),"sellContent");
-                self.initDetailContent((data.pay[0].title+data.pay[0].content).trim(),"payContent");
-
+                $detailContent.init('news', {
+                    content: data.news.trim()
+                });
+                $detailContent.init('dk', {
+                    content: data.dk_rule.trim()
+                });
+                $detailContent.init('sell', {
+                    content: data.sell_point.trim()
+                });
+                if (data.pay.length !== 0) {
+                    $detailContent.init('pay', {
+                        content: (data.pay[0].title + data.pay[0].content).trim()
+                    });
+                }
 
                 /*
                  * 同区域楼盘
                  */
-                let params = {limit: 6, street:data.streetid}
+                let params = {limit: 6, street: data.streetid}
                 self.getAreaPlotList(params);
                 //隐藏加载logo
                 wx.hideLoading();
-            }else{
+            } else {
                 wx.showToast({
                     title: res.data.msg,
                     icon: 'loading',
@@ -139,7 +113,7 @@ Page(Object.assign({
                 })
                 setTimeout(() => {
                     wx.navigateBack({
-                        delta:1
+                        delta: 1
                     })
                 }, 1000);
             }

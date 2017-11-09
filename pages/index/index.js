@@ -1,6 +1,7 @@
 import {
     $searchFilter,
     $houseSearchList,
+    $detailContent
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
@@ -62,6 +63,9 @@ Page({
                 self.restartSearch(filters);
             }
         });
+
+        $detailContent.init('news');
+        $detailContent.init('pay');
 
     },
     //重置搜索
@@ -137,7 +141,6 @@ Page({
                 path: `pages/index/index?${Util.params2Query(params)}`
             }
         }
-
     }
 
 });
