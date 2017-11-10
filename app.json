@@ -2,13 +2,11 @@
   "pages":[
     "pages/index/index",
     "pages/house_detail/house_detail"
-
   ],
   "window":{
     "navigationBarBackgroundColor": "#00b7ee",
     "navigationBarTextStyle":"white",
     "backgroundColor": "#f5f5f5",
     "backgroundTextStyle": "dark"
-  },
-  "debug": true
+  }
 }

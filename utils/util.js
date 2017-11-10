@@ -107,6 +107,10 @@ function filterEmpty(data = {}) {
   return obj;
 }
 
+function isObjectEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+
 module.exports = {
   formatTime: formatTime,
   formatTime2: formatTime2,
@@ -114,5 +118,6 @@ module.exports = {
   params2Query: params2Query,
   query2Params: query2Params,
   decodeKeys: decodeKeys,
-  filterEmpty: filterEmpty
+  filterEmpty: filterEmpty,
+    isObjectEmpty:isObjectEmpty
 }

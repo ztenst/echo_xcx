@@ -1,13 +1,10 @@
-import {
-    $detailContent
+import { $detailContent,
 } from '../../components/wxcomponents'
-import detailCover from '../../detail/detail-cover/detail-cover';
-var app = getApp();
-var api = require('../../common/api');
-var util = require('../../utils/util');
+import api from '../../common/api'
+import Util from '../../utils/util'
+let app = getApp();
 
-
-Page(Object.assign({
+Page({
     data: {
         plot_id: null,
         showScodeimg: false,
@@ -22,50 +19,9 @@ Page(Object.assign({
         toView: '',
         default_img: '',
     },
-    goPage: function (e) {
-        app.goPage(e.currentTarget.dataset.url, util.query2Params(e.currentTarget.dataset.param), false)
-    },
-    /**
-     * 锚点跳转
-     */
-    goHash (e) {
-        let self = this;
-        let hash = e.currentTarget.dataset.hash;
-        self.setData({toView: hash});
-    },
-    /**
-     * 电话咨询
-     */
-    phoneContact: function (e) {
-        let phone = e.currentTarget.dataset.phone;
-        wx.makePhoneCall({
-            phoneNumber: phone
-        })
-    },
-    /**
-     * 同区域楼盘
-     * @param params
-     */
-    getAreaPlotList: function (params) {
-        let self = this;
-        api.getXfList(params).then(res => {
-            let data = res.data.data;
-            self.setData({
-                area_plot: data.list
-            });
-        });
-    },
-
     onLoad: function (options) {
         wx.showLoading({title: '加载中',})
         var self = this;
-        app.getSiteConfig().then(siteConfig => {
-            self.setData({
-                wx_image: siteConfig.wx_image,
-                default_img: siteConfig.m_default_esfimg,
-                site_phone: siteConfig.site_phone
-            })
-        });
         let plot_id = options.id;
         self.setData({plot_id: plot_id});
         /**
@@ -75,11 +31,17 @@ Page(Object.assign({
             let data = res.data.data;
             if (res.data.status === 'success') {
                 self.setData({plotdetail: data});
-                // wx.setNavigationBarTitle({title: data.title});//设置导航条标题
+                wx.setNavigationBarTitle({title: data.title});//设置导航条标题
                 /**
                  *初始化轮播图
                  */
-                self.initDetailCover(data.images);
+                self.setData({
+                    coverswiper: {
+                        imgUrls: data.images,
+                        swiper_data_num: data.images.length,
+                        swiperCurrent: 0
+                    }
+                });
                 /**
                  *初始化组件 最新动态、雇佣规则、带看规则、楼盘卖点
                  */
@@ -120,11 +82,38 @@ Page(Object.assign({
 
         });
     },
+
+    goPage: function (e) {
+        app.goPage(e.currentTarget.dataset.url, Util.query2Params(e.currentTarget.dataset.param), false)
+    },
+    /**
+     * 锚点跳转
+     */
+    goHash (e) {
+        let self = this;
+        let hash = e.currentTarget.dataset.hash;
+        self.setData({toView: hash});
+    },
+
+    /**
+     * 同区域楼盘
+     * @param params
+     */
+    getAreaPlotList: function (params) {
+        let self = this;
+        api.getXfList(params).then(res => {
+            let data = res.data.data;
+            self.setData({
+                area_plot: data.list
+            });
+        });
+    },
+
     onShareAppMessage: function (res) {
         let self = this;
         return {
             title: `${self.data.plotdetail.title}`,
-            path: `/pages/house_detail/new_house_detail?id=${self.data.plot_id}`
+            path: `/pages/house_detail/house_detail?id=${self.data.plot_id}`
         }
     },
     /**
@@ -136,4 +125,32 @@ Page(Object.assign({
         wx.previewImage({urls: [e.currentTarget.dataset.current]});
     },
 
-}, detailCover));
+    /**
+     * 滑动轮播图
+     * @param e
+     */
+    swiperChange: function (e) {
+        let that = this;
+        that.setData({
+            [`coverswiper.swiperCurrent`]: e.detail.current
+        });
+    },
+    /**
+     * 查看大图
+     * @param {String} cur 当前展示图片
+     * @param {Array}  imageList 展示的图片列表
+     */
+    viewPic (e) {
+        let cur = e.currentTarget.dataset.current;
+        let urls = e.currentTarget.dataset.urls;
+        let imageList = [];
+        urls.forEach(item => {
+            imageList.push(item.url)
+        })
+        wx.previewImage({
+            current: cur,
+            urls: imageList
+        });
+    }
+
+});

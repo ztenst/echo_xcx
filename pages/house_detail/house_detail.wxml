@@ -4,7 +4,25 @@
 <view class="menuwap">
     <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
-        <include src="/detail/detail-cover/detail-cover.wxml"/>
+        <view class="coverswiper" >
+            <swiper class="swiper-wrap"
+                    current="{{swiperCurrent}}"
+                    bindchange="swiperChange">
+                <block wx:for="{{coverswiper.imgUrls}}" wx:key="id">
+                    <swiper-item>
+                        <image src="{{item.url}}" class="slide-image"
+                               data-current="{{item.url}}"
+                               data-urls="{{coverswiper.imgUrls}}" bindtap="viewPic"/>
+                    </swiper-item>
+                    <view class="imagetitle" wx:if="{{index==coverswiper.swiperCurrent}}">{{item.type}}</view>
+                </block>
+            </swiper>
+            <view class="pages">
+                <text class="active">{{coverswiper.swiperCurrent+1}}</text>
+                <text class="ft22">/{{coverswiper.swiper_data_num}}</text>
+            </view>
+        </view>
+
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
                 <view class="fl">
@@ -28,13 +46,13 @@
                     <text class="col-t">{{plotdetail.address}}</text>
                 </view>
             </view>
-            <view class="row  box box-align-center box-pack-between" wx:if="{{plotdetail.address}}" data-hash="hash1"
-                  bindtap="goHash">
+            <view class="row  box box-align-center box-pack-between" wx:if="{{plotdetail.address}}"
+                  bindtap="filterCompany">
                 <view class="row-l box">
                     <text class="iconfont icon-dai"></text>
                     <text class="col-t">{{plotdetail.address}}</text>
                 </view>
-                <view class="row-r">
+                <view class="row-r" data-url="../index/index" data-param="company={{plotdetail.zd_company.id}}&companyname={{plotdetail.zd_company.name}}" bindtap="goPage">
                     所有项目
                     <text class="iconfont icon-right"></text>
                 </view>

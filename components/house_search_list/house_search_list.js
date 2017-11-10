@@ -1,7 +1,4 @@
 import Component from '../component'
-import mapUtil from '../../utils/map'
-import Util from '../../utils/util'
-
 let app = getApp();
 
 const SCOPE = '$houseSearchList';
@@ -12,7 +9,6 @@ export default {
      */
     setDefaults() {
         return {
-            filters: {},
             onFilter() {
             } //回调方法
         }
@@ -24,21 +20,12 @@ export default {
             scope: SCOPE,
             data: options,
             methods: {
-
                 filterCompany(e){
-                    let filters = {'company':''};
-                    if(e.currentTarget.dataset.company){
-                        let dataset = e.currentTarget.dataset;
-                        this.setData({
-                            [`${SCOPE}.company`]: dataset.company.name
-                        });
-                        filters = {'company':dataset.company.id};
-                    }else{
-                        this.setData({
-                            [`${SCOPE}.company`]: ""
-                        });
+                    let filters = {'company': '','companyname':""};
+                    let dataset = e.currentTarget.dataset;
+                    if (dataset.company) {
+                        filters = {'company': dataset.company.id,'companyname':dataset.company.name};
                     }
-
                     typeof options.onFilter === 'function' && options.onFilter(filters);
                 },
                 navigateDetail(e) {

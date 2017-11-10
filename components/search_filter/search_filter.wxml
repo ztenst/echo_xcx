@@ -1,14 +1,14 @@
 <template name="searchFilter">
     <view class="__search-bar">
-        <view wx:if="{{!focused}}">
-            <view class="search-nav" >
+        <block wx:if="{{!focused}}">
+            <view class="search-nav">
                 <view class="nav-slide">
-                    <scroll-view scroll-x class="ul">
-                        <view class="li  {{filters.toptag == item.id ?'on':''}}"
-                              wx:for="{{toptag_filters}}" wx:key="id"
-                              data-key="toptag" data-id="{{item.id}}"
+                    <scroll-view scroll-x class="ul" wx:if="{{toptag_filters.length>0}}">
+                        <view wx:for="{{toptag_filters}}" wx:key="id" wx:for-item="x"
+                              class="li  {{filters.toptag === x.id ?'on':''}}"
+                              data-key="toptag" data-id="{{x.id}}"
                               bindtap="{{filterNow}}">
-                            <text class="text">{{item.name}}</text>
+                            <text class="text">{{x.name}}</text>
                         </view>
                     </scroll-view>
                 </view>
@@ -17,7 +17,7 @@
                     <text class="iconfont icon-sousuo"></text>
                 </view>
             </view>
-        </view>
+        </block>
 
 
         <view class="search-box" hidden="{{!focused}}">
@@ -115,6 +115,15 @@
 
                 </view>
 
+            </view>
+        </view>
+    </view>
+    <view class="tongji">
+        <view class=" box box-align-center box-pack-between">
+            共{{list.length}}条房源
+            <view class="fr" wx:if="{{company_filters.name}}"
+                  data-key="company" data-id="" bindtap="{{filterCompany}}">{{company_filters.name}}
+                <text class="iconfont icon-close1"></text>
             </view>
         </view>
     </view>

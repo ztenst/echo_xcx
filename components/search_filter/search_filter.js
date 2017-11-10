@@ -44,14 +44,19 @@ export default {
             onBlur() {
             },
 
+
             /**
              * 筛选相关的初始化数据
              */
+            isFinishInit: false,
             area_fixed: false, //没有小区筛选项
             tab: '',
 
             area_index: 0, //area_index区域数组的index, 非筛选字段
             toptag_filters: [],
+            company_filters: {
+                name: ""
+            },
             area_filters: [],
             aveprice_filters: [],
             sfprice_filters: [],
@@ -76,13 +81,17 @@ export default {
 
     assign(opts) {
         let options = Object.assign({}, this.setDefaults(), opts);
+        options.area_fixed = false;
+        if (opts.filters.companyname) {
+            options.company_filters.name = opts.filters.companyname;
+        }
         let keys = getFilterKeys();
         let fs = {};
         keys.forEach(key => fs[key] = opts.filters[key] || '')
         options.filters = fs;
         return options;
-    },
 
+    },
     init(opts = {}) {
         const options = this.assign(opts);
         const component = new Component({
@@ -135,6 +144,7 @@ export default {
                     // typeof options.onConfirm === 'function' && options.onConfirm(kw);
                 },
 
+
                 /**
                  * 筛选相关
                  * @param e
@@ -153,13 +163,7 @@ export default {
                     let self = this;
                     let data = self.getComponentData();
                     let ajaxs = [];
-
-                    //获取筛选tags的数据
-                    let empty = {
-                        id: '',
-                        name: '不限'
-                    };
-                    //获取搜索顶部的tags
+                    //获取搜索顶部的tags数据
                     ajaxs.push(api.getTagsIndex("wzlm").then(resp => {
                         let json = resp.data.data;
                         self.setData({
@@ -169,6 +173,11 @@ export default {
                             }].concat(json),
                         })
                     }));
+                    //获取筛选tags的数据
+                    let empty = {
+                        id: '',
+                        name: '不限'
+                    };
                     ajaxs.push(api.getFilterTags("plotFilter").then(resp => {
                         let json = resp.data.data;
                         let quyu = json[0].list;
@@ -179,7 +188,6 @@ export default {
                             [`${SCOPE}.aveprice_filters`]: [empty].concat(junjia),
                             [`${SCOPE}.sfprice_filters`]: [empty].concat(shoufu)
                         });
-
 
                         let areas = [Object.assign(empty, {childAreas: []})].concat(quyu)
                         self.setData({
@@ -204,16 +212,30 @@ export default {
                                 })
                             }
                         }
+
                         self.setData({
                             [`${SCOPE}.other_filters`]: _list
                         })
-                    }))
 
+                    }));
                     Promise.all(ajaxs).then(vals => {
                         self.triggerFilter();
                     })
-
+                }
+                ,
+                /*筛选公司*/
+                filterCompany(e){
+                    this.setData({
+                        [`${SCOPE}.company_filters`]: {
+                            name: ''
+                        },
+                    });
+                    this.setFilter(e, {
+                        [`${SCOPE}.filters.company`]: ''
+                    });
+                    this.triggerFilter();
                 },
+
                 /*各个设置筛选*/
                 setArea(e) {
                     this.setFilter(e, {
@@ -304,7 +326,6 @@ export default {
 
                 /*筛选最终触发事件*/
                 triggerFilter() {
-
                     this.setData({
                         [`${SCOPE}.tab`]: ''
                     });
@@ -326,9 +347,7 @@ export default {
 
             }
         });
-
         component.requestOptions();
-
         return component;
     }
 }
