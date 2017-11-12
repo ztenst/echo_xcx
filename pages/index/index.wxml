@@ -11,13 +11,15 @@
     </view>
 
     <!--列表-->
-    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed?68:186)+'rpx;'}}"
-                 lower-threshold="200" bindscrolltolower="requestList">
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed ? 130:250)+'rpx;'}}"
+                 lower-threshold="100" bindscrolltolower="requestList">
 
         <block wx:if="{{!requested||max_page>0}}">
             <template is="houseSearchList" data="{{list, ...$houseSearchList }}"></template>
             <view class="loading-container" style="text-align: center;" wx:if="{{loading}}">
-                <text class="loading-gif"></text>
+                <view class="loading-gif">
+                    <image src="../../images/loading.gif"></image>
+                </view>
             </view>
         </block>
 
@@ -28,11 +30,10 @@
 
     </scroll-view>
 
-
+    <!--个人中心头像-->
     <view class="right-side-menu side-menu">
         <view class="user">
-            <!--<text class="iconfont icon-person"></text>-->
-            <image src="../../images/user.png"></image>
+            <image src="../../images/user.png"/>
         </view>
     </view>
 

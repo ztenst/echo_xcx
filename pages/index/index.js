@@ -1,14 +1,9 @@
 import {
     $searchFilter,
     $houseSearchList,
-    $detailContent
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
-
-let app = getApp();
-let siteConfig = {};
-let searchFilter = {};
 
 Page({
     data: {
@@ -31,42 +26,46 @@ Page({
         let TITLE = "经济圈新房通";
         let area_fixed = false;
 
-        let _q = Object.assign({
-            title: TITLE
-        }, Util.decodeKeys(query));
+        let _q = Object.assign({}, Util.decodeKeys(query));
 
         this.setData({
-            title: _q.title,
+            title: TITLE,
             area_fixed: area_fixed
         });
 
         wx.setNavigationBarTitle({
-            title: _q.title,
+            title:TITLE,
         });
-        self.restartSearch();
-        //列表组件初始化
+
+        self.searchFilterInit(_q,area_fixed,false);
+        self.houseSearchListInit();
+    },
+    //列表组件初始化
+    houseSearchListInit(){
+        let self = this;
         $houseSearchList.init({
             onFilter(filters) {
                 let data = self.getSearchParams();
                 let params = Object.assign({}, data, filters);
-                self.restartSearch(params);
+                self.searchFilterInit(params,false,true);
             }
         });
+    },
+    //筛选组件初始化
+    searchFilterInit(_q,area_fixed,isFinishInit){
+        let self = this;
         //筛选组件初始化
-        searchFilter = $searchFilter.init({
+        $searchFilter.init({
             area_fixed: area_fixed,
             filters: _q, //传入筛选条件
+            isFinishInit:isFinishInit,
             onFilter(filters, titles) {
                 self.setData({
-                    area_text: titles.area
+                    area_text: false
                 })
                 self.restartSearch(filters);
             }
-        });
-
-        $detailContent.init('news');
-        $detailContent.init('pay');
-
+        })
     },
     //重置搜索
     restartSearch(filters) {
@@ -85,7 +84,6 @@ Page({
         let params = Object.assign({}, this.data.filters, {
             page: this.data.page,
         });
-
         return params;
     },
 

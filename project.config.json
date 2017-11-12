@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.4",
-	"appid": "wxa1c8032f98b23a56",
+	"appid": "wx19afb796cba063c0",
 	"projectname": "echo_xcx",
 	"condition": {
 		"search": {
@@ -24,16 +24,16 @@
 			"current": 0,
 			"list": [
 				{
-					"id": 0,
-					"name": "index",
-					"pathName": "pages/index/index",
-					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "详细页",
+					"id": -1,
+					"name": "ddd",
 					"pathName": "pages/house_detail/house_detail",
 					"query": "id=123"
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "company=126&companyname=嘉兴利悦房地产经纪有限公司"
 				}
 			]
 		}
