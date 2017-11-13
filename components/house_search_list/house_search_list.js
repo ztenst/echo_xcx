@@ -16,7 +16,7 @@ export default {
 
     },
 
-    init(opts = {}) {
+    init(opts = {}) {``
         const options = Object.assign({}, this.setDefaults(), opts);
         const component = new Component({
             scope: SCOPE,

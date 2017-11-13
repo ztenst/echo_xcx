@@ -91,7 +91,12 @@ const api = {
     getXfList(params) {
         let url = `${config.host}/api/plot/list`
         return getRequest(url, params)
-    }
+    },
+    /*新房列表*/
+    getUserInfo(params) {
+        let url = `${config.host}/api/index/getUserInfo`
+        return postRequest(url, params)
+    },
 };
 
 module.exports = api

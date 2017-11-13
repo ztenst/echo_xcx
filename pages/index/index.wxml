@@ -5,9 +5,10 @@
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="page house-search">
 
+
     <!--搜索筛选-->
     <view class="search-top">
-        <template is="searchFilter" data="{{ ...$searchFilter }}"></template>
+        <template is="searchFilter" data="{{total, ...$searchFilter }}"></template>
     </view>
 
     <!--列表-->

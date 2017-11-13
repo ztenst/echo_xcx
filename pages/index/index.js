@@ -14,6 +14,7 @@ Page({
         loading: false,
         filters: {},
         list: [],
+        total:0,
         default_img: '',
         title: '', //某房产列表的title
         area_fixed: false,
@@ -39,6 +40,11 @@ Page({
 
         self.searchFilterInit(_q,area_fixed,false);
         self.houseSearchListInit();
+        // api.getUserInfo(params).then(resp => {
+        //
+        // })
+
+
     },
     //列表组件初始化
     houseSearchListInit(){
@@ -84,7 +90,7 @@ Page({
         let params = Object.assign({}, this.data.filters, {
             page: this.data.page,
         });
-        return params;
+        return params
     },
 
     //搜索房产
@@ -99,7 +105,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = this.data.filters;
+        let params =  Object.assign({},  this.data.filters,{page:this.data.page});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;
@@ -111,7 +117,8 @@ Page({
                     requested: true,
                     loading: false,
                     max_page: json.data.page_count,
-                    list: state.list.concat(list)
+                    list: state.list.concat(list),
+                    total:json.data.num
                 });
             } else if (!state.area_fixed) {
                 self.setData({
@@ -119,26 +126,9 @@ Page({
                     loading: false
                 })
             }
-
         })
 
     },
 
-    onShareAppMessage(res) {
-        let params = Object.assign({}, this.data.filters, {
-            kw: this.data.kw,
-            title: this.data.title
-        })
-        if (Object.keys(this.data.filters).length === 0) {
-            return {
-                title: "经济圈新房通",
-            }
-        } else {
-            return {
-                title: '经济圈新房通',
-                path: `pages/index/index?${Util.params2Query(params)}`
-            }
-        }
-    }
 
 });

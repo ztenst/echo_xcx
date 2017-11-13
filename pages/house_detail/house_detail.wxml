@@ -50,7 +50,7 @@
                   bindtap="filterCompany">
                 <view class="row-l box">
                     <text class="iconfont icon-dai"></text>
-                    <text class="col-t">{{plotdetail.address}}</text>
+                    <text class="col-t">{{plotdetail.zd_company.name}}</text>
                 </view>
                 <view class="row-r" data-url="../index/index" data-param="company={{plotdetail.zd_company.id}}&companyname={{plotdetail.zd_company.name}}" bindtap="goPage">
                     所有项目
@@ -62,8 +62,7 @@
         <!--最新动态-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">最新动态</view>-->
-                <view class="mTitle-l">1111111</view>
+                <view class="mTitle-l">最新动态</view>
             </view>
             <!--引入detailcover模板-->
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
@@ -71,24 +70,21 @@
         <!--雇佣规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">雇佣规则</view>-->
-                <view class="mTitle-l">2222222222</view>
+                <view class="mTitle-l">雇佣规则</view>
             </view>
             <template is="detailContent" data="{{...$detailContent.pay}}"/>
         </view>
         <!--带看规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.dk_rule}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">带看规则</view>-->
-                <view class="mTitle-l">3</view>
+                <view class="mTitle-l">带看规则</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.dk }}"/>
         </view>
         <!--楼盘卖点-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.sell_point}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">楼盘卖点</view>-->
-                <view class="mTitle-l">4</view>
+                <view class="mTitle-l">楼盘卖点</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.sell }}"/>
         </view>
