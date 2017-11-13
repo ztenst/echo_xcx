@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce69380-41d9-453a-9269-f85a3265f21d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/detail/detail-cover/detail-cover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/detail/detail-cover/detail-cover.wxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/wxcharts.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project.config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/args.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/args.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/common.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/common.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/components.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/components.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/difan.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/difan.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/difan.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/difan.wxss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/difan.wxss.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/iconfont.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/iconfont.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/zxy.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/zxy.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/coordtransform.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/map.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/user.png" afterPath="$PROJECT_DIR$/images/user.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.scss" afterPath="$PROJECT_DIR$/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss.map" afterPath="$PROJECT_DIR$/app.wxss.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/api.js" afterPath="$PROJECT_DIR$/common/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/house_search_list/house_search_list.js" afterPath="$PROJECT_DIR$/components/house_search_list/house_search_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/house_search_list/house_search_list.wxml" afterPath="$PROJECT_DIR$/components/house_search_list/house_search_list.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/search_filter/search_filter.js" afterPath="$PROJECT_DIR$/components/search_filter/search_filter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/search_filter/search_filter.wxml" afterPath="$PROJECT_DIR$/components/search_filter/search_filter.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/wxcomponents.js" afterPath="$PROJECT_DIR$/components/wxcomponents.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/house_detail/house_detail.js" afterPath="$PROJECT_DIR$/pages/house_detail/house_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/house_detail/house_detail.wxml" afterPath="$PROJECT_DIR$/pages/house_detail/house_detail.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/args.scss" afterPath="$PROJECT_DIR$/style/args.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.scss" afterPath="$PROJECT_DIR$/style/common.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.wxss" afterPath="$PROJECT_DIR$/style/common.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.wxss.map" afterPath="$PROJECT_DIR$/style/common.wxss.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components.scss" afterPath="$PROJECT_DIR$/style/components.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components.wxss" afterPath="$PROJECT_DIR$/style/components.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/components.wxss.map" afterPath="$PROJECT_DIR$/style/components.wxss.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/zxy.scss" afterPath="$PROJECT_DIR$/style/zxy.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/zxy.wxss" afterPath="$PROJECT_DIR$/style/zxy.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/zxy.wxss.map" afterPath="$PROJECT_DIR$/style/zxy.wxss.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/util.js" afterPath="$PROJECT_DIR$/utils/util.js" />
-    </list>
+    <list default="true" id="7ce69380-41d9-453a-9269-f85a3265f21d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -66,19 +12,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.wxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="243">
               <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-              <folding>
-                <marker date="1510300036000" expanded="true" signature="488:508" ph="..." />
-                <marker date="1510300036000" expanded="true" signature="1325:1341" ph="..." />
-                <marker date="1510300036000" expanded="true" signature="1325:1353" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,24 +27,11 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="567">
               <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="31" />
               <folding>
                 <element signature="e#0#88#0" expanded="true" />
                 <element signature="e#3129#3565#0" expanded="false" />
-                <marker date="1510304356000" expanded="true" signature="491:613" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="612:613" ph="{&quot;title&quot;: TITLE...}" />
-                <marker date="1510304356000" expanded="false" signature="2069:2098" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2130:3099" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2314:2385" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2473:3091" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2610:2914" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2704:2898" ph="{&quot;max_page&quot;: json.data.page_count...}" />
-                <marker date="1510304356000" expanded="true" signature="2943:3080" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="2974:3065" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="3189:3265" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="3324:3403" ph="{...}" />
-                <marker date="1510304356000" expanded="true" signature="3345:3393" ph="{&quot;title&quot;: &quot;经济圈新房通&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -112,8 +40,8 @@
       <file leaf-file-name="house_search_list.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/house_search_list/house_search_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="126">
+              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -202,9 +130,9 @@
         <option value="$PROJECT_DIR$/components/house_search_list/house_search_list.wxml" />
         <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.wxml" />
-        <option value="$PROJECT_DIR$/components/house_search_list/house_search_list.js" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.js" />
+        <option value="$PROJECT_DIR$/components/house_search_list/house_search_list.js" />
       </list>
     </option>
   </component>
@@ -214,7 +142,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1245" />
     <option name="height" value="777" />
@@ -256,144 +184,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="index" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="house_detail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="toast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="search_filter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="house_search_list" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="echo_xcx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="detail_content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -424,8 +217,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.house_search_list.js">
-    <configuration default="false" name="house_search_list.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="house_search_list.js" working-dir="$PROJECT_DIR$/components/house_search_list">
-      <method />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
@@ -464,15 +262,6 @@
       <option name="filePath" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -493,9 +282,7 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.house_search_list.js" />
-    </list>
+    <configuration name="house_search_list.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="house_search_list.js" working-dir="$PROJECT_DIR$/components/house_search_list" />
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Node.js.house_search_list.js" />
@@ -533,45 +320,37 @@
       <workItem from="1510282415127" duration="11230000" />
       <workItem from="1510298802082" duration="3240000" />
       <workItem from="1510302158360" duration="3112000" />
+      <workItem from="1510568868462" duration="32000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84670000" />
+    <option name="totallyTimeSpent" value="84702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1245" height="777" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22140522" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.503268" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.49673203" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.503268" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.49673203" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1406744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -762,13 +541,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="243">
           <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <marker date="1510300036000" expanded="true" signature="488:508" ph="..." />
-            <marker date="1510300036000" expanded="true" signature="1325:1341" ph="..." />
-            <marker date="1510300036000" expanded="true" signature="1325:1353" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -788,8 +563,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/house_search_list/house_search_list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="126">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -803,24 +578,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="567">
           <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="31" />
           <folding>
             <element signature="e#0#88#0" expanded="true" />
             <element signature="e#3129#3565#0" expanded="false" />
-            <marker date="1510304356000" expanded="true" signature="491:613" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="612:613" ph="{&quot;title&quot;: TITLE...}" />
-            <marker date="1510304356000" expanded="false" signature="2069:2098" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2130:3099" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2314:2385" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2473:3091" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2610:2914" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2704:2898" ph="{&quot;max_page&quot;: json.data.page_count...}" />
-            <marker date="1510304356000" expanded="true" signature="2943:3080" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="2974:3065" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="3189:3265" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="3324:3403" ph="{...}" />
-            <marker date="1510304356000" expanded="true" signature="3345:3393" ph="{&quot;title&quot;: &quot;经济圈新房通&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -829,16 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
           <caret line="207" column="25" lean-forward="true" selection-start-line="207" selection-start-column="25" selection-end-line="207" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#36#0" expanded="false" />
-            <element signature="e#2359#2567#0" expanded="false" />
-            <element signature="e#2622#3071#0" expanded="false" />
-            <element signature="e#3124#3439#0" expanded="false" />
-            <element signature="e#3489#3696#0" expanded="false" />
-            <element signature="e#3746#3934#0" expanded="false" />
-            <element signature="e#4056#4332#0" expanded="false" />
-            <element signature="e#4604#4932#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
