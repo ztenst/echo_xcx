@@ -221,10 +221,10 @@ export default {
                     Promise.all(ajaxs).then(vals => {
                         self.triggerFilter();
                     })
-                }
-                ,
+                },
+
                 /*筛选公司*/
-                filterCompany(e){
+                filterCompany(e) {
                     this.setData({
                         [`${SCOPE}.company_filters`]: {
                             name: ''

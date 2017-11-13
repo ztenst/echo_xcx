@@ -18,7 +18,7 @@ Page({
         default_img: '',
         title: '', //某房产列表的title
         area_fixed: false,
-
+        key:'',
         area_text: '' //当前筛选的区域
     },
 
@@ -43,8 +43,41 @@ Page({
         // api.getUserInfo(params).then(resp => {
         //
         // })
+        wx.login({
+            success: function (res) {
+                if (res.code) {
+                    //发起网络请求
+                    let params = {
+                        code: res.code,
+                    }
+                    api.getOpenId(params).then(resp => {
+                        let json = resp.data;
+                        console.log(json)
+                        self.setData({
+                            key:json.trim()
+                        })
+                    })
+
+                } else {
+                    console.log('获取用户登录态失败！' + res.errMsg)
+                }
+            }
+        });
 
 
+    },
+
+    getPhoneNumber: function (e) {
+        let that =this;
+        let params = {
+            encryptedData: e.detail.encryptedData,
+            iv: e.detail.iv,
+            accessKey:that.data.key
+        }
+        api.getDecode(params).then(resp => {
+            let json = resp.data;
+            console.log(json)
+        })
     },
     //列表组件初始化
     houseSearchListInit(){

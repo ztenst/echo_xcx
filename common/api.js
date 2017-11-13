@@ -97,6 +97,16 @@ const api = {
         let url = `${config.host}/api/index/getUserInfo`
         return postRequest(url, params)
     },
+    /*新房列表*/
+    getDecode(params) {
+        let url = `${config.host}/api/index/decode`
+        return postRequest(url, params)
+    },
+    /*新房列表*/
+    getOpenId(params) {
+        let url = `${config.host}/api/index/getOpenId`
+        return getRequest(url, params)
+    },
 };
 
 module.exports = api
