@@ -4,11 +4,11 @@
 
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="page house-search">
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取 </button>
+    <!--<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取 </button>-->
 
     <!--搜索筛选-->
     <view class="search-top">
-        <!--<template is="searchFilter" data="{{total, ...$searchFilter }}"></template>-->
+        <template is="searchFilter" data="{{total, ...$searchFilter }}"></template>
     </view>
 
     <!--列表-->
@@ -32,11 +32,18 @@
     </scroll-view>
 
     <!--个人中心头像-->
-    <view class="right-side-menu side-menu">
-        <view class="user">
+    <view class="right-side-menu user">
+        <view class="pic">
             <image src="../../images/user.png"/>
         </view>
     </view>
+
+    <!--置顶-->
+    <!--<view class="right-side-menu totop">-->
+        <!--<view class="pic">-->
+            <!--<image src="../../images/stick.png"/>-->
+        <!--</view>-->
+    <!--</view>-->
 
 
 </view>

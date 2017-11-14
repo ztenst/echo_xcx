@@ -1,4 +1,5 @@
-import { $detailContent,
+import {
+    $detailContent, $actionSheet
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
@@ -86,14 +87,6 @@ Page({
     goPage: function (e) {
         app.goPage(e.currentTarget.dataset.url, Util.query2Params(e.currentTarget.dataset.param), false)
     },
-    /**
-     * 锚点跳转
-     */
-    goHash (e) {
-        let self = this;
-        let hash = e.currentTarget.dataset.hash;
-        self.setData({toView: hash});
-    },
 
     /**
      * 同区域楼盘
@@ -107,14 +100,6 @@ Page({
                 area_plot: data.list
             });
         });
-    },
-
-    onShareAppMessage: function (res) {
-        let self = this;
-        return {
-            title: `${self.data.plotdetail.title}`,
-            path: `/pages/house_detail/house_detail?id=${self.data.plot_id}`
-        }
     },
     /**
      * 查看大图
@@ -151,6 +136,25 @@ Page({
             current: cur,
             urls: imageList
         });
+    },
+    tapCall() {
+        if (this.timeout) clearTimeout(this.timeout);
+        const hideSheet = $actionSheet.show({
+            titleText: '三秒后自动关闭',
+            buttons: [{text: '实例菜单'}, {text: '实例菜单'}],
+            buttonClicked(index, item) {
+                return true
+            },
+        })
+        this.timeout = setTimeout(hideSheet, 3000)
+    },
+    /**
+     * 打电话
+     */
+    call(e){
+        let phone = e.currentTarget.dataset.phone.replace(/\s*转\s*/, ',')
+        wx.makePhoneCall({
+            phoneNumber: phone
+        })
     }
-
 });

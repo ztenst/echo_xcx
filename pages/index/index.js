@@ -40,44 +40,55 @@ Page({
 
         self.searchFilterInit(_q,area_fixed,false);
         self.houseSearchListInit();
-        // api.getUserInfo(params).then(resp => {
+
+        // wx.login({
+        //     success: function (res) {
+        //         if (res.code) {
+        //             //发起网络请求
+        //             let params = {
+        //                 code: res.code,
+        //             }
+        //             api.getOpenId(params).then(resp => {
+        //                 let json = resp.data;
+        //                 console.log(json)
+        //                 self.setData({
+        //                     key:json.trim()
+        //                 })
+        //             })
         //
-        // })
-        wx.login({
-            success: function (res) {
-                if (res.code) {
-                    //发起网络请求
-                    let params = {
-                        code: res.code,
-                    }
-                    api.getOpenId(params).then(resp => {
-                        let json = resp.data;
-                        console.log(json)
-                        self.setData({
-                            key:json.trim()
-                        })
-                    })
-
-                } else {
-                    console.log('获取用户登录态失败！' + res.errMsg)
-                }
-            }
-        });
-
+        //         } else {
+        //             console.log('获取用户登录态失败！' + res.errMsg)
+        //         }
+        //     }
+        // });
+        //
 
     },
-
-    getPhoneNumber: function (e) {
+    getPhoneNumber: function(e) {
         let that =this;
-        let params = {
-            encryptedData: e.detail.encryptedData,
-            iv: e.detail.iv,
-            accessKey:that.data.key
+        console.log(e.detail.errMsg)
+        console.log(e.detail.iv)
+        console.log(e.detail.encryptedData)
+        if (e.detail.errMsg == 'getPhoneNumber:fail user deny'){
+            wx.showModal({
+                title: '提示',
+                showCancel: false,
+                content: '未授权',
+                success: function (res) { }
+            })
+        } else {
+            app.getUserOpenId().then(accessKey => {
+                let params = {
+                    encryptedData: e.detail.encryptedData,
+                    iv: e.detail.iv,
+                    accessKey:accessKey
+                }
+                api.getDecode(params).then(resp => {
+                    let json = resp.data;
+                    console.log(json)
+                })
+            })
         }
-        api.getDecode(params).then(resp => {
-            let json = resp.data;
-            console.log(json)
-        })
     },
     //列表组件初始化
     houseSearchListInit(){

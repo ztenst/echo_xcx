@@ -189,7 +189,13 @@ export default {
                             [`${SCOPE}.sfprice_filters`]: [empty].concat(shoufu)
                         });
 
-                        let areas = [Object.assign(empty, {childAreas: []})].concat(quyu)
+                        let areas = [Object.assign(empty, {childAreas: []})].concat(quyu);
+                        areas = areas.map(function(v,k) {
+                            if (k) {
+                                v.childAreas.unshift({id: '0', name: '不限'});
+                            }
+                            return v;
+                        });
                         self.setData({
                             [`${SCOPE}.area_filters`]: areas
                         })

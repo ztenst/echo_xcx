@@ -4,6 +4,57 @@ var api = require('./common/api');
 App({
     onLaunch: function () {
     },
+    getUserInfo: function () {
+        var self = this
+        return new Promise((resolve, reject) => {
+            if (self.globalData.userInfo) {
+                resolve(self.globalData.userInfo)
+            } else {
+                //调用登录接口
+                wx.login({
+                    success: function () {
+                        wx.getUserInfo({
+                            success: function (res) {
+                                self.globalData.userInfo = res.userInfo
+                                resolve(res.userInfo)
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    },
+    /**
+     * 获取openid 
+     * @returns {Promise}
+     */
+    getUserOpenId: function () {
+        var self = this;
+        var user = wx.getStorageSync('user') || {};
+        //不要在30天后才更换openid-尽量提前10分钟更新 
+        return new Promise((resolve, reject) => {
+            // if (typeof user == 'object' && !user.openid && (user.expires_in || Date.now()) < (Date.now() + 600)) {
+            if (self.globalData.wxData.openid) {
+                resolve(self.globalData.wxData.openid)
+            } else {
+                wx.login({
+                    success: function (res) {
+                        api.getWeOpenid(res.code).then(res => {
+                            let data = res.data.data;
+                            // console.log('拉取openid成功', data.openid);
+                            wx.setStorageSync('user', {
+                                openid: data.openid,
+                                expires_in: Date.now() + data.expires_in
+                            });
+                            self.globalData.wxData.openid = data.openid;//存储openid 
+                            resolve(data.openid);
+                        })
+                    }
+                })
+            }
+            // }
+        });
+    },
 
     /**
      * 页面跳转 pageUrl 页面路径，isForceNavigateTo 是否强制使用NavigateTo来跳转
@@ -24,6 +75,13 @@ App({
             wx.navigateTo({url: pageUrl});
         } else {
             wx.redirectTo({url: pageUrl})
+        }
+    },
+    globalData: {
+        userInfo: null,
+        siteConfig: null,
+        wxData: {
+            openid: '',
         }
     }
 })

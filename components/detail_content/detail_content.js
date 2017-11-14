@@ -1,9 +1,8 @@
 import Component from '../component'
 import Util from '../../utils/util'
 
-
 var WxParse = require('../../libs/wxParse/wxParse.js');
-let timeout = null;
+
 
 export default {
     /**
@@ -34,9 +33,6 @@ export default {
             methods: {
                 updateContent(data) {
                     let self = this;
-                    // self.page.setData({
-                    //     [`${SCOPE}.content`]:data
-                    // });
                     /**
                      * html解析示例
                      */
@@ -55,14 +51,13 @@ export default {
                     });
                 },
                 showDetailContent: function (id) {
-                    if (timeout) clearTimeout(timeout);
                     let self = this;
                     let ID = Util.stripscript(id);//过滤特殊字符
                     self.page.setData({
                         [`${SCOPE}.ID`]:ID
                     });
                     var query = wx.createSelectorQuery();
-                    timeout = setTimeout(() => {
+                    setTimeout(() => {
                         query.select('#'+ID).fields({
                             size: true,
                         }, function (res) {

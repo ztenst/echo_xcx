@@ -1,10 +1,11 @@
 <import src="../../components/detail_content/detail_content.wxml"/>
+<import src="../../components/actionsheet/actionsheet.wxml"/>
 <import src="../../libs/wxParse/wxParse.wxml"/>
 
 <view class="menuwap">
     <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
-        <view class="coverswiper" >
+        <view class="coverswiper">
             <swiper class="swiper-wrap"
                     current="{{swiperCurrent}}"
                     bindchange="swiperChange">
@@ -39,7 +40,7 @@
         </view>
 
         <view class="basedetail  bg-fff">
-            <view class="row bdm box box-align-center box-pack-between" wx:if="{{plotdetail.address}}" data-hash="hash1"
+            <view class="row bdm box box-align-center box-pack-between" wx:if="{{plotdetail.address}}"
                   bindtap="goHash">
                 <view class="row-l box">
                     <text class="iconfont icon-dingwei"></text>
@@ -52,7 +53,9 @@
                     <text class="iconfont icon-dai"></text>
                     <text class="col-t">{{plotdetail.zd_company.name}}</text>
                 </view>
-                <view class="row-r" data-url="../index/index" data-param="company={{plotdetail.zd_company.id}}&companyname={{plotdetail.zd_company.name}}" bindtap="goPage">
+                <view class="row-r" data-url="../index/index"
+                      data-param="company={{plotdetail.zd_company.id}}&companyname={{plotdetail.zd_company.name}}"
+                      bindtap="goPage">
                     所有项目
                     <text class="iconfont icon-right"></text>
                 </view>
@@ -62,7 +65,8 @@
         <!--最新动态-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">最新动态</view>
+                <!--<view class="mTitle-l">最新动态</view>-->
+                <view class="mTitle-l">111</view>
             </view>
             <!--引入detailcover模板-->
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
@@ -70,21 +74,24 @@
         <!--雇佣规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">雇佣规则</view>
+                <!--<view class="mTitle-l">雇佣规则</view>-->
+                <view class="mTitle-l">222</view>
             </view>
             <template is="detailContent" data="{{...$detailContent.pay}}"/>
         </view>
         <!--带看规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.dk_rule}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">带看规则</view>
+                <!--<view class="mTitle-l">带看规则</view>-->
+                <view class="mTitle-l">333</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.dk }}"/>
         </view>
         <!--楼盘卖点-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.sell_point}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">楼盘卖点</view>
+                <!--<view class="mTitle-l">楼盘卖点</view>-->
+                <view class="mTitle-l">444</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.sell }}"/>
         </view>
@@ -149,13 +156,20 @@
         </view>
 
     </scroll-view>
+
     <view class="mBottom box flex">
         <view class="left box box-align-center flex">
-            <view class="a flex">
-                <text class="iconfont icon-dianhua"></text>电话
+            <view class="a flex"  bindtap="tapCall">
+                <text class="iconfont icon-dianhua"></text>
+                电话
             </view>
             <view class="a flex">
-                <text class="iconfont icon-fenxiaoshang"></text>分销
+                <text class="iconfont icon-fenxiaoshang"></text>
+                分销
+            </view>
+            <view class="a flex">
+                <text class="iconfont icon-shoucang1"></text>
+                收藏
             </view>
         </view>
         <view class="right">
