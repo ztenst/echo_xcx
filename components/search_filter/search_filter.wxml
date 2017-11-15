@@ -18,8 +18,6 @@
                 </view>
             </view>
         </block>
-
-
         <view class="search-box" hidden="{{!focused}}">
             <view class="input-container container">
                 <view>
@@ -121,10 +119,10 @@
     <view class="tongji">
         <view class=" box box-align-center box-pack-between">
             共{{total}}条房源
-            <!--<view class="fr" wx:if="{{company_filters.name}}"-->
-                  <!--data-key="company" data-id="" bindtap="{{filterCompany}}">{{company_filters.name}}-->
-                <!--<text class="iconfont icon-close1"></text>-->
-            <!--</view>-->
+            <view class="fr" wx:if="{{company_filters.name}}"
+                  data-key="company" data-id="" bindtap="{{filterCompany}}">{{company_filters.name}}
+                <text class="iconfont icon-close1"></text>
+            </view>
         </view>
     </view>
 </template>

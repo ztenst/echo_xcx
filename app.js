@@ -39,15 +39,11 @@ App({
             } else {
                 wx.login({
                     success: function (res) {
-                        api.getWeOpenid(res.code).then(res => {
-                            let data = res.data.data;
+                        api.getOpenId({code:res.code}).then(res => {
+                            let data = res.data.trim();
                             // console.log('拉取openid成功', data.openid);
-                            wx.setStorageSync('user', {
-                                openid: data.openid,
-                                expires_in: Date.now() + data.expires_in
-                            });
-                            self.globalData.wxData.openid = data.openid;//存储openid 
-                            resolve(data.openid);
+                            self.globalData.wxData.openid = data;//存储openid 
+                            resolve(data);
                         })
                     }
                 })
@@ -80,8 +76,9 @@ App({
     globalData: {
         userInfo: null,
         siteConfig: null,
+        isUser:false,
         wxData: {
             openid: '',
-        }
+        },
     }
 })

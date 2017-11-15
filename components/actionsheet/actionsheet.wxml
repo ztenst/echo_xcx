@@ -1,20 +1,19 @@
-<template name="actionsheet">
-	<view class="action-sheet-backdrop action-sheet-theme-wx {{ animateCss[1] }}" wx:if="{{ visible }}" catchtap="{{ cancel }}">
-		<view class="action-sheet-wrapper {{ animateCss[0] }}">
-			<view class="action-sheet">
-				<view class="action-sheet-group action-sheet-options">
-					<view class="action-sheet-title" wx:if="{{ titleText }}">{{ titleText }}</view>
-					<block wx:for="{{ buttons }}" wx:key="">
-						<button class="button action-sheet-option {{ item.classNmae }}" data-index="{{ index }}" catchtap="{{ buttonClicked }}">
-							{{ item.text }}
-						</button>
-					</block>
-					<button class="button destructive action-sheet-destructive" wx:if="{{ destructiveText }}" catchtap="{{ destructiveButtonClicked }}">{{ destructiveText }}</button>
-				</view>
-				<view class="action-sheet-group action-sheet-cancel" wx:if="{{ cancelText }}">
-					<button class="button" catchtap="{{ cancel }}">{{ cancelText }}</button>
-				</view>
-			</view>
-		</view>
-	</view>
+<template name="actionSheet">
+    <view class="action-sheet-backdrop  {{ animateCss[1] }}" wx:if="{{ visible }}" catchtap="{{ cancel }}">
+        <view class="action-sheet-wrapper {{ animateCss[0] }}">
+            <view class="action-sheet">
+                <view class="action-sheet-group action-sheet-options">
+                    <view class="action-sheet-title" wx:if="{{ titleText }}">{{ titleText }}</view>
+                    <view class="row  box box-align-center box-pack-between" wx:for="{{list}}"  data-phone="{{item}}" bindtap="{{dealClick}}">
+                        <view class="row-l box">
+                            <text class="col-t">{{item}}</text>
+                        </view>
+                        <view class="row-r">
+                            <text class="iconfont icon-dianhua1"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
 </template>

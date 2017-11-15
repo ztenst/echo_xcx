@@ -1,7 +1,9 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/house_detail/house_detail"
+    "pages/house_detail/house_detail",
+    "pages/house_baobei/house_baobei",
+    "pages/add_message/add_message"
   ],
   "window":{
     "navigationBarBackgroundColor": "#00b7ee",

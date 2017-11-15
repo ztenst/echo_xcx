@@ -1,6 +1,7 @@
 import {
     $searchFilter,
     $houseSearchList,
+    $dialog
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
@@ -14,11 +15,11 @@ Page({
         loading: false,
         filters: {},
         list: [],
-        total:0,
+        total: 0,
         default_img: '',
         title: '', //某房产列表的title
         area_fixed: false,
-        key:'',
+        key: '',
         area_text: '' //当前筛选的区域
     },
 
@@ -35,10 +36,23 @@ Page({
         });
 
         wx.setNavigationBarTitle({
-            title:TITLE,
+            title: TITLE,
         });
 
-        self.searchFilterInit(_q,area_fixed,false);
+        //对话框组件初始化
+        $dialog.alert({
+            title: '经纪圈新房通',
+            content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
+            confirmType:"dialog__btn_primary",
+            buttons:[{
+                'text':"知道了"
+            }],
+            onConfirm(e) {
+
+            },
+        })
+
+        self.searchFilterInit(_q, area_fixed, false);
         self.houseSearchListInit();
 
         // wx.login({
@@ -64,51 +78,26 @@ Page({
         //
 
     },
-    getPhoneNumber: function(e) {
-        let that =this;
-        console.log(e.detail.errMsg)
-        console.log(e.detail.iv)
-        console.log(e.detail.encryptedData)
-        if (e.detail.errMsg == 'getPhoneNumber:fail user deny'){
-            wx.showModal({
-                title: '提示',
-                showCancel: false,
-                content: '未授权',
-                success: function (res) { }
-            })
-        } else {
-            app.getUserOpenId().then(accessKey => {
-                let params = {
-                    encryptedData: e.detail.encryptedData,
-                    iv: e.detail.iv,
-                    accessKey:accessKey
-                }
-                api.getDecode(params).then(resp => {
-                    let json = resp.data;
-                    console.log(json)
-                })
-            })
-        }
-    },
+
     //列表组件初始化
-    houseSearchListInit(){
+    houseSearchListInit() {
         let self = this;
         $houseSearchList.init({
             onFilter(filters) {
                 let data = self.getSearchParams();
                 let params = Object.assign({}, data, filters);
-                self.searchFilterInit(params,false,true);
+                self.searchFilterInit(params, false, true);
             }
         });
     },
     //筛选组件初始化
-    searchFilterInit(_q,area_fixed,isFinishInit){
+    searchFilterInit(_q, area_fixed, isFinishInit) {
         let self = this;
         //筛选组件初始化
         $searchFilter.init({
             area_fixed: area_fixed,
             filters: _q, //传入筛选条件
-            isFinishInit:isFinishInit,
+            isFinishInit: isFinishInit,
             onFilter(filters, titles) {
                 self.setData({
                     area_text: false
@@ -149,7 +138,7 @@ Page({
             page: state.page + 1
         });
 
-        let params =  Object.assign({},  this.data.filters,{page:this.data.page});
+        let params = Object.assign({}, this.data.filters, {page: this.data.page});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;
@@ -162,7 +151,7 @@ Page({
                     loading: false,
                     max_page: json.data.page_count,
                     list: state.list.concat(list),
-                    total:json.data.num
+                    total: json.data.num
                 });
             } else if (!state.area_fixed) {
                 self.setData({

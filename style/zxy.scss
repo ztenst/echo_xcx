@@ -238,25 +238,6 @@
   }
   .basedetail{
     margin-bottom: 20rpx;
-    .row{ padding:24rpx;
-      .row-l{
-        .iconfont{
-           width:54rpx;
-           font-size: 34rpx;
-           color:#999;
-           display: inline-block;
-           vertical-align: 2rpx;
-        }
-        .col-t{font-size: 26rpx;color: #333;vertical-align: 6rpx;}
-      }
-      .row-r{
-        .btn{display: inline-block;width:120rpx;height:40rpx;line-height: 40rpx;text-align: center;font-size: 24rpx;border-radius: 8rpx;color:#fff;vertical-align: 4rpx;
-          &.c-ff8f3c{background-color: #ff8f3c;}
-          &.c-50d0c2{background-color: #50d0c2;}
-        }
-        .iconfont{font-size: 32rpx; color:#999;display: inline-block;vertical-align: 2rpx;}
-      }
-    }
   }
   .mBox{margin-bottom: 20rpx;
     .mTitle{height:80rpx;border-bottom: 1rpx solid $bdc;padding:0 24rpx;&.mTitle-nobdm{border-bottom: 0;}
@@ -579,6 +560,97 @@
     }
   }
 }
+
+
+.add_message{
+      box-sizing:border-box;
+     width:100%;
+     height:100%;
+    .row{
+         padding-left:0;
+         .col-t{
+           color: #333;
+           font-size:30rpx;
+         }
+         .row-r{
+           font-size:26rpx;
+           color:#999;
+           .iconfont{
+             font-size:26rpx;
+             color:#ccc;
+           }
+           .switchSize{
+             transform:scale(.7);
+             right:0;
+           }
+         }
+       }
+    .line {
+      display: block;
+      line-height: 98rpx;
+      height: 98rpx;
+      border-bottom: 1px solid $borderColor;
+      vertical-align: middle;
+      position: relative;
+      &.nbtm{
+        border-bottom: 0;
+      }
+      label {
+        width: 100rpx;
+        height: 98rpx;
+        position: absolute;
+        left: 0rpx;
+        top: 0;
+        color: #333;
+        font-size:30rpx;
+      }
+      .input, input, picker,.raDio {
+        margin-left: 100rpx;
+        height: 98rpx;
+      }
+      .siz{
+        transform:scale(.6);
+      }
+      &.longlab{
+         label{
+              width:200rpx;
+         }
+        .raDio{
+             margin-left:200rpx;
+        }
+      }
+    }
+    .tips{
+      padding-top:24rpx;
+      padding-right:24rpx;
+      font-size: 24rpx;
+      color:#999;
+      .icon-tips{
+         color:$lightMainColor;
+        margin-right:4rpx;
+        vertical-align: middle;
+        font-size: 34rpx;
+      }
+    }
+    .big-btn{
+    position: fixed;
+    bottom:0;
+    box-sizing:border-box;
+    width:100%;
+     padding:24rpx;
+    -webkit-box-shadow:0px -4px 4px rgba(0,0,0,.03);
+    box-shadow: 0px -4px 4px rgba(0,0,0,.03);
+    .btnBaoBei{
+      width:100%;
+      height:88rpx;
+      background-color: $maincolor;
+      color:#fff;
+      font-size:34rpx;
+      border-radius: 10rpx;
+    }
+  }
+}
+
 
 
 

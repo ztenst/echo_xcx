@@ -2,6 +2,10 @@
 <import src="../../components/house_search_list/house_search_list.wxml"/>
 <import src="../../components/toast/toast.wxml"/>
 
+<import src="../../components/dialog/dialog.wxml"/>
+
+<template is="dialog" data="{{ ...$dialog }}"/>
+
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="page house-search">
     <!--<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取 </button>-->
@@ -39,11 +43,11 @@
     </view>
 
     <!--置顶-->
-    <!--<view class="right-side-menu totop">-->
-        <!--<view class="pic">-->
-            <!--<image src="../../images/stick.png"/>-->
-        <!--</view>-->
-    <!--</view>-->
+    <view class="right-side-menu totop">
+        <view class="pic">
+            <image src="../../images/stick.png"/>
+        </view>
+    </view>
 
 
 </view>

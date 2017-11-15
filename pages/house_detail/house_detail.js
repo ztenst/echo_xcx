@@ -3,6 +3,7 @@ import {
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
+
 let app = getApp();
 
 Page({
@@ -106,7 +107,7 @@ Page({
      * @param {String} cur 当前展示图片
      * @param {Array}  imageList 展示的图片列表
      */
-    seeHx (e) {
+    seeHx(e) {
         wx.previewImage({urls: [e.currentTarget.dataset.current]});
     },
 
@@ -125,7 +126,7 @@ Page({
      * @param {String} cur 当前展示图片
      * @param {Array}  imageList 展示的图片列表
      */
-    viewPic (e) {
+    viewPic(e) {
         let cur = e.currentTarget.dataset.current;
         let urls = e.currentTarget.dataset.urls;
         let imageList = [];
@@ -138,23 +139,27 @@ Page({
         });
     },
     tapCall() {
-        if (this.timeout) clearTimeout(this.timeout);
-        const hideSheet = $actionSheet.show({
-            titleText: '三秒后自动关闭',
-            buttons: [{text: '实例菜单'}, {text: '实例菜单'}],
+        let self = this;
+        $actionSheet.show('phone',{
+            titleText: '电话',
+            list: self.data.plotdetail.phones,
             buttonClicked(index, item) {
                 return true
             },
+            cancel() {},
         })
-        this.timeout = setTimeout(hideSheet, 3000)
     },
-    /**
-     * 打电话
-     */
-    call(e){
-        let phone = e.currentTarget.dataset.phone.replace(/\s*转\s*/, ',')
-        wx.makePhoneCall({
-            phoneNumber: phone
+    tapFenXiao() {
+        let self = this;
+        $actionSheet.show('fenxiao',{
+            titleText: '分销',
+            hid:self.data.plotdetail.id,
+            list: self.data.plotdetail.phones,
+            buttonClicked(index, item) {
+                return true
+            },
+            cancel() {},
         })
-    }
+
+    },
 });

@@ -24,6 +24,7 @@
             </view>
         </view>
 
+
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
                 <view class="fl">
@@ -65,8 +66,7 @@
         <!--最新动态-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">最新动态</view>-->
-                <view class="mTitle-l">111</view>
+                <view class="mTitle-l">最新动态</view>
             </view>
             <!--引入detailcover模板-->
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
@@ -74,24 +74,21 @@
         <!--雇佣规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">雇佣规则</view>-->
-                <view class="mTitle-l">222</view>
+                <view class="mTitle-l">雇佣规则</view>
             </view>
             <template is="detailContent" data="{{...$detailContent.pay}}"/>
         </view>
         <!--带看规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.dk_rule}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">带看规则</view>-->
-                <view class="mTitle-l">333</view>
+                <view class="mTitle-l">带看规则</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.dk }}"/>
         </view>
         <!--楼盘卖点-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.sell_point}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <!--<view class="mTitle-l">楼盘卖点</view>-->
-                <view class="mTitle-l">444</view>
+                <view class="mTitle-l">楼盘卖点</view>
             </view>
             <template is="detailContent" data="{{ ...$detailContent.sell }}"/>
         </view>
@@ -163,7 +160,7 @@
                 <text class="iconfont icon-dianhua"></text>
                 电话
             </view>
-            <view class="a flex">
+            <view class="a flex" bindtap="tapFenXiao">
                 <text class="iconfont icon-fenxiaoshang"></text>
                 分销
             </view>
@@ -176,4 +173,7 @@
             <view>快速报备</view>
         </view>
     </view>
+
+    <template is="actionSheet" data="{{ ...$actionSheet }}"/>
+
 </view>

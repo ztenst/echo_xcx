@@ -1,0 +1,24 @@
+<view class="add_message bg-f5">
+    <view class="blank20"></view>
+    <view class="plt24 bg-fff">
+        <view class="line">
+            <label for="">姓名</label>
+            <input type="text" name="name" placeholder-class="c-ccc" placeholder="请输入客户姓名" required />
+        </view>
+        <view class="line ">
+            <label for="">手机</label>
+            <input type="number" name="phone" placeholder-class="c-ccc" placeholder="请输入手机号" required style="width:496rpx;display: inline-block;vertical-align: middle;"/>
+        </view>
+        <view class="line nbtm">
+            <label for="">公司名</label>
+            <input type="text" name="name" placeholder-class="c-ccc" placeholder="请输入公司名，独立经纪人可不用填写"/>
+        </view>
+    </view>
+
+
+    <view class="big-btn" style="">
+        <button class="btnBaoBei box box-pack-center box-align-center" form-type="submit">
+            提<text style="width: 20rpx;"></text>交
+        </button>
+    </view>
+</view>

@@ -102,10 +102,20 @@ const api = {
         let url = `${config.host}/api/index/decode`
         return postRequest(url, params)
     },
-    /*新房列表*/
+    /*获取openid*/
     getOpenId(params) {
         let url = `${config.host}/api/index/getOpenId`
         return getRequest(url, params)
+    },
+    /*新房列表*/
+    xcxLogin(params) {
+        let url = `${config.host}/api/index/xcxLogin`
+        return postRequest(url, params)
+    },
+    /*分销*/
+    addCo(params) {
+        let url = `${config.host}/api/index/addCo`
+        return postRequest(url, params)
     },
 };
 

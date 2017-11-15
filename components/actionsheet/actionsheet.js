@@ -1,5 +1,6 @@
 import Component from '../component'
-const SCOPE = '$actionSheet';
+let app =getApp();
+import api from '../../common/api'
 export default {
 	/**
 	 * 默认参数
@@ -30,16 +31,19 @@ export default {
 	 * @param {String} opts.destructiveText 删除按钮的文本
 	 * @param {Function} opts.destructiveButtonClicked 删除按钮点击事件
 	 */
-    show(opts = {}) {
-    	const options = Object.assign({
-            animateCss: undefined, 
-            visible: !1, 
-        }, this.setDefaults(), opts)
+    show(type,opts = {}) {
+        const SCOPE = `$actionSheet`;
+        const options = Object.assign({
+            type:type,
+            animateCss: undefined,
+            visible: !1,
+        }, this.setDefaults(), opts);
+
 
     	// 实例化组件
     	const component = new Component({
             scope: SCOPE,
-            data: options, 
+            data: options,
             methods: {
                 /**
                  * 隐藏
@@ -67,18 +71,38 @@ export default {
                     }
                 },
                 /**
-                 * 删除按钮点击事件
-                 */
-                destructiveButtonClicked() {
-                    if (options.destructiveButtonClicked() === true) {
-                        this.removeSheet()
-                    }
-                },
-                /**
                  * 取消按钮点击事件
                  */
                 cancel() {
                     this.removeSheet(options.cancel)
+                },
+
+                /**
+                 * 处理点击事件
+                 */
+                dealClick(e){
+                    let  self = this;
+                    let data = self.getComponentData();
+                    let phone = e.currentTarget.dataset.phone.replace(/[u4E00-u9FA5]/g, '')
+                    if(!app.globalData.isUser){
+                        let url = '/pages/add_message/add_message';
+                        app.goPage(url, null, false);
+                        return;
+                    }
+                    if(data.type=='phone'){
+                        wx.makePhoneCall({
+                            phoneNumber: phone
+                        })
+                    }else if(data.type == 'fenxiao'){
+                        let params= {
+                            hid:data.hid,
+                            uid:app.globalData.userInfo.id,
+                            phone:phone
+                        };
+                        api.addCo(params).then(res=>{
+                           console.log(res)
+                        })
+                    }
                 },
             },
         })
