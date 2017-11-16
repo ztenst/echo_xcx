@@ -2,12 +2,11 @@ function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
   var day = date.getDate()
+  // var hour = date.getHours()
+  // var minute = date.getMinutes()
+  // var second = date.getSeconds()
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-')
 }
 /**
  * 时间戳转化为年 月 日 时 分 秒

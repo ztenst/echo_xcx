@@ -117,6 +117,21 @@ const api = {
         let url = `${config.host}/api/index/addCo`
         return postRequest(url, params)
     },
+    /*完善资料*/
+    addMessage(params) {
+        let url = `${config.host}/api/index/completeInfo`
+        return postRequest(url, params)
+    },
+    /*完善资料*/
+    baiBei(params) {
+        let url = `${config.host}/api/index/sub`
+        return postRequest(url, params)
+    },
+    /*收藏*/
+    addCollection(params) {
+        let url = `${config.host}/api/index/addsave`
+        return getRequest(url, params)
+    },
 };
 
 module.exports = api

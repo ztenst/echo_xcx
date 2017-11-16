@@ -30,10 +30,10 @@
 					"query": "id=123"
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "index",
 					"pathName": "pages/index/index",
-					"query": "company=126&companyname=嘉兴利悦房地产经纪有限公司"
+					"query": ""
 				},
 				{
 					"id": -1,
@@ -42,10 +42,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "baibei",
 					"pathName": "pages/house_baobei/house_baobei",
-					"query": ""
+					"query": "id=950"
 				}
 			]
 		}

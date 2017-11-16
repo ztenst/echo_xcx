@@ -1,9 +1,16 @@
 <import src="../../components/detail_content/detail_content.wxml"/>
 <import src="../../components/actionsheet/actionsheet.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
 <import src="../../libs/wxParse/wxParse.wxml"/>
 
-<view class="menuwap">
-    <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="house-detail bg-f5 ">
+<view class="detailLoading" hidden="{{isFinished}}">
+      <view class="loading-gif">
+          <image src="../../images/loadingdetail.gif" ></image>
+      </view>
+</view>
+<view class="menuwap" hidden="{{ !isFinished }}">
+
+    <scroll-view scroll-y="true"  class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
         <view class="coverswiper">
             <swiper class="swiper-wrap"
@@ -23,8 +30,7 @@
                 <text class="ft22">/{{coverswiper.swiper_data_num}}</text>
             </view>
         </view>
-
-
+        <!--基本信息-->
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
                 <view class="fl">
@@ -39,7 +45,6 @@
                 </block>
             </view>
         </view>
-
         <view class="basedetail  bg-fff">
             <view class="row bdm box box-align-center box-pack-between" wx:if="{{plotdetail.address}}"
                   bindtap="goHash">
@@ -62,7 +67,6 @@
                 </view>
             </view>
         </view>
-
         <!--最新动态-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.news}}">
             <view class="mTitle box box-align-center box-pack-between">
@@ -153,27 +157,30 @@
         </view>
 
     </scroll-view>
-
     <view class="mBottom box flex">
         <view class="left box box-align-center flex">
-            <view class="a flex"  bindtap="tapCall">
+            <view class="a flex"  bindtap="tapSheet" data-type="phone">
                 <text class="iconfont icon-dianhua"></text>
                 电话
             </view>
-            <view class="a flex" bindtap="tapFenXiao">
+            <view class="a flex" bindtap="tapSheet" data-type="fenxiao">
                 <text class="iconfont icon-fenxiaoshang"></text>
                 分销
             </view>
-            <view class="a flex">
-                <text class="iconfont icon-shoucang1"></text>
+            <view class="a flex" bindtap="addCollect"
+                  data-is_login="{{plotdetail.is_login}}"
+                  data-is_save="{{plotdetail.is_save}}"
+                  data-hid="{{plotdetail.id}}">
+                <text class="iconfont icon-shoucang1"  wx:if="{{plotdetail.is_save==0}}"></text>
+                <text class="iconfont icon-shoucang" wx:if="{{plotdetail.is_save==1}}"></text>
                 收藏
             </view>
         </view>
-        <view class="right">
+        <view class="right" bindtap="baoBei" data-id="{{plotdetail.id}}">
             <view>快速报备</view>
         </view>
     </view>
-
     <template is="actionSheet" data="{{ ...$actionSheet }}"/>
+    <template is="toast" data="{{ ...$toast }}"/>
 
 </view>

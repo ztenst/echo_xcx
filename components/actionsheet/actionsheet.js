@@ -12,7 +12,8 @@ export default {
 			buttons: [], 
 			buttonClicked() {}, 
 			cancelText: `取消`, 
-			cancel() {}, 
+			cancel() {},
+            onActionSheetClick(){}
 			// destructiveText: '删除', 
 			// destructiveButtonClicked() {}, 
 		}
@@ -83,26 +84,13 @@ export default {
                 dealClick(e){
                     let  self = this;
                     let data = self.getComponentData();
-                    let phone = e.currentTarget.dataset.phone.replace(/[u4E00-u9FA5]/g, '')
-                    if(!app.globalData.isUser){
-                        let url = '/pages/add_message/add_message';
-                        app.goPage(url, null, false);
-                        return;
-                    }
-                    if(data.type=='phone'){
-                        wx.makePhoneCall({
-                            phoneNumber: phone
-                        })
-                    }else if(data.type == 'fenxiao'){
-                        let params= {
-                            hid:data.hid,
-                            uid:app.globalData.userInfo.id,
-                            phone:phone
-                        };
-                        api.addCo(params).then(res=>{
-                           console.log(res)
-                        })
-                    }
+                    let params= {
+                        hid:data.hid,
+                        uid:app.globalData.userInfo.id,
+                        phone:e.currentTarget.dataset.phone.replace(/[^0-9]/ig,"")
+                    };
+                    typeof options.onActionSheetClick === 'function' && options.onActionSheetClick(data.type,params);
+
                 },
             },
         })

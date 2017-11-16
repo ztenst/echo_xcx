@@ -1,14 +1,16 @@
 import $searchFilter from 'search_filter/search_filter'
 import $houseSearchList from 'house_search_list/house_search_list'
-import $wuxtoast from 'toast/toast'
+import $toast from 'toast/toast'
 import $detailContent from 'detail_content/detail_content'
 import $actionSheet from 'actionsheet/actionsheet'
 import $dialog from 'dialog/dialog'
+import $calendar from 'calendar/calendar'
 export {
     $searchFilter,
     $houseSearchList,
-    $wuxtoast,
+    $toast,
     $detailContent,
     $actionSheet,
-    $dialog
+    $dialog,
+    $calendar
 }

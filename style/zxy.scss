@@ -32,7 +32,35 @@
   }
 }
 /* index */
-
+//tongji
+.tongji{
+  color: #666;
+  width:100%;
+  height: 66rpx;
+  font-size: 24rpx;
+  background: #f5f5f5;
+  border-bottom: 1rpx solid $borderColorE6;
+  >view{
+    height:100%;
+    padding:0rpx 24rpx;
+  }
+  >text{
+    display: inline-block;
+  }
+  .fr{
+    display: inline-block;
+    padding: 0 10rpx;
+    height:50rpx;
+    line-height: 50rpx;
+    background-color: $maincolor;
+    color:#fff;
+  }
+  .iconfont{
+    font-size: 24rpx;
+    color:#fff;
+    margin-left:10rpx;
+  }
+}
 .index {
   .index-loading {
     position: fixed;
@@ -157,6 +185,8 @@
       margin-right: 16rpx;
     }
   }
+
+
 }
 
 
@@ -556,6 +586,9 @@
         display: block;
         margin-bottom: 6rpx;
         font-size: 32rpx;
+        &.icon-shoucang{
+           color: $lightMainColor;
+        }
       }
     }
   }
@@ -578,10 +611,6 @@
            .iconfont{
              font-size:26rpx;
              color:#ccc;
-           }
-           .switchSize{
-             transform:scale(.7);
-             right:0;
            }
          }
        }
@@ -611,6 +640,12 @@
       .siz{
         transform:scale(.6);
       }
+      .switchSize{
+        text-align: right;
+        position: relative;
+        right:0;
+        transform:scale(.7);
+      }
       &.longlab{
          label{
               width:200rpx;
@@ -633,22 +668,29 @@
       }
     }
     .big-btn{
-    position: fixed;
-    bottom:0;
-    box-sizing:border-box;
-    width:100%;
-     padding:24rpx;
-    -webkit-box-shadow:0px -4px 4px rgba(0,0,0,.03);
-    box-shadow: 0px -4px 4px rgba(0,0,0,.03);
-    .btnBaoBei{
-      width:100%;
-      height:88rpx;
-      background-color: $maincolor;
-      color:#fff;
-      font-size:34rpx;
-      border-radius: 10rpx;
+        position: fixed;
+        bottom:0;
+        box-sizing:border-box;
+        width:100%;
+         padding:24rpx;
+        -webkit-box-shadow:0px -4px 4px rgba(0,0,0,.038);
+        box-shadow: 0px -4px 4px rgba(0,0,0,.038);
+          .btnBaoBei{
+            width:100%;
+            height:88rpx;
+            background-color: $maincolor;
+            color:#fff;
+            font-size:34rpx;
+            border-radius: 10rpx;
+          }
+      &.no-fixed{
+            position: relative;
+           margin-top:50rpx;
+           box-shadow:none;
+           -webkit-box-shadow:none;
+      }
     }
-  }
+
 }
 
 

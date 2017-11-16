@@ -12,8 +12,6 @@ export default {
             onFilter() {
             } //回调方法
         }
-
-
     },
 
     init(opts = {}) {``

@@ -43,40 +43,35 @@ Page({
         $dialog.alert({
             title: '经纪圈新房通',
             content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
-            confirmType:"dialog__btn_primary",
             buttons:[{
-                'text':"知道了"
+                text:'知道了',
+                type: 'weui-dialog__btn_primary',
             }],
             onConfirm(e) {
-
+                // app.getUserOpenId().then(accessKey => {
+                //     let params = {
+                //         encryptedData: e.detail.encryptedData,
+                //         iv: e.detail.iv,
+                //         accessKey: accessKey
+                //     }
+                //     api.getDecode(params).then(resp => {
+                //         let json = resp.data.trim();
+                //         api.xcxLogin({phone:json}).then(respo=>{
+                //             if(respo.data.status =='success'){
+                //                 app.globalData.userInfo = respo.data.data;
+                //                 app.globalData.isUser = true;
+                //             }
+                //         })
+                //     })
+                // });
+                // const index = e.currentTarget.dataset.index
+                // const button = options.buttons[index]
+                // this.hide(() => typeof button.onTap === `function` && button.onTap(e))
             },
         })
 
         self.searchFilterInit(_q, area_fixed, false);
         self.houseSearchListInit();
-
-        // wx.login({
-        //     success: function (res) {
-        //         if (res.code) {
-        //             //发起网络请求
-        //             let params = {
-        //                 code: res.code,
-        //             }
-        //             api.getOpenId(params).then(resp => {
-        //                 let json = resp.data;
-        //                 console.log(json)
-        //                 self.setData({
-        //                     key:json.trim()
-        //                 })
-        //             })
-        //
-        //         } else {
-        //             console.log('获取用户登录态失败！' + res.errMsg)
-        //         }
-        //     }
-        // });
-        //
-
     },
 
     //列表组件初始化

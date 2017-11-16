@@ -1,5 +1,5 @@
 import {
-    $detailContent, $actionSheet
+    $detailContent, $actionSheet, $toast
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
@@ -10,6 +10,7 @@ Page({
     data: {
         plot_id: null,
         showScodeimg: false,
+        isFinished: false,
         /**
          * 页面配置
          */
@@ -22,13 +23,16 @@ Page({
         default_img: '',
     },
     onLoad: function (options) {
-        wx.showLoading({title: '加载中',})
         var self = this;
         let plot_id = options.id;
         self.setData({plot_id: plot_id});
         /**
          * 新房详细页接口
          */
+    },
+    onShow:function () {
+        let   self = this;
+        let plot_id = self.data.plot_id;
         api.getMplotDetail(plot_id).then(res => {
             let data = res.data.data;
             if (res.data.status === 'success') {
@@ -68,7 +72,9 @@ Page({
                 let params = {limit: 6, street: data.streetid}
                 self.getAreaPlotList(params);
                 //隐藏加载logo
-                wx.hideLoading();
+                self.setData({
+                    isFinished: true
+                })
             } else {
                 wx.showToast({
                     title: res.data.msg,
@@ -83,10 +89,7 @@ Page({
             }
 
         });
-    },
 
-    goPage: function (e) {
-        app.goPage(e.currentTarget.dataset.url, Util.query2Params(e.currentTarget.dataset.param), false)
     },
 
     /**
@@ -138,28 +141,87 @@ Page({
             urls: imageList
         });
     },
-    tapCall() {
+    /**
+     * 分销和打电话
+     * @returns {boolean}
+     */
+    tapSheet(e) {
         let self = this;
-        $actionSheet.show('phone',{
-            titleText: '电话',
+        let type =  e.currentTarget.dataset.type;
+        $actionSheet.show(type, {
+            titleText: type=='phone'?'电话':'分销',
+            hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
             buttonClicked(index, item) {
                 return true
             },
-            cancel() {},
-        })
-    },
-    tapFenXiao() {
-        let self = this;
-        $actionSheet.show('fenxiao',{
-            titleText: '分销',
-            hid:self.data.plotdetail.id,
-            list: self.data.plotdetail.phones,
-            buttonClicked(index, item) {
-                return true
-            },
-            cancel() {},
+            onActionSheetClick(type, params) {
+                console.log(type,params)
+                if(!app.globalData.isUser){
+                    let url = '/pages/add_message/add_message';
+                    app.goPage(url, null, false);
+                    return;
+                }
+                if(type == 'phone'){
+                    wx.makePhoneCall({
+                        phoneNumber: params.phone
+                    })
+                }else if(type == 'fenxiao'){
+                    api.addCo(params).then(res=>{
+                        wx.showToast({
+                            title:res.data.msg,
+                           icon: 'info',
+                            duration: 2000
+                        })
+                    })
+                }
+            }
         })
 
     },
+    /**
+     * 添加及取消收藏
+     */
+    addCollect(e) {
+        let self = this;
+        let isUser = app.globalData.isUser;
+        let dataset = e.currentTarget.dataset;
+        let params = {
+            hid: dataset.hid,
+            uid:app.globalData.userInfo.id
+        };
+
+        if (!isUser) {
+            app.goPage('/pages/add_message/add_message', null, false);
+        } else {
+            api.addCollection(params).then(function (res) {
+                let data = res.data
+                $toast.show({
+                    timer: 2e3,
+                    text: data.msg,
+                    success: () => console.log('文本提示')
+                });
+                if(data.status=='success'){
+                    if(self.data.plotdetail.is_save==0){
+                        self.setData({
+                            [`plotdetail.is_save`]: 1
+                        })
+                    }else  if(self.data.plotdetail.is_save==1){
+                        self.setData({
+                            [`plotdetail.is_save`]: 0
+                        })
+                    }
+
+                }
+            });
+        }
+    },
+    /**
+     * 快速报备
+     */
+    baoBei(e) {
+        let dataset = e.currentTarget.dataset;
+        let url = '/pages/house_baobei/house_baobei' ;
+        app.goPage(url, {id:dataset.id}, false);
+    }
 });
