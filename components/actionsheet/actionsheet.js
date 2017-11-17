@@ -14,8 +14,6 @@ export default {
 			cancelText: `取消`, 
 			cancel() {},
             onActionSheetClick(){}
-			// destructiveText: '删除', 
-			// destructiveButtonClicked() {}, 
 		}
     },
 	/**
@@ -29,8 +27,6 @@ export default {
 	 * @param {Function} opts.buttonClicked 按钮点击事件
 	 * @param {String} opts.cancelText 取消按钮的文本
 	 * @param {Function} opts.cancel 取消按钮点击事件
-	 * @param {String} opts.destructiveText 删除按钮的文本
-	 * @param {Function} opts.destructiveButtonClicked 删除按钮点击事件
 	 */
     show(type,opts = {}) {
         const SCOPE = `$actionSheet`;

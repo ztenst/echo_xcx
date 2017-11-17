@@ -127,7 +127,7 @@
             </view>
         </view>
         <!--同区域楼盘-->
-        <view class="mBox  bg-fff" wx:if="{{area_plot.length!==0}}" id="hash2">
+        <view class="mBox  bg-fff" wx:if="{{area_plot.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">同区域楼盘</view>
             </view>

@@ -488,7 +488,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
     max-width: 100%;
     margin: auto;
     .action-sheet {
@@ -509,8 +508,12 @@
           color:#5bc84d;
           font-size:50rpx;
         }
+        &.action-sheet-nopadbm{
+          padding-bottom:0;
+        }
       }
     }
+
   }
 }
 

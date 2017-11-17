@@ -16,7 +16,9 @@ Page({
          */
         winWidth: 0,
         winHeight: 0,
-        // tab切换
+        /**
+         * tab切换
+         */
         currentTab: 0,
         wx_image: '',
         toView: '',
@@ -30,8 +32,8 @@ Page({
          * 新房详细页接口
          */
     },
-    onShow:function () {
-        let   self = this;
+    onShow: function () {
+        let self = this;
         let plot_id = self.data.plot_id;
         api.getMplotDetail(plot_id).then(res => {
             let data = res.data.data;
@@ -146,31 +148,27 @@ Page({
      * @returns {boolean}
      */
     tapSheet(e) {
-        let self = this;
-        let type =  e.currentTarget.dataset.type;
+        let self = this,type = e.currentTarget.dataset.type;
+
         $actionSheet.show(type, {
-            titleText: type=='phone'?'电话':'分销',
+            titleText: type == 'phone' ? '电话' : '分销',
             hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
-            buttonClicked(index, item) {
-                return true
-            },
             onActionSheetClick(type, params) {
-                console.log(type,params)
-                if(!app.globalData.isUser){
+                if (!app.globalData.isUser) {
                     let url = '/pages/add_message/add_message';
                     app.goPage(url, null, false);
                     return;
                 }
-                if(type == 'phone'){
+                if (type == 'phone') {
                     wx.makePhoneCall({
                         phoneNumber: params.phone
                     })
-                }else if(type == 'fenxiao'){
-                    api.addCo(params).then(res=>{
+                } else if (type == 'fenxiao') {
+                    api.addCo(params).then(res => {
                         wx.showToast({
-                            title:res.data.msg,
-                           icon: 'info',
+                            title: res.data.msg,
+                            icon: 'info',
                             duration: 2000
                         })
                     })
@@ -183,12 +181,11 @@ Page({
      * 添加及取消收藏
      */
     addCollect(e) {
-        let self = this;
-        let isUser = app.globalData.isUser;
-        let dataset = e.currentTarget.dataset;
+        let self = this,isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
+
         let params = {
             hid: dataset.hid,
-            uid:app.globalData.userInfo.id
+            uid: app.globalData.userInfo.id
         };
 
         if (!isUser) {
@@ -201,12 +198,12 @@ Page({
                     text: data.msg,
                     success: () => console.log('文本提示')
                 });
-                if(data.status=='success'){
-                    if(self.data.plotdetail.is_save==0){
+                if (data.status == 'success') {
+                    if (self.data.plotdetail.is_save == 0) {
                         self.setData({
                             [`plotdetail.is_save`]: 1
                         })
-                    }else  if(self.data.plotdetail.is_save==1){
+                    } else if (self.data.plotdetail.is_save == 1) {
                         self.setData({
                             [`plotdetail.is_save`]: 0
                         })
@@ -220,8 +217,7 @@ Page({
      * 快速报备
      */
     baoBei(e) {
-        let dataset = e.currentTarget.dataset;
-        let url = '/pages/house_baobei/house_baobei' ;
-        app.goPage(url, {id:dataset.id}, false);
+        let dataset = e.currentTarget.dataset,url = '/pages/house_baobei/house_baobei';
+        app.goPage(url, {id: dataset.id}, false);
     }
 });

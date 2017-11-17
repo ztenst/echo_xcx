@@ -10,7 +10,15 @@ Page({
         notice:'',
         start: '',
         end: '',
-        changeShowPhone:true
+        changeShowPhone:true,
+        sexItems: [
+            {name: '先生', value: 1, checked: 'true'},
+            {name: '女士', value: 2},
+        ] ,
+        visitItems: [
+            {name: '自驾', value: 1, checked: 'true'},
+            {name: '班车', value: 2},
+        ]
     },
     onLoad: function (options) {
         wx.setNavigationBarTitle({title: '快速报备'});//设置导航条标题
@@ -36,13 +44,20 @@ Page({
             }
         });
     },
-
+    /**
+     * 获取用户手机号
+     * @param e
+     */
     getPhone(e) {
         let that = this;
         that.setData({
             phone: e.detail.value
         });
     },
+    /**
+     * 获取用户姓名
+     * @param e
+     */
     getName(e) {
         let that = this;
         that.setData({
@@ -61,34 +76,46 @@ Page({
             four: e.detail.value
         });
     },
+    /**
+     *设置性别
+     * @param e
+     */
     sexRadioChange(e) {
         let that = this;
         that.setData({
             sex: e.detail.value
         });
     },
+    /**
+     * 设置来访方式
+     * @param e
+     */
     visitRadioChange(e) {
         let that = this;
         that.setData({
             visit_way: e.detail.value
         });
     },
+    /**
+     * 切换输入的手机号格式
+     * @param e
+     */
     switchPhoneChange(e){
         let that = this;
         that.setData({
             changeShowPhone: e.detail.value
         });
     },
-
+    /**
+     * 选择市场对接时间
+     * @returns {boolean}
+     */
     tapMarking() {
         let self = this;
-        $actionSheet.show('fenxiao', {
+        $actionSheet.show('market', {
             titleText: '选择市场对接',
             hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
-            buttonClicked(index, item) {
-                return true
-            },
             onActionSheetClick(type, params) {
                 self.setData({
                     notice:params.phone
@@ -96,6 +123,10 @@ Page({
             }
         })
     },
+    /**
+     * 设置预计带看时间
+     * @returns {*|void}
+     */
     openCalendar() {
         console.log(this.time)
         if (this.time) {
@@ -111,9 +142,14 @@ Page({
             }
         })
     },
+    /**
+     * 报备的表单提交
+     * @param e
+     * @returns {boolean}
+     */
     baoBei(e) {
-        let self = this,
-            fObj = e.detail.value;
+        let self = this, fObj = e.detail.value;
+
         if (!self.data.time) {
             $toast.show({
                 timer: 2e3,
@@ -158,14 +194,14 @@ Page({
             });
             return false;
         }
-        if (!self.data.sex) {
+        if (fObj.sex!=1||fObj.sex!=2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择性别',
             });
             return false;
         }
-        if (!self.data.visit_way) {
+        if (fObj.visit_way!=1||fObj.visit_way!=2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择来访方式',
@@ -191,7 +227,9 @@ Page({
                 text: data.msg,
             });
             if (data.status == 'success') {
-
+                wx.navigateBack({
+                    delta: 1
+                })
             }
         })
     }

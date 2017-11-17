@@ -1,7 +1,6 @@
 <template name="houseSearchList">
     <!-- text不能 换行 -->
     <view class="__house-search-list">
-        <!-- <navigator wx:for="{{list}}" wx:key="id" class="conctainer" url="{{'/pages/house_detail/'+(type==1?'new_house_detail':(type==2?'esf_house_detail':'rent_house_detail'))+'?id='+item.id}}"> -->
         <block wx:if="{{ list.length>0 }}">
             <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}"
                   class="container bg-mian clearfix" catchtap="{{navigateDetail}}">

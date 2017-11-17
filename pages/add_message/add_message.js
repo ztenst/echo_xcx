@@ -1,4 +1,5 @@
-import {$toast
+import {
+    $toast
 } from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
@@ -10,13 +11,13 @@ Page({
     onLoad: function (options) {
 
     },
-    getPhone(e){
+    getPhone(e) {
         let that = this;
         that.setData({
             userphone: e.detail.value
         });
     },
-    getName(e){
+    getName(e) {
         let that = this;
         that.setData({
             name: e.detail.value

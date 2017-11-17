@@ -594,26 +594,31 @@
   }
 }
 
-
+//add_message
 .add_message{
-      box-sizing:border-box;
-     width:100%;
-     height:100%;
-    .row{
-         padding-left:0;
-         .col-t{
-           color: #333;
-           font-size:30rpx;
-         }
-         .row-r{
-           font-size:26rpx;
-           color:#999;
-           .iconfont{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    box-sizing: border-box;
+     .plt24{
+         .row{
+           padding-left:0;
+           .col-t{
+             color: #333;
+             font-size:30rpx;
+           }
+           .row-r{
              font-size:26rpx;
-             color:#ccc;
+             color:#999;
+             .iconfont{
+               font-size:26rpx;
+               color:#ccc;
+             }
            }
          }
-       }
+     }
     .line {
       display: block;
       line-height: 98rpx;
@@ -627,33 +632,56 @@
       label {
         width: 100rpx;
         height: 98rpx;
+
         position: absolute;
         left: 0rpx;
         top: 0;
         color: #333;
         font-size:30rpx;
       }
-      .input, input, picker,.raDio {
-        margin-left: 100rpx;
+      .xing{
+        height:98rpx;
+        display: inline-block;
+        margin-right:60rpx;
+      }
+      .input, input,.raDio {
         height: 98rpx;
+        display: inline-block;
+        vertical-align: middle;
+        &.longinput{
+          width:400rpx;
+        }
+        &.shortinput{
+          width:100rpx;
+        }
       }
-      .siz{
-        transform:scale(.6);
+      .ml100{
+        display: inline-block;
+        margin-left: 100rpx;
       }
+
+
       .switchSize{
         text-align: right;
-        position: relative;
+        position: absolute;
+        top: 0;
         right:0;
         transform:scale(.7);
       }
+
+
       &.longlab{
          label{
               width:200rpx;
          }
         .raDio{
              margin-left:200rpx;
+            .radioSize{
+              transform:scale(.6);
+            }
         }
       }
+
     }
     .tips{
       padding-top:24rpx;

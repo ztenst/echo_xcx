@@ -1,19 +1,23 @@
 <template name="actionSheet">
+
     <view class="action-sheet-backdrop  {{ animateCss[1] }}" wx:if="{{ visible }}" catchtap="{{ cancel }}">
         <view class="action-sheet-wrapper {{ animateCss[0] }}">
             <view class="action-sheet">
-                <view class="action-sheet-group action-sheet-options">
+                <view class="action-sheet-group {{type=='market'?'action-sheet-nopadbm':''}}">
+
                     <view class="action-sheet-title" wx:if="{{ titleText }}">{{ titleText }}</view>
                     <view class="row  box box-align-center box-pack-between" wx:for="{{list}}"  data-phone="{{item}}" bindtap="{{dealClick}}">
-                        <view class="row-l box">
+                        <view class="row-l">
                             <text class="col-t">{{item}}</text>
                         </view>
                         <view class="row-r">
                             <text class="iconfont icon-dianhua1"></text>
                         </view>
                     </view>
+
                 </view>
             </view>
         </view>
     </view>
+
 </template>

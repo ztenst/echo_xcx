@@ -34,48 +34,74 @@
             </view>
         </view>
         <view class="blank20"></view>
+
         <view class="plt24 bg-fff">
-            <view class="line">
-                <label for="">姓名</label>
-                <input type="text" name="name" placeholder-class="c-ccc" placeholder="请输入客户姓名" bindinput="getName" />
-            </view>
-            <view class="line ">
-                <label for="">手机</label>
-                <view wx:if="{{changeShowPhone}}" style="display: inline-block;">
-                    <input type="number"  name="three"   placeholder-class="c-ccc" placeholder="前3" maxlength="3"
-                           style="width:168rpx;display: inline-block;vertical-align: middle;" bindinput="three" />****
-                    <input type="number"  name="four"   placeholder-class="c-ccc" placeholder="后4" maxlength="4"
-                           style="width:168rpx;display: inline-block;vertical-align: middle;" bindinput="four"/>
+            <view class="line box box-align-center box-pack-between">
+                <view>
+                    <label for="">姓名</label>
+                    <input type="text" name="name"  class="ml100" placeholder-class="c-ccc" placeholder="请输入客户姓名" bindinput="getName"/>
                 </view>
 
-                <input type="number"  name="phone"   placeholder-class="c-ccc"
-                       style="width:496rpx;display: inline-block;vertical-align: middle;" bindinput="getPhone" wx:if="{{!changeShowPhone}}"/>
-                <switch checked class="switchSize"  bindchange="switchPhoneChange" />
             </view>
-            <view class="line longlab">
-                <label for="">性别</label>
-                <radio-group class="raDio" bindchange="sexRadioChange">
-                    <radio value="1"  class="siz" color="#00b7ee"/>先生
-                    <radio value="2"  class="siz" color="#00b7ee"/>女士
-                </radio-group>
+            <view class="line box box-align-center box-pack-between">
+                <view>
+                    <label for="">手机</label>
+                    <view wx:if="{{changeShowPhone}}" class="ml100">
+                        <!--前三后四位手机号-->
+                        <input type="number" name="three" class="shortinput" placeholder-class="c-ccc" placeholder="前3" maxlength="3" bindinput="three"/>
+                        <text class="xing">****</text>
+                        <input type="number" name="four"  class="shortinput" placeholder-class="c-ccc" placeholder="后4" maxlength="4" bindinput="four"/>
+
+                    </view>
+                    <view wx:if="{{!changeShowPhone}}" class="ml100">
+                        <!--完整手机号-->
+                        <input type="number" name="phone" placeholder-class="c-ccc" placeholder="请输入手机号" class="longinput" maxlength="11" bindinput="getPhone" />
+                    </view>
+                </view>
+
+                <view>
+                    <switch checked class="switchSize" bindchange="switchPhoneChange"/>
+                </view>
+
             </view>
-            <view class="line nbtm longlab">
-                <label for="">来访方式</label>
-                <radio-group class="raDio" bindchange="visitRadioChange">
-                    <radio value="1"  class="siz" color="#00b7ee"/>自驾
-                    <radio value="2"  class="siz" color="#00b7ee"/>班车
-                </radio-group>
+            <view class="line longlab box box-align-center box-pack-between">
+                <view>
+                    <label for="">性别</label>
+                    <radio-group class="raDio" bindchange="sexRadioChange" name="sex">
+                        <block  wx:for="{{sexItems}}">
+                            <radio value="{{item.value}}" checked="{{item.checked}}" class="radioSize" color="{{checked==true?'#ccc':'#00b7ee'}}"/>
+                            {{item.name}}
+                        </block>
+                    </radio-group>
+
+                </view>
             </view>
+            <view class="line nbtm longlab box box-align-center box-pack-between">
+
+                <view>
+                    <label for="">来访方式</label>
+                    <radio-group class="raDio" bindchange="visit_way" name="visit_way">
+                        <block class="" wx:for="{{visitItems}}">
+                            <radio value="{{item.value}}" checked="{{item.checked}}" class="radioSize" color="{{checked==true?'#ccc':'#00b7ee'}}"/>
+                            {{item.name}}
+                        </block>
+                    </radio-group>
+                </view>
+
+             </view>
         </view>
         <view class="plt24">
             <view class="tips">
-                <text class="iconfont icon-tips"></text>报备成功后，项目市场负责人将会收到短信提醒！请一定要确保已与该项目代理公司签订过分销协议再报备。经纪圈新房通不对代理公司的诚信做任何担保性承诺，经纪圈新房通仅提供报备通道方便大家快速报备。
+                <text class="iconfont icon-tips"></text>
+                报备成功后，项目市场负责人将会收到短信提醒！请一定要确保已与该项目代理公司签订过分销协议再报备。经纪圈新房通不对代理公司的诚信做任何担保性承诺，经纪圈新房通仅提供报备通道方便大家快速报备。
             </view>
         </view>
 
         <view class="big-btn">
             <button class="btnBaoBei box box-pack-center box-align-center" form-type="submit">
-                报<text style="width: 20rpx;"></text>备
+                报
+                <text style="width: 20rpx;"></text>
+                备
             </button>
         </view>
 
