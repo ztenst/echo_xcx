@@ -3,7 +3,7 @@
     <view class="__house-search-list">
         <block wx:if="{{ list.length>0 }}">
             <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}"
-                  class="container bg-mian clearfix" catchtap="{{navigateDetail}}">
+                  class="container  {{item.sort==1?'bg-f5':''}}" catchtap="{{navigateDetail}}">
                 <!-- 非特价 -->
                 <view class="house-item" wx:if="{{item.sort==1}}">
                     <view class="house-pic">

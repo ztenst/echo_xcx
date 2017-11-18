@@ -1,36 +1,32 @@
-function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-  // var hour = date.getHours()
-  // var minute = date.getMinutes()
-  // var second = date.getSeconds()
+// 对Date的扩展，将 Date 转化为指定格式的String
+// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
 
-  return [year, month, day].map(formatNumber).join('-')
+function formatTime(Date,fmt) {
+    var o = {
+        "M+": Date.getMonth() + 1, //月份
+        "d+": Date.getDate(), //日
+        "h+": Date.getHours(), //小时
+        "m+": Date.getMinutes(), //分
+        "s+": Date.getSeconds(), //秒
+        "q+": Math.floor((Date.getMonth() + 3) / 3), //季度
+        "S": Date.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (Date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
 }
+
+
 /**
  * 时间戳转化为年 月 日 时 分 秒
  * number: 传入时间戳
  * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
  */
 function formatTime2(number, format) {
-
-  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-  var returnArr = [];
-
-  var date = new Date(number * 1000);
-  returnArr.push(date.getFullYear());
-  returnArr.push(formatNumber(date.getMonth() + 1));
-  returnArr.push(formatNumber(date.getDate()));
-
-  returnArr.push(formatNumber(date.getHours()));
-  returnArr.push(formatNumber(date.getMinutes()));
-  returnArr.push(formatNumber(date.getSeconds()));
-
-  for (var i in returnArr) {
-    format = format.replace(formateArr[i], returnArr[i]);
-  }
-  return format;
+    var date = new Date(number); //获取一个时间对象
+  return formatTime(date,format);
 }
 
 function formatNumber(n) {

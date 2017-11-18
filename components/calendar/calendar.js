@@ -3,7 +3,7 @@ import Component from '../component'
 class Calendar {
 	constructor (options = {}) {
 		Object.assign(this, {
-			options, 
+			options,
 		})
 		this.init()
 	}
@@ -121,11 +121,11 @@ class Calendar {
             day = date.getDate()
 
         const monthHTML = {
-        	year, 
-        	month, 
-        	items: [], 
-        }    
-            
+        	year,
+        	month,
+        	items: [],
+        }
+
         if (offset === `next`) {
             if (month === 11) date = new Date(year + 1, 0)
             else date = new Date(year, month + 1, 1)
@@ -205,11 +205,11 @@ class Calendar {
                 const dayMonth = dayDate.getMonth()
 
                 rowHTML.push({
-                	type, 
-                	year: dayYear, 
-                	month: dayMonth, 
-                	day: dayNumber, 
-                	date: `${dayYear}-${dayMonth}-${dayNumber}`, 
+                	type,
+                	year: dayYear,
+                	month: dayMonth,
+                	day: dayNumber,
+                	date: `${dayYear}-${dayMonth}-${dayNumber}`,
                 })
             }
 
@@ -359,7 +359,7 @@ class Calendar {
 
         let currentDate = new Date(currentYear, currentMonth).getTime()
         let dir = targetDate > currentDate ? `next` : `prev`
-        
+
         const layoutDate = new Date(year, month)
         const prevMonthHTML = this.monthHTML(layoutDate, `prev`)
         const currentMonthHTML = this.monthHTML(layoutDate)
@@ -500,7 +500,7 @@ class Calendar {
             let valueMonth = valueDate.getMonth()
             let valueDay = valueDate.getDate()
             let currentMonth = []
-            
+
             this._data.months.forEach((v, k) => {
                 if (v.year === valueYear && v.month === valueMonth) {
                     currentMonth = v.items
@@ -536,8 +536,8 @@ class Calendar {
                 const weekend = this.options.weekendDays.indexOf(weekDayIndex) >= 0
 
                 this._data.weeks.push({
-                    weekend, 
-                    dayName, 
+                    weekend,
+                    dayName,
                 })
             }
         }
@@ -565,8 +565,8 @@ class Calendar {
         const getTouchPosition = (e) => {
             const touches = e.touches[0]
             return {
-                x: touches.pageX, 
-                y: touches.pageY, 
+                x: touches.pageX,
+                y: touches.pageY,
             }
         }
 
@@ -586,7 +586,7 @@ class Calendar {
             diffX = Math.floor(move.x - start.x)
             diffY = Math.floor(move.y - start.y)
             touchesDiff = this.isH ? diffX : diffY
-            
+
             const a = this.isH ? touchesDiff : 0
             const b = this.isH ? 0 : touchesDiff
             const transform = `transform: translate3d(${a}px, ${b}px, 0)`
@@ -635,10 +635,10 @@ class Calendar {
         }
 
         return {
-            handleTouchStart, 
-            handleTouchMove, 
-            handleTouchEnd, 
-            handleDayClick, 
+            handleTouchStart,
+            handleTouchMove,
+            handleTouchEnd,
+            handleDayClick,
         }
     }
 
@@ -759,14 +759,14 @@ export default {
      */
     init (id, opts = {}) {
         const options = Object.assign({
-            animateCss: undefined, 
-            visible: !1, 
+            animateCss: undefined,
+            visible: !1,
         }, this.setDefaults(), opts)
 
         // 实例化组件
         const component = new Component({
             scope: `$calendar.${id}`,
-            data: options, 
+            data: options,
             methods: {
                 /**
                  * 初始化组件
@@ -819,49 +819,49 @@ export default {
                  */
                 nextMonth (e) {
                     return this.nextMonth(e)
-                }, 
+                },
                 /**
                  * 上一月份数据
                  */
                 prevMonth (e) {
                     return this.prevMonth(e)
-                }, 
+                },
                 /**
                  * 下一年月份数据
                  */
                 nextYear (e) {
                     return this.nextYear(e)
-                }, 
+                },
                 /**
                  * 上一年月份数据
                  */
                 prevYear (e) {
                     return this.prevYear(e)
-                }, 
+                },
                 /**
                  * 手指触摸动作开始
                  */
                 handleTouchStart (e) {
                     return this.handleTouchStart(e)
-                }, 
+                },
                 /**
                  * 手指触摸后移动
                  */
                 handleTouchMove (e) {
                     return this.handleTouchMove(e)
-                }, 
+                },
                 /**
                  * 手指触摸动作结束
                  */
                 handleTouchEnd (e) {
                     return this.handleTouchEnd(e)
-                }, 
+                },
                 /**
                  * 日期选择事件
                  */
                 handleDayClick (e) {
                     return this.handleDayClick(e)
-                }, 
+                },
                 /**
                  * 显示
                  */

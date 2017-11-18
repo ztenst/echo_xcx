@@ -7,14 +7,14 @@ let app = getApp();
 Page({
     data: {
         time: '',
-        notice:'',
+        notice: '',
         start: '',
         end: '',
-        changeShowPhone:true,
+        changeShowPhone: true,
         sexItems: [
             {name: '先生', value: 1, checked: 'true'},
             {name: '女士', value: 2},
-        ] ,
+        ],
         visitItems: [
             {name: '自驾', value: 1, checked: 'true'},
             {name: '班车', value: 2},
@@ -64,13 +64,13 @@ Page({
             name: e.detail.value
         });
     },
-    three(e){
+    three(e) {
         let that = this;
         that.setData({
             three: e.detail.value
         });
     },
-    four(e){
+    four(e) {
         let that = this;
         that.setData({
             four: e.detail.value
@@ -100,7 +100,7 @@ Page({
      * 切换输入的手机号格式
      * @param e
      */
-    switchPhoneChange(e){
+    switchPhoneChange(e) {
         let that = this;
         that.setData({
             changeShowPhone: e.detail.value
@@ -118,7 +118,7 @@ Page({
             list: self.data.plotdetail.phones,
             onActionSheetClick(type, params) {
                 self.setData({
-                    notice:params.phone
+                    notice: params.phone
                 })
             }
         })
@@ -128,19 +128,19 @@ Page({
      * @returns {*|void}
      */
     openCalendar() {
-        console.log(this.time)
         if (this.time) {
             return this.time.show()
         }
-        this.time = $calendar.init('birthday', {
-            value: ['2017-04-15'],
+        let now = new Date();
+        var init = Util.formatTime(now,"yyyy-MM-dd");
+        this.time = $calendar.init('start', {
+            value: [init],
             onChange(p, v, d) {
-                console.log(p, v, d)
                 this.setData({
-                    time: d.join(', ')
-                })
+                    time:d
+                });
             }
-        })
+        });
     },
     /**
      * 报备的表单提交
@@ -171,7 +171,7 @@ Page({
             });
             return false;
         }
-        if (!self.data.three&&!self.data.changeShowPhone) {
+        if (!self.data.three && !self.data.changeShowPhone) {
             fObj.phone = '';
             $toast.show({
                 timer: 2e3,
@@ -179,7 +179,7 @@ Page({
             });
             return false;
         }
-        if (!self.data.four&&!self.data.changeShowPhone) {
+        if (!self.data.four && !self.data.changeShowPhone) {
             fObj.phone = '';
             $toast.show({
                 timer: 2e3,
@@ -187,21 +187,21 @@ Page({
             });
             return false;
         }
-        if (!/^\d{11}$/.test(fObj.phone)&&!self.data.changeShowPhone) {
+        if (!/^\d{11}$/.test(fObj.phone) && !self.data.changeShowPhone) {
             $toast.show({
                 timer: 2e3,
                 text: '手机号错误',
             });
             return false;
         }
-        if (fObj.sex!=1||fObj.sex!=2) {
+        if (fObj.sex != 1 || fObj.sex != 2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择性别',
             });
             return false;
         }
-        if (fObj.visit_way!=1||fObj.visit_way!=2) {
+        if (fObj.visit_way != 1 || fObj.visit_way != 2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择来访方式',
@@ -214,7 +214,7 @@ Page({
             uid: app.globalData.userInfo.id,
             time: self.data.time,
             notice: self.data.notice,
-            phone: fObj.phone?fObj.phone:self.data.three+"****"+self.data.four,
+            phone: fObj.phone ? fObj.phone : self.data.three + "****" + self.data.four,
             name: fObj.name,
             sex: self.data.sex,
             visit_way: self.data.visit_way,

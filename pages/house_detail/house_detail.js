@@ -94,6 +94,7 @@ Page({
 
     },
 
+
     /**
      * 同区域楼盘
      * @param params
@@ -212,6 +213,13 @@ Page({
                 }
             });
         }
+    },
+    /**
+     * 快速报备
+     */
+    filterCom(e) {
+        let dataset = e.currentTarget.dataset,url = '/pages/index/index';
+        app.goPage(url, dataset, false);
     },
     /**
      * 快速报备

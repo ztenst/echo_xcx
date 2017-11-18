@@ -11,6 +11,7 @@ Page({
         kw: '',
         page: 0,
         max_page: 0,
+        scrollTop: 100,
         requested: false, // 判断是否请求过数据, 每次重新搜索会重置
         loading: false,
         filters: {},
@@ -20,7 +21,7 @@ Page({
         title: '', //某房产列表的title
         area_fixed: false,
         key: '',
-        area_text: '' //当前筛选的区域
+        area_text: '' //当前筛选的区域,
     },
 
     onLoad(query) {
@@ -73,8 +74,18 @@ Page({
         self.searchFilterInit(_q, area_fixed, false);
         self.houseSearchListInit();
     },
-
-    //列表组件初始化
+    /**
+     * 滚动置顶
+     * @param e
+     */
+    tapMove: function(e) {
+        this.setData({
+            scrollTop: this.data.scrollTop
+        })
+    },
+    /**
+     * 列表组件初始化
+     */
     houseSearchListInit() {
         let self = this;
         $houseSearchList.init({
@@ -85,7 +96,12 @@ Page({
             }
         });
     },
-    //筛选组件初始化
+    /**
+     * 筛选组件初始化
+     * @param _q
+     * @param area_fixed
+     * @param isFinishInit
+     */
     searchFilterInit(_q, area_fixed, isFinishInit) {
         let self = this;
         //筛选组件初始化
@@ -101,7 +117,10 @@ Page({
             }
         })
     },
-    //重置搜索
+    /**
+     * 重置搜索
+     * @param filters
+     */
     restartSearch(filters) {
         this.setData({
             page: 0,
@@ -113,7 +132,10 @@ Page({
         this.requestList()
     },
 
-    //获得搜索参数
+    /**
+     * 获得搜索参数
+     * @returns {*}
+     */
     getSearchParams() {
         let params = Object.assign({}, this.data.filters, {
             page: this.data.page,
@@ -121,7 +143,9 @@ Page({
         return params
     },
 
-    //搜索房产
+    /**
+     * 搜索房产
+     */
     requestList() {
         let self = this;
         let state = self.data;

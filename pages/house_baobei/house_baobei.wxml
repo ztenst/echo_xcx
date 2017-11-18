@@ -2,7 +2,7 @@
 <import src="../../components/actionsheet/actionsheet.wxml"/>
 <import src="../../components/toast/toast.wxml"/>
 
-<template is="calendar" data="{{ ...$calendar.birthday }}"/>
+<template is="calendar" data="{{ ...$calendar.start }}"/>
 
 <view class="add_message bg-f5">
     <view class="blank20"></view>
