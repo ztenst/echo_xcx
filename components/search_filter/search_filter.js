@@ -294,16 +294,17 @@ export default {
                     let titles = data.titles;
                     //初始化
                     Object.keys(titles).forEach(i => titles[i] = '')
-
                     //区域
                     if (filters.area && data.area_filters.length > 0) {
                         let area = data.area_filters[data.area_index];
-                        if (!filters.street || filters.street == 0) {
-                            titles.area = area.name;
-                        } else {
-                            let s = area.childAreas.find(item => filters.street == item.id);
-                            if (s) titles.area = s.name;
-                        }
+                        console.log(area);
+                        titles.area = area.name;
+                        // if (!filters.street || filters.street == 0) {
+                        //     titles.area = area.name;
+                        // } else {
+                        //     let s = area.childAreas.find(item => filters.street == item.id);
+                        //     if (s) titles.area = s.name;
+                        // }
                     }
 
                     //均价

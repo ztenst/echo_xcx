@@ -95,7 +95,6 @@ export default {
                             api.getDecode(params).then(resp => {
                                 let json = resp.data.trim();
                                 api.xcxLogin({phone:json}).then(respo=>{
-                                	console.log(respo.data.data)
 									if(respo.data.status =='success'){
                                         app.globalData.userInfo = respo.data.data;
                                         app.globalData.isUser = true;

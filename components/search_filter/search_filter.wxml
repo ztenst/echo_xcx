@@ -38,7 +38,7 @@
         <view class="filter-bg">
             <view class="filter-tab">
                 <view bindtap="{{setTab}}" data-index="1" class="{{tab === '1' ? 'on' : ''}}" wx:if="{{!area_fixed}}">
-                    <text>{{titles.street?titles.street:'区域'}}</text>
+                    <text>{{titles.area?titles.area:'区域'}}</text>
                     <text class="iconfont icon-down"></text>
                 </view>
                 <view bindtap="{{setTab}}" data-index="2" class="{{tab === '2' ? 'on' : ''}}">
