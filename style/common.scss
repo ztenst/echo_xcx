@@ -168,18 +168,23 @@ button {
     .iconfont{
       width:54rpx;
       font-size: 34rpx;
-      color:#999;
+      color:#ccc;
       display: inline-block;
       vertical-align: 2rpx;
     }
     .col-t{font-size: 26rpx;color: #333;vertical-align: 6rpx;}
   }
   .row-r{
+    font-size:26rpx;
+    color:#868686;
     .btn{display: inline-block;width:120rpx;height:40rpx;line-height: 40rpx;text-align: center;font-size: 24rpx;border-radius: 8rpx;color:#fff;vertical-align: 4rpx;
       &.c-ff8f3c{background-color: #ff8f3c;}
       &.c-50d0c2{background-color: #50d0c2;}
     }
-    .iconfont{font-size: 32rpx; color:#999;display: inline-block;vertical-align: 2rpx;}
+    .iconfont{
+      font-size:26rpx;
+      color:#ccc;
+      display: inline-block;vertical-align: 2rpx;}
   }
 }
 

@@ -33,7 +33,7 @@
         <!--基本信息-->
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
-                <view class="fl">
+                <view class="fl" style="vertical-align: middle;">
                     <text class="price">{{plotdetail.price}}</text>
                     <text class="unit">{{plotdetail.unit}}</text>
                     <text class="state">[在售]</text>
@@ -126,6 +126,7 @@
                 </scroll-view>
             </view>
         </view>
+
         <!--同区域楼盘-->
         <view class="mBox  bg-fff" wx:if="{{area_plot.length!=0}}">
             <view class="mTitle box box-align-center box-pack-between">

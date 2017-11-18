@@ -149,7 +149,7 @@ Page({
      */
     baoBei(e) {
         let self = this, fObj = e.detail.value;
-
+         console.log(fObj)
         if (!self.data.time) {
             $toast.show({
                 timer: 2e3,
@@ -194,14 +194,14 @@ Page({
             });
             return false;
         }
-        if (fObj.sex != 1 || fObj.sex != 2) {
+        if (fObj.sex != 1 && fObj.sex != 2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择性别',
             });
             return false;
         }
-        if (fObj.visit_way != 1 || fObj.visit_way != 2) {
+        if (fObj.visit_way != 1 && fObj.visit_way != 2) {
             $toast.show({
                 timer: 2e3,
                 text: '请选择来访方式',

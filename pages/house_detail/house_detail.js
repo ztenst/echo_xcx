@@ -164,14 +164,14 @@ Page({
                 if (type == 'phone') {
                     wx.makePhoneCall({
                         phoneNumber: params.phone
-                    })
+                    })``
                 } else if (type == 'fenxiao') {
                     api.addCo(params).then(res => {
-                        wx.showToast({
-                            title: res.data.msg,
-                            icon: 'info',
-                            duration: 2000
-                        })
+                        $toast.show({
+                            timer: 2e3,
+                            text: res.data.msg,
+                            success: () => console.log('文本提示')
+                        });
                     })
                 }
             }
