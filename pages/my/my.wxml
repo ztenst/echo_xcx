@@ -11,10 +11,10 @@
                 </view>
             </view>
             <view class="usename">
-                {{userInfo.name}}
-                <text class="fen">{{userInfo.type==1?'总代':(userInfo.type==2?'分销':'独立经纪人')}}</text>
+                {{customInfo.name}}
+                <text class="fen">{{customInfo.type==1?'总代':(customInfo.type==2?'分销':'独立经纪人')}}</text>
             </view>
-            <view class="com">{{userInfo.company_name}}</view>
+            <view class="com">{{customInfo.company_name}}</view>
 
         </view>
     </view>

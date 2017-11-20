@@ -6,11 +6,13 @@ Page({
     onLoad() {
         let self = this;
         self.setData({
-            "userInfo": app.globalData.userInfo
+            "userInfo": app.globalData.userInfo,
+            "customInfo": app.globalData.customInfo
         });
+
     },
     goToList(e) {
-        let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.userInfo.id;
+        let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
         if (dataset.type == 'collect') {
             url = '/pages/collection_list/collection_list';
             app.goPage(url, {uid: UID}, false);

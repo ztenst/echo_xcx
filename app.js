@@ -3,7 +3,7 @@ var api = require('./common/api');
 
 App({
     onLaunch: function () {
-        this.getUserInfo();
+
     },
     getUserInfo: function () {
         var self = this
@@ -40,10 +40,13 @@ App({
             } else {
                 wx.login({
                     success: function (res) {
+                        wx.getUserInfo({
+                            success: function (res) {
+                                self.globalData.userInfo = res.userInfo;
+                            }
+                        });
                         api.getOpenId({code:res.code}).then(res => {
-                            let data = res.data.trim();
-                            // console.log('拉取openid成功', data.openid);
-                            self.globalData.wxData.openid = data;//存储openid 
+                            let data = res.data;
                             resolve(data);
                         })
                     }
@@ -76,6 +79,7 @@ App({
     },
     globalData: {
         userInfo: null,
+        customInfo:null,
         siteConfig: null,
         isUser:false,
         wxData: {

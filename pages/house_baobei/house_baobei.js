@@ -211,7 +211,7 @@ Page({
 
         const pack = {
             hid: self.data.plotdetail.id,
-            uid: app.globalData.userInfo.id,
+            uid: app.globalData.customInfo.id,
             time: self.data.time,
             notice: self.data.notice,
             phone: fObj.phone ? fObj.phone : self.data.three + "****" + self.data.four,

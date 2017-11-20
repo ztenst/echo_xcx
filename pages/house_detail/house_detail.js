@@ -35,10 +35,14 @@ Page({
     onShow: function () {
         let self = this;
         let plot_id = self.data.plot_id;
-        let uid = app.globalData.userInfo.id;
+        let uid = app.globalData.customInfo.id;
+        self.getMplotDetail(plot_id,uid);
+    },
+    getMplotDetail(plot_id,uid){
+        let self =this;
         api.getMplotDetail({
-            id:plot_id,
-            uid:uid
+            id: plot_id,
+            uid: uid
         }).then(res => {
             let data = res.data.data;
             if (res.data.status === 'success') {
@@ -95,9 +99,10 @@ Page({
             }
 
         });
-
     },
-
+    /**
+     *
+     */
 
     /**
      * 同区域楼盘
@@ -153,7 +158,7 @@ Page({
      * @returns {boolean}
      */
     tapSheet(e) {
-        let self = this,type = e.currentTarget.dataset.type;
+        let self = this, type = e.currentTarget.dataset.type;
 
         $actionSheet.show(type, {
             titleText: type == 'phone' ? '电话' : '分销',
@@ -186,11 +191,11 @@ Page({
      * 添加及取消收藏
      */
     addCollect(e) {
-        let self = this,isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
+        let self = this, isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
 
         let params = {
             hid: dataset.hid,
-            uid: app.globalData.userInfo.id
+            uid: app.globalData.customInfo.id
         };
 
         if (!isUser) {
@@ -222,14 +227,21 @@ Page({
      * 快速报备
      */
     filterCom(e) {
-        let dataset = e.currentTarget.dataset,url = '/pages/index/index';
+        let dataset = e.currentTarget.dataset, url = '/pages/index/index';
         app.goPage(url, dataset, false);
     },
     /**
      * 快速报备
      */
     baoBei(e) {
-        let dataset = e.currentTarget.dataset,url = '/pages/house_baobei/house_baobei';
+        let dataset = e.currentTarget.dataset, url = '/pages/house_baobei/house_baobei';
         app.goPage(url, {id: dataset.id}, false);
+    },
+    onShareAppMessage(res) {
+       let self= this;
+        return {
+            title: '经济圈新房通',
+            path: 'pages/house_detail/house_detail?id='+self.data.plot_id
+        }
     }
 });
