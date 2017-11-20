@@ -1,4 +1,5 @@
 import $searchFilter from 'search_filter/search_filter'
+import $searchBar from 'search_bar/search_bar'
 import $houseSearchList from 'house_search_list/house_search_list'
 import $toast from 'toast/toast'
 import $detailContent from 'detail_content/detail_content'
@@ -12,5 +13,6 @@ export {
     $detailContent,
     $actionSheet,
     $dialog,
-    $calendar
+    $calendar,
+    $searchBar
 }

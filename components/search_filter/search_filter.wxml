@@ -25,7 +25,7 @@
                     <input type="text" confirm-type="search" focus="{{focused}}" value="{{kw_input}}"
                            bindinput="{{inputkw}}" bindconfirm="{{confirm}}" placeholder-class="c-999"
                            placeholder="请输入关键字"/>
-                    <text class="iconfont icon-closed" wx:if="{{kw}}" bindtap="{{clearkw}}"></text>
+                    <text class="iconfont icon-close" wx:if="{{kw}}" bindtap="{{clearkw}}"></text>
                     <view class="search-cancel c-999" bindtap="{{cancel}}">
                         <text>取消</text>
                     </view>

@@ -1,0 +1,56 @@
+<view class="my">
+    <view class="user-box">
+        <view class="bg">
+            <image src="../../images/bj.png"/>
+        </view>
+        <view class="user-info">
+
+            <view class="userimg ">
+                <view class="touxiangbg">
+                    <image src="../../images/userbg.png"></image>
+                </view>
+                <view class="logo">
+                    <image src="../../images/userlogo.png"></image>
+                </view>
+            </view>
+            <view class="usename">
+                张三丰
+                <text class="fen">分销</text>
+            </view>
+            <view class="com">常州回音网络科技有限公司</view>
+
+        </view>
+    </view>
+
+    <view class="card-box">
+
+        <view class="row bdm box box-align-center box-pack-between" bindtap="goToList" data-type="baobei">
+            <view class="row-l box box-align-center" >
+                <view class="ico">
+                    <image src="../../images/edit.png"></image>
+                </view>
+                <text class="col-t">我的报备</text>
+            </view>
+        </view>
+
+        <view class="row bdm box box-align-center box-pack-between"  bindtap="goToList"  data-type="collect">
+            <view class="row-l box box-align-center">
+                <view class="ico">
+                    <image src="../../images/collection.png"></image>
+                </view>
+                <text class="col-t">我的收藏</text>
+            </view>
+        </view>
+
+        <view class="row bdm box box-align-center box-pack-between">
+            <view class="row-l box box-align-center">
+                <view class="ico">
+                    <image src="../../images/service.png"></image>
+                </view>
+                <text class="col-t">联系客服</text>
+            </view>
+        </view>
+
+
+    </view>
+</view>

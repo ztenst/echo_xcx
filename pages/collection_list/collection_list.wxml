@@ -1,0 +1,74 @@
+<import src="../../components/search_bar/search_bar.wxml"/>
+
+<view class="page house-search">
+
+    <!--搜索筛选-->
+    <view class="search-top">
+        <template is="searchBar" data="{{total, ...$searchBar }}"></template>
+    </view>
+
+
+    <!--列表-->
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:176rpx;'}}" scroll-top="{{scrollTop}}"
+                 lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
+
+        <block wx:if="{{!requested||max_page>0}}">
+            <view class="__house-search-list">
+                <block wx:if="{{ list.length>0 }}">
+                    <view wx:for="{{list}}" wx:key="id" class="container">
+                        <!-- 非特价 -->
+                        <view class="house-item">
+                            <view class="house-pic">
+                                <image src="{{item.image}}"></image>
+                            </view>
+                            <view class="house-text">
+                                <!-- 标题 -->
+                                <view class="house-title">
+                                    <text>{{item.title}}</text>
+                                    <text class="price">{{item.price}}{{item.unit}}</text>
+                                </view>
+                                <!-- 位置 -->
+                                <view class="house-info c-999">
+                                    <view>
+                                        <text class="locate">{{item.area}}</text>
+                                        <text class="locate">{{item.street}}</text>
+                                    </view>
+                                    <view class="fr" data-id="{{item.id}}" catchtap="cancelCollect">
+                                        <text class="wylx">取消收藏</text>
+                                    </view>
+                                </view>
+                                <!-- 首付 -->
+                                <view class="house-pay">
+                                    <text class="tag_pay">佣</text>
+                                    {{item.pay}}
+                                </view>
+                                <!--公司-->
+                                <view class="house-info" data-company="{{item.zd_company}}" catchtap="{{filterCompany}}">
+                                    <text class="locate company">{{item.zd_company.name}}</text>
+                                </view>
+
+                            </view>
+
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+            <view class="loading-container box box-align-center box-pack-center" wx:if="{{loading}}">
+                <view class="loading-gif">
+                    <image src="../../images/main_loading.gif" ></image>
+                </view>
+                <view class="loading-text">加载中...</view>
+            </view>
+
+        </block>
+
+        <!--无数据-->
+        <block wx:if="{{requested&&max_page===0}}">
+            <view class="none-result c-999">暂无找到相关内容，看看别的吧</view>
+        </block>
+
+    </scroll-view>
+
+
+</view>
