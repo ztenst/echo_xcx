@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -46,6 +46,24 @@
 					"name": "baibei",
 					"pathName": "pages/house_baobei/house_baobei",
 					"query": "id=950"
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "collection_lisr",
+					"pathName": "pages/collection_list/collection_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "baobei_list",
+					"pathName": "pages/baobei_list/baobei_list",
+					"query": ""
 				}
 			]
 		}

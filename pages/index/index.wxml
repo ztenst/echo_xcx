@@ -38,12 +38,11 @@
     </scroll-view>
 
     <!--个人中心头像-->
-    <view class="right-side-menu user">
+    <view class="right-side-menu user" bindtap="toMy">
         <view class="pic">
             <image src="../../images/user.png"/>
         </view>
     </view>
-
 
     <!--置顶-->
     <view class="right-side-menu totop" bindtap="tapMove">

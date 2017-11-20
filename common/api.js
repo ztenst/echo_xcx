@@ -132,6 +132,11 @@ const api = {
         let url = `${config.host}/api/index/addsave`
         return getRequest(url, params)
     },
+    /*我的报备*/
+    checkIsZc(params) {
+        let url = `${config.host}/api/plot/checkIsZc`
+        return getRequest(url, params)
+    },
 };
 
 module.exports = api

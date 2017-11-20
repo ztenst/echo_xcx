@@ -6,6 +6,8 @@ import {
 import api from '../../common/api'
 import Util from '../../utils/util'
 
+let app = getApp();
+
 Page({
     data: {
         kw: '',
@@ -75,10 +77,17 @@ Page({
         self.houseSearchListInit();
     },
     /**
+     * 前往个人中心
+     */
+    toMy () {
+        let url = '/pages/my/my';
+        app.goPage(url, null, false);
+    },
+    /**
      * 滚动置顶
      * @param e
      */
-    tapMove: function(e) {
+    tapMove(e) {
         this.setData({
             scrollTop: this.data.scrollTop
         })

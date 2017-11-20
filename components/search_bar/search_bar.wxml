@@ -1,0 +1,18 @@
+<template name="searchBar">
+    <view class="ui-search-bar box">
+        <form class="ui-search-bar__form">
+            <view class="ui-search-bar__box">
+                <input type="search" class="ui-search-bar__input" confirm-type="search" focus="{{focused}}" value="{{kw_input}}"
+                       bindinput="{{inputkw}}"  placeholder-class="search_input_placeholder_c"  placeholder="{{placeholder_text}}" required="" />
+                <text  class="ui-icon-clear iconfont icon-close " wx:if="{{kw}}"  bindtap="{{clearkw}}"></text>
+            </view>
+        </form>
+        <view  class="ui-search-bar__cancel-btn box box-align-center" bindtap="{{doSearch}}">搜索</view>
+    </view>
+
+    <view class="tongji">
+        <view class=" box box-align-center box-pack-between">
+            共{{total}}条房源
+        </view>
+    </view>
+</template>

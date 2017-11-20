@@ -709,7 +709,145 @@
     }
 
 }
+//my
+.my {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;;
+    image{
+      width:100%;
+      height:100%;
+      display: block;
+    }
+    .user-box {
+      width: 100%;
+      height: 400rpx;
+      position: relative;
+      color:#fff;
+      .bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .user-info {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        .userimg{
+            width:160rpx;
+            height:160rpx;
+            position: relative;
+            margin:50rpx auto 24rpx;
+           .touxiangbg{
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             display: block;
+           }
+            .logo{
+               width:140rpx;
+               height:140rpx;
+              display: inline-block;
+            }
+        }
 
+         .usename{
+             font-size:34rpx;
+             position: relative;
+             margin-left:68rpx;
+             .fen{
+               width:60rpx;
+               height:32rpx;
+               display: inline-block;
+               vertical-align: 8rpx;
+               text-align: center;
+               line-height: 32rpx;
+               margin-left:8rpx;
+               background-color: #9dd072;
+               border-radius: 8rpx;
+               font-size:22rpx;
+             }
+         }
+        .com {
+          margin-top: 10rpx;
+          font-size: 24rpx;
+        }
+      }
+    }
+    .card-box {
+      position: relative;
+       margin:-50rpx 40rpx 0;
+      box-shadow: 0 2px 4px 2px #f4f2ef;
+      background-color: #fff;
+      border-radius: 10rpx;
+      .row{
+          .ico{
+              width:60rpx;
+              height:60rpx;
+              display: inline-block;
+              vertical-align: middle;
+          }
+          .col-t{
+            margin-left:20rpx;
+            display: inline-block;
+            color:#333;
+            font-size: 32rpx;
+          }
+      }
+    }
+}
+
+
+//shoucang
+.baobei_list{
+
+}
+
+//collection_list
+.collection_list{
+}
+//baobei_list
+.baobei-list{
+    position:relative;
+    padding:0 24rpx;
+    border-bottom: 1rpx solid $borderColorE6;
+  .list-item{
+      padding:24rpx 0;
+      position:relative;
+      .p{
+        line-height: 34rpx;
+        position: relative;
+        .f-28{
+          font-size: 28rpx;
+          color:#333;
+        }
+        .status{
+            color: $maincolor;
+        }
+        .m-l-200{
+           position: absolute;
+          left:200rpx;
+        }
+
+        .f-24{
+          font-size: 24rpx;
+          color: #999;
+        }
+        .f-22{
+            font-size: 22rpx;
+          color:#999;
+        }
+      }
+  }
+}
 
 
 
