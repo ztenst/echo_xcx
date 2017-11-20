@@ -8,7 +8,7 @@ App({
     getUserInfo: function () {
         var self = this
         return new Promise((resolve, reject) => {
-            if (self.globalData.userInfo) {
+            if (Object.keys(self.globalData.userInfo).length != 0) {
                 resolve(self.globalData.userInfo)
             } else {
                 //调用登录接口
