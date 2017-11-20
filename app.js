@@ -35,8 +35,8 @@ App({
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
             // if (typeof user == 'object' && !user.openid && (user.expires_in || Date.now()) < (Date.now() + 600)) {
-            if (self.globalData.wxData.openid) {
-                resolve(self.globalData.wxData.openid)
+            if (Object.keys(self.globalData.wxData).length != 0) {
+                resolve(self.globalData.wxData)
             } else {
                 wx.login({
                     success: function (res) {
@@ -82,8 +82,6 @@ App({
         customInfo:null,
         siteConfig: null,
         isUser:false,
-        wxData: {
-            openid: '',
-        },
+        wxData: {},
     }
 })

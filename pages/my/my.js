@@ -5,9 +5,18 @@ Page({
     data: {},
     onLoad() {
         let self = this;
+
+        app.getUserOpenId().then(res =>{
+             if(!res.open_id){
+                 self.setData({
+                     "isUser": true,
+                     "customInfo": res
+                 });
+             }
+        });
+
         self.setData({
             "userInfo": app.globalData.userInfo,
-            "customInfo": app.globalData.customInfo
         });
 
     },

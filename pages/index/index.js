@@ -191,6 +191,5 @@ Page({
             title: '经济圈新房通',
             path: `pages/index/index?${Util.params2Query(params)}`
         }
-
     }
 });
