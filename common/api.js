@@ -70,11 +70,8 @@ function postRequest(url, data = {}) {
 
 const api = {
     //新房详细页
-    getMplotDetail: function getMplotDetail(id) {
+    getMplotDetail(params) {
         var url = `${config.host}/api/plot/info`;
-        var params = {
-            'id': id
-        };
         return getRequest(url, params)
     },
     //取得搜索筛选区域条件
@@ -136,6 +133,11 @@ const api = {
     getUserList(params) {
         let url = `${config.host}/api/index/userList`
         return getRequest(url, params)
+    },
+    /*我的报备*/
+    getPhone() {
+        let url = `${config.host}/api/index/getPhone`
+        return getRequest(url)
     },
 };
 

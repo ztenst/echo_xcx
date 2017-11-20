@@ -1,5 +1,5 @@
 <import src="../../components/search_bar/search_bar.wxml"/>
-
+<import src="../../components/toast/toast.wxml"/>
 <view class="page house-search">
 
     <!--搜索筛选-->
@@ -7,15 +7,19 @@
         <template is="searchBar" data="{{total, ...$searchBar }}"></template>
     </view>
 
-
     <!--列表-->
-    <scroll-view class="search-result" scroll-y="true" style="{{'top:176rpx;'}}" scroll-top="{{scrollTop}}"
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:106rpx;'}}" scroll-top="{{scrollTop}}"
                  lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
+        <view class="tongji">
+            <view class=" box box-align-center box-pack-between">
+                共{{total}}条房源
+            </view>
+        </view>
 
         <block wx:if="{{!requested||max_page>0}}">
             <view class="__house-search-list">
                 <block wx:if="{{ list.length>0 }}">
-                    <view wx:for="{{list}}" wx:key="id" class="container">
+                    <view wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" class="container" catchtap="navigateDetail">
                         <!-- 非特价 -->
                         <view class="house-item">
                             <view class="house-pic">
@@ -69,6 +73,7 @@
         </block>
 
     </scroll-view>
+    <template is="toast" data="{{ ...$toast }}"/>
 
 
 </view>

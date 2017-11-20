@@ -1,8 +1,9 @@
 import {
-    $searchBar,
-    $houseSearchList} from '../../components/wxcomponents'
+    $toast,
+    $searchBar
+} from '../../components/wxcomponents'
 import api from '../../common/api'
-import Util from '../../utils/util'
+
 
 let app = getApp();
 
@@ -21,32 +22,32 @@ Page({
         title: '', //某房产列表的title
         area_fixed: false,
         key: '',
-        uid:''
+        uid: ''
     },
 
     onLoad(query) {
         let self = this;
 
         self.setData({
-            uid:2064
+            uid: 2064
         })
         /**
          * 搜索组件初始化
          */
         $searchBar.init({
-            placeholder_text:'请输入项目名称',
+            placeholder_text: '请输入项目名称',
             onInputkw(keyword) {
-                self.restartSearch({kw:keyword});
+                self.restartSearch({kw: keyword});
             },
-            onSearch(keyword){
-                self.restartSearch({kw:keyword});
+            onSearch(keyword) {
+                self.restartSearch({kw: keyword});
             }
         });
 
         /**
          * 列表组件初始化
          */
-        $houseSearchList.init();
+        self.requestList();
     },
 
     /**
@@ -64,6 +65,35 @@ Page({
         this.requestList()
     },
 
+
+    /**
+     * 取消收藏
+     */
+    cancelCollect(e) {
+        let self = this,isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
+
+        let params = {
+            hid: dataset.id,
+            uid: app.globalData.userInfo.id
+        };
+
+        if (!isUser) {
+            app.goPage('/pages/add_message/add_message', null, false);
+        } else {
+            api.addCollection(params).then(function (res) {
+                let data = res.data;
+                $toast.show({
+                    timer: 2e3,
+                    text: data.msg,
+                    success: () => console.log('文本提示')
+                });
+                if (data.status == 'success') {
+                    self.restartSearch({kw: self.data.filters.kw});
+                }
+            });
+        }
+
+    },
     /**
      * 搜索房产
      */
@@ -78,7 +108,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({'myuid':state.uid,'save':1}, this.data.filters, {page: this.data.page});
+        let params = Object.assign({'myuid': state.uid, 'save': 1}, this.data.filters, {page: this.data.page});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;
@@ -96,17 +126,19 @@ Page({
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,
-                    loading: false
+                    loading: false,
+                    total: json.data.num
                 })
             }
         })
 
     },
-
     /**
-     * 取消收藏
+     * 跳转详细页
      */
-    cancelCollect(e){
-        let dataset=e.currentTarget.dataset;
+    navigateDetail(e){
+        let dataset = e.currentTarget.dataset;
+        let url = '/pages/house_detail/house_detail';
+        app.goPage(url, {id:dataset.id}, false);
     }
 });

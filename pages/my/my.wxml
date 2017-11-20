@@ -6,9 +6,6 @@
         <view class="user-info">
 
             <view class="userimg box box-align-center box-pack-center">
-                <!--<view class="touxiangbg">-->
-                    <!--<image src="../../images/userbg.png"></image>-->
-                <!--</view>-->
                 <view class="logo">
                     <image src="{{userInfo.avatarUrl}}"></image>
                 </view>
@@ -42,7 +39,7 @@
             </view>
         </view>
 
-        <view class="row bdm box box-align-center box-pack-between">
+        <view class="row bdm box box-align-center box-pack-between" bindtap="getPhone">
             <view class="row-l box box-align-center">
                 <view class="ico">
                     <image src="../../images/service.png"></image>

@@ -3,8 +3,8 @@ import api from '../../common/api'
 import Util from '../../utils/util'
 
 const SCOPE = '$searchBar';
-let timeout = null;
 
+let timeAnchor = null;
 //取得筛选字段
 function getFilterKeys() {
     return [ 'kw','save'];
@@ -64,7 +64,9 @@ export default {
                     this.setData({
                         [`${SCOPE}.filters.kw`]: e.detail.value
                     });
-                    typeof options.onInputkw === 'function' && options.onInputkw(kw, this);
+                    if (timeAnchor) clearTimeout(timeAnchor);
+                    timeAnchor = setTimeout(() => typeof options.onInputkw === 'function' && options.onInputkw(kw, this), 300);
+
                 },
                 //清除关键字
                 clearkw(e) {
@@ -80,7 +82,7 @@ export default {
                     let data = this.getComponentData();
                     let keyword = data.filters.kw;
                     typeof options.onSearch === 'function' && options.onSearch(keyword);
-                },
+                }
             }
         });
         component.focus();

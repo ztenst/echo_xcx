@@ -31,6 +31,13 @@ Page({
         let TITLE = "经济圈新房通";
         let area_fixed = false;
 
+        app.getUserInfo().then(res=>{
+            console.log(res)
+            self.setData({
+                "avatarUrl": res.avatarUrl
+            });
+        })
+
         let _q = Object.assign({}, Util.decodeKeys(query));
 
         this.setData({
@@ -164,7 +171,8 @@ Page({
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,
-                    loading: false
+                    loading: false,
+                    total: json.data.num
                 })
             }
         })

@@ -1,5 +1,6 @@
 import {
-    $searchBar} from '../../components/wxcomponents'
+    $searchBar
+} from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
 
@@ -19,27 +20,28 @@ Page({
         title: '',
         area_fixed: false,
         key: '',
-        uid:''
+        uid: ''
     },
 
     onLoad(query) {
         let self = this;
-
         self.setData({
-            uid:2064
-        })
+            uid: query.uid
+        });
         /**
          * 搜索组件初始化
          */
         $searchBar.init({
-            placeholder_text:'请输入客户姓名/手机号',
+            placeholder_text: '请输入客户姓名/手机号',
             onInputkw(keyword) {
-                self.restartSearch({kw:keyword});
+
+                self.restartSearch({kw: keyword});
             },
-            onSearch(keyword){
-                self.restartSearch({kw:keyword});
+            onSearch(keyword) {
+                self.restartSearch({kw: keyword});
             }
         });
+        self.requestList();
     },
 
     /**
@@ -70,7 +72,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({uid:state.uid},{page: this.data.page});
+        let params = Object.assign({uid: state.uid},self.data.filters, {page: this.data.page});
 
         api.getUserList(params).then(resp => {
             let json = resp.data;
@@ -87,7 +89,8 @@ Page({
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,
-                    loading: false
+                    loading: false,
+                    total: json.data.num
                 })
             }
         })

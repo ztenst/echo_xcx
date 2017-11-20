@@ -35,7 +35,11 @@ Page({
     onShow: function () {
         let self = this;
         let plot_id = self.data.plot_id;
-        api.getMplotDetail(plot_id).then(res => {
+        let uid = app.globalData.userInfo.id;
+        api.getMplotDetail({
+            id:plot_id,
+            uid:uid
+        }).then(res => {
             let data = res.data.data;
             if (res.data.status === 'success') {
                 self.setData({plotdetail: data});
@@ -164,7 +168,7 @@ Page({
                 if (type == 'phone') {
                     wx.makePhoneCall({
                         phoneNumber: params.phone
-                    })``
+                    });
                 } else if (type == 'fenxiao') {
                     api.addCo(params).then(res => {
                         $toast.show({

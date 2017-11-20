@@ -1,3 +1,4 @@
+import api from '../../common/api'
 let app = getApp();
 
 Page({
@@ -17,6 +18,13 @@ Page({
             url = '/pages/baobei_list/baobei_list';
             app.goPage(url, {uid: UID}, false);
         }
+    },
+    getPhone(){
+        api.getPhone().then(res => {
+            wx.makePhoneCall({
+                phoneNumber: res.data.data
+            });
+        });
     }
 
 });
