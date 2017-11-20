@@ -5,54 +5,59 @@ App({
     onLaunch: function () {
 
     },
-    getUserInfo: function () {
-        var self = this
-        return new Promise((resolve, reject) => {
-            if (Object.keys(self.globalData.userInfo).length != 0) {
-                resolve(self.globalData.userInfo)
-            } else {
-                //调用登录接口
-                wx.login({
-                    success: function () {
-                        wx.getUserInfo({
-                            success: function (res) {
-                                self.globalData.userInfo = res.userInfo;
-                                resolve(res.userInfo)
-                            }
-                        })
-                    }
-                })
-            }
-        })
-    },
+    // getUserInfo: function () {
+    //     var self = this
+    //     return new Promise((resolve, reject) => {
+    //         // if (Object.keys(self.globalData.userInfo).length != 0) {
+    //         //     resolve(self.globalData.userInfo)
+    //         // } else {
+    //             //调用登录接口
+    //             wx.login({
+    //                 success: function () {
+    //                     wx.getUserInfo({
+    //                         success: function (res) {
+    //                             console.log(res.userInfo)
+    //                             self.globalData.userInfo = res.userInfo;
+    //                             resolve(res.userInfo)
+    //                         }
+    //                     })
+    //                 }
+    //             })
+    //         // }
+    //     })
+    // },
     /**
      * 获取openid 
      * @returns {Promise}
      */
     getUserOpenId: function () {
         var self = this;
-        var user = wx.getStorageSync('user') || {};
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
-            // if (typeof user == 'object' && !user.openid && (user.expires_in || Date.now()) < (Date.now() + 600)) {
-            if (Object.keys(self.globalData.wxData).length != 0) {
-                resolve(self.globalData.wxData)
+             console.log(Object.keys(self.globalData.userInfo).length != 0)
+            if (Object.keys(self.globalData.userInfo).length != 0) {
+                resolve(self.globalData);
             } else {
                 wx.login({
-                    success: function (res) {
+                    success: function (loginres) {
                         wx.getUserInfo({
-                            success: function (res) {
-                                self.globalData.userInfo = res.userInfo;
+                            success: function (resuserinfo) {
+                                self.globalData.userInfo = resuserinfo.userInfo;
+                                api.getOpenId({code:loginres.code}).then(res => {
+                                    let data = res.data;
+                                    if(!data.open_id){
+                                        self.globalData.customInfo = data;
+                                        self.globalData.isUser = true;
+                                    }else{
+                                        self.globalData.wxData=data;
+                                    }
+                                    resolve(data);
+                                })
                             }
                         });
-                        api.getOpenId({code:res.code}).then(res => {
-                            let data = res.data;
-                            resolve(data);
-                        })
                     }
                 })
             }
-            // }
         });
     },
 

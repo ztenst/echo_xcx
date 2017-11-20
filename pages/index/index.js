@@ -28,24 +28,14 @@ Page({
 
     onLoad(query) {
         let self = this;
-        let area_fixed = false;
-
-        app.getUserInfo().then(res=>{
-            self.setData({
-                "avatarUrl": res.avatarUrl
-            });
-        })
-
         let _q = Object.assign({}, Util.decodeKeys(query));
-
-        this.setData({
-            area_fixed: area_fixed
-        });
-
         app.getUserOpenId().then(res =>{
+            console.log(res)
+            self.setData({
+                userInfo:app.globalData.userInfo
+            });
             if(res.open_id){
-                //对话框组件初始化
-                app.globalData.wxData=res;
+                //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
                 $dialog.alert({
                     title: '经纪圈新房通',
                     content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
@@ -53,19 +43,11 @@ Page({
                         text:'知道了',
                         type: 'weui-dialog__btn_primary',
                     }],
-                    onConfirm(e) {
-
-                    },
+                    onConfirm(e) {},
                 })
-            }else{
-                app.globalData.customInfo = res;
-                app.globalData.isUser = true;
             }
-        })
-
-
-
-        self.searchFilterInit(_q, area_fixed, false);
+        });
+        self.searchFilterInit(_q, false, false);
         self.houseSearchListInit();
     },
     /**

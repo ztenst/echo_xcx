@@ -38,9 +38,9 @@
     </scroll-view>
 
     <!--个人中心头像-->
-    <view class="right-side-menu user" bindtap="toMy" wx:if="{{avatarUrl}}">
+    <view class="right-side-menu user" bindtap="toMy" wx:if="{{userInfo.avatarUrl}}">
         <view class="pic">
-            <image src="{{avatarUrl}}"></image>
+            <image src="{{userInfo.avatarUrl}}"></image>
         </view>
     </view>
 
