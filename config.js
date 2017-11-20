@@ -4,13 +4,13 @@ var app = getApp();
  */
 'use strict';
 // ENV
-var env = 'development'; // 'development' or 'production'
+var env = 'production'; // 'development' or 'production'
 // hj_house_xcx VERSION
 var version = '1.0.1';
 // development and production host
 var hosts = {
     development: 'http://house.jj58.com.cn',
-    production: ''
+    production: 'https://meat.madridwine.cn'
 };
 // static path
 var static_path = '';
