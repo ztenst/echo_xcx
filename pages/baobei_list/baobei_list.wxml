@@ -10,7 +10,7 @@
                  lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
         <view class="tongji">
             <view class=" box box-align-center box-pack-between">
-                共{{total}}条房源
+                共{{total}}条信息
             </view>
         </view>
         <block wx:if="{{!requested||max_page>0}}">
