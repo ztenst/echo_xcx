@@ -21,23 +21,25 @@ Page({
         title: '', //某房产列表的title
         area_fixed: false,
         key: '',
-        area_text: '' //当前筛选的区域,
+        uid:''
     },
 
-    onLoad() {
+    onLoad(query) {
         let self = this;
-        let TITLE = "我的收藏";
-        let _q = Object.assign({},{'save':1});
-        wx.setNavigationBarTitle({
-            title: TITLE,
-        });
+
+        self.setData({
+            uid:2064
+        })
         /**
          * 搜索组件初始化
          */
         $searchBar.init({
-            filters: _q, //传入筛选条件
-            onFilter(filters, titles) {
-                self.restartSearch(filters);
+            placeholder_text:'请输入项目名称',
+            onInputkw(keyword) {
+                self.restartSearch({kw:keyword});
+            },
+            onSearch(keyword){
+                self.restartSearch({kw:keyword});
             }
         });
 
@@ -63,17 +65,6 @@ Page({
     },
 
     /**
-     * 获得搜索参数
-     * @returns {*}
-     */
-    getSearchParams() {
-        let params = Object.assign({}, this.data.filters, {
-            page: this.data.page,
-        });
-        return params
-    },
-
-    /**
      * 搜索房产
      */
     requestList() {
@@ -87,7 +78,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({}, this.data.filters, {page: this.data.page});
+        let params = Object.assign({'myuid':state.uid,'save':1}, this.data.filters, {page: this.data.page});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;

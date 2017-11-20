@@ -3,6 +3,7 @@ var api = require('./common/api');
 
 App({
     onLaunch: function () {
+        this.getUserInfo();
     },
     getUserInfo: function () {
         var self = this
@@ -15,7 +16,7 @@ App({
                     success: function () {
                         wx.getUserInfo({
                             success: function (res) {
-                                self.globalData.userInfo = res.userInfo
+                                self.globalData.userInfo = res.userInfo;
                                 resolve(res.userInfo)
                             }
                         })

@@ -133,8 +133,8 @@ const api = {
         return getRequest(url, params)
     },
     /*我的报备*/
-    checkIsZc(params) {
-        let url = `${config.host}/api/plot/checkIsZc`
+    getUserList(params) {
+        let url = `${config.host}/api/index/userList`
         return getRequest(url, params)
     },
 };

@@ -10,7 +10,7 @@
 
         <block wx:if="{{!requested||max_page>0}}">
 
-            <view class="baobei-list" wx:if="{{ list.length>0 }}">
+            <view class="baobei-list" >
                 <view class="list-item" wx:for="{{list}}" wx:key="id">
                     <view class="p  box box-align-center box-pack-between">
                         <view>

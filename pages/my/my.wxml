@@ -5,19 +5,19 @@
         </view>
         <view class="user-info">
 
-            <view class="userimg ">
-                <view class="touxiangbg">
-                    <image src="../../images/userbg.png"></image>
-                </view>
+            <view class="userimg box box-align-center box-pack-center">
+                <!--<view class="touxiangbg">-->
+                    <!--<image src="../../images/userbg.png"></image>-->
+                <!--</view>-->
                 <view class="logo">
-                    <image src="../../images/userlogo.png"></image>
+                    <image src="{{userInfo.avatarUrl}}"></image>
                 </view>
             </view>
             <view class="usename">
-                张三丰
+                {{userInfo.name}}
                 <text class="fen">分销</text>
             </view>
-            <view class="com">常州回音网络科技有限公司</view>
+            <view class="com">{{useInfo.company_name}}</view>
 
         </view>
     </view>
