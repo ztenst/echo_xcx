@@ -1,5 +1,6 @@
 import {
-    $searchBar} from '../../components/wxcomponents'
+    $searchBar
+} from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
 
@@ -16,27 +17,31 @@ Page({
         filters: {},
         list: [],
         total: 0,
-        default_img: '',
-        title: '', //某房产列表的title
+        title: '',
         area_fixed: false,
         key: '',
-        area_text: '' //当前筛选的区域,
+        uid: ''
     },
 
-    onLoad() {
+    onLoad(query) {
         let self = this;
-        wx.setNavigationBarTitle({
-            title: "我的报备",
+        self.setData({
+            uid: query.uid
         });
         /**
          * 搜索组件初始化
          */
         $searchBar.init({
-            filters: {}, //传入筛选条件
-            onFilter(filters, titles) {
-                self.restartSearch(filters);
+            placeholder_text: '请输入客户姓名/手机号',
+            onInputkw(keyword) {
+
+                self.restartSearch({kw: keyword});
+            },
+            onSearch(keyword) {
+                self.restartSearch({kw: keyword});
             }
         });
+        self.requestList();
     },
 
     /**
@@ -53,20 +58,8 @@ Page({
         })
         this.requestList()
     },
-
     /**
-     * 获得搜索参数
-     * @returns {*}
-     */
-    getSearchParams() {
-        let params = Object.assign({}, this.data.filters, {
-            page: this.data.page,
-        });
-        return params
-    },
-
-    /**
-     * 搜索房产
+     * 搜索报备列表
      */
     requestList() {
         let self = this;
@@ -79,12 +72,11 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({}, {page: this.data.page});
+        let params = Object.assign({uid: state.uid},self.data.filters, {page: this.data.page});
 
-        api.checkIsZc(params).then(resp => {
+        api.getUserList(params).then(resp => {
             let json = resp.data;
             let list = json.data.list;
-
             if (json.data.page_count > 0 && list.length > 0) {
                 //requested 和loading要和数据一起设置, 否则会有极短时间显示出"无数据"
                 self.setData({
@@ -97,7 +89,8 @@ Page({
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,
-                    loading: false
+                    loading: false,
+                    total: json.data.num
                 })
             }
         })

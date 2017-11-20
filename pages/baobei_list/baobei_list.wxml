@@ -4,34 +4,41 @@
     <view class="search-top">
         <template is="searchBar" data="{{total, ...$searchBar }}"></template>
     </view>
-    <!--列表-->
-    <scroll-view class="search-result" scroll-y="true" style="{{'top:176rpx;'}}" scroll-top="{{scrollTop}}"
-                 lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
 
+    <!--列表-->
+    <scroll-view class="search-result" scroll-y="true" style="{{'top:106rpx;'}}" scroll-top="{{scrollTop}}"
+                 lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
+        <view class="tongji">
+            <view class=" box box-align-center box-pack-between">
+                共{{total}}条信息
+            </view>
+        </view>
         <block wx:if="{{!requested||max_page>0}}">
 
-            <view class="baobei-list" wx:if="{{ list.length>0 }}">
+            <view class="baobei-list" >
                 <view class="list-item" wx:for="{{list}}" wx:key="id">
-                    <view class="p  box box-align-center box-pack-between">
-                        <view>
-                            <text class="f-28">{{item.user_name}}</text>
-                            <text class="f-28 m-l-200">{{item.user_phone}}</text>
+                    <view class="inner">
+                        <view class="p  box box-align-center box-pack-between">
+                            <view>
+                                <text class="f-28">{{item.user_name}}</text>
+                                <text class="f-28 m-l-200">{{item.user_phone}}</text>
+                            </view>
+                            <view>
+                                <text class="f-28 status">{{item.status}}</text>
+                            </view>
                         </view>
-                        <view>
-                            <text class="f-28 status">{{item.status}}</text>
+                        <view class="p box box-align-center box-pack-between">
+                            <view>
+                                <text class="f-24">{{item.staff_name}}</text>
+                                <text class="f-24 m-l-200">{{item.staff_phone}}</text>
+                            </view>
+                            <view style="text-align: center;">
+                                <text class="f-24">{{item.staff_company}}</text>
+                            </view>
                         </view>
-                    </view>
-                    <view class="p box box-align-center box-pack-between">
-                        <view>
-                            <text class="f-24">{{item.staff_name}}</text>
-                            <text class="f-24 m-l-200">{{item.staff_phone}}</text>
+                        <view class="p">
+                            <text class="f-22">{{item.time}}</text>
                         </view>
-                        <view style="text-align: center;">
-                            <text class="f-24">{{item.staff_company}}</text>
-                        </view>
-                    </view>
-                    <view class="p">
-                        <text class="f-22">{{item.time}}</text>
                     </view>
                 </view>
             </view>

@@ -96,11 +96,12 @@ export default {
                                 let json = resp.data.trim();
                                 api.xcxLogin({phone:json}).then(respo=>{
 									if(respo.data.status =='success'){
-                                        app.globalData.userInfo = respo.data.data;
+                                        app.globalData.userInfo =Object.assign(app.globalData.userInfo,respo.data.data);
                                         app.globalData.isUser = true;
+                                        console.log(app.globalData.userInfo)
                                     }
 								})
-                            })
+                            });
                         });
                         const index = e.currentTarget.dataset.index
                         const button = options.buttons[index]

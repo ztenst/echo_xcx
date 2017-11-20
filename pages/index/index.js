@@ -31,6 +31,13 @@ Page({
         let TITLE = "经济圈新房通";
         let area_fixed = false;
 
+        app.getUserInfo().then(res=>{
+            console.log(res)
+            self.setData({
+                "avatarUrl": res.avatarUrl
+            });
+        })
+
         let _q = Object.assign({}, Util.decodeKeys(query));
 
         this.setData({
@@ -50,27 +57,7 @@ Page({
                 text:'知道了',
                 type: 'weui-dialog__btn_primary',
             }],
-            onConfirm(e) {
-                // app.getUserOpenId().then(accessKey => {
-                //     let params = {
-                //         encryptedData: e.detail.encryptedData,
-                //         iv: e.detail.iv,
-                //         accessKey: accessKey
-                //     }
-                //     api.getDecode(params).then(resp => {
-                //         let json = resp.data.trim();
-                //         api.xcxLogin({phone:json}).then(respo=>{
-                //             if(respo.data.status =='success'){
-                //                 app.globalData.userInfo = respo.data.data;
-                //                 app.globalData.isUser = true;
-                //             }
-                //         })
-                //     })
-                // });
-                // const index = e.currentTarget.dataset.index
-                // const button = options.buttons[index]
-                // this.hide(() => typeof button.onTap === `function` && button.onTap(e))
-            },
+            onConfirm(e) {},
         })
 
         self.searchFilterInit(_q, area_fixed, false);
@@ -184,7 +171,8 @@ Page({
             } else if (!state.area_fixed) {
                 self.setData({
                     requested: true,
-                    loading: false
+                    loading: false,
+                    total: json.data.num
                 })
             }
         })

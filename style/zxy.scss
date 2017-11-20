@@ -641,7 +641,7 @@
           width:400rpx;
         }
         &.shortinput{
-          width:100rpx;
+          width:80rpx;
         }
       }
       .ml100{
@@ -709,6 +709,7 @@
     }
 
 }
+
 //my
 .my {
   width: 100%;
@@ -739,27 +740,28 @@
         width: 100%;
         height: 100%;
         text-align: center;
+        z-index:10;
         .userimg{
             width:160rpx;
             height:160rpx;
             position: relative;
             margin:50rpx auto 24rpx;
-           .touxiangbg{
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             display: block;
-           }
+            border-width: 8rpx;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255,0.2);
             .logo{
                width:140rpx;
                height:140rpx;
-              display: inline-block;
+               display: block;
+               position: relative;
+               z-index: 100;
+
+              image{
+                border-radius: 50%;
+              }
             }
         }
-
-         .usename{
+        .usename{
              font-size:34rpx;
              position: relative;
              margin-left:68rpx;
@@ -777,9 +779,9 @@
              }
          }
         .com {
-          margin-top: 10rpx;
-          font-size: 24rpx;
-        }
+            margin-top: 10rpx;
+            font-size: 24rpx;
+          }
       }
     }
     .card-box {
@@ -805,7 +807,6 @@
     }
 }
 
-
 //shoucang
 .baobei_list{
 
@@ -817,16 +818,18 @@
 //baobei_list
 .baobei-list{
     position:relative;
-    padding:0 24rpx;
-    border-bottom: 1rpx solid $borderColorE6;
+
   .list-item{
-      padding:24rpx 0;
       position:relative;
+      border-bottom: 1rpx solid $borderColorE6;
+      .inner{
+        padding:24rpx 24rpx;
+      }
       .p{
-        line-height: 34rpx;
+        line-height: 40rpx;
         position: relative;
         .f-28{
-          font-size: 28rpx;
+          font-size: 30rpx;
           color:#333;
         }
         .status{
@@ -838,11 +841,11 @@
         }
 
         .f-24{
-          font-size: 24rpx;
+          font-size: 26rpx;
           color: #999;
         }
         .f-22{
-            font-size: 22rpx;
+            font-size: 24rpx;
           color:#999;
         }
       }

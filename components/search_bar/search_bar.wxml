@@ -9,10 +9,4 @@
         </form>
         <view  class="ui-search-bar__cancel-btn box box-align-center" bindtap="{{doSearch}}">搜索</view>
     </view>
-
-    <view class="tongji">
-        <view class=" box box-align-center box-pack-between">
-            共{{total}}条房源
-        </view>
-    </view>
 </template>

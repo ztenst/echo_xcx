@@ -5,19 +5,16 @@
         </view>
         <view class="user-info">
 
-            <view class="userimg ">
-                <view class="touxiangbg">
-                    <image src="../../images/userbg.png"></image>
-                </view>
+            <view class="userimg box box-align-center box-pack-center">
                 <view class="logo">
-                    <image src="../../images/userlogo.png"></image>
+                    <image src="{{userInfo.avatarUrl}}"></image>
                 </view>
             </view>
             <view class="usename">
-                张三丰
-                <text class="fen">分销</text>
+                {{userInfo.name}}
+                <text class="fen">{{userInfo.type==1?'总代':(userInfo.type==2?'分销':'独立经纪人')}}</text>
             </view>
-            <view class="com">常州回音网络科技有限公司</view>
+            <view class="com">{{userInfo.company_name}}</view>
 
         </view>
     </view>
@@ -42,7 +39,7 @@
             </view>
         </view>
 
-        <view class="row bdm box box-align-center box-pack-between">
+        <view class="row bdm box box-align-center box-pack-between" bindtap="getPhone">
             <view class="row-l box box-align-center">
                 <view class="ico">
                     <image src="../../images/service.png"></image>

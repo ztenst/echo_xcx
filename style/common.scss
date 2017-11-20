@@ -155,6 +155,12 @@ button {
   }
   &.user{
     bottom:15%;
+    .pic{
+      width: 78rpx;
+      height: 78rpx;
+      padding: 0;
+      background-color: #fff
+    }
   }
   &.totop{
     bottom:8%;
