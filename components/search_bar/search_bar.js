@@ -85,7 +85,6 @@ export default {
                 }
             }
         });
-        component.focus();
         return component;
     }
 }

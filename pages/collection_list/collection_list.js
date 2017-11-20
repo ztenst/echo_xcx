@@ -74,7 +74,7 @@ Page({
 
         let params = {
             hid: dataset.id,
-            uid: app.globalData.userInfo.id
+            uid: app.globalData.customInfo.id
         };
 
         if (!isUser) {

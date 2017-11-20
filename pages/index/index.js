@@ -28,11 +28,9 @@ Page({
 
     onLoad(query) {
         let self = this;
-        let TITLE = "经济圈新房通";
         let area_fixed = false;
 
         app.getUserInfo().then(res=>{
-            console.log(res)
             self.setData({
                 "avatarUrl": res.avatarUrl
             });
@@ -41,24 +39,31 @@ Page({
         let _q = Object.assign({}, Util.decodeKeys(query));
 
         this.setData({
-            title: TITLE,
             area_fixed: area_fixed
         });
 
-        wx.setNavigationBarTitle({
-            title: TITLE,
-        });
+        app.getUserOpenId().then(res =>{
+            if(res.open_id){
+                //对话框组件初始化
+                app.globalData.wxData=res;
+                $dialog.alert({
+                    title: '经纪圈新房通',
+                    content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
+                    buttons:[{
+                        text:'知道了',
+                        type: 'weui-dialog__btn_primary',
+                    }],
+                    onConfirm(e) {
 
-        //对话框组件初始化
-        $dialog.alert({
-            title: '经纪圈新房通',
-            content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
-            buttons:[{
-                text:'知道了',
-                type: 'weui-dialog__btn_primary',
-            }],
-            onConfirm(e) {},
+                    },
+                })
+            }else{
+                app.globalData.customInfo = res;
+                app.globalData.isUser = true;
+            }
         })
+
+
 
         self.searchFilterInit(_q, area_fixed, false);
         self.houseSearchListInit();
@@ -179,5 +184,13 @@ Page({
 
     },
 
+    onShareAppMessage(res) {
+        let params = Object.assign({}, this.data.filters);
+        console.log(this.data.filters)
+        return {
+            title: '经济圈新房通',
+            path: `pages/index/index?${Util.params2Query(params)}`
+        }
 
+    }
 });

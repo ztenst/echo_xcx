@@ -24,7 +24,7 @@
             <template is="houseSearchList" data="{{list, ...$houseSearchList }}"></template>
             <view class="loading-container box box-align-center box-pack-center" wx:if="{{loading}}">
                 <view class="loading-gif">
-                    <image src="../../images/loading.gif" ></image>
+                    <image src="../../images/main_loading.gif" ></image>
                 </view>
                 <view class="loading-text">加载中...</view>
             </view>
