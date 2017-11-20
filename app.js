@@ -78,9 +78,8 @@ App({
         }
     },
     globalData: {
-        userInfo: null,
-        customInfo:null,
-        siteConfig: null,
+        userInfo: {},
+        customInfo:{},
         isUser:false,
         wxData: {},
     }
