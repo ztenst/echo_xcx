@@ -81,10 +81,7 @@ Page({
                  */
                 let params = {limit: 6, street: data.streetid}
                 self.getAreaPlotList(params);
-                //隐藏加载logo
-                self.setData({
-                    isFinished: true
-                })
+
             } else {
                 wx.showToast({
                     title: res.data.msg,
@@ -115,6 +112,10 @@ Page({
                 area_plot: data.list
             });
         });
+        //隐藏加载logo
+        self.setData({
+            isFinished: true
+        })
     },
     /**
      * 查看大图
