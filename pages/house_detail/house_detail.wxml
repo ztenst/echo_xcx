@@ -33,13 +33,13 @@
         <!--基本信息-->
         <view class="detail-info bdm bg-fff">
             <view class="lp-price box box-align-center box-pack-between">
-                <view class="fl" style="vertical-align: middle;">
+                <view class="fl box box-align-center">
                     <text class="price">{{plotdetail.price}}</text>
                     <text class="unit">{{plotdetail.unit}}</text>
-                    <text class="state">[在售]</text>
+                    <text class="state" style="vertical-align: -4rpx;">[在售]</text>
                 </view>
             </view>
-            <view class="lp-stag" wx:if="{{plotdetail.tags.length!==0}}">
+            <view class="lp-stag" wx:if="{{plotdetail.tags.length>0}}">
                 <block wx:for="{{plotdetail.tags}}" wx:key="id">
                     <text class="tag c-{{index+1}}">{{item}}</text>
                 </block>
@@ -75,7 +75,7 @@
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
         </view>
         <!--雇佣规则-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length!=0}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">雇佣规则</view>
             </view>
@@ -96,7 +96,7 @@
             <template is="detailContent" data="{{ ...$detailContent.sell }}"/>
         </view>
         <!--主力户型-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.hx.length!==0}}" id="hash1">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.hx.length>0}}" id="hash1">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">主力户型</view>
             </view>
@@ -127,7 +127,7 @@
         </view>
 
         <!--同区域楼盘-->
-        <view class="mBox  bg-fff" wx:if="{{area_plot.length!=0}}">
+        <view class="mBox  bg-fff" wx:if="{{area_plot.length>0}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">同区域楼盘</view>
             </view>
