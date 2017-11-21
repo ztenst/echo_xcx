@@ -59,9 +59,8 @@
                     <text class="iconfont icon-dai"></text>
                     <text class="col-t">{{plotdetail.zd_company.name}}</text>
                 </view>
-                <view class="row-r" data-url="../index/index"
-                      data-param="company={{plotdetail.zd_company.id}}&companyname={{plotdetail.zd_company.name}}"
-                      bindtap="goPage">
+                <view class="row-r" data-company="{{plotdetail.zd_company.id}}" data-companyname ="{{plotdetail.zd_company.name}}"
+                      bindtap="doFilterCom">
                     所有项目
                     <text class="iconfont icon-right"></text>
                 </view>

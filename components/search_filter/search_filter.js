@@ -82,9 +82,6 @@ export default {
     assign(opts) {
         let options = Object.assign({}, this.setDefaults(), opts);
         options.area_fixed = false;
-        if (opts.filters.companyname) {
-            options.company_filters.name = opts.filters.companyname;
-        }
         let keys = getFilterKeys();
         let fs = {};
         keys.forEach(key => fs[key] = opts.filters[key] || '')
@@ -229,19 +226,6 @@ export default {
                     })
                 },
 
-                /*筛选公司*/
-                filterCompany(e) {
-                    this.setData({
-                        [`${SCOPE}.company_filters`]: {
-                            name: ''
-                        },
-                    });
-                    this.setFilter(e, {
-                        [`${SCOPE}.filters.company`]: ''
-                    });
-                    this.triggerFilter();
-                },
-
                 /*各个设置筛选*/
                 setArea(e) {
                     this.setFilter(e, {
@@ -297,14 +281,7 @@ export default {
                     //区域
                     if (filters.area && data.area_filters.length > 0) {
                         let area = data.area_filters[data.area_index];
-                        console.log(area);
                         titles.area = area.name;
-                        // if (!filters.street || filters.street == 0) {
-                        //     titles.area = area.name;
-                        // } else {
-                        //     let s = area.childAreas.find(item => filters.street == item.id);
-                        //     if (s) titles.area = s.name;
-                        // }
                     }
 
                     //均价
