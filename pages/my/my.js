@@ -3,7 +3,7 @@ let app = getApp();
 
 Page({
     data: {},
-    onLoad() {
+    onShow() {
         let self = this;
         app.getUserOpenId().then(res =>{
             self.setData({
@@ -11,7 +11,6 @@ Page({
                 userInfo: app.globalData.userInfo,
             });
         });
-
     },
     goToList(e) {
         let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;

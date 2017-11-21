@@ -56,6 +56,7 @@ Page({
             return false;
         }
         const pack = {
+            openid:app.globalData.wxData.open_id,
             userphone: parseInt(fObj.userphone),
             name: fObj.name,
             usercompany: fObj.usercompany,

@@ -234,8 +234,15 @@ Page({
      * 快速报备
      */
     baoBei(e) {
-        let dataset = e.currentTarget.dataset, url = '/pages/house_baobei/house_baobei';
-        app.goPage(url, {id: dataset.id}, false);
+        if (!app.globalData.isUser) {
+            let url = '/pages/add_message/add_message';
+            app.goPage(url, null, false);
+            return;
+        }else{
+            let dataset = e.currentTarget.dataset, url = '/pages/house_baobei/house_baobei';
+            app.goPage(url, {id: dataset.id}, false);
+        }
+
     },
     /**
      * 筛选公司并跳转首页
