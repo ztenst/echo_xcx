@@ -245,6 +245,13 @@ Page({
         app.goPage(url, dataset, false);
     },
     /**
+     * 跳转详细页
+     */
+    goToDetail(e){
+        let dataset = e.currentTarget.dataset, url = '/pages/house_detail/house_detail';
+        app.goPage(url, {id:dataset.id}, false);
+    },
+    /**
      * 详细页转发分享
      * @param res
      * @returns {{title: string, path: string}}
