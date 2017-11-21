@@ -23,37 +23,46 @@ Page({
         title: '', //某房产列表的title
         area_fixed: false,
         key: '',
-        area_text: '' //当前筛选的区域,
+        area_text: '',//当前筛选的区域,
+        companyname: ''
     },
 
     onLoad(query) {
         let self = this;
         let _q = Object.assign({}, Util.decodeKeys(query));
-        app.getUserOpenId().then(res =>{
-            console.log(res)
+
+        if (_q.companyname) {
             self.setData({
-                userInfo:app.globalData.userInfo
+                companyname: _q.companyname
             });
-            if(res.open_id){
+        }
+
+        app.getUserOpenId().then(res => {
+            self.setData({
+                userInfo: app.globalData.userInfo
+            });
+            if (res.open_id) {
                 //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
                 $dialog.alert({
                     title: '经纪圈新房通',
                     content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
-                    buttons:[{
-                        text:'知道了',
+                    buttons: [{
+                        text: '知道了',
                         type: 'weui-dialog__btn_primary',
                     }],
-                    onConfirm(e) {},
+                    onConfirm(e) {
+                    },
                 })
             }
         });
+
         self.searchFilterInit(_q, false, false);
         self.houseSearchListInit();
     },
     /**
      * 前往个人中心
      */
-    toMy () {
+    toMy() {
         let url = '/pages/my/my';
         app.goPage(url, null, false);
     },
@@ -73,9 +82,13 @@ Page({
         let self = this;
         $houseSearchList.init({
             onFilter(filters) {
-                let data = self.getSearchParams();
-                let params = Object.assign({}, data, filters);
-                self.searchFilterInit(params, false, true);
+                if (filters.companyname) {
+                    self.setData({
+                        companyname: filters.companyname
+                    });
+                }
+                let params = self.getSearchParams({company: filters.company});
+                self.restartSearch(params);
             }
         });
     },
@@ -101,6 +114,18 @@ Page({
         })
     },
     /**
+     * 筛选公司
+     * @param e
+     */
+    filterCompany() {
+        let self = this;
+        self.setData({
+            companyname: ''
+        });
+        let params = self.getSearchParams({company: ''});
+        self.restartSearch(params);
+    },
+    /**
      * 重置搜索
      * @param filters
      */
@@ -119,13 +144,12 @@ Page({
      * 获得搜索参数
      * @returns {*}
      */
-    getSearchParams() {
-        let params = Object.assign({}, this.data.filters, {
+    getSearchParams(companyObj) {
+        let params = Object.assign({}, this.data.filters, companyObj, {
             page: this.data.page,
         });
         return params
     },
-
     /**
      * 搜索房产
      */
@@ -165,10 +189,14 @@ Page({
         })
 
     },
-
+    /**
+     * 首页转发分享
+     * @param res
+     * @returns {{title: string, path: string}}
+     */
     onShareAppMessage(res) {
-        let params = Object.assign({}, this.data.filters);
-        console.log(this.data.filters)
+        let self= this;
+        let params = Object.assign({}, this.data.filters,{companyname:self.data.companyname});
         return {
             title: '经济圈新房通',
             path: `pages/index/index?${Util.params2Query(params)}`

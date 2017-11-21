@@ -15,11 +15,16 @@ Page({
     },
     goToList(e) {
         let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
-        if (dataset.type == 'collect') {
-            url = '/pages/collection_list/collection_list';
-            app.goPage(url, {uid: UID}, false);
-        } else if (dataset.type == 'baobei') {
-            url = '/pages/baobei_list/baobei_list';
+        if(!app.globalData.isUser){
+            let url = '/pages/add_message/add_message';
+            app.goPage(url, null, false);
+        }else{
+            if (dataset.type == 'collect') {
+                url = '/pages/collection_list/collection_list';
+
+            } else if (dataset.type == 'baobei') {
+                url = '/pages/baobei_list/baobei_list';
+            }
             app.goPage(url, {uid: UID}, false);
         }
     },

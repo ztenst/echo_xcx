@@ -110,18 +110,7 @@
                         <button class="anti-btn-main" bindtap="{{resetOthers}}">重置</button>
                         <button class="btn-main fr" bindtap="{{setOther}}">确定</button>
                     </view>
-
                 </view>
-
-            </view>
-        </view>
-    </view>
-    <view class="tongji">
-        <view class=" box box-align-center box-pack-between">
-            共{{total}}条房源
-            <view class="fr" wx:if="{{company_filters.name}}"
-                  data-key="company" data-id="" bindtap="{{filterCompany}}">{{company_filters.name}}
-                <text class="iconfont icon-close1"></text>
             </view>
         </view>
     </view>

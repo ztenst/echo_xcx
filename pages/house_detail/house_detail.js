@@ -97,7 +97,6 @@ Page({
                     })
                 }, 1000);
             }
-
         });
     },
     /**
@@ -237,6 +236,18 @@ Page({
         let dataset = e.currentTarget.dataset, url = '/pages/house_baobei/house_baobei';
         app.goPage(url, {id: dataset.id}, false);
     },
+    /**
+     * 筛选公司并跳转首页
+     */
+    doFilterCom(e){
+        let dataset = e.currentTarget.dataset, url = '/pages/index/index';
+        app.goPage(url, dataset, false);
+    },
+    /**
+     * 详细页转发分享
+     * @param res
+     * @returns {{title: string, path: string}}
+     */
     onShareAppMessage(res) {
        let self= this;
         return {

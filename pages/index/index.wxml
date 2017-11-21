@@ -15,16 +15,26 @@
         <template is="searchFilter" data="{{total, ...$searchFilter }}"></template>
     </view>
 
-
     <!--列表-->
-    <scroll-view class="search-result" scroll-y="true" style="{{'top:'+(area_fixed ? 130:250)+'rpx;'}}" scroll-top="{{scrollTop}}"
+    <scroll-view class="search-result" scroll-y="true" style="top:176rpx;"
+                 scroll-top="{{scrollTop}}"
                  lower-threshold="100" bindscrolltolower="requestList" scroll-with-animation="true">
 
+        <view class="tongji">
+            <view class=" box box-align-center box-pack-between">
+                共{{total}}条房源
+                <view class="fr" wx:if="{{companyname}}"
+                      data-key="company" data-id="" bindtap="filterCompany">{{companyname}}
+                    <text class="iconfont icon-close1"></text>
+                </view>
+            </view>
+
+        </view>
         <block wx:if="{{!requested||max_page>0}}">
             <template is="houseSearchList" data="{{list, ...$houseSearchList }}"></template>
             <view class="loading-container box box-align-center box-pack-center" wx:if="{{loading}}">
                 <view class="loading-gif">
-                    <image src="../../images/main_loading.gif" ></image>
+                    <image src="../../images/main_loading.gif"></image>
                 </view>
                 <view class="loading-text">加载中...</view>
             </view>
