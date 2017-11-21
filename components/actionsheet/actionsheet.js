@@ -82,7 +82,7 @@ export default {
                     let data = self.getComponentData();
                     let params= {
                         hid:data.hid,
-                        uid:app.globalData.userInfo.id,
+                        uid:app.globalData.customInfo.id,
                         phone:e.currentTarget.dataset.phone.replace(/[^0-9]/ig,"")
                     };
                     typeof options.onActionSheetClick === 'function' && options.onActionSheetClick(data.type,params);
