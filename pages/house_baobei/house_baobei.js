@@ -165,7 +165,7 @@ Page({
      */
     baoBei(e) {
         let self = this, fObj = e.detail.value;
-         console.log(fObj)
+         console.log(fObj,self.data.changeShowPhone)
         if (!self.data.time) {
             $toast.show({
                 timer: 2e3,
@@ -187,7 +187,7 @@ Page({
             });
             return false;
         }
-        if (!self.data.three && !self.data.changeShowPhone) {
+        if (!fObj.three && self.data.changeShowPhone) {
             fObj.phone = '';
             $toast.show({
                 timer: 2e3,
@@ -195,7 +195,7 @@ Page({
             });
             return false;
         }
-        if (!self.data.four && !self.data.changeShowPhone) {
+        if (!fObj.four && self.data.changeShowPhone) {
             fObj.phone = '';
             $toast.show({
                 timer: 2e3,
@@ -239,13 +239,15 @@ Page({
         api.baiBei(pack).then((res) => {
             let data = res.data;
             $toast.show({
-                timer: 2e3,
+                timer: 3e3,
                 text: data.msg,
             });
             if (data.status == 'success') {
-                wx.navigateBack({
-                    delta: 1
-                })
+                setTimeout(function () {
+                    wx.navigateBack({
+                        delta: 1
+                    })
+                },2e3)
             }
         })
     }
