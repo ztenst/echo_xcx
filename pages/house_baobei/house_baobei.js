@@ -23,10 +23,26 @@ Page({
     onLoad: function (options) {
         wx.setNavigationBarTitle({title: '快速报备'});//设置导航条标题
         var self = this;
+        let plot_id = options.id;
+        self.setData({plot_id: plot_id});
+    },
+
+    onShow: function () {
+        let self = this;
+        let plot_id = self.data.plot_id;
+        let uid = app.globalData.customInfo.id;
+        self.getMplotDetail(plot_id,uid);
+    },
+
+    getMplotDetail(plot_id,uid){
+        let self =this;
         /**
          * 新房详细页接口
          */
-        api.getMplotDetail(options.id).then(res => {
+        api.getMplotDetail({
+            id: plot_id,
+            uid: uid
+        }).then(res => {
             let data = res.data.data;
             if (res.data.status === 'success') {
                 self.setData({plotdetail: data});

@@ -133,8 +133,8 @@
             </view>
             <view class="mDesc">
                 <scroll-view class="hx-list" scroll-x>
-                    <view class="item" wx:for="{{area_plot}}" wx:key="id" wx:for-item="x" bindtap="seeHx"
-                          data-current="{{x.image}}">
+                    <view class="item" wx:for="{{area_plot}}" wx:key="id" wx:for-item="x" bindtap="goToDetail"
+                          data-id="{{x.id}}">
                         <view class="pic">
                             <image src="{{x.image}}"></image>
                             <text class="lab" wx:if="{{x.sale_status}}">{{x.sale_status}}</text>
