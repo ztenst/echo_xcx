@@ -34,10 +34,10 @@ App({
         var self = this;
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
-             console.log(Object.keys(self.globalData.userInfo).length != 0)
-            if (Object.keys(self.globalData.userInfo).length != 0) {
-                resolve(self.globalData);
-            } else {
+            //  console.log(Object.keys(self.globalData.userInfo).length != 0)
+            // if (Object.keys(self.globalData.userInfo).length != 0) {
+            //     resolve(self.globalData);
+            // } else {
                 wx.login({
                     success: function (loginres) {
                         wx.getUserInfo({
@@ -57,7 +57,7 @@ App({
                         });
                     }
                 })
-            }
+            // }
         });
     },
 

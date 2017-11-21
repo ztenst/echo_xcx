@@ -17,7 +17,7 @@
       <file leaf-file-name="house_detail.wxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
+            <state relative-caret-position="472">
               <caret line="178" column="43" lean-forward="false" selection-start-line="178" selection-start-column="37" selection-end-line="178" selection-end-column="43" />
               <folding>
                 <element signature="n#style#0;n#text#2;n#view#0;n#view#0;n#view#1;n#scroll-view#0;n#view#1;n#!!top" expanded="true" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="house_detail.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="231" column="6" lean-forward="true" selection-start-line="231" selection-start-column="6" selection-end-line="231" selection-end-column="6" />
+            <state relative-caret-position="311">
+              <caret line="235" column="10" lean-forward="false" selection-start-line="235" selection-start-column="4" selection-end-line="235" selection-end-column="10" />
               <folding>
                 <element signature="e#905#2752#0" expanded="false" />
               </folding>
@@ -38,81 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zxy.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style/zxy.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="656" column="26" lean-forward="false" selection-start-line="656" selection-start-column="26" selection-end-line="656" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="my.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/my/my.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state relative-caret-position="189">
+              <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_message.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/add_message/add_message.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="58" column="49" lean-forward="false" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_message.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/add_message/add_message.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="71" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actionsheet.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/actionsheet/actionsheet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="house_baobei.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/house_baobei/house_baobei.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1579">
-              <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="house_baobei.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/house_baobei/house_baobei.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="33" lean-forward="false" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+            <state relative-caret-position="229">
+              <caret line="39" column="23" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -149,9 +89,9 @@
       <find>detail-info</find>
       <find>getMplotDetail</find>
       <find>tapSheet</find>
+      <find>add_message</find>
+      <find>add_message</find>
       <find>baoBei</find>
-      <find>add_message</find>
-      <find>add_message</find>
     </findStrings>
     <replaceStrings>
       <replace>00b7ee</replace>
@@ -206,7 +146,6 @@
         <option value="$PROJECT_DIR$/pages/collection_list/collection_list.js" />
         <option value="$PROJECT_DIR$/utils/util.js" />
         <option value="$PROJECT_DIR$/pages/my/my.wxml" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.wxml" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.js" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
@@ -221,6 +160,7 @@
         <option value="$PROJECT_DIR$/style/zxy.scss" />
         <option value="$PROJECT_DIR$/pages/my/my.js" />
         <option value="$PROJECT_DIR$/pages/add_message/add_message.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -291,7 +231,13 @@
               <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
               <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="add_message" type="462c0819:PsiDirectoryNode" />
+              <item name="house_detail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="my" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -481,12 +427,12 @@
       <workItem from="1511250394551" duration="1170000" />
       <workItem from="1511253944323" duration="598000" />
       <workItem from="1511260649638" duration="80000" />
-      <workItem from="1511260744457" duration="2473000" />
+      <workItem from="1511260744457" duration="3139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283448000" />
+    <option name="totallyTimeSpent" value="284114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -839,14 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/actionsheet/actionsheet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/house_baobei/house_baobei.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1579">
@@ -855,23 +793,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
+    <entry file="file://$PROJECT_DIR$/components/actionsheet/actionsheet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="178" column="43" lean-forward="false" selection-start-line="178" selection-start-column="37" selection-end-line="178" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#text#2;n#view#0;n#view#0;n#view#1;n#scroll-view#0;n#view#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="231" column="6" lean-forward="true" selection-start-line="231" selection-start-column="6" selection-end-line="231" selection-end-column="6" />
-          <folding>
-            <element signature="e#905#2752#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="589">
+          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -879,6 +805,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="12" column="71" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/add_message/add_message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="47" column="15" lean-forward="true" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -891,26 +825,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="178" column="43" lean-forward="false" selection-start-line="178" selection-start-column="37" selection-end-line="178" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#text#2;n#view#0;n#view#0;n#view#1;n#scroll-view#0;n#view#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="235" column="10" lean-forward="false" selection-start-line="235" selection-start-column="4" selection-end-line="235" selection-end-column="10" />
+          <folding>
+            <element signature="e#905#2752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/my/my.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        <state relative-caret-position="189">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/add_message/add_message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="58" column="49" lean-forward="false" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="49" />
+        <state relative-caret-position="229">
+          <caret line="39" column="23" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
           <folding />
         </state>
       </provider>
