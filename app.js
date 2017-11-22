@@ -45,6 +45,7 @@ App({
                                 self.globalData.userInfo = resuserinfo.userInfo;
                                 api.getOpenId({code:loginres.code}).then(res => {
                                     let data = res.data;
+                                    console.log(data)
                                     if(!data.open_id){
                                         self.globalData.customInfo = data;
                                         self.globalData.isUser = true;
