@@ -221,7 +221,10 @@ Page({
                             [`plotdetail.is_save`]: 0
                         })
                     }
-
+                }else{
+                    setTimeout(function () {
+                        app.goPage('/pages/add_message/add_message', null, false);
+                    }, 2e3);
                 }
             });
         }

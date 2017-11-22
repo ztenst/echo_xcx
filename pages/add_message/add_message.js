@@ -75,8 +75,8 @@ Page({
                 text: data.msg,
             });
             if (data.status == 'success') {
-                app.globalData.isUser = true;
                 setTimeout(function () {
+                    app.getUserOpenId().then(res =>{});
                     wx.navigateBack({
                         delta: 1
                     })
