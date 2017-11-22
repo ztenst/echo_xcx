@@ -6,7 +6,7 @@
         <view class="plt24 bg-fff">
             <view class="line">
                 <label for="">姓名</label>
-                <input type="text" name="name" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入客户姓名" bindinput="getName" />
+                <input type="text" name="name" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入姓名" bindinput="getName" />
             </view>
             <view class="line ">
                 <label for="">手机</label>

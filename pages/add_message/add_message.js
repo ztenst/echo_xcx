@@ -54,13 +54,6 @@ Page({
             });
             return false;
         }
-        if (!fObj.usercompany) {
-            $toast.show({
-                timer: 2e3,
-                text: '请输入公司名',
-            });
-            return false;
-        }
         const pack = {
             openid:app.globalData.wxData.open_id,
             userphone: parseInt(fObj.userphone),
