@@ -50,6 +50,7 @@ Page({
                 self.setData({plotdetail: data});
                 self.setData({title: data.title});
                 wx.setNavigationBarTitle({title: data.title});//设置导航条标题
+                console.log(self.data.plotdetail.hx)
                 /**
                  *初始化轮播图
                  */
