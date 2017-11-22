@@ -14,7 +14,7 @@
                 </view>
 
                 <view class="search-btn" bindtap="{{focus}}">
-                    <text class="iconfont icon-sousuo"></text>
+                    <text class="iconfont icon-sousuo" style='font-size:20px'></text>
                 </view>
             </view>
         </block>

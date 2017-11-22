@@ -10,11 +10,11 @@
             </view>
             <view class="line ">
                 <label for="">手机</label>
-                <input type="number" name="userphone" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入手机号" bindinput="getPhone"  style="width:496rpx;display: inline-block;vertical-align: middle;"/>
+                <input type="number" name="userphone" value='{{phone}}' class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入手机号" bindinput="getPhone"  style="width:496rpx;display: inline-block;vertical-align: middle;"/>
             </view>
             <view class="line nbtm">
                 <label for="">公司名</label>
-                <input type="text" name="usercompany" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入公司名，独立经纪人可不用填写" bindinput="getCompanyName"/>
+                <input type="text" name="usercompany" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入公司名或门店码，独立经纪人可留空" bindinput="getCompanyName"/>
             </view>
         </view>
 

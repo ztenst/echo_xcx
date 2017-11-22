@@ -198,7 +198,7 @@ Page({
         let self= this;
         let params = Object.assign({}, this.data.filters,{companyname:self.data.companyname});
         return {
-            title: '经济圈新房通',
+            title: '全国新房分销大数据平台',
             path: `pages/index/index?${Util.params2Query(params)}`
         }
     }

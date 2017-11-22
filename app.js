@@ -1,4 +1,4 @@
-﻿//app.js
+//app.js
 var api = require('./common/api');
 
 App({
@@ -87,5 +87,6 @@ App({
         customInfo:{},
         isUser:false,
         wxData: {},
+        phone:'',
     }
 })

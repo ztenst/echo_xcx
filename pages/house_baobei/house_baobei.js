@@ -232,8 +232,8 @@ Page({
             notice: self.data.notice,
             phone: fObj.phone ? fObj.phone : self.data.three + "****" + self.data.four,
             name: fObj.name,
-            sex: self.data.sex,
-            visit_way: self.data.visit_way,
+            sex: fObj.sex,
+            visit_way: fObj.visit_way,
         }
 
         api.baiBei(pack).then((res) => {

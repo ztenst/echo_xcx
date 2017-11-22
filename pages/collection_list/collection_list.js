@@ -29,7 +29,7 @@ Page({
         let self = this;
 
         self.setData({
-            uid: 2064
+            uid: app.globalData.customInfo.id
         })
         /**
          * 搜索组件初始化

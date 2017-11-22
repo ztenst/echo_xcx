@@ -7,9 +7,15 @@ import Util from '../../utils/util'
 let app = getApp();
 
 Page({
-    data: {},
+    data: {
+      phone:'',
+    },
     onLoad: function (options) {
-
+      let phone = app.globalData.phone
+      let that = this;
+      this.setData({
+        phone: phone
+      });
     },
     getPhone(e) {
         let that = this;

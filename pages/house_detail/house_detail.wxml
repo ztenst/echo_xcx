@@ -77,7 +77,7 @@
         <!--雇佣规则-->
         <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0}}">
             <view class="mTitle box box-align-center box-pack-between">
-                <view class="mTitle-l">雇佣规则</view>
+                <view class="mTitle-l">佣金规则</view>
             </view>
             <template is="detailContent" data="{{...$detailContent.pay}}"/>
         </view>

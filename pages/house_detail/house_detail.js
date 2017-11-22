@@ -23,6 +23,7 @@ Page({
         wx_image: '',
         toView: '',
         default_img: '',
+        title: '',
     },
     onLoad: function (options) {
         var self = this;
@@ -47,6 +48,7 @@ Page({
             let data = res.data.data;
             if (res.data.status === 'success') {
                 self.setData({plotdetail: data});
+                self.setData({title: data.title});
                 wx.setNavigationBarTitle({title: data.title});//设置导航条标题
                 /**
                  *初始化轮播图
@@ -266,7 +268,7 @@ Page({
     onShareAppMessage(res) {
        let self= this;
         return {
-            title: '经济圈新房通',
+          title: self.data.title,
             path: 'pages/house_detail/house_detail?id='+self.data.plot_id
         }
     }
