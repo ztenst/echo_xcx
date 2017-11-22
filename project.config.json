@@ -21,13 +21,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "ddd",
 					"pathName": "pages/house_detail/house_detail",
-					"query": "id=123"
+					"query": "id=161"
 				},
 				{
 					"id": 1,

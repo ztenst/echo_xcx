@@ -4,13 +4,13 @@
 <import src="../../libs/wxParse/wxParse.wxml"/>
 
 <view class="detailLoading" hidden="{{isFinished}}">
-      <view class="loading-gif">
-          <image src="../../images/loadingdetail.gif" ></image>
-      </view>
+    <view class="loading-gif">
+        <image src="../../images/loadingdetail.gif"></image>
+    </view>
 </view>
 <view class="menuwap" hidden="{{ !isFinished }}">
 
-    <scroll-view scroll-y="true"  class="house-detail bg-f5 ">
+    <scroll-view scroll-y="true" class="house-detail bg-f5 ">
         <!--引入detailcover模板-->
         <view class="coverswiper">
             <swiper class="swiper-wrap"
@@ -59,7 +59,8 @@
                     <text class="iconfont icon-dai"></text>
                     <text class="col-t">{{plotdetail.zd_company.name}}</text>
                 </view>
-                <view class="row-r" data-company="{{plotdetail.zd_company.id}}" data-companyname ="{{plotdetail.zd_company.name}}"
+                <view class="row-r" data-company="{{plotdetail.zd_company.id}}"
+                      data-companyname="{{plotdetail.zd_company.name}}"
                       bindtap="doFilterCom">
                     所有项目
                     <text class="iconfont icon-right"></text>
@@ -101,23 +102,22 @@
                 <view class="mTitle-l">主力户型</view>
             </view>
             <view class="mDesc mDes-nbtm">
-                <scroll-view class="hx-list" scroll-x>
-                    <view class="item" wx:for="{{plotdetail.hx}}" wx:key="id" wx:for-item="x" bindtap="seeHx"
-                          data-current="{{x.image}}">
+                <scroll-view class="hx-list" scroll-x scroll-y="false">
+                    <view class="item" wx:for="{{plotdetail.hx}}" wx:key="title">
                         <view class="pic">
-                            <image src="{{x.image}}"></image>
-                            <text class="lab" wx:if="{{x.sale_status}}">{{x.sale_status}}</text>
+                            <image src="{{item.image}}"></image>
+                            <text class="lab" wx:if="{{item.sale_status}}">{{item.sale_status}}</text>
                         </view>
                         <view class="info">
-                            <view class="tit">{{x.title}}</view>
+                            <view class="tit">{{item.title}}</view>
                             <view class="hx box box-align-center box-pack-between">
                                 <view>
-                                    <text class="hx-s" wx:if="{{x.bedroom}}">{{x.bedroom}}室</text>
-                                    <text class="hx-s" wx:if="{{x.livingroom}}">{{x.livingroom}}厅</text>
-                                    <text class="hx-s" wx:if="{{x.bathroom}}">{{x.bathroom}}卫</text>
+                                    <text class="hx-s" wx:if="{{item.bedroom}}">{{item.bedroom}}室</text>
+                                    <text class="hx-s" wx:if="{{item.livingroom}}">{{item.livingroom}}厅</text>
+                                    <text class="hx-s" wx:if="{{item.bathroom}}">{{item.bathroom}}卫</text>
                                 </view>
                                 <view class="w">
-                                    <text class="hx-s fr">{{x.size}}㎡</text>
+                                    <text class="hx-s fr">{{item.size}}㎡</text>
                                 </view>
                             </view>
                         </view>
@@ -159,7 +159,7 @@
     </scroll-view>
     <view class="mBottom box flex">
         <view class="left box box-align-center flex">
-            <view class="a flex"  bindtap="tapSheet" data-type="phone">
+            <view class="a flex" bindtap="tapSheet" data-type="phone">
                 <text class="iconfont icon-dianhua"></text>
                 电话
             </view>
@@ -171,7 +171,7 @@
                   data-is_login="{{plotdetail.is_login}}"
                   data-is_save="{{plotdetail.is_save}}"
                   data-hid="{{plotdetail.id}}">
-                <text class="iconfont icon-shoucang1"  wx:if="{{plotdetail.is_save==0}}"></text>
+                <text class="iconfont icon-shoucang1" wx:if="{{plotdetail.is_save==0}}"></text>
                 <text class="iconfont icon-shoucang" wx:if="{{plotdetail.is_save==1}}"></text>
                 收藏
             </view>
@@ -180,6 +180,7 @@
             <view>快速报备</view>
         </view>
     </view>
+
     <template is="actionSheet" data="{{ ...$actionSheet }}"/>
     <template is="toast" data="{{ ...$toast }}"/>
 
