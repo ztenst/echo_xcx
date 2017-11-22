@@ -75,6 +75,7 @@ Page({
                 text: data.msg,
             });
             if (data.status == 'success') {
+                app.globalData.isUser = true;
                 setTimeout(function () {
                     wx.navigateBack({
                         delta: 1
