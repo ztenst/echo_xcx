@@ -35,9 +35,10 @@ App({
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
             //  console.log(Object.keys(self.globalData.userInfo).length != 0)
-            // if (Object.keys(self.globalData.userInfo).length != 0) {
-            //     resolve(self.globalData);
-            // } else {
+            console.log(self.globalData.isUser)
+            if (self.globalData.isUser) {
+                resolve(self.globalData);
+            } else {
                 wx.login({
                     success: function (loginres) {
                         wx.getUserInfo({
@@ -46,6 +47,7 @@ App({
                                 api.getOpenId({code:loginres.code}).then(res => {
                                     let data = res.data;
                                     console.log(data)
+                                    //如果没有open_id说明是新用户
                                     if(!data.open_id){
                                         self.globalData.customInfo = data;
                                         self.globalData.isUser = true;
@@ -58,7 +60,7 @@ App({
                         });
                     }
                 })
-            // }
+            }
         });
     },
 
