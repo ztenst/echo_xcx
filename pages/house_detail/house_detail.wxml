@@ -2,6 +2,9 @@
 <import src="../../components/actionsheet/actionsheet.wxml"/>
 <import src="../../components/toast/toast.wxml"/>
 <import src="../../libs/wxParse/wxParse.wxml"/>
+<import src="../../components/dialog/dialog.wxml"/>
+
+<template is="dialog" data="{{ ...$dialog }}"/>
 
 <view class="detailLoading" hidden="{{isFinished}}">
     <view class="loading-gif">
