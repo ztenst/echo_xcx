@@ -97,7 +97,7 @@ export default {
                         api.getDecode(params).then(resp => {
                             let json = resp.data.trim();
                             app.globalData.phone = json;
-                            api.xcxLogin({phone: json,openid:app.globalData.wxData.open_id}).then(respo => {
+                            api.xcxLogin({phone: json,openid:app.globalData.wxData.open_id,name:app.globalData.userInfo.nickName}).then(respo => {
                                 if (respo.data.status == 'success') {
                                     app.globalData.customInfo = Object.assign(app.globalData.customInfo, respo.data.data);
                                     app.globalData.isUser = true;
