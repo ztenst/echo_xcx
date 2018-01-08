@@ -70,14 +70,14 @@ Page({
      * 取消收藏
      */
     cancelCollect(e) {
-        let self = this,isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
+        let self = this,isTrue = app.globalData.isTrue, dataset = e.currentTarget.dataset;
 
         let params = {
             hid: dataset.id,
             uid: app.globalData.customInfo.id
         };
 
-        if (!isUser) {
+        if (!isTrue) {
             app.goPage('/pages/add_message/add_message', null, false);
         } else {
             api.addCollection(params).then(function (res) {

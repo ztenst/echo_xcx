@@ -14,7 +14,7 @@ Page({
     },
     goToList(e) {
         let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
-        if(!app.globalData.isUser){
+        if(!app.globalData.isTrue){
             let url = '/pages/add_message/add_message';
             app.goPage(url, null, false);
         }else{

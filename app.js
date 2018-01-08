@@ -30,15 +30,13 @@ App({
      * 获取openid 
      * @returns {Promise}
      */
-    getUserOpenId: function () {
+    getUserOpenId: function (status) {
         var self = this;
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
             //  console.log(Object.keys(self.globalData.userInfo).length != 0)
-            console.log(self.globalData.isUser)
-            if (self.globalData.isUser) {
-                resolve(self.globalData);
-            } else {
+            console.log(self.globalData.isTrue)
+            if (!self.globalData.isUser || status == 'fresh') {
                 wx.login({
                     success: function (loginres) {
                         wx.getUserInfo({
@@ -46,11 +44,14 @@ App({
                                 self.globalData.userInfo = resuserinfo.userInfo;
                                 api.getOpenId({code:loginres.code}).then(res => {
                                     let data = res.data;
-                                    console.log(data)
+                                    self.globalData.customInfo = data;
+
+                                    // console.log(data)
                                     //如果没有open_id说明是新用户
                                     if(!data.open_id){
                                         self.globalData.customInfo = data;
                                         self.globalData.isUser = true;
+                                        self.globalData.isTrue = data.is_true=='1' ? true : false;
                                     }else{
                                         self.globalData.wxData=data;
                                     }
@@ -60,6 +61,8 @@ App({
                         });
                     }
                 })
+            } else {
+                resolve(self.globalData);
             }
         });
     },
@@ -89,6 +92,7 @@ App({
         userInfo: {},
         customInfo:{},
         isUser:false,
+        isTrue:false,
         wxData: {},
         phone:'',
     }

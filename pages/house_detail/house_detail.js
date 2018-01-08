@@ -186,7 +186,7 @@ Page({
             hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
             onActionSheetClick(type, params) {
-                if (!app.globalData.isUser) {
+                if (!app.globalData.isTrue) {
                     let url = '/pages/add_message/add_message';
                     app.goPage(url, null, false);
                     return;
@@ -212,14 +212,14 @@ Page({
      * 添加及取消收藏
      */
     addCollect(e) {
-        let self = this, isUser = app.globalData.isUser, dataset = e.currentTarget.dataset;
+        let self = this, isTrue = app.globalData.isTrue, dataset = e.currentTarget.dataset;
 
         let params = {
             hid: dataset.hid,
             uid: app.globalData.customInfo.id
         };
 
-        if (!isUser) {
+        if (!isTrue) {
             app.goPage('/pages/add_message/add_message', null, false);
         } else {
             api.addCollection(params).then(function (res) {
@@ -258,7 +258,7 @@ Page({
      * 快速报备
      */
     baoBei(e) {
-        if (!app.globalData.isUser) {
+        if (!app.globalData.isTrue) {
             let url = '/pages/add_message/add_message';
             app.goPage(url, null, false);
             return;

@@ -102,6 +102,9 @@ export default {
                                     app.globalData.customInfo = Object.assign(app.globalData.customInfo, respo.data.data);
                                     app.globalData.isUser = true;
                                 }
+                                if(respo.data.data.is_true=='1') {
+                                    app.globalData.isTrue = true;
+                                }
                             })
                         });
 

@@ -69,7 +69,7 @@ Page({
             });
             if (data.status == 'success') {
                 setTimeout(function () {
-                    app.getUserOpenId().then(res =>{});
+                    app.getUserOpenId('fresh').then(res =>{});
                     wx.navigateBack({
                         delta: 1
                     })
