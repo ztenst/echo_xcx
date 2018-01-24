@@ -1,6 +1,7 @@
 import {
     $detailContent, $actionSheet, $toast,$dialog
 } from '../../components/wxcomponents'
+var coordtransform = require('../../utils/coordtransform');
 import api from '../../common/api'
 import Util from '../../utils/util'
 
@@ -207,6 +208,42 @@ Page({
             }
         })
 
+    },
+    go_home(){
+        app.goPage('/pages/index/index', null, true);
+    },
+    /**
+     * 前往个人中心
+     */
+    toMy() {
+        let url = '/pages/my/my';
+        app.goPage(url, null, false);
+    },
+    /**
+     * 查看地图
+     */
+    go_mapDetail(e) {
+        let dataset = e.currentTarget.dataset;
+        //百度经纬度坐标转国测局坐标
+        var bd09togcj02 = coordtransform.bd09togcj02(dataset.lng, dataset.lat);
+        wx.getLocation({
+            type: 'gcj02',
+            success: function(res) {
+                wx.openLocation({
+                    latitude: Number(bd09togcj02[1]),
+                    longitude: Number(bd09togcj02[0]),
+                    scale: 16,
+                    name: dataset.name,
+                    address: dataset.address,
+                    success: function (res) {
+                        console.log(res)
+                    },
+                    fail: function (res) {
+                        console.log(res)
+                    }
+                })
+            }
+        })
     },
     /**
      * 添加及取消收藏

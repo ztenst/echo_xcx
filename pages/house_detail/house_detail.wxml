@@ -41,6 +41,9 @@
                     <text class="unit">{{plotdetail.unit}}</text>
                     <text class="state" style="vertical-align: -4rpx;">[在售]</text>
                 </view>
+                <button class="fr box box-pack-end" open-type="share">
+                    <text class="iconfont icon-fenxiang"></text>
+                </button>
             </view>
             <view class="lp-stag" wx:if="{{plotdetail.tags.length>0}}">
                 <block wx:for="{{plotdetail.tags}}" wx:key="id">
@@ -54,6 +57,12 @@
                 <view class="row-l box">
                     <text class="iconfont icon-dingwei"></text>
                     <text class="col-t">{{plotdetail.address}}</text>
+                </view>
+                <view class="row-r" bindtap="go_mapDetail" data-address="{{plotdetail.address}}"
+                      data-lng="{{plotdetail.map_lng}}" data-lat="{{plotdetail.map_lat}}"
+                      data-name="{{shopDetail.title}}">
+                    查看地图
+                    <text class="iconfont icon-right"></text>
                 </view>
             </view>
             <view class="row  box box-align-center box-pack-between" wx:if="{{plotdetail.address}}"
@@ -183,6 +192,21 @@
             <view>快速报备</view>
         </view>
     </view>
+
+
+    <!--个人中心头像-->
+    <view class="right-side-menu user" bindtap="toMy" wx:if="{{userInfo.avatarUrl}}">
+        <view class="pic">
+            <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+    </view>
+    <!--首页-->
+    <view class="right-side-menu totop" bindtap="go_home">
+        <view class="pic">
+            <image src="../../images/home.png"/>
+        </view>
+    </view>
+
 
     <template is="actionSheet" data="{{ ...$actionSheet }}"/>
     <template is="toast" data="{{ ...$toast }}"/>

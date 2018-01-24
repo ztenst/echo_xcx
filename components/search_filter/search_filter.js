@@ -123,6 +123,8 @@ export default {
                     this.setData({
                         [`${SCOPE}.filters.kw`]: '',
                         [`${SCOPE}.filters.kw_input`]: '',
+                        [`${SCOPE}.kw`]: '',
+                        [`${SCOPE}.kw_input`]: '',
                     });
                     this.triggerFilter();
                     typeof options.onClearkw === 'function' && options.onClearkw()
@@ -132,7 +134,9 @@ export default {
                     this.setData({
                         [`${SCOPE}.focused`]: false
                     });
-                    typeof options.onBlur === 'function' && options.onBlur()
+                    if(this.getComponentData().filters.kw){
+                        this.clearkw()
+                    }
                 },
                 //确认
                 confirm(e) {
