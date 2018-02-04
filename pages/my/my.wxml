@@ -12,9 +12,7 @@
             </view>
             <view class="usename">
                 {{userInfo.nickName}}
-                <text class="fen" wx:if="{{customInfo.type}}">
-                    {{customInfo.type==1?'总代':(customInfo.type==2?'分销':'独立经纪人')}}
-                </text>
+                <text class="fen" wx:if="{{customInfo.type}}">{{customInfo.type==1?'总代':(customInfo.type==2?'分销':'独立经纪人')}}</text>
             </view>
             <view class="com" wx:if="{{customInfo.company_name}}">{{customInfo.company_name}}</view>
 

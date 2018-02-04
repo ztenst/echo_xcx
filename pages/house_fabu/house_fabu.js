@@ -49,15 +49,14 @@ let app = getApp();
 
 Page({
     data: {
-        time: '',
-        notice: '',
-        changeShowPhone: true,
         tags: {},
         areaList: [],
         streetList: [],
+        unitList:[{id:1,name:'元/m2'},{id:2,name:'万元/套'}],
         areaIndex: 0,
         streetIndex: 0,
         sfpriceIndex: 0,
+        unitIndex:0,
 
         uploadImgs: [],
         currentFm: 0,
@@ -172,7 +171,15 @@ Page({
     },
     // 首付金额
     sfpriceChange(e) {
-
+        this.setData({
+            sfpriceIndex: e.detail.value
+        })
+    },
+    // 单位
+    unitChange(e) {
+        this.setData({
+            unitIndex: e.detail.value
+        })
     },
     //代理类型
     dllxChange(e) {
@@ -210,28 +217,27 @@ Page({
         const formParms = e.detail.value;
 
         console.log(formParms)
-        // if (!this.WxValidate.checkForm(e)) {
-        //     const error = this.WxValidate.errorList[0];
-        //     $toast.show({
-        //         timer: 2e3,
-        //         text: `${error.msg}`,
-        //     });
-        //     return false
-        // }
-        let params = Object.assign({}, formParms);
+        if (!this.WxValidate.checkForm(e)) {
+            const error = this.WxValidate.errorList[0];
+            $toast.show({
+                timer: 2e3,
+                text: `${error.msg}`,
+            });
+            return false
+        }
+        let params = Object.assign({}, formParms,{qf_uid:app.globalData.customInfo.id});
 
-        // api.addPlot(params).then(res => {
-        //     let data = res.data;
-        //     console.log(data)
-        //     // if (data.status == 1) {
-        //     //
-        //     // } else {
-        //     //     $toast.show({
-        //     //         timer: 2e3,
-        //     //         text: data.msg,
-        //     //     });
-        //     // }
-        // });
+        api.addPlot(params).then(res => {
+            let data = res.data;
+            if (data.status == 'success') {
+
+            } else {
+                $toast.show({
+                    timer: 2e3,
+                    text: data.msg,
+                });
+            }
+        });
     },
 });
 

@@ -41,14 +41,24 @@
             <view class="row bdm box box-align-center ">
                 <view class="row-l box">
                     <text class="xing">*</text>
+                    <text class="col-t">项目名称</text>
+                </view>
+                <view class="row-r">
+                    <input type="text" placeholder-class="c-ccc" placeholder="请输入项目名称" name="title"
+                           value=""/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
                     <text class="col-t">项目区域</text>
                 </view>
                 <view class="row-r">
-                    <picker bindchange="bindPickerAreaChange" value="{{areaList[areaIndex].id}}" name="area"
+                    <picker bindchange="bindPickerAreaChange" range-key="name" value="{{areaList[areaIndex].id}}" name="area"
                             range="{{areaList}}">
                         <view class="picker">{{areaList[areaIndex].name}}</view>
                     </picker>
-                    <picker bindchange="bindPickerStreetChange" value="{{streetList[streetIndex].id}}" name="street"
+                    <picker bindchange="bindPickerStreetChange" range-key="name" value="{{streetList[streetIndex].id}}" name="street"
                             range="{{streetList}}">
                         <view class="picker">{{streetList[streetIndex].name}}</view>
                     </picker>
@@ -57,7 +67,7 @@
             <view class="row bdm box box-align-center ">
                 <view class="row-l box">
                     <text class="xing">*</text>
-                    <text class="col-t">项目名称</text>
+                    <text class="col-t">项目地址</text>
                 </view>
                 <view class="row-r">
                     <input type="text" placeholder-class="c-ccc" placeholder="请输入项目地址" name="address"
@@ -90,7 +100,7 @@
                     <label class="checkbox" wx:for="{{tags.zxzt}}" wx:key="id">
                         <checkbox class="ws-checkbox" value="{{item.id}}"
                                   color="{{checked==true?'#ccc':'#00b7ee'}}"/>
-                        <text class="text">{{item.name}}</text>s
+                        <text class="text">{{item.name}}</text>
                     </label>
                 </checkbox-group>
             </view>
@@ -99,20 +109,23 @@
                     <text class="xing">*</text>
                     <text class="col-t">均价</text>
                 </view>
-                <view class="row-r">
-                    <input type="number" placeholder-class="c-ccc" placeholder="请输入均价" name="price"
-                           value=""/>
+                <view class="row-r junjia">
+                    <view class="row no-padding box box-align-center">
+                        <input type="number" placeholder-class="c-ccc" placeholder="请输入均价" name="price"/>
+                        <picker  bindchange="unitChange" range-key="name" value="{{unitList[unitIndex].id}}" range="{{unitList}}" name="unit">
+                            <view class="picker">{{unitList[unitIndex].name}}</view>
+                        </picker>
+                    </view>
                 </view>
             </view>
-            <view class="row bdm box box-align-center ">
+            <view class="row  box box-align-center ">
                 <view class="row-l box">
                     <text class="xing">*</text>
                     <text class="col-t">户型介绍</text>
                 </view>
-                <view class="row-r">
-                    <input type="text" placeholder-class="c-ccc" placeholder="请输入均价" name="hxjs"
-                           value=""/>
-                </view>
+            </view>
+            <view class="row bdm box box-align-center  ">
+                <textarea placeholder="这是一个可以自动聚焦的textarea" name="hxjs"/>
             </view>
             <view class="row bdm box box-align-center ">
                 <view class="row-l box">
@@ -120,8 +133,8 @@
                     <text class="col-t">最低首付金额</text>
                 </view>
                 <view class="row-r">
-                    <picker bindchange="sfpriceChange" value="{{item.id}}" range="{{tags.sfprice}}" name="sfprice">
-                        <view class="picker">{{item.name}}</view>
+                    <picker bindchange="sfpriceChange" range-key="name" value="{{tags.sfprice[sfpriceIndex].id}}" range="{{tags.sfprice}}" name="sfprice">
+                        <view class="picker">{{tags.sfprice[sfpriceIndex].name}}</view>
                     </picker>
                 </view>
             </view>
@@ -146,7 +159,7 @@
                 </view>
             </view>
             <view class="row bdm box box-align-center  ">
-                <textarea placeholder="这是一个可以自动聚焦的textarea" name="yjfa"/>
+                <textarea placeholder="请输入佣金方案" name="yjfa"/>
             </view>
             <view class="row  box box-align-center ">
                 <view class="row-l box">
@@ -155,7 +168,7 @@
                 </view>
             </view>
             <view class="row bdm box box-align-center  ">
-                <textarea placeholder="这是一个可以自动聚焦的textarea" name="jy_rule"/>
+                <textarea placeholder="请输入结佣规则及时间" name="jy_rule"/>
             </view>
             <view class="row  box box-align-center ">
                 <view class="row-l box">
@@ -164,7 +177,7 @@
                 </view>
             </view>
             <view class="row bdm box box-align-center  ">
-                <textarea placeholder="这是一个可以自动聚焦的textarea" name="dk_rule"/>
+                <textarea placeholder="请输入带看奖励及车费报销规则" name="dk_rule"/>
             </view>
             <view class="row  box box-align-center ">
                 <view class="row-l box">
@@ -173,7 +186,7 @@
                 </view>
             </view>
             <view class="row bdm box box-align-center  ">
-                <textarea placeholder="这是一个可以自动聚焦的textarea" name="peripheral"/>
+                <textarea placeholder="请输入项目介绍(微信转发的版本)" name="peripheral"/>
             </view>
             <view class="big-btn no-fixed no-marginTop" style="padding-left:0;">
                 <button class="btnBaoBei box box-pack-center box-align-center" bindtap="didPressChooesImage">
@@ -193,11 +206,8 @@
                         </view>
                     </view>
                 </view>
-                <checkbox-group class="box  box-wrap " name="image" hidden="false">
-                    <label class="checkbox" wx:for="{{uploadImgs}}" wx:key="id">
-                        <checkbox class="ws-checkbox" value="{{uploadImgs}}"/>
-                    </label>
-                </checkbox-group>
+                <checkbox-group  value="{{uploadImgs}}" name="image" hidden></checkbox-group>
+                <input type="text" name="fm" value="{{currentFm}}" hidden/>
             </view>
 
         </view>

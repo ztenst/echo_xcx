@@ -1287,6 +1287,16 @@
     textarea {
       height: 200rpx;
     }
+    .junjia{
+      input{
+        width:150rpx;
+        display: inline-block;
+        margin-right:20rpx;
+      }
+      picker{width:150rpx;
+        display: inline-block;
+      }
+    }
   }
   .weui-uploader__bd {
     padding-top:30rpx;
