@@ -25,7 +25,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 7,
 			"list": [
 				{
 					"id": 0,
@@ -67,6 +67,18 @@
 					"id": -1,
 					"name": "baobei_list",
 					"pathName": "pages/baobei_list/baobei_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "house_fabu",
+					"pathName": "pages/house_fabu/house_fabu",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myhouse_list",
+					"pathName": "pages/myhouse_list/myhouse_list",
 					"query": ""
 				}
 			]

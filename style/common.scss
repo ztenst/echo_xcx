@@ -114,6 +114,12 @@ button {
   right: 0;
   z-index: 10001;
 }
+.no-padding {
+  padding: 0!important;
+}
+.no-marginTop{
+  margin-top:0!important;
+}
 
 
 /* button */
@@ -170,6 +176,7 @@ button {
 
 //行样式
 .row{ padding:24rpx;
+  &.no-padding
   .row-l{
     .iconfont{
       width:54rpx;

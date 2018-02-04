@@ -135,7 +135,7 @@ export default {
                         [`${SCOPE}.focused`]: false
                     });
                     if(this.getComponentData().filters.kw){
-                        this.clearkw()
+                        this.clearkw();
                     }
                 },
                 //确认

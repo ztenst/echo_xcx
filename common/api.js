@@ -77,7 +77,7 @@ const api = {
     //取得搜索筛选区域条件
     getTagsIndex(cate) {
         let url = `${config.host}/api/tag/index`
-        return getRequest(url,{cate})
+        return getRequest(url, {cate})
     },
     //取得搜索筛选房价、户型、其他条件
     getFilterTags(cate) {
@@ -138,6 +138,21 @@ const api = {
     getPhone() {
         let url = `${config.host}/api/index/getPhone`
         return getRequest(url)
+    },
+    /*检测是否可以发布项目*/
+    checkCanSub(params) {
+        let url = `${config.host}/api/plot/checkCanSub`
+        return getRequest(url, params)
+    },
+    /*发布页面数据*/
+    publishtags(params) {
+        let url = `${config.host}/api/tag/publishtags`
+        return getRequest(url, params)
+    },
+    /*发布项目*/
+    addPlot(params) {
+        let url = `${config.host}/api/plot/addPlot`
+        return postRequest(url, params)
     },
 };
 

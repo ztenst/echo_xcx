@@ -1,0 +1,213 @@
+<import src="../../components/calendar/calendar.wxml"/>
+<import src="../../components/actionsheet/actionsheet.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="calendar" data="{{ ...$calendar.start }}"/>
+
+<view class="add_message addPlot bg-f5">
+    <view class="blank20"></view>
+    <form action="" bindsubmit="submitForm">
+        <view class="plt24 bg-fff">
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">姓名</text>
+                </view>
+                <view class="row-r">
+                    <input type="text" placeholder-class="c-ccc" placeholder="请输入姓名" name="pname"
+                           value="{{ customInfo.name }}"/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">联系方式</text>
+                </view>
+                <view class="row-r">
+                    <input type="tel" placeholder-class="c-ccc" placeholder="请输入联系方式" name="pphone"
+                           value="{{ customInfo.phone }}"/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">总代公司</text>
+                </view>
+                <view class="row-r">
+                    <input type="text" placeholder-class="c-ccc" placeholder="请输入公司名" name="pcompany"
+                           value="{{ customInfo.company_name }}"/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">项目区域</text>
+                </view>
+                <view class="row-r">
+                    <picker bindchange="bindPickerAreaChange" value="{{areaList[areaIndex].id}}" name="area"
+                            range="{{areaList}}">
+                        <view class="picker">{{areaList[areaIndex].name}}</view>
+                    </picker>
+                    <picker bindchange="bindPickerStreetChange" value="{{streetList[streetIndex].id}}" name="street"
+                            range="{{streetList}}">
+                        <view class="picker">{{streetList[streetIndex].name}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">项目名称</text>
+                </view>
+                <view class="row-r">
+                    <input type="text" placeholder-class="c-ccc" placeholder="请输入项目地址" name="address"
+                           value=""/>
+                </view>
+            </view>
+            <view class="row  box box-align-center  ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">物业类型</text>
+                </view>
+            </view>
+            <view class="row no-padding bdm box box-align-center  ">
+                <checkbox-group bindchange="wylxChange" class="box  box-wrap " name="wylx">
+                    <label class="checkbox" wx:for="{{tags.wylx}}" wx:key="id">
+                        <checkbox class="ws-checkbox" value="{{item.id}}"
+                                  color="{{checked==true?'#ccc':'#00b7ee'}}"/>
+                        {{item.name}}
+                    </label>
+                </checkbox-group>
+            </view>
+            <view class="row  box box-align-center  ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">装修状况</text>
+                </view>
+            </view>
+            <view class="row no-padding bdm box box-align-center  ">
+                <checkbox-group bindchange="zxztChange" class="box  box-wrap " name="zxzt">
+                    <label class="checkbox" wx:for="{{tags.zxzt}}" wx:key="id">
+                        <checkbox class="ws-checkbox" value="{{item.id}}"
+                                  color="{{checked==true?'#ccc':'#00b7ee'}}"/>
+                        <text class="text">{{item.name}}</text>s
+                    </label>
+                </checkbox-group>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">均价</text>
+                </view>
+                <view class="row-r">
+                    <input type="number" placeholder-class="c-ccc" placeholder="请输入均价" name="price"
+                           value=""/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">户型介绍</text>
+                </view>
+                <view class="row-r">
+                    <input type="text" placeholder-class="c-ccc" placeholder="请输入均价" name="hxjs"
+                           value=""/>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">最低首付金额</text>
+                </view>
+                <view class="row-r">
+                    <picker bindchange="sfpriceChange" value="{{item.id}}" range="{{tags.sfprice}}" name="sfprice">
+                        <view class="picker">{{item.name}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="row  box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">代理性质</text>
+                </view>
+            </view>
+            <view class="row no-padding bdm box box-align-center  ">
+                <radio-group class="radio-group" bindchange="dllxChange" class="box box-pack-between box-wrap" name="dllx">
+                    <label class="radio" wx:for="{{mode}}">
+                        <radio value="{{item.id}}" color="{{checked==true?'#ccc':'#00b7ee'}}"/>
+                        {{item.name}}
+                    </label>
+                </radio-group>
+            </view>
+            <view class="row  box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">佣金方案</text>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center  ">
+                <textarea placeholder="这是一个可以自动聚焦的textarea" name="yjfa"/>
+            </view>
+            <view class="row  box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">结佣规则及时间</text>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center  ">
+                <textarea placeholder="这是一个可以自动聚焦的textarea" name="jy_rule"/>
+            </view>
+            <view class="row  box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">带看奖励及车费报销规则</text>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center  ">
+                <textarea placeholder="这是一个可以自动聚焦的textarea" name="dk_rule"/>
+            </view>
+            <view class="row  box box-align-center ">
+                <view class="row-l box">
+                    <text class="xing">*</text>
+                    <text class="col-t">项目介绍(微信转发的版本)</text>
+                </view>
+            </view>
+            <view class="row bdm box box-align-center  ">
+                <textarea placeholder="这是一个可以自动聚焦的textarea" name="peripheral"/>
+            </view>
+            <view class="big-btn no-fixed no-marginTop" style="padding-left:0;">
+                <button class="btnBaoBei box box-pack-center box-align-center" bindtap="didPressChooesImage">
+                    上传项目图片(可批量上传)
+                </button>
+                <view class="weui-uploader">
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__files">
+                            <block wx:for="{{ uploadImgs }}" wx:key="index">
+                                <view class="weui-uploader__file" bindtap="changeFm" data-url="{{ item }}">
+                                    <image class="weui-uploader__img" src="{{ item }}"/>
+                                    <image class="delete" src="../../images/deleteimg.png" bindtap="deleteUploadImg"
+                                           data-url="{{ item }}"></image>
+                                    <text class="fm" wx:if="{{currentFm==item}}">封面</text>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <checkbox-group class="box  box-wrap " name="image" hidden="false">
+                    <label class="checkbox" wx:for="{{uploadImgs}}" wx:key="id">
+                        <checkbox class="ws-checkbox" value="{{uploadImgs}}"/>
+                    </label>
+                </checkbox-group>
+            </view>
+
+        </view>
+        <view class="blank20"></view>
+
+        <view class="big-btn">
+            <button class="btnBaoBei box box-pack-center box-align-center" form-type="submit">提交</button>
+        </view>
+    </form>
+
+    <template is="actionSheet" data="{{ ...$actionSheet }}"/>
+    <template is="toast" data="{{ ...$toast }}"/>
+</view>

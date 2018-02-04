@@ -1,31 +1,10 @@
 //app.js
 var api = require('./common/api');
-
+import WxValidate from './libs/wx-validate/WxValidate'
 App({
     onLaunch: function () {
 
     },
-    // getUserInfo: function () {
-    //     var self = this
-    //     return new Promise((resolve, reject) => {
-    //         // if (Object.keys(self.globalData.userInfo).length != 0) {
-    //         //     resolve(self.globalData.userInfo)
-    //         // } else {
-    //             //调用登录接口
-    //             wx.login({
-    //                 success: function () {
-    //                     wx.getUserInfo({
-    //                         success: function (res) {
-    //                             console.log(res.userInfo)
-    //                             self.globalData.userInfo = res.userInfo;
-    //                             resolve(res.userInfo)
-    //                         }
-    //                     })
-    //                 }
-    //             })
-    //         // }
-    //     })
-    // },
     /**
      * 获取openid 
      * @returns {Promise}
@@ -88,6 +67,13 @@ App({
             wx.redirectTo({url: pageUrl})
         }
     },
+    /**
+     * 表单校验
+     * @param rules
+     * @param messages
+     * @constructor
+     */
+    WxValidate: (rules, messages) => new WxValidate(rules, messages),
     globalData: {
         userInfo: {},
         customInfo:{},

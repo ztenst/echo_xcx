@@ -6,7 +6,9 @@
     "pages/add_message/add_message",
     "pages/my/my",
     "pages/baobei_list/baobei_list",
-    "pages/collection_list/collection_list"
+    "pages/collection_list/collection_list",
+    "pages/house_fabu/house_fabu",
+    "pages/myhouse_list/myhouse_list"
   ],
   "window":{
     "navigationBarBackgroundColor": "#00b7ee",

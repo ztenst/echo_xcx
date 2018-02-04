@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ce69380-41d9-453a-9269-f85a3265f21d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/house.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/house_fabu/house_fabu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/house_fabu/house_fabu.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pages/house_fabu/house_fabu.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.wxss.map" afterPath="$PROJECT_DIR$/app.wxss.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/api.js" afterPath="$PROJECT_DIR$/common/api.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/search_filter/search_filter.js" afterPath="$PROJECT_DIR$/components/search_filter/search_filter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/house_detail/house_detail.js" afterPath="$PROJECT_DIR$/pages/house_detail/house_detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/house_detail/house_detail.wxml" afterPath="$PROJECT_DIR$/pages/house_detail/house_detail.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/my/my.js" afterPath="$PROJECT_DIR$/pages/my/my.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/my/my.wxml" afterPath="$PROJECT_DIR$/pages/my/my.wxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.config.json" afterPath="$PROJECT_DIR$/project.config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/iconfont/iconfont.svg" afterPath="$PROJECT_DIR$/resources/iconfont/iconfont.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.scss" afterPath="$PROJECT_DIR$/style/common.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.wxss" afterPath="$PROJECT_DIR$/style/common.wxss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/common.wxss.map" afterPath="$PROJECT_DIR$/style/common.wxss.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/zxy.scss" afterPath="$PROJECT_DIR$/style/zxy.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style/zxy.wxss" afterPath="$PROJECT_DIR$/style/zxy.wxss" />
     </list>
@@ -24,65 +35,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <file leaf-file-name="my.wxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/my/my.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="83" column="26" lean-forward="false" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
+            <state relative-caret-position="350">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="house_detail.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
+      <file leaf-file-name="my.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/my/my.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="60" column="80" lean-forward="true" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
+            <state relative-caret-position="70">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="house_fabu.wxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/house_fabu/house_fabu.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#text#2;n#view#0;n#view#0;n#view#1;n#scroll-view#0;n#view#1;n#!!top" expanded="true" />
-                <element signature="n#view#0;n#view#1;n#!!top" expanded="false" />
+                <element signature="n#view#0;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#1;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#2;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#3;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#4;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#9;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#view#10;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#view#22;n#view#0;n#form#0;n#view#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_bar.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/search_bar/search_bar.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_filter.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/search_filter/search_filter.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="98" lean-forward="false" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="98" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_filter.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/search_filter/search_filter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="141" column="28" lean-forward="true" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zxy.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style/zxy.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="253" column="20" lean-forward="true" selection-start-line="253" selection-start-column="20" selection-end-line="253" selection-end-column="20" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,47 +77,46 @@
       <file leaf-file-name="common.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/common.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="251" column="13" lean-forward="false" selection-start-line="251" selection-start-column="1" selection-end-line="251" selection-end-column="13" />
+            <state relative-caret-position="469">
+              <caret line="119" column="13" lean-forward="false" selection-start-line="119" selection-start-column="1" selection-end-line="119" selection-end-column="13" />
               <folding>
                 <element signature="e#1451#1593#0" expanded="false" />
+                <element signature="e#1796#1887#0" expanded="false" />
+                <element signature="e#1906#2402#0" expanded="false" />
+                <element signature="e#2455#2662#0" expanded="false" />
+                <element signature="e#2671#3084#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="house_detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
+      <file leaf-file-name="house_fabu.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/house_fabu/house_fabu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
+            <state relative-caret-position="560">
+              <caret line="206" column="7" lean-forward="true" selection-start-line="206" selection-start-column="7" selection-end-line="206" selection-end-column="7" />
               <folding>
-                <element signature="e#0#96#0" expanded="true" />
-                <element signature="e#157#191#0" expanded="true" />
-                <element signature="e#619#1382#0" expanded="false" />
-                <element signature="e#1604#3555#0" expanded="false" />
-                <element signature="e#3670#3958#0" expanded="false" />
+                <element signature="e#0#77#0" expanded="true" />
+                <element signature="n#!!block;n#getKey#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.wxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
+      <file leaf-file-name="zxy.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/style/zxy.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="67" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="175">
+              <caret line="1311" column="20" lean-forward="true" selection-start-line="1311" selection-start-column="20" selection-end-line="1311" selection-end-column="20" />
+              <folding>
+                <element signature="e#168#350#0" expanded="false" />
+                <element signature="e#352#542#0" expanded="false" />
+                <element signature="e#573#1046#0" expanded="false" />
+                <element signature="e#21559#21800#0" expanded="false" />
+                <element signature="e#21809#22920#0" expanded="false" />
+                <element signature="e#22929#23156#0" expanded="false" />
+                <element signature="e#26464#26846#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,28 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>userI</find>
-      <find>filterCom</find>
-      <find>user-info</find>
-      <find>goToList</find>
-      <find>isUser</find>
-      <find>goPage</find>
-      <find>goPage(</find>
-      <find>getSearchParams</find>
-      <find>filterCompany</find>
-      <find>getAreaPlotList</find>
-      <find>detail-info</find>
-      <find>getMplotDetail</find>
-      <find>tapSheet</find>
-      <find>baoBei</find>
-      <find>主力</find>
-      <find>hx-list</find>
-      <find>contenTxt</find>
-      <find>mDesc</find>
-      <find>viewPic</find>
-      <find>seeHx</find>
-      <find>add_message</find>
-      <find>plt24</find>
       <find>weui-toast</find>
       <find>app</find>
       <find>userInfo</find>
@@ -169,6 +133,28 @@
       <find>toMy</find>
       <find>cancel</find>
       <find>kw_input</find>
+      <find>.my</find>
+      <find>add_message</find>
+      <find>cursor-spacing=&quot;60&quot;</find>
+      <find>submitForm</find>
+      <find>radioSize</find>
+      <find>rpx</find>
+      <find>代理性质</find>
+      <find>uid</find>
+      <find>no-padding</find>
+      <find>auto-focus</find>
+      <find>big-btn</find>
+      <find>weui-uploader__files</find>
+      <find>NCN</find>
+      <find>uploadURLFromRegionCode</find>
+      <find>deleteUploadImg</find>
+      <find>changeFm</find>
+      <find>bindPickerChange0</find>
+      <find>bindPickerAreaChange</find>
+      <find>zxztChange</find>
+      <find>sfpriceindex</find>
+      <find>sfpriceChange</find>
+      <find>sfprice</find>
     </findStrings>
     <replaceStrings>
       <replace>00b7ee</replace>
@@ -179,6 +165,8 @@
       <replace>view</replace>
       <replace>ui-</replace>
       <replace>kw</replace>
+      <replace>rpx</replace>
+      <replace>sfpriceIndex</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -187,12 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/style/zxy.wxss" />
-        <option value="$PROJECT_DIR$/style/iconfont.scss" />
-        <option value="$PROJECT_DIR$/style/args.scss" />
-        <option value="$PROJECT_DIR$/components/dialog/dialog.wxml" />
-        <option value="$PROJECT_DIR$/components/toast/toast.wxml" />
-        <option value="$PROJECT_DIR$/components/toast/toast.js" />
         <option value="$PROJECT_DIR$/app.wxss" />
         <option value="$PROJECT_DIR$/style/components.wxss" />
         <option value="$PROJECT_DIR$/style/calendar.scss" />
@@ -205,13 +187,11 @@
         <option value="$PROJECT_DIR$/style/components.scss" />
         <option value="$PROJECT_DIR$/pages/baobai_list/baobei_list.js" />
         <option value="$PROJECT_DIR$/pages/baobai_list/baobei_list.wxml" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/collection_list/collection_list.json" />
         <option value="$PROJECT_DIR$/pages/baobei_list/baobei_list.json" />
         <option value="$PROJECT_DIR$/components/house_search_list/house_search_list.js" />
         <option value="$PROJECT_DIR$/pages/my/my.json" />
         <option value="$PROJECT_DIR$/components/search_bar/search_bar.wxml" />
-        <option value="$PROJECT_DIR$/style/common.scss" />
         <option value="$PROJECT_DIR$/pages/baobei_list/baobei_list.js" />
         <option value="$PROJECT_DIR$/pages/collection_list/collection_list.wxml" />
         <option value="$PROJECT_DIR$/config.js" />
@@ -220,24 +200,32 @@
         <option value="$PROJECT_DIR$/components/house_search_list/house_search_list.wxml" />
         <option value="$PROJECT_DIR$/components/dialog/dialog.js" />
         <option value="$PROJECT_DIR$/utils/util.js" />
-        <option value="$PROJECT_DIR$/pages/my/my.wxml" />
         <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/pages/baobei_list/baobei_list.wxml" />
         <option value="$PROJECT_DIR$/pages/house_baobei/house_baobei.json" />
         <option value="$PROJECT_DIR$/components/actionsheet/actionsheet.js" />
         <option value="$PROJECT_DIR$/pages/house_baobei/house_baobei.js" />
         <option value="$PROJECT_DIR$/pages/add_message/add_message.wxml" />
-        <option value="$PROJECT_DIR$/pages/my/my.js" />
         <option value="$PROJECT_DIR$/pages/index/index.js" />
-        <option value="$PROJECT_DIR$/common/api.js" />
         <option value="$PROJECT_DIR$/pages/collection_list/collection_list.js" />
         <option value="$PROJECT_DIR$/pages/add_message/add_message.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/style/zxy.scss" />
         <option value="$PROJECT_DIR$/pages/house_detail/house_detail.js" />
         <option value="$PROJECT_DIR$/pages/house_detail/house_detail.wxml" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.wxml" />
         <option value="$PROJECT_DIR$/components/search_filter/search_filter.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/pages/my/my.wxml" />
+        <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/myhouse_list/myhouse_list.json" />
+        <option value="$PROJECT_DIR$/pages/myhouse_list/myhouse_list.wxml" />
+        <option value="$PROJECT_DIR$/pages/myhouse_list/myhouse_list.js" />
+        <option value="$PROJECT_DIR$/pages/my/my.js" />
+        <option value="$PROJECT_DIR$/common/api.js" />
+        <option value="$PROJECT_DIR$/style/common.scss" />
+        <option value="$PROJECT_DIR$/style/zxy.scss" />
+        <option value="$PROJECT_DIR$/utils/qiniuUploader.js" />
+        <option value="$PROJECT_DIR$/pages/house_fabu/house_fabu.js" />
+        <option value="$PROJECT_DIR$/pages/house_fabu/house_fabu.wxml" />
       </list>
     </option>
   </component>
@@ -288,7 +276,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -305,29 +292,13 @@
             <path>
               <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
               <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="search_bar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="search_filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
-              <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
               <item name="echo_xcx" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="house_fabu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="echo_xcx" type="b2602c69:ProjectViewProjectNode" />
@@ -338,6 +309,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,14 +319,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="res=&gt;{}&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\utils" />
-      <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\components" />
       <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\pages" />
+      <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\libs" />
+      <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\components" />
       <recent name="D:\Works\extra\ztenst\echo_xcx\echo_xcx\style" />
-      <recent name="F:\otherfile\outsdproject\echo\echo_xcx\components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -369,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.house_search_list.js">
+  <component name="RunManager" selected="JavaScript Debug.demo_fontclass.html">
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -435,10 +408,16 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <configuration name="demo_fontclass.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/echo_xcx/resources/iconfont/demo_fontclass.html" />
     <configuration name="house_search_list.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="house_search_list.js" working-dir="$PROJECT_DIR$/components/house_search_list" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Node.js.house_search_list.js" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.demo_fontclass.html" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.house_search_list.js" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.demo_fontclass.html" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.house_search_list.js" />
       </list>
     </recent_temporary>
   </component>
@@ -549,11 +528,15 @@
       <workItem from="1515545700697" duration="72000" />
       <workItem from="1516768519944" duration="438000" />
       <workItem from="1516797539070" duration="2936000" />
+      <workItem from="1517408825803" duration="4521000" />
+      <workItem from="1517582951992" duration="2226000" />
+      <workItem from="1517645419908" duration="820000" />
+      <workItem from="1517709539009" duration="23995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320056000" />
+    <option name="totallyTimeSpent" value="351618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -562,7 +545,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1765625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.503268" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32781458" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -608,79 +591,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/calendar/calendar.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="53" column="70" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/zxy.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/userbg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/userlogo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/common.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/baobei_list/baobei_list.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/toast/toast.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/dialog/dialog.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/house_baobei/house_baobei.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/search_bar/search_bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="78" column="18" lean-forward="true" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/baobei_list/baobei_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -744,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/my/my.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/my/my.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -793,13 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/args.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/add_message/add_message.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -828,26 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/my/my.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/dialog/dialog.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="102" column="65" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,34 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="73" column="47" lean-forward="false" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="47" />
-          <folding>
-            <marker date="1515470202743" expanded="true" signature="1588:3459" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="83" column="26" lean-forward="false" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,82 +749,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="0" column="10529" lean-forward="false" selection-start-line="0" selection-start-column="10529" selection-end-line="0" selection-end-column="10529" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/common.scss">
+    <entry file="file://$PROJECT_DIR$/components/search_filter/search_filter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="251" column="13" lean-forward="false" selection-start-line="251" selection-start-column="1" selection-end-line="251" selection-end-column="13" />
-          <folding>
-            <element signature="e#1451#1593#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="67" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style/zxy.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="253" column="20" lean-forward="true" selection-start-line="253" selection-start-column="20" selection-end-line="253" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/coordtransform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2520">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="230" column="36" lean-forward="true" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#96#0" expanded="true" />
-            <element signature="e#157#191#0" expanded="true" />
-            <element signature="e#619#1382#0" expanded="false" />
-            <element signature="e#1604#3555#0" expanded="false" />
-            <element signature="e#3670#3958#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="60" column="80" lean-forward="true" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
-          <folding>
-            <element signature="n#style#0;n#text#2;n#view#0;n#view#0;n#view#1;n#scroll-view#0;n#view#1;n#!!top" expanded="true" />
-            <element signature="n#view#0;n#view#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/search_bar/search_bar.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="1506">
+          <caret line="132" column="26" lean-forward="false" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -980,15 +763,236 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="98" lean-forward="false" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/search_bar/search_bar.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="60" column="80" lean-forward="false" selection-start-line="60" selection-start-column="80" selection-end-line="60" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="83" column="26" lean-forward="false" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_detail/house_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="230" column="36" lean-forward="false" selection-start-line="230" selection-start-column="36" selection-end-line="230" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="67" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/iconfont/demo_fontclass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_fabu/baobei_list.js" />
+    <entry file="file://$PROJECT_DIR$/libs/wx-validate/WxValidate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/search_filter/search_filter.js">
+    <entry file="file://$PROJECT_DIR$/style/args.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="141" column="28" lean-forward="true" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+        <state relative-caret-position="325">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myhouse_list/collection_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_baobei/house_baobei.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="74" column="34" lean-forward="true" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myhouse_list/myhouse_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myhouse_list/myhouse_list.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#scroll-view#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#block#0;n#scroll-view#0;n#view#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/my/my.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="146" column="14" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="146" selection-end-column="14" />
+          <folding>
+            <element signature="e#69#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#237#1859#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/myhouse_list/myhouse_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="139" column="46" lean-forward="true" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+            <element signature="e#2537#3238#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/common.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="119" column="13" lean-forward="false" selection-start-line="119" selection-start-column="1" selection-end-line="119" selection-end-column="13" />
+          <folding>
+            <element signature="e#1451#1593#0" expanded="false" />
+            <element signature="e#1796#1887#0" expanded="false" />
+            <element signature="e#1906#2402#0" expanded="false" />
+            <element signature="e#2455#2662#0" expanded="false" />
+            <element signature="e#2671#3084#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/zxy.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1311" column="20" lean-forward="true" selection-start-line="1311" selection-start-column="20" selection-end-line="1311" selection-end-column="20" />
+          <folding>
+            <element signature="e#168#350#0" expanded="false" />
+            <element signature="e#352#542#0" expanded="false" />
+            <element signature="e#573#1046#0" expanded="false" />
+            <element signature="e#21559#21800#0" expanded="false" />
+            <element signature="e#21809#22920#0" expanded="false" />
+            <element signature="e#22929#23156#0" expanded="false" />
+            <element signature="e#26464#26846#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/coordtransform.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/qiniuUploader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/my/my.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_fabu/house_fabu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="206" column="7" lean-forward="true" selection-start-line="206" selection-start-column="7" selection-end-line="206" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <element signature="n#!!block;n#getKey#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/house_fabu/house_fabu.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <folding>
+            <element signature="n#view#0;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#1;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#2;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#3;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#4;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#9;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#view#10;n#view#0;n#form#0;n#view#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#view#22;n#view#0;n#form#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
