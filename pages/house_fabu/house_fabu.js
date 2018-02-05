@@ -1,4 +1,4 @@
-import {$calendar, $actionSheet, $toast} from '../../components/wxcomponents'
+import { $toast} from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
 
@@ -67,11 +67,13 @@ Page({
             customInfo: app.globalData.customInfo,
             userInfo: app.globalData.userInfo,
         });
+        if(app.globalData.customInfo.phone){
+           this.checkPhoneCanSub(app.globalData.customInfo.phone);
+        }
         api.publishtags().then(res => {
             let json = res.data;
             if (json.status == "success") {
                 json.data.forEach((v, i) => {
-                    console.log(v)
                     if (v.name == 'area') {
                         var objectArray = v.list;
                         var areaList = [];
@@ -104,15 +106,18 @@ Page({
                     }
                 });
             }
-        })
+        });
+        //初始化表单校验组件
         this.WxValidate = app.WxValidate({
             'pname': {required: true}, //姓名
-            'pphone': {required: true}, // 电话
+            'pphone': {  required: true, tel: true}, // 电话
             'pcompany': {required: true}, //公司
             'title': {required: true}, // 楼盘名
             'area': {required: true}, // 区域
             'street': {required: true}, // 街道
             'address': {required: true}, // 地址
+            'wylx': {required: true}, //物业类型
+            'zxzt': {required: true}, //装修状态
             'price': {required: true}, // 价格
             'unit': {required: true}, //单位 1为元/m2 2为万元/套
             'hxjs': {required: true}, // 户型介绍
@@ -124,29 +129,52 @@ Page({
             'dk_rule': {required: true}, // 带看规则
             'peripheral': {required: true}, //项目介绍
             'image': {required: true}, // 图片 字符串数组
-            'wylx': {required: true}, //物业类型
-            'zxzt': {required: true}, //装修状态
         }, {
             'pname': {required: '请输入姓名'}, //姓名
-            'pphone': {required: '请输入联系方式'}, // 电话
+            'pphone': {required: '请填写正确格式的手机号码'}, // 电话
             'pcompany': {required: '请输入公司'}, //公司
-            'title': {required: '请输入楼盘名'}, // 楼盘名
+            'title': {required: '请输入项目名称'}, // 项目名称
             'area': {required: '请输入区域'}, // 区域
             'street': {required: '请输入地址'}, // 街道
-            'address': {required: '请输入姓名'}, // 地址
+            'address': {required: '请输入地址'}, // 地址
+            'wylx': {required: '请输入物业类型'}, //物业类型
+            'zxzt': {required: '请输入装修状态'}, //装修状态
             'price': {required: '请输入价格'}, // 价格
             'unit': {required: '请输入单位'}, //单位 1为元/m2 2为万元/套
-            'hxjs': {required: '请输入首付金额'}, // 户型介绍
-            'sfprice': {required: '请输入姓名'}, // 首付金额
+            'hxjs': {required: '请输入户型介绍'}, // 户型介绍
+            'sfprice': {required: '请输入首付金额'}, // 首付金额
             'dllx': {required: '请输入代理类型'}, // 代理类型
             'fm': {required: '请输入封面'}, // 封面
             'yjfa': {required: '请输入佣金方案'}, //佣金方案
             'jy_rule': {required: '请输入结佣规则'}, // 结佣规则
             'dk_rule': {required: '请输入带看规则'}, // 带看规则
             'peripheral': {required: '请输入项目介绍'}, //项目介绍
-            'image': {required: '请输入图片'}, // 图片 字符串数组
-            'wylx': {required: '请输入物业类型'}, //物业类型
-            'zxzt': {required: '请输入装修状态'}, //装修状态
+            'image': {required: '请上传图片'}, // 图片 字符串数组
+        });
+    },
+    checkPhone(e) {
+        this.checkPhoneCanSub(e.detail.value)
+    },
+    checkPhoneCanSub(phone){
+        api.checkCanSub({phone:phone}).then(res=>{
+            let json =res.data;
+            if(json.status!="success"){
+                $toast.show({
+                    timer: 2e3,
+                    text: json.msg,
+                });
+            }
+        });
+    },
+    checkTitle(e){
+        api.checkName({name:e.detail.value}).then(res=>{
+            let json =res.data;
+            if(json.status!="success"){
+                $toast.show({
+                    timer: 2e3,
+                    text: json.msg,
+                });
+            }
         });
     },
     //区域改变
@@ -161,14 +189,7 @@ Page({
             streetIndex: e.detail.value
         })
     },
-    //装修状况改变
-    zxztChange(e) {
 
-    },
-    //物业类型改变
-    wylxChange(e) {
-
-    },
     // 首付金额
     sfpriceChange(e) {
         this.setData({
@@ -181,10 +202,7 @@ Page({
             unitIndex: e.detail.value
         })
     },
-    //代理类型
-    dllxChange(e) {
 
-    },
     //改变封面
     changeFm(e) {
         const dataset = e.currentTarget.dataset
@@ -203,7 +221,7 @@ Page({
         })
     },
     //上传项目图片
-    didPressChooesImage: function () {
+    didPressChooesImage () {
         var that = this;
         didPressChooesImage(that);
     },
@@ -213,10 +231,7 @@ Page({
      * @returns {boolean}
      */
     submitForm(e) {
-        let self = this;
         const formParms = e.detail.value;
-
-        console.log(formParms)
         if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList[0];
             $toast.show({
@@ -225,9 +240,9 @@ Page({
             });
             return false
         }
-        let params = Object.assign({}, formParms,{qf_uid:app.globalData.customInfo.id});
-
+        let params = Object.assign({},formParms,{openid:app.globalData.wxData.open_id});
         api.addPlot(params).then(res => {
+
             let data = res.data;
             if (data.status == 'success') {
 

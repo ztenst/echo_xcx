@@ -1000,6 +1000,9 @@
       padding-left: 0;
       .row-l {
         width: 250rpx;
+        &.wd100{
+          width:100%;
+        }
       }
       .col-t {
         color: #333;

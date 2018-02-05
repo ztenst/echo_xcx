@@ -144,6 +144,11 @@ const api = {
         let url = `${config.host}/api/plot/checkCanSub`
         return getRequest(url, params)
     },
+    /*检测是否可以发布项目*/
+    checkName(params) {
+        let url = `${config.host}/api/plot/checkName`
+        return getRequest(url, params)
+    },
     /*发布页面数据*/
     publishtags(params) {
         let url = `${config.host}/api/tag/publishtags`

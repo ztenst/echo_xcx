@@ -24,8 +24,8 @@
                     <text class="col-t">联系方式</text>
                 </view>
                 <view class="row-r">
-                    <input type="tel" placeholder-class="c-ccc" placeholder="请输入联系方式" name="pphone"
-                           value="{{ customInfo.phone }}"/>
+                    <input type="number" placeholder-class="c-ccc" placeholder="请输入联系方式" name="pphone"
+                           value="{{ customInfo.phone }}" bindblur="checkPhone"/>
                 </view>
             </view>
             <view class="row bdm box box-align-center ">
@@ -45,7 +45,7 @@
                 </view>
                 <view class="row-r">
                     <input type="text" placeholder-class="c-ccc" placeholder="请输入项目名称" name="title"
-                           value=""/>
+                           value="" bindblur="checkTitle"/>
                 </view>
             </view>
             <view class="row bdm box box-align-center ">
@@ -54,11 +54,13 @@
                     <text class="col-t">项目区域</text>
                 </view>
                 <view class="row-r">
-                    <picker bindchange="bindPickerAreaChange" range-key="name" value="{{areaList[areaIndex].id}}" name="area"
+                    <picker bindchange="bindPickerAreaChange" range-key="name" value="{{areaList[areaIndex].id}}"
+                            name="area"
                             range="{{areaList}}">
                         <view class="picker">{{areaList[areaIndex].name}}</view>
                     </picker>
-                    <picker bindchange="bindPickerStreetChange" range-key="name" value="{{streetList[streetIndex].id}}" name="street"
+                    <picker bindchange="bindPickerStreetChange" range-key="name" value="{{streetList[streetIndex].id}}"
+                            name="street"
                             range="{{streetList}}">
                         <view class="picker">{{streetList[streetIndex].name}}</view>
                     </picker>
@@ -112,7 +114,8 @@
                 <view class="row-r junjia">
                     <view class="row no-padding box box-align-center">
                         <input type="number" placeholder-class="c-ccc" placeholder="请输入均价" name="price"/>
-                        <picker  bindchange="unitChange" range-key="name" value="{{unitList[unitIndex].id}}" range="{{unitList}}" name="unit">
+                        <picker bindchange="unitChange" range-key="name" value="{{unitList[unitIndex].id}}"
+                                range="{{unitList}}" name="unit">
                             <view class="picker">{{unitList[unitIndex].name}}</view>
                         </picker>
                     </view>
@@ -125,7 +128,7 @@
                 </view>
             </view>
             <view class="row bdm box box-align-center  ">
-                <textarea placeholder="这是一个可以自动聚焦的textarea" name="hxjs"/>
+                <textarea placeholder="请输入户型介绍" name="hxjs"/>
             </view>
             <view class="row bdm box box-align-center ">
                 <view class="row-l box">
@@ -133,7 +136,8 @@
                     <text class="col-t">最低首付金额</text>
                 </view>
                 <view class="row-r">
-                    <picker bindchange="sfpriceChange" range-key="name" value="{{tags.sfprice[sfpriceIndex].id}}" range="{{tags.sfprice}}" name="sfprice">
+                    <picker bindchange="sfpriceChange" range-key="name" value="{{tags.sfprice[sfpriceIndex].id}}"
+                            range="{{tags.sfprice}}" name="sfprice">
                         <view class="picker">{{tags.sfprice[sfpriceIndex].name}}</view>
                     </picker>
                 </view>
@@ -145,7 +149,8 @@
                 </view>
             </view>
             <view class="row no-padding bdm box box-align-center  ">
-                <radio-group class="radio-group" bindchange="dllxChange" class="box box-pack-between box-wrap" name="dllx">
+                <radio-group class="radio-group" bindchange="dllxChange" class="box box-pack-between box-wrap"
+                             name="dllx">
                     <label class="radio" wx:for="{{mode}}">
                         <radio value="{{item.id}}" color="{{checked==true?'#ccc':'#00b7ee'}}"/>
                         {{item.name}}
@@ -158,11 +163,12 @@
                     <text class="col-t">佣金方案</text>
                 </view>
             </view>
+
             <view class="row bdm box box-align-center  ">
                 <textarea placeholder="请输入佣金方案" name="yjfa"/>
             </view>
             <view class="row  box box-align-center ">
-                <view class="row-l box">
+                <view class="row-l box wd100">
                     <text class="xing">*</text>
                     <text class="col-t">结佣规则及时间</text>
                 </view>
@@ -171,7 +177,7 @@
                 <textarea placeholder="请输入结佣规则及时间" name="jy_rule"/>
             </view>
             <view class="row  box box-align-center ">
-                <view class="row-l box">
+                <view class="row-l box wd100">
                     <text class="xing">*</text>
                     <text class="col-t">带看奖励及车费报销规则</text>
                 </view>
@@ -180,7 +186,7 @@
                 <textarea placeholder="请输入带看奖励及车费报销规则" name="dk_rule"/>
             </view>
             <view class="row  box box-align-center ">
-                <view class="row-l box">
+                <view class="row-l box wd100">
                     <text class="xing">*</text>
                     <text class="col-t">项目介绍(微信转发的版本)</text>
                 </view>
@@ -206,7 +212,7 @@
                         </view>
                     </view>
                 </view>
-                <checkbox-group  value="{{uploadImgs}}" name="image" hidden></checkbox-group>
+                <checkbox-group value="{{uploadImgs}}" name="image" hidden></checkbox-group>
                 <input type="text" name="fm" value="{{currentFm}}" hidden/>
             </view>
 
