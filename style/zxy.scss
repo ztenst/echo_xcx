@@ -1338,6 +1338,203 @@
   }
 }
 
+//member
+.member{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;;
+  background-color: #f5f5f5;
+  image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .user-box {
+    width: 100%;
+    height: 400rpx;
+    position: relative;
+    color: #fff;
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .user-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      z-index: 10;
+      .userimg {
+        width: 160rpx;
+        height: 160rpx;
+        position: relative;
+        margin: 50rpx auto 14rpx;
+        border-width: 8rpx;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        .logo {
+          width: 140rpx;
+          height: 140rpx;
+          display: block;
+          position: relative;
+          z-index: 100;
+
+          image {
+            border-radius: 50%;
+          }
+        }
+      }
+      .usename {
+        font-size: 34rpx;
+        position: relative;
+        //margin-left:130rpx;
+        .fen {
+          padding: 0 10rpx;
+          height: 32rpx;
+          display: inline-block;
+          vertical-align: 8rpx;
+          text-align: center;
+          line-height: 32rpx;
+          margin-left: 8rpx;
+          background-color: #9dd072;
+          border-radius: 8rpx;
+          font-size: 22rpx;
+        }
+      }
+      .com {
+        margin-top: 10rpx;
+        font-size: 24rpx;
+      }
+    }
+  }
+  .card-box {
+    position: relative;
+    margin: 30rpx 24rpx 0;
+    .row {
+      margin-bottom:30rpx;
+      background-color: #fff;
+      box-sizing: border-box;
+      position: relative;
+      border-radius: 10rpx;
+      line-height: 1.5;
+      height:110rpx;
+      padding:0 24rpx;
+      &.on{
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 0;
+          height:100%;
+          border-bottom-left-radius: 10rpx;
+          border-top-left-radius: 10rpx;
+          border-left: 2px solid $maincolor;
+          left: 0;
+          top:0;
+          bottom:0;
+        }
+      }
+      .title{
+        display: inline-block;
+        font-size: 32rpx;
+        color:$c-333;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+      }
+      .tag{
+        display: inline-block;
+        padding:4rpx 16rpx;
+        background-color: $maincolor;
+        color:#fff;
+        font-size:24rpx;
+        text-align: center;
+        margin-left:20rpx;
+        border-radius: 6rpx;
+      }
+      .old-price{
+        font-size: 24rpx;
+        color: $c-999;
+      }
+      .new-price{
+        font-size: 36rpx;
+        color: $lightMainColor;
+      }
+    }
+    .extend-box {
+      .nav {
+        padding: 20rpx 24rpx;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        .item {
+          text-align: center;
+          float: left;
+          image {
+            width: 42rpx;
+            height: 42rpx;
+            margin: 20rpx 58rpx;
+            display: block;
+            background: 0 0;
+          }
+          text {
+            display: block;
+            font-size: 24rpx;
+            color: #666;
+            margin-bottom: 10rpx;
+          }
+        }
+      }
+    }
+  }
+  .tips{
+    view{
+      font-size: 24rpx;
+      color: $c-999;
+      line-height: 42rpx;
+    }
+    .blue-word{
+      color: #34548f;
+    }
+  }
+  .bottom-container-pay{
+    position: fixed;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height:110rpx;
+    -webkit-box-shadow: 0px -4px 4px rgba(0, 0, 0, .038);
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, .038);
+    background-color: #fff;
+    font-size:30rpx;
+    color:$c-333;
+    .left{
+      padding-left:24rpx;
+      .red{
+        font-size:42rpx;
+        color:$lightMainColor;
+      }
+    }
+    .right{
+      height:100%;
+      .btn-pay{
+        line-height: 110rpx;
+        padding:0 80rpx;
+        background-color: $maincolor;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+}
+
 
 
 

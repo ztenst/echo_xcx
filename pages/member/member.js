@@ -6,13 +6,13 @@ Page({
     data: {},
     onShow() {
         let self = this;
-
         app.getUserOpenId().then(res => {
             self.setData({
                 customInfo: app.globalData.customInfo,
                 userInfo: app.globalData.userInfo,
             });
         });
+
     },
     goToList(e) {
         let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
@@ -36,15 +36,9 @@ Page({
             });
         });
     },
-    GoTo(e) {
-        let dataset = e.currentTarget.dataset, url = '';
-        if (dataset.type=='member') {
-            let url = '/pages/member/member';
-            app.goPage(url, {}, false);
-        } else {
-            let url = '/pages/myhouse_list/myhouse_list';
-            app.goPage(url, {}, false);
-        }
+    fabuHouse() {
+        let url = '/pages/myhouse_list/myhouse_list';
+        app.goPage(url, {uid: 1}, false);
     }
 
 });

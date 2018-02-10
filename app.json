@@ -8,7 +8,8 @@
     "pages/baobei_list/baobei_list",
     "pages/collection_list/collection_list",
     "pages/house_fabu/house_fabu",
-    "pages/myhouse_list/myhouse_list"
+    "pages/myhouse_list/myhouse_list",
+    "pages/member/member"
   ],
   "window":{
     "navigationBarBackgroundColor": "#00b7ee",

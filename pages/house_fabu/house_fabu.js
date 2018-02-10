@@ -1,4 +1,4 @@
-import { $toast} from '../../components/wxcomponents'
+import {$toast} from '../../components/wxcomponents'
 import api from '../../common/api'
 import Util from '../../utils/util'
 
@@ -52,11 +52,11 @@ Page({
         tags: {},
         areaList: [],
         streetList: [],
-        unitList:[{id:1,name:'元/m2'},{id:2,name:'万元/套'}],
+        unitList: [{id: 1, name: '元/m2'}, {id: 2, name: '万元/套'}],
         areaIndex: 0,
         streetIndex: 0,
         sfpriceIndex: 0,
-        unitIndex:0,
+        unitIndex: 0,
 
         uploadImgs: [],
         currentFm: 0,
@@ -67,8 +67,8 @@ Page({
             customInfo: app.globalData.customInfo,
             userInfo: app.globalData.userInfo,
         });
-        if(app.globalData.customInfo.phone){
-           this.checkPhoneCanSub(app.globalData.customInfo.phone);
+        if (app.globalData.customInfo.phone) {
+            this.checkPhoneCanSub(app.globalData.customInfo.phone);
         }
         api.publishtags().then(res => {
             let json = res.data;
@@ -110,7 +110,7 @@ Page({
         //初始化表单校验组件
         this.WxValidate = app.WxValidate({
             'pname': {required: true}, //姓名
-            'pphone': {  required: true, tel: true}, // 电话
+            'pphone': {required: true, tel: true}, // 电话
             'pcompany': {required: true}, //公司
             'title': {required: true}, // 楼盘名
             'area': {required: true}, // 区域
@@ -155,10 +155,10 @@ Page({
     checkPhone(e) {
         this.checkPhoneCanSub(e.detail.value)
     },
-    checkPhoneCanSub(phone){
-        api.checkCanSub({phone:phone}).then(res=>{
-            let json =res.data;
-            if(json.status!="success"){
+    checkPhoneCanSub(phone) {
+        api.checkCanSub({phone: phone}).then(res => {
+            let json = res.data;
+            if (json.status != "success") {
                 $toast.show({
                     timer: 2e3,
                     text: json.msg,
@@ -166,10 +166,10 @@ Page({
             }
         });
     },
-    checkTitle(e){
-        api.checkName({name:e.detail.value}).then(res=>{
-            let json =res.data;
-            if(json.status!="success"){
+    checkTitle(e) {
+        api.checkName({name: e.detail.value}).then(res => {
+            let json = res.data;
+            if (json.status != "success") {
                 $toast.show({
                     timer: 2e3,
                     text: json.msg,
@@ -221,7 +221,7 @@ Page({
         })
     },
     //上传项目图片
-    didPressChooesImage () {
+    didPressChooesImage() {
         var that = this;
         didPressChooesImage(that);
     },
@@ -240,9 +240,9 @@ Page({
             });
             return false
         }
-        let params = Object.assign({},formParms,{openid:app.globalData.wxData.open_id});
-        api.addPlot(params).then(res => {
+        let params = Object.assign({}, formParms, {uid: app.globalData.customInfo.id});
 
+        api.addPlot(params).then(res => {
             let data = res.data;
             if (data.status == 'success') {
 

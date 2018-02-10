@@ -51,15 +51,14 @@
         </view>
         <view class="extend-box bdm">
             <view class="nav">
-                <view class="item">
+                <view class="item" bindtap="GoTo" data-type="member">
                     <image src="../../images/vipmanage.png"></image>
                     <text>会员服务</text>
                 </view>
-                <view class="item" bindtap="fabuHouse">
+                <view class="item" bindtap="GoTo" data-type="house">
                     <image src="../../images/zhuangxiu.png"></image>
                     <text>发布房源</text>
                 </view>
-
             </view>
         </view>
 
