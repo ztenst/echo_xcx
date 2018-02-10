@@ -1194,6 +1194,12 @@
       }
     }
     .extend-box {
+      position: relative;
+      overflow: hidden;
+      transition: height 1s;
+      &.hide{
+        display: none;
+      }
       .nav {
         padding: 20rpx 24rpx;
         width: 100%;
@@ -1341,8 +1347,7 @@
 //member
 .member{
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;;
+  padding-bottom: 130rpx;
   background-color: #f5f5f5;
   image {
     width: 100%;
@@ -1466,31 +1471,6 @@
       .new-price{
         font-size: 36rpx;
         color: $lightMainColor;
-      }
-    }
-    .extend-box {
-      .nav {
-        padding: 20rpx 24rpx;
-        width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-        .item {
-          text-align: center;
-          float: left;
-          image {
-            width: 42rpx;
-            height: 42rpx;
-            margin: 20rpx 58rpx;
-            display: block;
-            background: 0 0;
-          }
-          text {
-            display: block;
-            font-size: 24rpx;
-            color: #666;
-            margin-bottom: 10rpx;
-          }
-        }
       }
     }
   }

@@ -245,7 +245,8 @@ Page({
         api.addPlot(params).then(res => {
             let data = res.data;
             if (data.status == 'success') {
-
+                let url = '/pages/myhouse_list/myhouse_list';
+                app.goPage(url, {}, false);
             } else {
                 $toast.show({
                     timer: 2e3,
