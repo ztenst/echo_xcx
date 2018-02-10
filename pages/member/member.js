@@ -43,12 +43,6 @@ Page({
                     })
                 }
             });
-            api.payFields().then(r => {
-                let Json = r.data;
-                this.setData({
-                    paymentParams: Json.data
-                })
-            })
         });
     },
     goToList(e) {
@@ -92,18 +86,32 @@ Page({
         return parseInt(new Date().getTime() / 1000) + ''
     },
     goPay() {
-        let params = this.data.paymentParams;
-        console.log(this.createTimeStamp())
-        wx.requestPayment({
-            'timeStamp': this.createTimeStamp(),
-            'nonceStr': this.createNonceStr(),
-            'package': '',
-            'signType': 'MD5',
-            'paySign': 'MD5',
-            'success': function (res) {
-            },
-            'fail': function (res) {
-            }
+        let setPayParam = {
+            price: this.data.price,
+            openid: app.globalData.customInfo.openid
+        }
+        api.setPay(setPayParam).then(r => {
+            let Json = r.data.data;
+            wx.requestPayment({
+                'timeStamp': Json.timeStamp,
+                'nonceStr': Json.nonceStr,
+                'package': Json.package,
+                'signType': Json.signType,
+                'paySign': Json.paySign,
+                success(res) {
+                    console.log(res);
+                    let vipParams={num: 1, uid: app.globalData.customInfo.id, title: setPayParam.price};
+                    api.setVip(vipParams).then(r => {
+                        let json = r.data;
+                        if (json.status == 'success') {
+                            let url = '/pages/my/my';
+                            app.goPage(url, null, false);
+                        }
+                    })
+                },
+                'fail': function (res) {
+                }
+            })
         })
     }
 });

@@ -169,6 +169,17 @@ const api = {
         let url = `${config.host}/api/index/payFields`
         return getRequest(url, params)
     },
+    /**/
+    setPay(params) {
+        let url = `${config.host}/api/index/setPay`
+        return getRequest(url, params)
+    },
+    setVip(params) {
+        let url = `${config.host}/api/plot/setVip`
+        return postRequest(url, params)
+    },
+
+
 };
 
 module.exports = api
