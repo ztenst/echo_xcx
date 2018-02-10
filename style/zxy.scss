@@ -1187,16 +1187,23 @@
         font-size: 32rpx;
       }
       .zhedie {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
         transform: rotate(90deg);
         &.up {
+          -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+          -o-transform: rotate(-90deg);
           transform: rotate(-90deg);
         }
       }
     }
     .extend-box {
       position: relative;
-      overflow: hidden;
-      transition: height 1s;
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
       &.hide{
         display: none;
       }
