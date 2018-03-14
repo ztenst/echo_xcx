@@ -18,7 +18,7 @@ Page({
             },
             {
                 title: '6年VIP会员(限时特惠)',
-                new_price: 499,
+                new_price: 699,
             },
             {
                 title: '3年VIP会员(限时特惠)',
