@@ -32,11 +32,15 @@ function didPressChooesImage(that) {
                     });
                 }, (error) => {
                     console.error('error: ' + JSON.stringify(error));
+                    $toast.show({
+                      timer: 2e3,
+                      text: 'error: ' + JSON.stringify(error),
+                    });
                 }
                 , {
                     region: 'NCN', // 华北区
                     domain: 'oofuaem2b.bkt.clouddn.com',
-                    uptokenURL: 'http://house.jj58.com.cn/api/image/qnUpload',
+                    uptokenURL: 'https://meat.madridwine.cn/api/image/qnUpload',
                     shouldUseQiniuFileName: false,
                     key: getKey(),
                 }
@@ -245,7 +249,8 @@ Page({
         api.addPlot(params).then(res => {
             let data = res.data;
             if (data.status == 'success') {
-
+                let url = '/pages/myhouse_list/myhouse_list';
+                app.goPage(url, {}, false);
             } else {
                 $toast.show({
                     timer: 2e3,

@@ -4,7 +4,6 @@
             <image src="../../images/huiyuan-bj.png"/>
         </view>
         <view class="user-info">
-
             <view class="userimg box box-align-center box-pack-center">
                 <view class="logo">
                     <image src="{{userInfo.avatarUrl}}"></image>
@@ -13,50 +12,23 @@
             <view class="usename">
                 {{userInfo.nickName}}
             </view>
-            <view class="com" wx:if="{{customInfo.company_name}}">您是会员账户，到期时间为：2018-02-28</view>
+            <view class="com" wx:if="{{expireTime}}">您是会员账户，到期时间为：{{expireTime}}</view>
         </view>
     </view>
 
     <view class="card-box ">
-        <view class="row  box box-align-center box-pack-between on" bindtap="goToList" data-type="baobei">
-            <view class="row-l box box-align-center">
-                <view class="box box-tb">
-                    <view><text class="title">2年VIP会员(限时特惠)</text><text class="tag">推荐</text></view>
-                    <text class="old-price">原价1999</text>
-                </view>
-            </view>
-            <view class="row-r" class="new-price">1,099元</view>
-        </view>
-        <view class="row  box box-align-center box-pack-between" bindtap="goToList" data-type="baobei">
+        <view class="row  box box-align-center box-pack-between {{price==item.new_price?'on':''}}" wx:for="{{priceList}}" wx:key="index"
+              bindtap="setPrice" data-price="{{item.new_price}}">
             <view class="row-l box box-align-center">
                 <view class="box box-tb">
                     <view>
-                        <text class="title">1年VIP会员(限时特惠)</text>
+                        <text class="title">{{item.title}}</text>
+                        <text class="tag" wx:if="{{item.isTuijian}}">推荐</text>
                     </view>
-                    <text class="old-price">原价999</text>
+                    <text class="old-price" wx:if="{{item.old_price}}">原价{{item.old_price}}</text>
                 </view>
             </view>
-            <view class="row-r" class="new-price">699元</view>
-        </view>
-        <view class="row  box box-align-center box-pack-between" bindtap="goToList" data-type="baobei">
-            <view class="row-l box box-align-center">
-                <view class="box box-tb">
-                    <view>
-                        <text class="title">6个月VIP会员(限时特惠)</text>
-                    </view>
-                </view>
-            </view>
-            <view class="row-r" class="new-price">499元</view>
-        </view>
-        <view class="row  box box-align-center box-pack-between" bindtap="goToList" data-type="baobei">
-            <view class="row-l box box-align-center">
-                <view class="box box-tb">
-                    <view>
-                        <text class="title">3个月VIP会员(限时特惠)</text>
-                    </view>
-                </view>
-            </view>
-            <view class="row-r" class="new-price">299元</view>
+            <view class="row-r" class="new-price">{{item.new_price}}元</view>
         </view>
     </view>
 
@@ -64,21 +36,20 @@
         <view class="tips">
             <view>VIP会员特权：</view>
             <view>1.不限量发布分销项目信息（禁止重复）</view>
-            <view>2.如果项目已被发布，可自助加入项目联系人列表 3.免费接受分校在线</view>
-            <view>3.免费接受分校在线申请合作短信通知</view>
+            <view>2.如果项目已被发布，可自助加入项目联系人列表</view>
+            <view>3.免费接收分销在线申请合作短信通知 </view>
             <view>4.免费接收分销在线快速报备信息通知</view>
             <view>如有疑问请联系客服：</view>
             <view class="blue-word">021-31605999</view>
         </view>
     </view>
-
     <view class="bottom-container-pay box box-align-center box-pack-between">
         <view class="left">
             金额：
-            <text class="red">¥1099</text>
+            <text class="red">¥{{price}}</text>
         </view>
-        <view class="right">
-            <view  class="btn-pay">去支付</view>
+        <view class="right" bindtap="goPay">
+            <view class="btn-pay">去支付</view>
         </view>
     </view>
 </view>

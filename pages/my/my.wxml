@@ -38,18 +38,18 @@
                 <text class="col-t">我的收藏</text>
             </view>
         </view>
-        <view class="row bdm box box-align-center box-pack-between" bindtap="goToList" data-type="collect">
+        <view class="row bdm box box-align-center box-pack-between" bindtap="xiala" >
             <view class="row-l box box-align-center">
                 <view class="ico">
-                    <image src="../../images/collection.png"></image>
+                    <image src="../../images/function.png"></image>
                 </view>
                 <text class="col-t">更多功能</text>
             </view>
-            <view class="row-r box box-align-center">
-                <text class="iconfont icon-right zhedie up"></text>
+            <view class="row-r box box-align-center" >
+                <text class="iconfont icon-right zhedie {{isExtendBox?'up':'down'}}"></text>
             </view>
         </view>
-        <view class="extend-box bdm">
+        <view class="extend-box bdm {{isExtendBox?'':'hide'}}">
             <view class="nav">
                 <view class="item" bindtap="GoTo" data-type="member">
                     <image src="../../images/vipmanage.png"></image>
@@ -70,7 +70,5 @@
                 <text class="col-t">联系客服</text>
             </view>
         </view>
-
-
     </view>
 </view>

@@ -196,7 +196,7 @@
             </view>
             <view class="big-btn no-fixed no-marginTop" style="padding-left:0;">
                 <button class="btnBaoBei box box-pack-center box-align-center" bindtap="didPressChooesImage">
-                    上传项目图片(可批量上传)
+                    上传项目图片
                 </button>
                 <view class="weui-uploader">
                     <view class="weui-uploader__bd">

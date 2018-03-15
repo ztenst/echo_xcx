@@ -3,7 +3,9 @@ import api from '../../common/api'
 let app = getApp();
 
 Page({
-    data: {},
+    data: {
+        isExtendBox:true
+    },
     onShow() {
         let self = this;
 
@@ -45,6 +47,12 @@ Page({
             let url = '/pages/myhouse_list/myhouse_list';
             app.goPage(url, {}, false);
         }
+    },
+    xiala(e){
+        this.setData({
+            isExtendBox:!this.data.isExtendBox
+        });
+        console.log(this.data.isExtendBox)
     }
 
 });

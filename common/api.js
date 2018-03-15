@@ -159,6 +159,27 @@ const api = {
         let url = `${config.host}/api/plot/addPlot`
         return postRequest(url, params)
     },
+    /*获取时间*/
+    getExpire(params) {
+        let url = `${config.host}/api/index/getExpire`
+        return getRequest(url, params)
+    },
+    /*获取时间*/
+    payFields(params) {
+        let url = `${config.host}/api/index/payFields`
+        return getRequest(url, params)
+    },
+    /**/
+    setPay(params) {
+        let url = `${config.host}/api/index/setPay`
+        return getRequest(url, params)
+    },
+    setVip(params) {
+        let url = `${config.host}/api/plot/setVip`
+        return postRequest(url, params)
+    },
+
+
 };
 
 module.exports = api
