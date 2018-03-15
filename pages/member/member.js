@@ -5,26 +5,24 @@ let app = getApp();
 Page({
     data: {
         expireTime: '',
-        price: 1099,
+        price: 2199,
         priceList: [
             {
                 title: '2年VIP会员(限时特惠)',
                 isTuijian: true,
-                old_price: 1999,
-                new_price: 1099,
+                new_price: 2199,
             },
             {
                 title: '1年VIP会员(限时特惠)',
-                old_price: 999,
-                new_price: 699,
+                new_price: 1299,
             },
             {
                 title: '6个月VIP会员(限时特惠)',
-                new_price: 499,
+                new_price: 699,
             },
             {
                 title: '3个月VIP会员(限时特惠)',
-                new_price: 299,
+                new_price: 399,
             }
         ]
     },
