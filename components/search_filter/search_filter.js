@@ -53,6 +53,7 @@ export default {
             tab: '',
 
             area_index: 0, //area_index区域数组的index, 非筛选字段
+            town_index: 0,
             toptag_filters: [],
             company_filters: {
                 name: ""
@@ -64,6 +65,7 @@ export default {
             titles: {
                 area: '',
                 street: '',
+                town: '',
                 aveprice: '',
                 sfprice: '',
                 company: '',
@@ -194,6 +196,14 @@ export default {
                         areas = areas.map(function(v,k) {
                             if (k) {
                                 v.childAreas.unshift({id: '0', name: '不限'});
+                                if (v.childAreas.length > 0 ){
+                                  v.childAreas = v.childAreas.map(function (val, key) {
+                                    if (key){
+                                      val.childAreas.unshift({ id: '0', name: '不限' });
+                                    }
+                                    return val;
+                                  })
+                                }
                             }
                             return v;
                         });
@@ -231,6 +241,7 @@ export default {
                 },
 
                 /*各个设置筛选*/
+                //选择城市
                 setArea(e) {
                     this.setFilter(e, {
                         [`${SCOPE}.area_index`]: e.target.dataset.areaindex,
@@ -240,7 +251,17 @@ export default {
                         this.triggerFilter();
                     }
                 },
-                //选中后立即搜索
+                //选择市区
+                setStreet(e) {
+                  this.setFilter(e, {
+                    [`${SCOPE}.street_index`]: e.target.dataset.streetindex,
+                    [`${SCOPE}.filters.town`]: '0'
+                  });
+                  if (e.target.dataset.streetindex == 0) {
+                    this.triggerFilter();
+                  }
+                },
+                //选中后立即搜索 - 区域
                 filterNow(e) {
                     this.setFilter(e)
                     this.triggerFilter();
@@ -322,10 +343,15 @@ export default {
                     let data = this.getComponentData();
 
                     let filters = Object.assign({}, data.filters);
+                    if (filters.area == 0) filters.area = '';
                     if (filters.street == 0) filters.street = '';
 
-
                     let params = Util.filterEmpty(filters);
+                    params.isxcx = 1;
+                    params.city = params.area;
+                    params.area = params.street;
+                    params.street = params.town;
+                    delete params.town;
 
                     // console.log(params);
                     // console.log(Util.params2Query(params));

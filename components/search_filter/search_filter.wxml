@@ -58,16 +58,21 @@
             <view class="filter-select">
                 <!-- 区域 -->
                 <view class="select-box area-select" data-boxindex="1" hidden="{{tab !== '1'}}" wx:if="{{!area_fixed}}">
-                    <scroll-view class="fl" scroll-y="true" wx:if="{{area_filters.length>0}}">
+                    <scroll-view class="fl area" scroll-y="true" wx:if="{{area_filters.length>0}}">
                         <view class="{{'li '+(area_index==index?'on':'')}}" wx:for="{{area_filters}}" wx:key="id"
                               data-key="area" data-areaindex="{{index}}" data-id="{{item.id}}"
                               data-name="{{index?item.name:''}}" bindtap="{{setArea}}">{{item.name}}
                         </view>
                     </scroll-view>
-
-                    <scroll-view class="fr" scroll-y="true" wx:if="{{area_index > 0}}">
+                    <scroll-view class="fl street" scroll-y="true" wx:if="{{area_index > 0}}">
                         <view class="{{'li '+(filters.street==item.id?'on':'')}}"
-                              wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street"
+                              wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street" data-streetindex="{{index}}" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{setStreet}}">
+                            {{item.name}}
+                        </view>
+                    </scroll-view>
+                    <scroll-view class="fr town" scroll-y="true" wx:if="{{street_index > 0}}">
+                        <view class="{{'li '+(filters.town==item.id?'on':'')}}"
+                              wx:for="{{area_filters[area_index].childAreas[street_index].childAreas}}" wx:key="id" data-key="town"
                               data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">
                             {{item.name}}
                         </view>
