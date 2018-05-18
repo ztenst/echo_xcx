@@ -53,7 +53,7 @@ export default {
             tab: '',
 
             area_index: 0, //area_index区域数组的index, 非筛选字段
-            town_index: 0,
+            street_index: 0,
             toptag_filters: [],
             company_filters: {
                 name: ""
@@ -245,9 +245,14 @@ export default {
                 setArea(e) {
                     this.setFilter(e, {
                         [`${SCOPE}.area_index`]: e.target.dataset.areaindex,
-                        [`${SCOPE}.filters.street`]: '0'
+                        [`${SCOPE}.filters.street`]: '0',
+                        [`${SCOPE}.filters.town`]: '0'
                     });
                     if (e.target.dataset.areaindex == 0) {
+                        this.setFilter(e, {
+                          [`${SCOPE}.titles.area`]: '',
+                          [`${SCOPE}.street_index`]: 0,
+                        });
                         this.triggerFilter();
                     }
                 },
@@ -257,16 +262,36 @@ export default {
                     [`${SCOPE}.street_index`]: e.target.dataset.streetindex,
                     [`${SCOPE}.filters.town`]: '0'
                   });
+      
                   if (e.target.dataset.streetindex == 0) {
+                    this.setFilter(e, {
+                      [`${SCOPE}.titles.area`]: e.target.dataset.areaname,
+                    });
                     this.triggerFilter();
+                  } else {
+                    this.setFilter(e, {
+                      [`${SCOPE}.titles.area`]: e.target.dataset.name,
+                    });
                   }
                 },
-                //选中后立即搜索 - 区域
-                filterNow(e) {
-                    this.setFilter(e)
+                //选择区域
+                setTwon(e) {
+                    if (e.target.dataset.townindex == 0) {
+                      this.setFilter(e, {
+                        [`${SCOPE}.titles.area`]: e.target.dataset.streetname,
+                      });
+                    }else{
+                      this.setFilter(e, {
+                        [`${SCOPE}.titles.area`]: e.target.dataset.name,
+                      });
+                    }
                     this.triggerFilter();
                 },
-
+                //选中后立即搜索
+                filterNow(e) {
+                  this.setFilter(e);
+                  this.triggerFilter();
+                },
                 //其他筛选确定
                 setOther(e) {
                     this.triggerFilter();
@@ -301,13 +326,15 @@ export default {
                     let data = this.getComponentData();
                     let filters = data.filters;
                     let titles = data.titles;
+            
                     //初始化
-                    Object.keys(titles).forEach(i => titles[i] = '')
-                    //区域
-                    if (filters.area && data.area_filters.length > 0) {
-                        let area = data.area_filters[data.area_index];
-                        titles.area = area.name;
-                    }
+                    // Object.keys(titles).forEach(i => titles[i] = '')
+                    // //区域
+                    // if (filters.area && data.area_filters.length > 0) {
+                    //     let area = data.area_filters[data.area_index];
+                    //     console.log(titles)
+                    //     titles.area = area.name;
+                    // }
 
                     //均价
                     if (filters.aveprice && data.aveprice_filters.length > 0) {
@@ -345,7 +372,8 @@ export default {
                     let filters = Object.assign({}, data.filters);
                     if (filters.area == 0) filters.area = '';
                     if (filters.street == 0) filters.street = '';
-
+                    if (filters.town == 0) filters.town = '';
+                    
                     let params = Util.filterEmpty(filters);
                     params.isxcx = 1;
                     params.city = params.area;

@@ -66,14 +66,14 @@
                     </scroll-view>
                     <scroll-view class="fl street" scroll-y="true" wx:if="{{area_index > 0}}">
                         <view class="{{'li '+(filters.street==item.id?'on':'')}}"
-                              wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street" data-streetindex="{{index}}" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{setStreet}}">
+                              wx:for="{{area_filters[area_index].childAreas}}" wx:key="id" data-key="street" data-streetindex="{{index}}" data-areaname="{{area_filters[area_index].name}}" data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{setStreet}}">
                             {{item.name}}
                         </view>
                     </scroll-view>
                     <scroll-view class="fr town" scroll-y="true" wx:if="{{street_index > 0}}">
                         <view class="{{'li '+(filters.town==item.id?'on':'')}}"
-                              wx:for="{{area_filters[area_index].childAreas[street_index].childAreas}}" wx:key="id" data-key="town"
-                              data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{filterNow}}">
+                              wx:for="{{area_filters[area_index].childAreas[street_index].childAreas}}" wx:key="id" data-key="town" data-townindex="{{index}}" data-streetname="{{area_filters[area_index].childAreas[street_index].name}}"
+                              data-id="{{item.id}}" data-name="{{index?item.name:''}}" bindtap="{{setTwon}}">
                             {{item.name}}
                         </view>
                     </scroll-view>

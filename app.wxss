@@ -190,7 +190,7 @@ button {
 }
 
 .right-side-menu.user {
-  bottom: 15%;
+  bottom: 22%;
 }
 
 .right-side-menu.user .pic {
@@ -201,7 +201,7 @@ button {
 }
 
 .right-side-menu.totop {
-  bottom: 8%;
+  bottom: 15%;
 }
 
 .row {
@@ -1049,8 +1049,10 @@ button {
   height: 30rpx;
   line-height: 30rpx;
   background-color: #fca61e;
-  border-radius: 8rpx;
+  border-radius: 5rpx;
   margin-right: 10rpx;
+  font-size:24rpx;
+
 }
 
 .__house-search-list .house-item .house-text .house-info {
@@ -1065,7 +1067,7 @@ button {
 }
 
 .__house-search-list .house-item .house-text .house-info .locate {
-  margin-right: 24rpx;
+  margin-right: 15rpx;
 }
 
 .__house-search-list .house-item .house-text .house-info .locate.company {
@@ -1101,7 +1103,7 @@ button {
   height: 30rpx;
   line-height: 30rpx;
   background-color: #df5225;
-  border-radius: 8rpx;
+  border-radius: 5rpx;
   margin-right: 10rpx;
 }
 
@@ -1455,7 +1457,7 @@ button {
 
 .__search-filter .filter-select .area-select .area {
   width: 30%;
-  background:#e6e6e6;
+  background:#f5f5f5;
 }
 
 .__search-filter .filter-select .area-select .street {
@@ -1464,7 +1466,7 @@ button {
 
 .__search-filter .filter-select .area-select .town {
   width: 35%;
-  background:#e6e6e6;
+  background:#f5f5f5;
 }
 
 .__search-filter .filter-select .area-select scroll-view {
@@ -1474,7 +1476,7 @@ button {
 
 .__search-filter .filter-select scroll-view .li {
   line-height: 88rpx;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #E8E8E9;
   padding: 0 48rpx;
 }
 
@@ -2481,6 +2483,10 @@ button {
   border-radius: 0 !important;
   color: #fff;
 }
+.house-detail .detail-info .lp-price .shareImg{
+  width:115rpx;
+  height:45rpx;
+}
 
 .house-detail .detail-info .lp-price .fr::after {
   display: none;
@@ -2507,7 +2513,7 @@ button {
   font-size: 24rpx;
   border-radius: 4rpx;
   line-height: 24rpx;
-  padding: 4rpx 10rpx;
+  padding: 8rpx 10rpx;
   border: none;
   overflow: hidden;
   margin-right: 10rpx;
@@ -2556,6 +2562,7 @@ button {
 
 .house-detail .basedetail {
   margin-bottom: 20rpx;
+  font-size: 26rpx;
 }
 
 .house-detail .mBox {
@@ -2645,7 +2652,7 @@ button {
   padding: 20rpx 0;
   line-height: 48rpx;
   font-size: 30rpx;
-  color: #333;
+  color: #868686;
   overflow: hidden;
 }
 
@@ -3402,12 +3409,12 @@ button {
   padding: 0 10rpx;
   height: 32rpx;
   display: inline-block;
-  vertical-align: 8rpx;
+  /* vertical-align: 8rpx; */
   text-align: center;
   line-height: 32rpx;
   margin-left: 8rpx;
   background-color: #9dd072;
-  border-radius: 8rpx;
+  border-radius: 5rpx;
   font-size: 22rpx;
 }
 
