@@ -125,8 +125,10 @@ export default {
                     this.setData({
                         [`${SCOPE}.filters.kw`]: '',
                         [`${SCOPE}.filters.kw_input`]: '',
+                        [`${SCOPE}.filters.company`]: '',
                         [`${SCOPE}.kw`]: '',
                         [`${SCOPE}.kw_input`]: '',
+                        [`${SCOPE}.company`]: '',
                     });
                     this.triggerFilter();
                     typeof options.onClearkw === 'function' && options.onClearkw()
@@ -142,7 +144,7 @@ export default {
                 },
                 //确认
                 confirm(e) {
-                    this.cancel();
+                    // this.cancel();
                     let kw = e.detail.value;
                     // typeof options.onConfirm === 'function' && options.onConfirm(kw);
                 },
@@ -373,7 +375,7 @@ export default {
                     if (filters.area == 0) filters.area = '';
                     if (filters.street == 0) filters.street = '';
                     if (filters.town == 0) filters.town = '';
-                    
+                    console.log(filters)
                     let params = Util.filterEmpty(filters);
                     params.isxcx = 1;
                     params.city = params.area;

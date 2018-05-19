@@ -73,8 +73,8 @@ export default {
                     this.setData({
                         [`${SCOPE}.filters.kw`]: '',
                         [`${SCOPE}.filters.kw_input`]: '',
+                        [`${SCOPE}.filters.company`]: '',
                     });
-
                     typeof options.onClearkw === 'function' && options.onClearkw()
                 },
                 //搜索

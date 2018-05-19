@@ -41,10 +41,13 @@
                     <text class="unit">{{plotdetail.unit}}</text>
                     <text class="state" style="vertical-align: -4rpx;">[在售]</text>
                 </view>
-                <!-- <button class="fr box box-pack-end lp-stag" open-type="share">
-                    <text class="iconfont icon-fenxiang tag">分享</text>
-                </button> -->
-                <image class="shareImg" src="../../images/share.png"/>
+                   <button class="fr box box-pack-end lp-stag" open-type="share">
+                    <!-- <text class="iconfont icon-fenxiang tag">分享</text>  -->
+                     <image class="shareImg" src="../../images/share.png" open-type="share"/>  
+                     分享
+                  </button>  
+                  
+                  <!-- <image class="shareImg" src="../../images/share.png" open-type="share"/>  -->
             </view>
             <view class="lp-stag" wx:if="{{plotdetail.tags.length>0}}">
                 <block wx:for="{{plotdetail.tags}}" wx:key="id">
