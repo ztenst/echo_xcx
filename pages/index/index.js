@@ -24,7 +24,8 @@ Page({
         area_fixed: false,
         key: '',
         area_text: '',//当前筛选的区域,
-        companyname: ''
+        companyname: '',
+        isCompany:false
     },
 
     onLoad(query) {
@@ -33,10 +34,10 @@ Page({
 
         if (_q.companyname) {
             self.setData({
-                companyname: _q.companyname
+                companyname: _q.companyname,
+                isCompany:true
             });
         }
-
         app.getUserOpenId().then(res => {
             self.setData({
                 userInfo: app.globalData.userInfo
@@ -122,8 +123,14 @@ Page({
         self.setData({
             companyname: ''
         });
-        let params = self.getSearchParams({company: ''});
-        self.restartSearch(params);
+        if (this.data.isCompany){
+          wx.reLaunch({
+            url: '/pages/index/index'
+          })
+        }else{
+          let params = self.getSearchParams({company: ''});
+          self.restartSearch(params);
+        }
     },
     /**
      * 重置搜索

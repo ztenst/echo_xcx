@@ -375,7 +375,7 @@ export default {
                     if (filters.area == 0) filters.area = '';
                     if (filters.street == 0) filters.street = '';
                     if (filters.town == 0) filters.town = '';
-                    console.log(filters)
+                    
                     let params = Util.filterEmpty(filters);
                     params.isxcx = 1;
                     params.city = params.area;
