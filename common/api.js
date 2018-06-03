@@ -129,6 +129,11 @@ const api = {
         let url = `${config.host}/api/index/addsave`
         return getRequest(url, params)
     },
+    // 发送电话
+    callPhone(params) {
+      let url = `${config.host}/api/plot/callPhone`
+      return getRequest(url, params)
+    },
     /*我的报备*/
     getUserList(params) {
         let url = `${config.host}/api/index/userList`
