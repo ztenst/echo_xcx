@@ -27,9 +27,13 @@
                             </view>
                         </view>
                         <!-- 首付 -->
-                        <view class="house-pay">
+                        <view class="house-pay" wx:if ="{{app.globalData.isTrue}}">
                             <text class="tag_pay">佣</text>
                             {{item.pay}}
+                        </view>
+                        <view class="house-pay" wx:if ="{{!app.globalData.isTrue}}">
+                            <text class="tag_pay">佣</text>
+                            暂无权限查看
                         </view>
                         <!--公司-->
                         <view class="house-info" data-company="{{item.zd_company}}" catchtap="{{filterCompany}}">
@@ -59,9 +63,13 @@
                             </view>
                         </view>
                         <!-- 首付 -->
-                        <view class="house-pay">
+                        <view class="house-pay" wx:if ="{{app.globalData.isTrue}}">
                             <text class="tag_pay">佣</text>
                             {{item.pay}}
+                        </view>
+                        <view class="house-pay" wx:if ="{{!app.globalData.isTrue}}">
+                            <text class="tag_pay">佣</text>
+                            暂无权限查看
                         </view>
                         <!--公司-->
                         <view class="house-info" data-company="{{item.zd_company}}" catchtap="{{filterCompany}}">

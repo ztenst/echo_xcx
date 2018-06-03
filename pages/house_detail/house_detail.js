@@ -1,5 +1,5 @@
 import {
-    $detailContent, $actionSheet, $toast,$dialog
+  $detailContent, $actionSheet, $toast, $dialog, $loginDialog
 } from '../../components/wxcomponents'
 var coordtransform = require('../../utils/coordtransform');
 import api from '../../common/api'
@@ -25,6 +25,7 @@ Page({
         toView: '',
         default_img: '',
         title: '',
+        needLogin:false
     },
     onLoad: function (options) {
         var self = this;
@@ -33,24 +34,24 @@ Page({
         /**
          * 新房详细页接口
          */
-        app.getUserOpenId().then(res => {
-            self.setData({
-                userInfo: app.globalData.userInfo
-            });
-            if (res.open_id) {
-                //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
-                $dialog.alert({
-                    title: '经纪圈新房通',
-                    content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
-                    buttons: [{
-                        text: '知道了',
-                        type: 'weui-dialog__btn_primary',
-                    }],
-                    onConfirm(e) {
-                    },
-                })
-            }
-        });
+        // app.getUserOpenId().then(res => {
+        //     self.setData({
+        //         userInfo: app.globalData.userInfo
+        //     });
+        //     if (res.open_id) {
+        //         //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
+        //         $dialog.alert({
+        //             title: '经纪圈新房通',
+        //             content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
+        //             buttons: [{
+        //                 text: '知道了',
+        //                 type: 'weui-dialog__btn_primary',
+        //             }],
+        //             onConfirm(e) {
+        //             },
+        //         })
+        //     }
+        // });
     },
     onShow: function () {
         let self = this;
@@ -170,27 +171,44 @@ Page({
         urls.forEach(item => {
             imageList.push(item.url)
         })
+        console.log(cur)
         wx.previewImage({
             current: cur,
             urls: imageList
         });
     },
     /**
+     * 查看大图 -主力户型
+     * @param {String} cur 当前展示图片
+     */
+    hxviewPic(e) {
+      let cur = e.currentTarget.dataset.current;
+      let imageList = [];
+      imageList.push(cur)
+      wx.previewImage({
+        current: cur,
+        urls: imageList
+      });
+    },
+
+    /**
      * 分销和打电话
      * @returns {boolean}
      */
     tapSheet(e) {
         let self = this, type = e.currentTarget.dataset.type;
-
         $actionSheet.show(type, {
             titleText: type == 'phone' ? '电话' : '分销',
             hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
             onActionSheetClick(type, params) {
                 if (!app.globalData.isTrue) {
-                    let url = '/pages/add_message/add_message';
-                    app.goPage(url, null, false);
-                    return;
+                    // let url = '/pages/add_message/add_message';
+                    // app.goPage(url, null, false);
+                    // return;
+                  self.setData({
+                    needLogin: true
+                  });
                 }
                 if (type == 'phone') {
                     wx.makePhoneCall({
@@ -257,7 +275,10 @@ Page({
         };
 
         if (!isTrue) {
-            app.goPage('/pages/add_message/add_message', null, false);
+          self.setData({
+            needLogin: true
+          });
+            // app.goPage('/pages/add_message/add_message', null, false);
         } else {
             api.addCollection(params).then(function (res) {
                 let data = res.data
@@ -296,9 +317,10 @@ Page({
      */
     baoBei(e) {
         if (!app.globalData.isTrue) {
-            let url = '/pages/add_message/add_message';
-            app.goPage(url, null, false);
-            return;
+          let self = this;
+          self.setData({
+            needLogin: true
+          });
         }else{
             let dataset = e.currentTarget.dataset, url = '/pages/house_baobei/house_baobei';
             app.goPage(url, {id: dataset.id}, false);
@@ -330,5 +352,58 @@ Page({
           title: self.data.title,
             path: 'pages/house_detail/house_detail?id='+self.data.plot_id
         }
+    },
+     /**
+     * 微信授权，获取用户信息
+     * @param resuserinfo
+     */
+    onGotUserInfo(resuserinfo) {
+      console.log(resuserinfo)
+      let self = this;
+      wx.login({
+        success: function (loginres) {
+          app.globalData.userInfo = resuserinfo.detail.userInfo;
+          api.getOpenId({ code: loginres.code }).then(res => {
+            let data = res.data;
+            self.closeDialog();
+            app.globalData.wxData = data;
+            //新用户
+            if (!data.is_true){
+              //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
+              $dialog.alert({
+                title: '经纪圈新房通',
+                content: '经纪圈新房通需要获取您的手机号来验证身份，请点击下方按钮进行确认。',
+                buttons: [{
+                  text: '知道了',
+                  type: 'weui-dialog__btn_primary',
+                }],
+                onConfirm(e) {
+                },
+              })
+             
+            } else {
+              app.globalData.isTrue = true;
+            }
+         
+          })
+
+        }
+      })
+    },
+    /**
+    * 关闭授权框
+    */
+    closeDialog() {
+      let self = this;
+      self.setData({
+        needLogin: false
+      });
+    },
+    goMobileLogin(){
+      let url = '/pages/login_mobile/login_mobile';
+      app.goPage(url, null, false);
+      return;
     }
+    
+
 });

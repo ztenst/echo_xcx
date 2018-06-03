@@ -90,10 +90,10 @@ const api = {
         return getRequest(url, params)
     },
     /*新房列表*/
-    getUserInfo(params) {
-        let url = `${config.host}/api/index/getUserInfo`
-        return postRequest(url, params)
-    },
+    // getUserInfo(params) {
+    //     let url = `${config.host}/api/index/getUserInfo`
+    //     return postRequest(url, params)
+    // },
     /*新房列表*/
     getDecode(params) {
         let url = `${config.host}/api/index/decode`
@@ -178,7 +178,21 @@ const api = {
         let url = `${config.host}/api/plot/setVip`
         return postRequest(url, params)
     },
-
+    /*发送验证码*/
+    getSmsCode(params) {
+      let url = `${config.host}/api/index/getSmsCode`
+      return getRequest(url, params)
+    },
+    /*登录验证*/
+    checkCode(params) {
+      let url = `${config.host}/api/index/checkCode`
+      return getRequest(url, params)
+    },
+    /*判断用户是否存在*/
+    getUserInfo(params) {
+      let url = `${config.host}/api/index/getUserInfo`
+      return getRequest(url, params)
+    },
 
 };
 

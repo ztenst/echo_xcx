@@ -14,7 +14,7 @@ App({
         //不要在30天后才更换openid-尽量提前10分钟更新 
         return new Promise((resolve, reject) => {
             //  console.log(Object.keys(self.globalData.userInfo).length != 0)
-            console.log(self.globalData.isTrue)
+            // console.log(self.globalData.isTrue)
             if (!self.globalData.isUser || status == 'fresh') {
                 wx.login({
                     success: function (loginres) {

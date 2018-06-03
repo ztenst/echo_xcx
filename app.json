@@ -9,7 +9,8 @@
     "pages/collection_list/collection_list",
     "pages/house_fabu/house_fabu",
     "pages/myhouse_list/myhouse_list",
-    "pages/member/member"
+    "pages/member/member",
+    "pages/login_mobile/login_mobile"
   ],
   "window":{
     "navigationBarBackgroundColor": "#00b7ee",

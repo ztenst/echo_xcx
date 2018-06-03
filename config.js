@@ -9,8 +9,8 @@ var env = 'production'; // 'development' or 'production'
 var version = '1.0.1';
 // development and production host
 var hosts = {
-    development: 'http://house.jj58.com.cn',
-    production: 'https://meat.madridwine.cn'
+    development: 'http://zt.jj58.com.cn',
+    production: 'http://zt.jj58.com.cn'
 };
 // static path
 var static_path = '';

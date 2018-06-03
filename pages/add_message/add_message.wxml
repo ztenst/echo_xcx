@@ -5,16 +5,26 @@
     <form action="" bindsubmit='addMes'>
         <view class="plt24 bg-fff">
             <view class="line">
+              <label for="">用户类型</label>
+               <radio-group class="radio-group" bindchange="getType">
+                <label class="radio">
+                  <radio value="1" name="userType"/>总代公司
+                  <radio value="2" checked="" name="userType"/>分销公司
+                  <radio value="3" checked="true" name="userType"/>独立经纪人
+                </label>
+              </radio-group> 
+            </view>
+            <view class="line">
                 <label for="">姓名</label>
-                <input type="text" name="name" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入姓名" bindinput="getName" />
+                <input type="text" name="name" class="ml120 w300" placeholder-class="c-ccc" placeholder="请输入姓名" bindinput="getName" />
             </view>
             <view class="line ">
                 <label for="">手机</label>
-                <input type="number" name="userphone" value='{{phone}}' class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入手机号" bindinput="getPhone"  style="width:496rpx;display: inline-block;vertical-align: middle;"/>
+                <input type="number" name="userphone" value='{{phone}}' class="ml120 w300" placeholder-class="c-ccc" placeholder="请输入手机号" bindinput="getPhone"  style="width:496rpx;display: inline-block;vertical-align: middle;"/>
             </view>
             <view class="line nbtm">
-                <label for="">公司名</label>
-                <input type="text" name="usercompany" class="ml100 w300" placeholder-class="c-ccc" placeholder="请输入公司名或门店码，独立经纪人可留空" bindinput="getCompanyName"/>
+                <label for="">门店码</label>
+                <input type="text" name="usercompany" class="ml120 w300" placeholder-class="c-ccc" placeholder="请填写门店码" bindinput="getCompanyName"/>
             </view>
         </view>
 

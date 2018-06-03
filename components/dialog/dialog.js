@@ -97,15 +97,20 @@ export default {
                         api.getDecode(params).then(resp => {
                             let json = resp.data.trim();
                             app.globalData.phone = json;
-                            api.xcxLogin({phone: json,openid:app.globalData.wxData.open_id,name:app.globalData.userInfo.nickName}).then(respo => {
-                                if (respo.data.status == 'success') {
-                                    app.globalData.customInfo = Object.assign(app.globalData.customInfo, respo.data.data);
-                                    app.globalData.isUser = true;
-                                }
-                                if(respo.data.data.is_true=='1') {
-                                    app.globalData.isTrue = true;
-                                }
-                            })
+                            // app.globalData.isUser = true;
+                            let url = '/pages/add_message/add_message';
+                            app.goPage(url, null, false);
+                            // api.xcxLogin({phone: json,openid:app.globalData.wxData.open_id,name:app.globalData.userInfo.nickName}).then(respo => {
+                            //     if (respo.data.status == 'success') {
+                            //         app.globalData.customInfo = Object.assign(app.globalData.customInfo, respo.data.data);
+                            //         app.globalData.isUser = true;
+                            //         let url = '/pages/add_message/add_message';
+                            //         app.goPage(url, null, false);
+                            //     }
+                            //     if(respo.data.data.is_true=='1') {
+                            //         app.globalData.isTrue = true;
+                            //     }
+                            // })
                         });
 
                         const index = e.currentTarget.dataset.index

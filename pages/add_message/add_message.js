@@ -35,11 +35,16 @@ Page({
             usercompany: e.detail.value
         });
     },
-
+    getType(e) {
+      let that = this;
+      that.setData({
+        userType: e.detail.value
+      });
+    },
     addMes: function (e) {
+   
         let that = this,
-            fObj = e.detail.value;
-
+            fObj = e.detail.value
         if (!fObj.name) {
             $toast.show({
                 timer: 2e3,
@@ -59,8 +64,9 @@ Page({
             userphone: parseInt(fObj.userphone),
             name: fObj.name,
             usercompany: fObj.usercompany,
+            userType: that.data.userType,
         }
-
+     
         api.addMessage(pack).then((res) => {
             let data = res.data;
             $toast.show({
@@ -68,12 +74,16 @@ Page({
                 text: data.msg,
             });
             if (data.status == 'success') {
-                setTimeout(function () {
-                    app.getUserOpenId('fresh').then(res =>{});
-                    wx.navigateBack({
-                        delta: 1
-                    })
-                }, 2e3);
+                app.globalData.isTrue = true;
+                console.log(app.globalData.isTrue)
+                let dataset = e.currentTarget.dataset, url = '/pages/index/index';
+                app.goPage(url, dataset, false);
+                // setTimeout(function () {
+                //     app.getUserOpenId('fresh').then(res =>{});
+                //     wx.navigateBack({
+                //         delta: 1
+                //     })
+                // }, 2e3);
             }
         })
     }

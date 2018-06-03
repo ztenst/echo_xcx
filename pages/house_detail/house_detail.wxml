@@ -3,6 +3,7 @@
 <import src="../../components/toast/toast.wxml"/>
 <import src="../../libs/wxParse/wxParse.wxml"/>
 <import src="../../components/dialog/dialog.wxml"/>
+<import src="../../components/loginDialog/loginDialog.wxml"/>
 
 <template is="dialog" data="{{ ...$dialog }}"/>
 
@@ -11,6 +12,9 @@
         <image src="../../images/loadingdetail.gif"></image>
     </view>
 </view>
+
+<template is="loginDialog" data="{{ ...$loginDialog }}" wx:if="{{needLogin}}"/>
+
 <view class="menuwap" hidden="{{ !isFinished }}">
 
     <scroll-view scroll-y="true" class="house-detail bg-f5 ">
@@ -92,7 +96,7 @@
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
         </view>
         <!--雇佣规则-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0 && app.globalData.isTrue}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">佣金规则</view>
             </view>
@@ -121,7 +125,7 @@
                 <scroll-view class="hx-list" scroll-x scroll-y="false">
                     <view class="item" wx:for="{{plotdetail.hx}}" wx:key="title">
                         <view class="pic">
-                            <image src="{{item.image}}"></image>
+                            <image data-current="{{item.image}}" bindtap="hxviewPic" src="{{item.image}}"></image>
                             <text class="lab" wx:if="{{item.sale_status}}">{{item.sale_status}}</text>
                         </view>
                         <view class="info">

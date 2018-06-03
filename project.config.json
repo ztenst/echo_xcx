@@ -12,6 +12,35 @@
 	"appid": "wxc4b995f8ee3ef609",
 	"projectname": "%E7%BB%8F%E7%BA%AA%E5%9C%88%E6%96%B0%E6%88%BF%E9%80%9A1",
 	"condition": {
+		"weapp": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "house_detail",
+					"pathName": "pages/house_detail/house_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login_mobile",
+					"pathName": "pages/login_mobile/login_mobile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login_mobile",
+					"pathName": "pages/login_mobile/login_mobile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "add_message",
+					"pathName": "pages/add_message/add_message",
+					"query": ""
+				}
+			]
+		},
 		"search": {
 			"current": -1,
 			"list": []
@@ -85,6 +114,12 @@
 					"id": -1,
 					"name": "member",
 					"pathName": "pages/member/member",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login_mobile",
+					"pathName": "pages/login_mobile/login_mobile",
 					"query": ""
 				}
 			]

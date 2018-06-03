@@ -3267,7 +3267,7 @@ button {
 }
 
 .add_message .line label {
-  width: 100rpx;
+  width: 120rpx;
   height: 98rpx;
   position: absolute;
   left: 0rpx;
@@ -3298,9 +3298,9 @@ button {
   width: 80rpx;
 }
 
-.add_message .line .ml100 {
+.add_message .line .ml120 {
   display: inline-block;
-  margin-left: 100rpx;
+  margin-left: 125rpx;
 }
 
 .add_message .line .w300 {
@@ -3343,6 +3343,27 @@ button {
   font-size: 34rpx;
 }
 
+.add_message .getCode{
+  position: absolute;
+  right:0px;
+  display:inline;
+  background:#fff;
+  line-height:98rpx;
+  height:98rpx;
+}
+.add_message .getCode::after{
+  border: none;
+}
+.add_message .radio-group label{
+  display: flex;
+  justify-content: center;
+  width:80%;
+  margin-left:120rpx;
+}
+.add_message .radio-group radio{
+  /* width:20rpx;
+  height:20rpx; */
+}
 .my {
   width: 100%;
   height: 100%;
@@ -3819,4 +3840,62 @@ button {
   background-color: #00b7ee;
   color: #fff;
   text-align: center;
+}
+
+.loginDialog {
+  position: fixed;
+  z-index: 5000;
+  width: 80%;
+  max-width: 600rpx;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding:15px 0;
+}
+.loginDialog .dialogBox .close{
+  width:50rpx;
+  height:50rpx;
+  position: absolute;
+  right:10px;
+}
+.loginDialog .dialogBox .title{
+  font-size:18px;
+  margin:20px;
+}
+.loginDialog .dialogBox .typeBox{
+  font-size:18px;
+  height:50px;
+  line-height: 50px;
+  margin:15px 60rpx;
+  border-radius: 5px;
+}
+.loginDialog .dialogBox .wechat{
+  background:#00b7ee;
+  color:#fff;
+}
+.loginDialog .dialogBox .wechat button{
+  font-size:18px;
+  display: inline;
+  background:#00b7ee;
+  color:#fff;
+  padding:0;
+  margin:0;
+  border:none;
+}
+.loginDialog .dialogBox .wechat button::after{
+  border:none;
+}
+.loginDialog .dialogBox .mobile{
+  background: #F9F9F9;
+  border: 1px solid #ECECEC;
+  color:#000;
+}
+.typeBox .icon{
+  width:60rpx;
+  height:60rpx;
 }
