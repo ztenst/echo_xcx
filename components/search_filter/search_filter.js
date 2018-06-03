@@ -201,6 +201,10 @@ export default {
                                 if (v.childAreas.length > 0 ){
                                   v.childAreas = v.childAreas.map(function (val, key) {
                                     if (key){
+                                      if (!val.childAreas) {
+                                        val.childAreas = [];
+                                      }
+                                      // console.log(val.childAreas);
                                       val.childAreas.unshift({ id: '0', name: '不限' });
                                     }
                                     return val;

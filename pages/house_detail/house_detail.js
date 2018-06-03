@@ -193,9 +193,24 @@ Page({
                     return;
                 }
                 if (type == 'phone') {
-                    wx.makePhoneCall({
+                    let fxphone = app.globalData.phone;
+                    console.log(app.globalData);
+                    if(!fxphone) {
+                      fxphone = app.globalData.customInfo.phone;
+                    }
+                    if (fxphone) {
+                      api.callPhone({ hid: self.data.plotdetail.id, key: params.phone, fxphone: fxphone }).then(res => {
+                        wx.makePhoneCall({
+                          phoneNumber: params.phone
+                        });
+                      });
+                    } else {
+                      wx.makePhoneCall({
                         phoneNumber: params.phone
-                    });
+                      });
+                    }
+                    
+                    
                 } else if (type == 'fenxiao') {
                     api.addCo(params).then(res => {
                         $toast.show({
