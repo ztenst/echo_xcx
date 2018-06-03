@@ -1,0 +1,22 @@
+<template name="loginDialog">
+  <view class="action-sheet-backdrop"></view>
+  <view class="loginDialog">
+    <view class="dialogBox">
+      <view>
+        <image class="close" src="../../images/close.png" bindtap="closeDialog"></image>
+      </view>
+      <view>
+        <text class="title">登录/注册经纪圈</text>
+      </view>
+      <view class="typeBox wechat">
+        <image class="icon" src="../../images/wechat.png"></image>
+        <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">微信快速登录</button>
+      </view>
+      <view class="typeBox mobile">
+        <image class="icon" src="../../images/mobile.png"></image>
+        <text bindtap="goMobileLogin">手机号登录</text>
+      </view>
+    </view>
+  </view>
+
+</template>

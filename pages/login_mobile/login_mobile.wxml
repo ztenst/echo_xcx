@@ -1,0 +1,25 @@
+<import src="../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$toast }}"/>
+<view class="add_message bg-f5" >
+    <view class="blank20"></view>
+    <form action="" bindsubmit='loginMobile'>
+        <view class="plt24 bg-fff">
+            <view class="line ">
+                <label for="">手机</label>
+                <input type="number" name="phone" value='{{phone}}' class="ml120 w300" placeholder-class="c-ccc" placeholder="请输入您的手机号" bindinput="getPhone"  style="width:400rpx;display: inline-block;vertical-align: middle;"/>
+            </view>
+            <view class="line ">
+                <label for="">验证码</label>
+                <input type="number" name="code" value='{{code}}' class="ml120 w300" placeholder-class="c-ccc" placeholder="请输入收到的验证码" bindinput="getCode"  style="width:400rpx;display: inline-block;vertical-align: middle;"/>
+                <button class="getCode" bindtap="setCode" disabled="{{codeDisabled}}">获取验证码</button>
+            </view>
+        </view>
+
+        <view class="big-btn no-fixed">
+            <button class="btnBaoBei box box-pack-center box-align-center" form-type="submit">
+                登<text style="width: 20rpx;"></text>录
+            </button>
+        </view>
+    </form>
+
+</view>
