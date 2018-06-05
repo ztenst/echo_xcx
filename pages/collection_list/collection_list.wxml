@@ -42,7 +42,7 @@
                                     </view>
                                 </view>
                                 <!-- 首付 -->
-                                <view class="house-pay" wx:if ="{{!app.globalData.isTrue}}">
+                                <view class="house-pay">
                                     <text class="tag_pay">佣</text>
                                     {{item.pay}}
                                 </view>

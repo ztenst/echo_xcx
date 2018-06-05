@@ -25,7 +25,9 @@ Page({
         key: '',
         area_text: '',//当前筛选的区域,
         companyname: '',
-        isCompany:false
+        isCompany:false,
+        is_true: false,
+        userInfo: ''
     },
 
     onLoad(query) {
@@ -38,7 +40,10 @@ Page({
                 isCompany:true
             });
         }
-        console.log(app.globalData.isTrue)
+        self.setData({is_true: app.globalData.isTrue });
+        self.setData({
+            userInfo: app.globalData.userInfo
+        });
         // app.getUserOpenId().then(res => {
         //     self.setData({
         //         userInfo: app.globalData.userInfo
@@ -172,7 +177,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({}, this.data.filters, {page: this.data.page});
+        let params = Object.assign({}, this.data.filters, { page: this.data.page, showPay: state.is_true?1:0});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;
@@ -209,5 +214,8 @@ Page({
             title: '全国新房分销大数据平台',
             path: `pages/index/index?${Util.params2Query(params)}`
         }
+    },
+    onShow:function(){
+      console.log(this.data.is_true)
     }
 });

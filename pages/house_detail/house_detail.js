@@ -25,12 +25,17 @@ Page({
         toView: '',
         default_img: '',
         title: '',
-        needLogin:false
+        needLogin:false,
+        is_true: false,
+        userInfo: '',
     },
     onLoad: function (options) {
         var self = this;
         let plot_id = options.id;
-        self.setData({plot_id: plot_id});
+        self.setData({ plot_id: plot_id, is_true: app.globalData.isTrue});
+        self.setData({
+            userInfo: app.globalData.userInfo
+        });
         /**
          * 新房详细页接口
          */
@@ -58,6 +63,12 @@ Page({
         let plot_id = self.data.plot_id;
         let uid = app.globalData.customInfo.id;
         self.getMplotDetail(plot_id,uid);
+        console.log(self.data.is_true);
+        if (!self.data.is_true && app.globalData.isTrue) {
+          // 可能是个坑
+          let url = '/pages/index/index';
+          wx.redirectTo({url})
+        }
     },
     getMplotDetail(plot_id,uid){
         let self =this;
@@ -398,6 +409,7 @@ Page({
              
             } else {
               app.globalData.isTrue = true;
+              app.goPage('/pages/house_detail/house_detail', {id: self.data.plot_id}, false)
             }
          
           })

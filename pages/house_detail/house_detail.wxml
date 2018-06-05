@@ -96,7 +96,7 @@
             <template is="detailContent" data="{{ ...$detailContent.news }}"/>
         </view>
         <!--雇佣规则-->
-        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0 && app.globalData.isTrue}}">
+        <view class="mBox  bg-fff" wx:if="{{plotdetail.pay.length>0 && is_true}}">
             <view class="mTitle box box-align-center box-pack-between">
                 <view class="mTitle-l">佣金规则</view>
             </view>

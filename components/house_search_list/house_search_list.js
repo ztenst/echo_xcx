@@ -15,7 +15,8 @@ export default {
     },
 
     init(opts = {}) {
-        const options = Object.assign({}, this.setDefaults(), opts);
+        const options = Object.assign({}, this.setDefaults(), opts,{is_true: false});
+        
         const component = new Component({
             scope: SCOPE,
             data: options,
@@ -34,7 +35,9 @@ export default {
                     app.goPage(url, null, false);
                 }
             }
+            
         });
+        
         return component;
     }
 }
