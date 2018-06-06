@@ -3270,7 +3270,7 @@ button {
   width: 120rpx;
   height: 98rpx;
   position: absolute;
-  left: 0rpx;
+  left: 30rpx;
   top: 0;
   color: #333;
   font-size: 30rpx;
@@ -3360,9 +3360,25 @@ button {
   width:80%;
   margin-left:120rpx;
 }
-.add_message .radio-group radio{
-  /* width:20rpx;
-  height:20rpx; */
+.add_message .image-box{
+  margin:30px 10%;
+}
+.add_message .image-box image{
+  width:100%;
+  height:180px;
+  margin-bottom:30px;
+}
+.add_message .cardImage{
+    position: relative;
+}
+.add_message .image-box .delete {
+  position: absolute;
+  z-index: 1;
+  top: -20rpx;
+  right: -20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  padding: 10rpx;
 }
 .my {
   width: 100%;
@@ -3873,6 +3889,9 @@ button {
   line-height: 50px;
   margin:15px 60rpx;
   border-radius: 5px;
+}
+.loginDialog .dialogBox .typeBox image{
+  margin-right:10px;
 }
 .loginDialog .dialogBox .wechat{
   background:#00b7ee;
