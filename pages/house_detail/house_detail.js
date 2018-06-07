@@ -208,19 +208,20 @@ Page({
      */
     tapSheet(e) {
         let self = this, type = e.currentTarget.dataset.type;
+        if (!app.globalData.isTrue) {
+          // let url = '/pages/add_message/add_message';
+          // app.goPage(url, null, false);
+          // return;
+          self.setData({
+            needLogin: true
+          });
+        } else 
         $actionSheet.show(type, {
             titleText: type == 'phone' ? '电话' : '分销',
             hid: self.data.plotdetail.id,
             list: self.data.plotdetail.phones,
             onActionSheetClick(type, params) {
-                if (!app.globalData.isTrue) {
-                    // let url = '/pages/add_message/add_message';
-                    // app.goPage(url, null, false);
-                    // return;
-                  self.setData({
-                    needLogin: true
-                  });
-                }
+                
                 if (type == 'phone') {
                     let fxphone = app.globalData.phone;
                     console.log(app.globalData);
@@ -261,6 +262,9 @@ Page({
      */
     toMy() {
         let url = '/pages/my/my';
+        // wx.redirectTo({
+        //   url: url,
+        // })
         app.goPage(url, null, false);
     },
     /**
@@ -385,16 +389,20 @@ Page({
      */
     onGotUserInfo(resuserinfo) {
       console.log(resuserinfo)
+      app.globalData.userInfo.avatarUrl = resuserinfo.detail.userInfo.avatarUrl;
       let self = this;
       wx.login({
         success: function (loginres) {
-          app.globalData.userInfo = resuserinfo.detail.userInfo;
+          // app.globalData.userInfo = resuserinfo.detail.userInfo;
           api.getOpenId({ code: loginres.code }).then(res => {
             let data = res.data;
             self.closeDialog();
-            app.globalData.wxData = data;
+            // app.globalData.userInfo = data;
+            console.log(data);
             //新用户
             if (!data.is_true){
+              app.globalData.userInfo.openid = data.open_id;
+              app.globalData.userInfo.session_key = data.session_key;
               //如果该用户有open_id,则需要获取手机号老验证身份，否则直接设置用户信息
               $dialog.alert({
                 title: '经纪圈新房通',
@@ -409,7 +417,12 @@ Page({
              
             } else {
               app.globalData.isTrue = true;
-              app.goPage('/pages/house_detail/house_detail', {id: self.data.plot_id}, false)
+              app.globalData.userInfo = data;
+              app.globalData.userInfo.avatarUrl = resuserinfo.detail.userInfo.avatarUrl;
+              wx.reLaunch({
+                url: '/pages/index/index',
+              })
+              // app.goPage('/pages/house_detail/house_detail', {id: self.data.plot_id}, false)
             }
          
           })

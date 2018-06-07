@@ -15,7 +15,7 @@
                 </view>
                 <view class="row-r">
                     <input type="text" placeholder-class="c-ccc" placeholder="请输入姓名" name="pname"
-                           value="{{ customInfo.name }}"/>
+                           value="{{ userInfo.name }}"/>
                 </view>
             </view>
             <view class="row bdm box box-align-center ">
@@ -25,7 +25,7 @@
                 </view>
                 <view class="row-r">
                     <input type="number" placeholder-class="c-ccc" placeholder="请输入联系方式" name="pphone"
-                           value="{{ customInfo.phone }}" bindblur="checkPhone"/>
+                           value="{{ userInfo.phone }}" bindblur="checkPhone"/>
                 </view>
             </view>
             <view class="row bdm box box-align-center ">
@@ -35,7 +35,7 @@
                 </view>
                 <view class="row-r">
                     <input type="text" placeholder-class="c-ccc" placeholder="请输入公司名" name="pcompany"
-                           value="{{ customInfo.company_name }}"/>
+                           value="{{ userInfo.company_name }}"/>
                 </view>
             </view>
             <view class="row bdm box box-align-center ">

@@ -29,7 +29,7 @@ Page({
         let self = this;
 
         self.setData({
-            uid: app.globalData.customInfo.id
+            uid: app.globalData.userInfo.id
         })
         /**
          * 搜索组件初始化
@@ -74,7 +74,7 @@ Page({
 
         let params = {
             hid: dataset.id,
-            uid: app.globalData.customInfo.id
+            uid: app.globalData.userInfo.id
         };
 
         if (!isTrue) {
@@ -108,7 +108,7 @@ Page({
             page: state.page + 1
         });
 
-        let params = Object.assign({'uid': state.uid}, this.data.filters, {page: this.data.page});
+        let params = Object.assign({'uid': state.uid,'showPay':1}, this.data.filters, {page: this.data.page});
 
         api.getXfList(params).then(resp => {
             let json = resp.data;
@@ -142,7 +142,7 @@ Page({
         app.goPage(url, {id:dataset.id}, false);
     },
     goFabuHouse(){
-        api.checkCanSub({phone:app.globalData.customInfo.phone}).then(res=>{
+        api.checkCanSub({phone:app.globalData.userInfo.phone}).then(res=>{
             let json =res.data;
             if(json.status=="success"){
                 let url = '/pages/house_fabu/house_fabu';

@@ -30,7 +30,7 @@ Page({
     onShow: function () {
         let self = this;
         let plot_id = self.data.plot_id;
-        let uid = app.globalData.customInfo.id;
+        let uid = app.globalData.userInfo.id;
         self.getMplotDetail(plot_id,uid);
     },
 
@@ -227,7 +227,7 @@ Page({
 
         const pack = {
             hid: self.data.plotdetail.id,
-            uid: app.globalData.customInfo.id,
+            uid: app.globalData.userInfo.id,
             time: self.data.time,
             notice: self.data.notice,
             phone: fObj.phone ? fObj.phone : self.data.three + "****" + self.data.four,

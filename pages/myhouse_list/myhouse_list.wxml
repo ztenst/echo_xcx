@@ -38,7 +38,7 @@
                                         <text class="locate">{{item.street}}</text>
                                     </view>
                                     <view class="fr" data-id="{{item.id}}" catchtap="cancelCollect">
-                                        <text class="wylx">{{item.expire}}</text>
+                                        <text class="wylx">{{item.wylx}}</text>
                                     </view>
                                 </view>
                                 <!-- 首付 -->

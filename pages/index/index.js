@@ -40,7 +40,6 @@ Page({
                 isCompany:true
             });
         }
-        self.setData({is_true: app.globalData.isTrue });
         self.setData({
             userInfo: app.globalData.userInfo
         });
@@ -216,6 +215,7 @@ Page({
         }
     },
     onShow:function(){
+      this.setData({ is_true: app.globalData.isTrue });
       console.log(this.data.is_true)
     }
 });

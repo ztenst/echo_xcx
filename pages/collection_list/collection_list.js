@@ -29,7 +29,7 @@ Page({
         let self = this;
 
         self.setData({
-            uid: app.globalData.customInfo.id
+            uid: app.globalData.userInfo.id
         })
         /**
          * 搜索组件初始化
@@ -74,7 +74,7 @@ Page({
 
         let params = {
             hid: dataset.id,
-            uid: app.globalData.customInfo.id
+            uid: app.globalData.userInfo.id
         };
 
         if (!isTrue) {

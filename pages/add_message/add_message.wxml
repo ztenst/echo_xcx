@@ -26,7 +26,7 @@
                 <label for="">门店码</label>
                 <input type="text" name="usercompany" class="ml120 w300" placeholder-class="c-ccc" placeholder="请填写门店码" bindinput="getCompanyName"/>
             </view>
-            <view class="image-box" bindtap="chooseCard" wx:if="{{!cardImg}}">
+            <view class="image-box" bindtap="didPressChooesImage" wx:if="{{!cardImg}}">
               <image src="../../images/card.png"></image>
             </view>
             <view class="image-box cardImage" wx:if="{{cardImg}}">

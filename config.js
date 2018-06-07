@@ -10,7 +10,7 @@ var version = '1.0.1';
 // development and production host
 var hosts = {
     development: 'http://zt.jj58.com.cn',
-    production: 'http://zt.jj58.com.cn'
+    production: 'https://zt.jj58.com.cn'
 };
 // static path
 var static_path = '';

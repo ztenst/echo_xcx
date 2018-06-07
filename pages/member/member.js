@@ -24,27 +24,38 @@ Page({
                 title: '3个月VIP会员(限时特惠)',
                 new_price: 399,
             }
-        ]
+        ],
+        userInfo: []
     },
     onShow() {
         let self = this;
-        app.getUserOpenId().then(res => {
-            self.setData({
-                customInfo: app.globalData.customInfo,
-                userInfo: app.globalData.userInfo,
-            });
-            api.getExpire({uid: app.globalData.customInfo.id}).then(data => {
-                let json = data.data;
-                if (json.status == 'success') {
-                    this.setData({
-                        expireTime: json.data
-                    })
-                }
-            });
+        // app.getUserOpenId().then(res => {
+        //     self.setData({
+        //         userInfo: app.globalData.userInfo,
+        //     });
+        //     api.getExpire({ uid: self.userInfo.id}).then(data => {
+        //         let json = data.data;
+        //         if (json.status == 'success') {
+        //             this.setData({
+        //                 expireTime: json.data
+        //             })
+        //         }
+        //     });
+        // });
+        self.setData({
+          userInfo: app.globalData.userInfo,
+        });
+        api.getExpire({ uid: app.globalData.userInfo.id }).then(data => {
+          let json = data.data;
+          if (json.status == 'success') {
+            this.setData({
+              expireTime: json.data
+            })
+          }
         });
     },
     goToList(e) {
-        let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
+      let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.userInfo.id;
         if (!app.globalData.isTrue) {
             let url = '/pages/add_message/add_message';
             app.goPage(url, null, false);
@@ -86,7 +97,7 @@ Page({
     goPay() {
         let setPayParam = {
             price: this.data.price,
-            openid: app.globalData.customInfo.openid
+            openid: app.globalData.userInfo.openid
         }
         api.setPay(setPayParam).then(r => {
             let Json = r.data.data;
@@ -98,7 +109,7 @@ Page({
                 'paySign': Json.paySign,
                 success(res) {
                     console.log(res);
-                    let vipParams={num: 1, uid: app.globalData.customInfo.id, title: setPayParam.price};
+                    let vipParams={num: 1, uid: app.globalData.userInfo.id, title: setPayParam.price};
                     api.setVip(vipParams).then(r => {
                         let json = r.data;
                         if (json.status == 'success') {

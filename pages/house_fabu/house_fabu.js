@@ -40,7 +40,7 @@ function didPressChooesImage(that) {
                 , {
                     region: 'NCN', // 华北区
                     domain: 'oofuaem2b.bkt.clouddn.com',
-                    uptokenURL: 'https://meat.madridwine.cn/api/image/qnUpload',
+                    uptokenURL: 'https://house.jj58.com.cn/api/image/qnUpload',
                     shouldUseQiniuFileName: false,
                     key: getKey(),
                 }
@@ -68,11 +68,10 @@ Page({
     onLoad() {
         let tags = {};
         this.setData({
-            customInfo: app.globalData.customInfo,
             userInfo: app.globalData.userInfo,
         });
-        if (app.globalData.customInfo.phone) {
-            this.checkPhoneCanSub(app.globalData.customInfo.phone);
+        if (app.globalData.userInfo.phone) {
+            this.checkPhoneCanSub(app.globalData.userInfo.phone);
         }
         api.publishtags().then(res => {
             let json = res.data;
@@ -244,7 +243,7 @@ Page({
             });
             return false
         }
-        let params = Object.assign({}, formParms, {uid: app.globalData.customInfo.id});
+        let params = Object.assign({}, formParms, {uid: app.globalData.userInfo.id});
 
         api.addPlot(params).then(res => {
             let data = res.data;

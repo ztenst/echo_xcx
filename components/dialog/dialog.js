@@ -92,7 +92,7 @@ export default {
                         let params = {
                             encryptedData: e.detail.encryptedData,
                             iv: e.detail.iv,
-                            accessKey: app.globalData.wxData.session_key
+                            accessKey: app.globalData.userInfo.session_key
                         }
                         api.getDecode(params).then(resp => {
                             let json = resp.data.trim();

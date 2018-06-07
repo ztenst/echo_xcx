@@ -7,27 +7,29 @@ Page({
         isExtendBox:true
     },
     onShow() {
-        let self = this;
-
-        app.getUserOpenId().then(res => {
-            self.setData({
-                customInfo: app.globalData.customInfo,
-                userInfo: app.globalData.userInfo,
-            });
-        });
+      this.setData({
+        userInfo: app.globalData.userInfo,
+      });
     },
     goToList(e) {
-        let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.customInfo.id;
+        let dataset = e.currentTarget.dataset, url = '', UID = app.globalData.userInfo.id;
         if (!app.globalData.isTrue) {
             let url = '/pages/add_message/add_message';
+            // wx.redirectTo({
+            //   url: url,
+            // })
             app.goPage(url, null, false);
         } else {
             if (dataset.type == 'collect') {
-                url = '/pages/collection_list/collection_list';
+              url = '/pages/collection_list/collection_list';
 
             } else if (dataset.type == 'baobei') {
                 url = '/pages/baobei_list/baobei_list';
             }
+            // console.log(url);
+            // wx.redirectTo({
+            //   url: url
+            // })
             app.goPage(url, {uid: UID}, false);
         }
     },

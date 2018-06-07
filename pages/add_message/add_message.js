@@ -17,13 +17,48 @@ function getKey() {
   return key + myDate.getFullYear() + '/' + (month < 10 ? "0" + month : month) + (day < 10 ? "0" + day : day) + '/' + new Date().getTime() + num + '.jpg';
 }
 
+function didPressChooesImage(that) {
+  // initQiniu();
+  // 微信 API 选文件
+  wx.chooseImage({
+    count: 1,
+    success(res) {
+      var filePath = res.tempFilePaths[0];
+      // 交给七牛上传
+      qiniuUploader.upload(filePath, (res) => {
+        that.data.cardImg = `http://` + res.imageURL;
+        that.setData({
+          cardKey: res.key,
+          cardImg: `http://` + res.imageURL
+        });
+      }, (error) => {
+        console.error('error: ' + JSON.stringify(error));
+        $toast.show({
+          timer: 2e3,
+          text: 'error: ' + JSON.stringify(error),
+        });
+      }
+        , {
+          region: 'NCN', // 华北区
+          domain: 'oofuaem2b.bkt.clouddn.com',
+          uptokenURL: 'https://house.jj58.com.cn/api/image/qnUpload',
+          shouldUseQiniuFileName: false,
+          key: getKey(),
+        }
+      );
+    }
+  })
+}
+
 let app = getApp();
 
 Page({
     data: {
       phone:'',
       isCompany:false,
-      cardImg:'http://oofuaem2b.bkt.clouddn.com/2018/0606/1528272552258587218.jpg'
+      cardImg:'',
+      cardKey:'',
+
     },
     onLoad: function (options) {
       let phone = app.globalData.phone
@@ -66,8 +101,9 @@ Page({
       }
     },
     addMes: function (e) {
-        let that = this,
-            fObj = e.detail.value
+      let that = this, fObj = e.detail.value
+        console.log(that.data)
+            
         if (!fObj.name) {
             $toast.show({
                 timer: 2e3,
@@ -83,7 +119,7 @@ Page({
             return false;
         }
 
-        if (that.data.cardImg) {
+        if (!that.data.cardImg) {
           $toast.show({
             timer: 2e3,
             text: '选择身份证照片',
@@ -91,12 +127,13 @@ Page({
           return false;
         }
         const pack = {
-            openid:app.globalData.wxData.open_id,
+            openid:app.globalData.userInfo.openid,
+            ava: app.globalData.userInfo.avatarUrl,
             userphone: parseInt(fObj.userphone),
             name: fObj.name,
             usercompany: fObj.usercompany,
             userType: that.data.userType,
-            id_pic: that.data.cardImg
+            id_pic: that.data.cardKey
         }
      
         api.addMessage(pack).then((res) => {
@@ -107,9 +144,14 @@ Page({
             });
             if (data.status == 'success') {
                 app.globalData.isTrue = true;
-                console.log(app.globalData.isTrue)
-                let dataset = e.currentTarget.dataset, url = '/pages/index/index';
-                app.goPage(url, dataset, false);
+                let img = app.globalData.userInfo.avatarUrl;
+                api.getUserInfo({ phone: pack.userphone}).then((res)=>{
+                  app.globalData.userInfo = res.data.data;
+                  app.globalData.userInfo.avatarUrl = img;
+                });
+                wx.reLaunch({
+                  url: '/pages/index/index',
+                });
                 // setTimeout(function () {
                 //     app.getUserOpenId('fresh').then(res =>{});
                 //     wx.navigateBack({
@@ -119,37 +161,13 @@ Page({
             }
         })
     },
-    // 选择图片
-    chooseCard: function (){
-      wx.chooseImage({
-        count: 1,
-        success(res) {
-          var filePath = res.tempFilePaths[0];
-          // 交给七牛上传
-          qiniuUploader.upload(filePath, (res) => {
-            console.log(`http://` + res.imageURL)
-            let that = this;
-            that.setData({
-              cardImg: `http://` + res.imageURL
-            });
-          }, (error) => {
-            console.error('error: ' + JSON.stringify(error));
-            $toast.show({
-              timer: 2e3,
-              text: 'error: ' + JSON.stringify(error),
-            });
-          }
-            , {
-              region: 'NCN', // 华北区
-              domain: 'oofuaem2b.bkt.clouddn.com',
-              uptokenURL: 'https://meat.madridwine.cn/api/image/qnUpload',
-              shouldUseQiniuFileName: false,
-              key: getKey(),
-            }
-          );
-        }
-      })
+    //上传项目图片
+    didPressChooesImage() {
+      var that = this;
+      didPressChooesImage(that);
     },
+
+    
     //删除图片
     deleteUploadImg(e) {
       const dataset = e.currentTarget.dataset

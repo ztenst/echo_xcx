@@ -53,7 +53,7 @@ Page({
         })
         $toast.show({
           timer: 2e3,
-          text: '登录成功，请完善信息',
+          text: '验证码发送成功',
         });
       } else {
         $toast.show({
@@ -98,7 +98,14 @@ Page({
          */
         api.getUserInfo({ phone: fObj.phone}).then((userRes) => {
           if (userRes.data.status == 'success') {
-            app.globalData.customInfo = userRes.data.data;
+            app.globalData.userInfo = userRes.data.data;
+            app.globalData.isTrue = true;
+            $toast.show({
+              timer: 2e3,
+              text: '登录成功'
+            });
+            let url = '/pages/index/index';
+            wx.redirectTo({ url })
           }else{
             let url = '/pages/add_message/add_message';
             app.goPage(url, null, false);
