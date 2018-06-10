@@ -3329,6 +3329,12 @@ button {
   transform: scale(0.6);
 }
 
+.add_message radio .wx-radio-input{
+   width: 40rpx;
+   height: 40rpx;
+   margin: 0 10rpx;
+}
+
 .add_message .tips {
   padding-top: 24rpx;
   padding-right: 24rpx;
@@ -3356,7 +3362,7 @@ button {
 }
 .add_message .radio-group label{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width:80%;
   margin-left:120rpx;
 }
