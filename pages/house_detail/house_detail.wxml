@@ -121,7 +121,7 @@
                 <scroll-view class="hx-list" scroll-x scroll-y="false">
                     <view class="item" wx:for="{{plotdetail.hx}}" wx:key="title">
                         <view class="pic">
-                            <image src="{{item.image}}"></image>
+                            <image src="{{item.image}}" data-current="{{item.image}}" bindtap="hxviewPic"></image>
                             <text class="lab" wx:if="{{item.sale_status}}">{{item.sale_status}}</text>
                         </view>
                         <view class="info">

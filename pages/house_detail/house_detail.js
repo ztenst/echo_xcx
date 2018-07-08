@@ -176,6 +176,19 @@ Page({
         });
     },
     /**
+     * 查看大图
+     * @param {String} 当前展示图片
+     */
+    hxviewPic(e) {
+      let cur = e.currentTarget.dataset.current;
+      let urls = [];
+      urls.push(cur)
+      wx.previewImage({
+        current: cur,
+        urls: urls
+      });
+    },
+    /**
      * 分销和打电话
      * @returns {boolean}
      */
