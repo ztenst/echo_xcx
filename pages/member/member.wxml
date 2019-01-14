@@ -49,7 +49,7 @@
             <text class="red">¥{{price}}</text>
         </view>
         <view class="right" bindtap="goPay">
-            <view class="btn-pay">去支付</view>
+            <view bindtap='gopay' class="btn-pay">去支付</view>
         </view>
     </view>
 </view>
